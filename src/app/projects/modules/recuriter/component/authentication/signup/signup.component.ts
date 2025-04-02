@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MaterialModule } from '../../../../../shared/material.module';
 import { NgIf } from '@angular/common';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
-  imports: [ReactiveFormsModule, MaterialModule, NgIf],
+  imports: [ReactiveFormsModule, MaterialModule, NgIf, RouterLink],
   templateUrl: './signup.component.html',
   styleUrl: './signup.component.scss'
 })
