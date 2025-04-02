@@ -1,0 +1,12 @@
+import { Routes } from "@angular/router";
+
+export const moduleRoutes: Routes = [
+    {
+        path: '',
+        loadComponent: () => import('./landing-screen/landing-screen.component').then(m => m.LandingScreenComponent)
+    },
+    {
+        path: 'recuriter',
+        loadChildren: () => import('../modules/recuriter/component/authentication/authentication.routes').then(r => r.authRouter)
+    }
+];

@@ -1,0 +1,113 @@
+<div class="grid justify-center place-content-center h-[100vh]">
+
+    <mat-card class="md:w-full">
+        <div mat-dialog-title
+            class="bg-[#D7E3FF] flex place-content-center pb-2 text-lg font-medium mb-10 rounded-t-lg">
+            <mat-card-header>
+                <mat-icon>person</mat-icon>
+                Sign Up
+            </mat-card-header>
+        </div>
+        <form [formGroup]="signUpForm" (ngSubmit)="onFormSubmit()">
+            <mat-card-content>
+                <div class="grid grid-cols-2 gap-5">
+                    <mat-form-field>
+                        <mat-label>Email</mat-label>
+                        <input matInput type="text" formControlName="email" required />
+                        <mat-error *ngIf="signUpForm.controls['email'].hasError('required')">Please enter your
+                            email.</mat-error>
+                        <mat-error *ngIf="signUpForm.controls['email'].hasError('pattern')">Please enter valid
+                            email.</mat-error>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <mat-label>Password</mat-label>
+                        <input matInput [type]="showPassword ? 'text' : 'password'" formControlName="password" />
+                        <button class="relative" (click)="togglePasswordVisibility()">
+                            <span class="absolute right-0 bottom-0 -top-5">
+                                <mat-icon>{{ showPassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+                            </span>
+                        </button>
+                        <mat-error *ngIf="signUpForm.controls['password'].hasError('required')">Please enter your
+                            password.</mat-error>
+                        <mat-error *ngIf="signUpForm.controls['password'].hasError('minlength')">Please enter minimum 8
+                            digit.</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="grid grid-cols-2 gap-5">
+                    <mat-form-field>
+                        <mat-label>Phone</mat-label>
+                        <input matInput type="text" formControlName="phone" (keypress)="validateNumber($event)"
+                            maxlength="10" />
+                        <mat-error *ngIf="signUpForm.controls['phone'].hasError('required')">Please enter your
+                            phone number.</mat-error>
+                        <mat-error *ngIf="signUpForm.controls['phone'].hasError('minlength')">Please enter minimum 10
+                            digit.</mat-error>
+                        <mat-error *ngIf="signUpForm.controls['phone'].hasError('maxlength')">Please enter maximum 10
+                            digit.</mat-error>
+                        <mat-error *ngIf="signUpForm.controls['phone'].hasError('pattern')">
+                            Only numbers are allowed.
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <mat-label>Pin/Zip Code</mat-label>
+                        <input matInput type="text" formControlName="pincode" maxlength="6" />
+                        <mat-error *ngIf="signUpForm.controls['pincode'].hasError('required')">Please enter your
+                            pin code.</mat-error>
+                        <mat-error *ngIf="signUpForm.controls['pincode'].hasError('minlength')">Please enter minimum 6
+                            digit.</mat-error>
+                        <mat-error *ngIf="signUpForm.controls['pincode'].hasError('maxlength')">Please enter maximum 6
+                            digit.</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="grid grid-cols-2 gap-5">
+                    <mat-form-field>
+                        <mat-label>Select DOB</mat-label>
+                        <input matInput [max]="maxDate" [matDatepicker]="picker" formControlName="dob">
+                        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                        <mat-error *ngIf="signUpForm.controls['dob'].hasError('required')">Please select your date of birth.</mat-error>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <mat-label>Select City</mat-label>
+                        <mat-select formControlName="city">
+                            <mat-option value="Lucknow">Lucknow</mat-option>
+                            <mat-option value="Kanpur">Kanpur</mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="signUpForm.controls['city'].hasError('required')">Please select your city.</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="grid grid-cols-2 gap-5">
+                    <mat-form-field>
+                        <mat-label>Select State</mat-label>
+                        <mat-select formControlName="state">
+                            <mat-option value="delhi">Delhi</mat-option>
+                            <mat-option value="noida">Noida</mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="signUpForm.controls['state'].hasError('required')">Please select you state.</mat-error>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <mat-label>Select Country</mat-label>
+                        <mat-select formControlName="country">
+                            <mat-option value="India">India</mat-option>
+                            <mat-option value="Nepal">Nepal</mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="signUpForm.controls['country'].hasError('required')">Please select your country.</mat-error>
+                    </mat-form-field>
+                </div>
+            </mat-card-content>
+
+            <mat-card-actions>
+                <div class="flex justify-between gap-2">
+                    <div>
+                        <!-- [disabled]="!this.signUpForm.valid" -->
+                        <button type="submit" mat-flat-button color="primary">Sign Up</button>
+                    </div>
+                    <div>
+                        <a routerLink="/recuriter/login" class="whitespace-nowrap" mat-flat-button
+                            style="background-color: #d7e3ff; color: black;">Login</a>
+                    </div>
+                </div>
+            </mat-card-actions>
+        </form>
+    </mat-card>
+</div>

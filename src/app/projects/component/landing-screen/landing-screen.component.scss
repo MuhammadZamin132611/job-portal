@@ -1,0 +1,17 @@
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.scroll-container {
+    overflow: auto;
+    /* Keep scrolling enabled */
+    scrollbar-width: none;
+    /* Hide scrollbar (Firefox) */
+    -ms-overflow-style: none;
+    /* Hide scrollbar (IE/Edge) */
+}
+
+.scroll-container::-webkit-scrollbar {
+    display: none;
+    /* Hide scrollbar (Chrome, Safari) */
+}

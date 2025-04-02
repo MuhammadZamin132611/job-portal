@@ -1,0 +1,1502 @@
+<mat-toolbar style="background-color: #D7E3FF; position: fixed; top: 0; left: 0; width: 100%; z-index: 999;">
+
+    <span class="cursor-pointer" routerLink="/">Job Portal</span>
+    <span class="example-spacer"></span>
+    <div class="flex gap-1">
+        <!-- <button mat-raised-button routerLink="/login">
+            Login
+            <mat-icon>login</mat-icon>
+        </button>
+        <button mat-flat-button >
+            Employeer Login
+            <mat-icon>how_to_register</mat-icon>
+        </button> -->
+        <button mat-button [matMenuTriggerFor]="menu">
+            <mat-icon>arrow_drop_down</mat-icon>Login
+        </button>
+    </div>
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item ><mat-icon>person</mat-icon>Job Seeker</button>
+        <button mat-menu-item routerLink="/recuriter"><mat-icon>manage_accounts</mat-icon>Recuriter</button>
+        <button mat-menu-item><mat-icon>admin_panel_settings</mat-icon>Admin</button>
+    </mat-menu>
+</mat-toolbar>
+
+<section class="pt-12 md:pt-16">
+    <div class="bg-gradient-to-r from-[#259BCB] to-[#2F7591]">
+        <div class="grid grid-cols-1 md:grid-cols-2 p-5 md:p-0">
+            <div class="order-2 md:order-1 grid justify-center place-content-center text-start md:text-center">
+                <h1 class="text-xl md:text-2xl font-medium md:font-semibold leading-8 tracking-wide text-white">India's
+                    Premium Job / Career Platform</h1>
+                <p class="text-white text-base md:text-lg leading-2 tracking-wide">Take your career to the next level
+                    which you're passionate about jobcheck.</p>
+            </div>
+            <div class="flex justify-center order-1 md:order-2">
+                <img class="h-full f-full" src="assets/type_of_worker.png" alt="">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="p-5 bg-white">
+    <div class="hover:shadow-md md:shadow-md rounded-md p-3">
+        <div class="flex flex-wrap">
+            <div
+                class="px-2 w-full md:w-1/4 flex gap-5 justify-start place-items-center border-b-2 md:border-b-0 md:border-r-2">
+                <mat-icon class="!cursor-pointer !hidden !md:block">search</mat-icon>
+                <input type="text" class="px-3 py-2 w-full focus:outline-none text-gray-600" placeholder="eg: Job Role">
+            </div>
+            <div
+                class="px-2 w-full md:w-1/4 flex justify-start place-items-center border-b-2 md:border-b-0 md:border-r-2">
+                <input type="text" class="px-3 py-2 w-full focus:outline-none text-gray-600"
+                    placeholder="Expericen level">
+                <mat-icon class="!text-gray-600 !cursor-pointer">keyboard_arrow_down</mat-icon>
+            </div>
+            <div class="px-2 w-full md:w-1/4 flex justify-start place-items-center md:border-r-2">
+                <input type="text" class="px-3 py-2 w-full focus:outline-none text-gray-600" placeholder="Location">
+                <mat-icon class="!text-gray-600 !cursor-pointer">keyboard_arrow_down</mat-icon>
+            </div>
+            <div class="px-4 w-full md:w-1/4 flex gap-5 justify-between place-items-center ">
+                <button
+                    class="w-full py-1.5 cursor-pointer bg-[#21A14B] hover:bg-green-700 text-lg tracking-wide text-white rounded-md shadow-md hover:shadow-sm"
+                    matRipple>Search</button>
+                <div class="border-2 rounded-md p-1.5 cursor-pointer flex place-items-center">
+                    <mat-icon class="!text-gray-600 ">filter_alt</mat-icon>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="p-5 bg-white">
+    <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-1">
+        <div
+            class="hover:scale-105 transition duration-200 ease-out hover:ease-in cursor-pointer shadow-md hover:shadow-lg rounded-md grid place-items-center p-3">
+            <img class="h-20" src="assets/general_staffing.png" alt="General Staffing">
+            <div class="py-3 text-center">
+                <h1 class="text-gray-700 text-lg md:text-xl font-medium">General Staffing</h1>
+                <p class="text-gray-600 text-sm md:text-base">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Magni!</p>
+                <button
+                    class="px-3 mt-3 py-1.5 cursor-pointer bg-[#21A14B] hover:bg-green-700 text-sm md:text-base tracking-wide text-white rounded-md shadow-md hover:shadow-sm"
+                    matRipple>Explore Jobs</button>
+            </div>
+        </div>
+        <div
+            class="hover:scale-105 transition duration-200 ease-out hover:ease-in cursor-pointer shadow-md hover:shadow-lg rounded-md grid place-items-center p-3">
+            <img class="h-20" src="assets/perosnal_staffing.png" alt="Professional Staffing">
+            <div class="py-3 text-center">
+                <h1 class="text-gray-700 text-lg md:text-xl font-medium">Professional Staffing</h1>
+                <p class="text-gray-600 text-sm md:text-base">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Magni!</p>
+                <button
+                    class="px-3 mt-3 py-1.5 cursor-pointer bg-[#21A14B] hover:bg-green-700 text-sm md:text-base tracking-wide text-white rounded-md shadow-md hover:shadow-sm"
+                    matRipple>Explore Jobs</button>
+            </div>
+        </div>
+        <div
+            class="hover:scale-105 transition duration-200 ease-out hover:ease-in cursor-pointer shadow-md hover:shadow-lg rounded-md grid place-items-center p-3">
+            <img class="h-20" src="assets/gigs.png" alt="Gigs">
+            <div class="py-3 text-center">
+                <h1 class="text-gray-700 text-lg md:text-xl font-medium">Gigs</h1>
+                <p class="text-gray-600 text-sm md:text-base">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Magni!</p>
+                <button
+                    class="px-3 mt-3 py-1.5 cursor-pointer bg-[#21A14B] hover:bg-green-700 text-sm md:text-base tracking-wide text-white rounded-md shadow-md hover:shadow-sm"
+                    matRipple>Explore Jobs</button>
+            </div>
+        </div>
+        <div
+            class="hover:scale-105 transition duration-200 ease-out hover:ease-in cursor-pointer shadow-md hover:shadow-lg rounded-md grid place-items-center p-3">
+            <img class="h-20" src="assets/permanent_hiring.png" alt="Permanent Hiring">
+            <div class="py-3 text-center">
+                <h1 class="text-gray-700 text-lg md:text-xl font-medium">Permanent Hiring</h1>
+                <p class="text-gray-600 text-sm md:text-base">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Magni!</p>
+                <button
+                    class="px-3 mt-3 py-1.5 cursor-pointer bg-[#21A14B] hover:bg-green-700 text-sm md:text-base tracking-wide text-white rounded-md shadow-md hover:shadow-sm"
+                    matRipple>Explore Jobs</button>
+            </div>
+        </div>
+        <div
+            class="hover:scale-105 transition duration-200 ease-out hover:ease-in cursor-pointer shadow-md hover:shadow-lg rounded-md grid place-items-center p-3">
+            <img class="h-20" src="assets/campus_hiring.png" alt="Campus / Freshers Hiring">
+            <div class="py-3 text-center">
+                <h1 class="text-gray-700 text-lg md:text-xl font-medium">Campus / Freshers Hiring</h1>
+                <p class="text-gray-600 text-sm md:text-base">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Magni!</p>
+                <button
+                    class="px-3 mt-3 py-1.5 cursor-pointer bg-[#21A14B] hover:bg-green-700 text-sm md:text-base tracking-wide text-white rounded-md shadow-md hover:shadow-sm"
+                    matRipple>Explore Jobs</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="p-5 bg-white hidden md:block">
+    <div class="bg-gray/25 p-5 border-[1px] border-gray-200 rounded-md">
+        <h1 class="text-lg md:text-xl font-normal md:font-medium">Popular Search</h1>
+        <div class="flex flex-wrap gap-3 justify-between place-content-center whitespace-nowrap pt-3">
+            <p
+                class="bg-blue-50 border-[1px] border-blue-200 px-5 py-1 text-[#0388BC] rounded-lg text-base md:text-lg font-normal md:font-medium">
+                Work From Home Jobs</p>
+            <p
+                class="bg-blue-50 border-[1px] border-blue-200 px-5 py-1 text-[#0388BC] rounded-lg text-base md:text-lg font-normal md:font-medium">
+                Software Engineer</p>
+            <p
+                class="bg-blue-50 border-[1px] border-blue-200 px-5 py-1 text-[#0388BC] rounded-lg text-base md:text-lg font-normal md:font-medium">
+                Car-painter</p>
+            <p
+                class="bg-blue-50 border-[1px] border-blue-200 px-5 py-1 text-[#0388BC] rounded-lg text-base md:text-lg font-normal md:font-medium">
+                Security</p>
+            <p
+                class="bg-blue-50 border-[1px] border-blue-200 px-5 py-1 text-[#0388BC] rounded-lg text-base md:text-lg font-normal md:font-medium">
+                Freshers</p>
+            <p
+                class="bg-blue-50 border-[1px] border-blue-200 px-5 py-1 text-[#0388BC] rounded-lg text-base md:text-lg font-normal md:font-medium">
+                IT</p>
+            <p
+                class="bg-blue-50 border-[1px] border-blue-200 px-5 py-1 text-[#0388BC] rounded-lg text-base md:text-lg font-normal md:font-medium">
+                Java</p>
+            <p
+                class="bg-blue-50 border-[1px] border-blue-200 px-5 py-1 text-[#0388BC] rounded-lg text-base md:text-lg font-normal md:font-medium">
+                Painter</p>
+            <p
+                class="bg-blue-50 border-[1px] border-blue-200 px-5 py-1 text-[#0388BC] rounded-lg text-base md:text-lg font-normal md:font-medium">
+                HR Executive</p>
+            <p
+                class="bg-blue-50 border-[1px] border-blue-200 px-5 py-1 text-[#0388BC] rounded-lg text-base md:text-lg font-normal md:font-medium">
+                Manual Testing</p>
+            <p
+                class="bg-blue-50 border-[1px] border-blue-200 px-5 py-1 text-[#0388BC] rounded-lg text-base md:text-lg font-normal md:font-medium">
+                Bouncer</p>
+            <p
+                class="bg-blue-50 border-[1px] border-blue-200 px-5 py-1 text-[#0388BC] rounded-lg text-base md:text-lg font-normal md:font-medium">
+                Office Boy</p>
+            <p
+                class="bg-blue-50 border-[1px] border-blue-200 px-5 py-1 text-[#0388BC] rounded-lg text-base md:text-lg font-normal md:font-medium">
+                Software Engineer</p>
+            <p
+                class="bg-blue-50 border-[1px] border-blue-200 px-5 py-1 text-[#0388BC] rounded-lg text-base md:text-lg font-normal md:font-medium">
+                Devops Engineer</p>
+            <p
+                class="bg-blue-50 border-[1px] border-blue-200 px-5 py-1 text-[#0388BC] rounded-lg text-base md:text-lg font-normal md:font-medium">
+                Security</p>
+        </div>
+    </div>
+</section>
+
+<section class="p-5 bg-white">
+    <div class="grid">
+        <div class="bg-gray-200 w-full h-1">
+            <p class="text-center -mt-3 bg-transparent">
+                <label class="bg-white px-5 text-normal md:text-lg font-normal md:font-medium text-gray-600">Top
+                    Companies Hiring Now</label>
+            </p>
+        </div>
+        <div class="flex py-5 gap-5 w-full overflow-x-auto overscroll-none scroll-container">
+            <div
+                class="shadow-md rounded-md w-4/5 sm:w-1/5 p-5 flex-none hover:scale-105 transition duration-200 ease-out hover:ease-in cursor-pointer">
+                <div class="flex justify-between place-items-center">
+                    <h1 class="text-lg font-medium text-gray-900">MNCs</h1>
+                    <button mat-icon-button>
+                        <mat-icon>chevron_right</mat-icon>
+                    </button>
+                </div>
+                <h3 class="text-gray-700 text-sm">1.4k actively hiring</h3>
+                <div class="pt-3 flex">
+                    <img class="h-10" src="assets/company_logo/cpmpany_logo1.png" alt="">
+                    <img class="h-10 -ml-5" src="assets/company_logo/cpmpany_logo2.png" alt="">
+                    <img class="h-10 -ml-5" src="assets/company_logo/cpmpany_logo3.png" alt="">
+                    <img class="h-10 -ml-5" src="assets/company_logo/cpmpany_logo4.png" alt="">
+                    <img class="h-10 -ml-5" src="assets/company_logo/cpmpany_logo5.png" alt="">
+                </div>
+            </div>
+            <div
+                class="shadow-md rounded-md w-4/5 sm:w-1/5 p-5 flex-none hover:scale-105 transition duration-200 ease-out hover:ease-in cursor-pointer">
+                <div class="flex justify-between place-items-center">
+                    <h1 class="text-lg font-medium text-gray-900">Internet</h1>
+                    <button mat-icon-button>
+                        <mat-icon>chevron_right</mat-icon>
+                    </button>
+                </div>
+                <h3 class="text-gray-700 text-sm">1.4k actively hiring</h3>
+                <div class="pt-3 flex">
+                    <img class="h-10" src="assets/company_logo/cpmpany_logo1.png" alt="">
+                    <img class="h-10 -ml-5" src="assets/company_logo/cpmpany_logo2.png" alt="">
+                    <img class="h-10 -ml-5" src="assets/company_logo/cpmpany_logo3.png" alt="">
+                    <img class="h-10 -ml-5" src="assets/company_logo/cpmpany_logo4.png" alt="">
+                    <img class="h-10 -ml-5" src="assets/company_logo/cpmpany_logo5.png" alt="">
+                </div>
+            </div>
+            <div
+                class="shadow-md rounded-md w-4/5 sm:w-1/5 p-5 flex-none hover:scale-105 transition duration-200 ease-out hover:ease-in cursor-pointer">
+                <div class="flex justify-between place-items-center">
+                    <h1 class="text-lg font-medium text-gray-900">Manufacturing</h1>
+                    <button mat-icon-button>
+                        <mat-icon>chevron_right</mat-icon>
+                    </button>
+                </div>
+                <h3 class="text-gray-700 text-sm">1.4k actively hiring</h3>
+                <div class="pt-3 flex">
+                    <img class="h-10" src="assets/company_logo/cpmpany_logo1.png" alt="">
+                    <img class="h-10 -ml-5" src="assets/company_logo/cpmpany_logo2.png" alt="">
+                    <img class="h-10 -ml-5" src="assets/company_logo/cpmpany_logo3.png" alt="">
+                    <img class="h-10 -ml-5" src="assets/company_logo/cpmpany_logo4.png" alt="">
+                    <img class="h-10 -ml-5" src="assets/company_logo/cpmpany_logo5.png" alt="">
+                </div>
+            </div>
+            <div
+                class="shadow-md rounded-md w-4/5 sm:w-1/5 p-5 flex-none hover:scale-105 transition duration-200 ease-out hover:ease-in cursor-pointer">
+                <div class="flex justify-between place-items-center">
+                    <h1 class="text-lg font-medium text-gray-900">Work Culture</h1>
+                    <button mat-icon-button>
+                        <mat-icon>chevron_right</mat-icon>
+                    </button>
+                </div>
+                <h3 class="text-gray-700 text-sm">1.4k actively hiring</h3>
+                <div class="pt-3 flex">
+                    <img class="h-10" src="assets/company_logo/cpmpany_logo1.png" alt="">
+                    <img class="h-10 -ml-5" src="assets/company_logo/cpmpany_logo2.png" alt="">
+                    <img class="h-10 -ml-5" src="assets/company_logo/cpmpany_logo3.png" alt="">
+                    <img class="h-10 -ml-5" src="assets/company_logo/cpmpany_logo4.png" alt="">
+                    <img class="h-10 -ml-5" src="assets/company_logo/cpmpany_logo5.png" alt="">
+                </div>
+            </div>
+            <div
+                class="shadow-md rounded-md w-4/5 sm:w-1/5 p-5 flex-none hover:scale-105 transition duration-200 ease-out hover:ease-in cursor-pointer">
+                <div class="flex justify-between place-items-center">
+                    <h1 class="text-lg font-medium text-gray-900">MNCs</h1>
+                    <button mat-icon-button>
+                        <mat-icon>chevron_right</mat-icon>
+                    </button>
+                </div>
+                <h3 class="text-gray-700 text-sm">1.4k actively hiring</h3>
+                <div class="pt-3 flex">
+                    <img class="h-10" src="assets/company_logo/cpmpany_logo1.png" alt="">
+                    <img class="h-10 -ml-5" src="assets/company_logo/cpmpany_logo2.png" alt="">
+                    <img class="h-10 -ml-5" src="assets/company_logo/cpmpany_logo3.png" alt="">
+                    <img class="h-10 -ml-5" src="assets/company_logo/cpmpany_logo4.png" alt="">
+                    <img class="h-10 -ml-5" src="assets/company_logo/cpmpany_logo5.png" alt="">
+                </div>
+            </div>
+            <div
+                class="shadow-md rounded-md w-4/5 sm:w-1/5 p-5 flex-none hover:scale-105 transition duration-200 ease-out hover:ease-in cursor-pointer">
+                <div class="flex justify-between place-items-center">
+                    <h1 class="text-lg font-medium text-gray-900">Internet</h1>
+                    <button mat-icon-button>
+                        <mat-icon>chevron_right</mat-icon>
+                    </button>
+                </div>
+                <h3 class="text-gray-700 text-sm">1.4k actively hiring</h3>
+                <div class="pt-3 flex">
+                    <img class="h-10" src="assets/company_logo/cpmpany_logo1.png" alt="">
+                    <img class="h-10 -ml-5" src="assets/company_logo/cpmpany_logo2.png" alt="">
+                    <img class="h-10 -ml-5" src="assets/company_logo/cpmpany_logo3.png" alt="">
+                    <img class="h-10 -ml-5" src="assets/company_logo/cpmpany_logo4.png" alt="">
+                    <img class="h-10 -ml-5" src="assets/company_logo/cpmpany_logo5.png" alt="">
+                </div>
+            </div>
+            <div
+                class="shadow-md rounded-md w-4/5 sm:w-1/5 p-5 flex-none hover:scale-105 transition duration-200 ease-out hover:ease-in cursor-pointer">
+                <div class="flex justify-between place-items-center">
+                    <h1 class="text-lg font-medium text-gray-900">Manufacturing</h1>
+                    <button mat-icon-button>
+                        <mat-icon>chevron_right</mat-icon>
+                    </button>
+                </div>
+                <h3 class="text-gray-700 text-sm">1.4k actively hiring</h3>
+                <div class="pt-3 flex">
+                    <img class="h-10" src="assets/company_logo/cpmpany_logo1.png" alt="">
+                    <img class="h-10 -ml-5" src="assets/company_logo/cpmpany_logo2.png" alt="">
+                    <img class="h-10 -ml-5" src="assets/company_logo/cpmpany_logo3.png" alt="">
+                    <img class="h-10 -ml-5" src="assets/company_logo/cpmpany_logo4.png" alt="">
+                    <img class="h-10 -ml-5" src="assets/company_logo/cpmpany_logo5.png" alt="">
+                </div>
+            </div>
+            <div
+                class="shadow-md rounded-md w-4/5 sm:w-1/5 p-5 flex-none hover:scale-105 transition duration-200 ease-out hover:ease-in cursor-pointer">
+                <div class="flex justify-between place-items-center">
+                    <h1 class="text-lg font-medium text-gray-900">Work Culture</h1>
+                    <button mat-icon-button>
+                        <mat-icon>chevron_right</mat-icon>
+                    </button>
+                </div>
+                <h3 class="text-gray-700 text-sm">1.4k actively hiring</h3>
+                <div class="pt-3 flex">
+                    <img class="h-10" src="assets/company_logo/cpmpany_logo1.png" alt="">
+                    <img class="h-10 -ml-5" src="assets/company_logo/cpmpany_logo2.png" alt="">
+                    <img class="h-10 -ml-5" src="assets/company_logo/cpmpany_logo3.png" alt="">
+                    <img class="h-10 -ml-5" src="assets/company_logo/cpmpany_logo4.png" alt="">
+                    <img class="h-10 -ml-5" src="assets/company_logo/cpmpany_logo5.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="p-5 bg-white">
+    <div class="grid">
+        <div class="bg-gray-200 w-full h-1">
+            <p class="text-center -mt-3 bg-transparent">
+                <label class="bg-white px-5 text-normal md:text-lg font-normal md:font-medium text-gray-600">Featured
+                    Companies Hiring Now</label>
+            </p>
+        </div>
+        <div
+            class="flex pt-7 md:pt-10 py-5 gap-3 w-full overflow-x-auto scroll-container whitespace-nowrap justify-start md:justify-center">
+            <button
+                class="bg-[#7CD4FD3D] text-[#0388BC] font-medium text-sm border border-[#0388BC] rounded-xl px-3 py-1.5">All</button>
+            <button
+                class="bg-gray-50 hover:bg-gray-100 text-gray-600 font-medium text-sm border border-gray-200 rounded-xl px-3 py-1.5">Healthcare
+                & Life Science</button>
+            <button
+                class="bg-gray-50 hover:bg-gray-100 text-gray-600 font-medium text-sm border border-gray-200 rounded-xl px-3 py-1.5">Technologies</button>
+            <button
+                class="bg-gray-50 hover:bg-gray-100 text-gray-600 font-medium text-sm border border-gray-200 rounded-xl px-3 py-1.5">BPM</button>
+            <button
+                class="bg-gray-50 hover:bg-gray-100 text-gray-600 font-medium text-sm border border-gray-200 rounded-xl px-3 py-1.5">MNCs</button>
+            <button
+                class="bg-gray-50 hover:bg-gray-100 text-gray-600 font-medium text-sm border border-gray-200 rounded-xl px-3 py-1.5">IT
+                Services</button>
+            <button class="text-[#0388BC] font-medium text-sm">+5 more</button>
+        </div>
+        <div class="flex py-5 gap-3 w-full overflow-x-auto whitespace-nowrap scroll-container">
+            <div
+                class="bg-white cursor-pointer p-3 shadow-lg rounded-lg border border-gray-200 w-4/5 md:w-1/5 hover:scale-105 transition duration-200 ease-out hover:ease-in">
+                <div class="flex justify-center p-5">
+                    <img src="assets/company_logo/cpmpany_logo1.png" alt="">
+                </div>
+                <h3 class="text-center text-gray-700 text-lg font-medium pb-3">Layer Tech</h3>
+                <div class="bg-[#FFFAEB] p-1.5 rounded-md ">
+                    <div class="flex gap-3 justify-center">
+                        <div class="border-r-[3px] border-gray-200 pr-3">
+                            <span class="text-gray-800 text-lg font-medium">100+ <label
+                                    class="text-gray-600 font-normal text-base">Jobs</label></span>
+                        </div>
+                        <div class="px-3">
+                            <span class="text-gray-800 text-lg font-medium">10+ <label
+                                    class="text-gray-600 font-normal text-base">Role</label></span>
+                        </div>
+                    </div>
+                    <div class="text-center whitespace-normal py-3 text-gray-700 text-base">Lorem amet adipisicing elit.
+                    </div>
+                </div>
+                <div class="pt-4 grid justify-center">
+                    <button class=" px-3 py-1.5 rounded-md bg-[#ECFDF3] border-2 border-[#21A14B] text-[#21A14B]">View
+                        Jobs</button>
+                </div>
+            </div>
+            <div
+                class="bg-white cursor-pointer p-3 shadow-lg rounded-lg border border-gray-200 w-4/5 md:w-1/5 hover:scale-105 transition duration-200 ease-out hover:ease-in">
+                <div class="flex justify-center p-5">
+                    <img src="assets/company_logo/cpmpany_logo2.png" alt="">
+                </div>
+                <h3 class="text-center text-gray-700 text-lg font-medium pb-3">Light Tech</h3>
+                <div class="bg-[#FFFAEB] p-1.5 rounded-md ">
+                    <div class="flex gap-3 justify-center">
+                        <div class="border-r-[3px] border-gray-200 pr-3">
+                            <span class="text-gray-800 text-lg font-medium">200+ <label
+                                    class="text-gray-600 font-normal text-base">Jobs</label></span>
+                        </div>
+                        <div class="px-3">
+                            <span class="text-gray-800 text-lg font-medium">20+ <label
+                                    class="text-gray-600 font-normal text-base">Role</label></span>
+                        </div>
+                    </div>
+                    <div class="text-center whitespace-normal py-3 text-gray-700 text-base">Lorem amet adipisicing elit.
+                    </div>
+                </div>
+                <div class="pt-4 grid justify-center">
+                    <button class=" px-3 py-1.5 rounded-md bg-[#ECFDF3] border-2 border-[#21A14B] text-[#21A14B]">View
+                        Jobs</button>
+                </div>
+            </div>
+            <div
+                class="bg-white cursor-pointer p-3 shadow-lg rounded-lg border border-gray-200 w-4/5 md:w-1/5 hover:scale-105 transition duration-200 ease-out hover:ease-in">
+                <div class="flex justify-center p-5">
+                    <img src="assets/company_logo/cpmpany_logo3.png" alt="">
+                </div>
+                <h3 class="text-center text-gray-700 text-lg font-medium pb-3">Sunrise Tech</h3>
+                <div class="bg-[#FFFAEB] p-1.5 rounded-md ">
+                    <div class="flex gap-3 justify-center">
+                        <div class="border-r-[3px] border-gray-200 pr-3">
+                            <span class="text-gray-800 text-lg font-medium">30+ <label
+                                    class="text-gray-600 font-normal text-base">Jobs</label></span>
+                        </div>
+                        <div class="px-3">
+                            <span class="text-gray-800 text-lg font-medium">3+ <label
+                                    class="text-gray-600 font-normal text-base">Role</label></span>
+                        </div>
+                    </div>
+                    <div class="text-center whitespace-normal py-3 text-gray-700 text-base">Lorem amet adipisicing elit.
+                    </div>
+                </div>
+                <div class="pt-4 grid justify-center">
+                    <button class=" px-3 py-1.5 rounded-md bg-[#ECFDF3] border-2 border-[#21A14B] text-[#21A14B]">View
+                        Jobs</button>
+                </div>
+            </div>
+            <div
+                class="bg-white cursor-pointer p-3 shadow-lg rounded-lg border border-gray-200 w-4/5 md:w-1/5 hover:scale-105 transition duration-200 ease-out hover:ease-in">
+                <div class="flex justify-center p-5">
+                    <img src="assets/company_logo/cpmpany_logo5.png" alt="">
+                </div>
+                <h3 class="text-center text-gray-700 text-lg font-medium pb-3">Circule Tech</h3>
+                <div class="bg-[#FFFAEB] p-1.5 rounded-md ">
+                    <div class="flex gap-3 justify-center">
+                        <div class="border-r-[3px] border-gray-200 pr-3">
+                            <span class="text-gray-800 text-lg font-medium">90+ <label
+                                    class="text-gray-600 font-normal text-base">Jobs</label></span>
+                        </div>
+                        <div class="px-3">
+                            <span class="text-gray-800 text-lg font-medium">5+ <label
+                                    class="text-gray-600 font-normal text-base">Role</label></span>
+                        </div>
+                    </div>
+                    <div class="text-center whitespace-normal py-3 text-gray-700 text-base">Lorem amet adipisicing elit.
+                    </div>
+                </div>
+                <div class="pt-4 grid justify-center">
+                    <button class=" px-3 py-1.5 rounded-md bg-[#ECFDF3] border-2 border-[#21A14B] text-[#21A14B]">View
+                        Jobs</button>
+                </div>
+            </div>
+            <div
+                class="bg-white cursor-pointer p-3 shadow-lg rounded-lg border border-gray-200 w-4/5 md:w-1/5 hover:scale-105 transition duration-200 ease-out hover:ease-in">
+                <div class="flex justify-center p-5">
+                    <img src="assets/company_logo/cpmpany_logo4.png" alt="">
+                </div>
+                <h3 class="text-center text-gray-700 text-lg font-medium pb-3">Cap Tech</h3>
+                <div class="bg-[#FFFAEB] p-1.5 rounded-md ">
+                    <div class="flex gap-3 justify-center">
+                        <div class="border-r-[3px] border-gray-200 pr-3">
+                            <span class="text-gray-800 text-lg font-medium">560+ <label
+                                    class="text-gray-600 font-normal text-base">Jobs</label></span>
+                        </div>
+                        <div class="px-3">
+                            <span class="text-gray-800 text-lg font-medium">5+ <label
+                                    class="text-gray-600 font-normal text-base">Role</label></span>
+                        </div>
+                    </div>
+                    <div class="text-center whitespace-normal py-3 text-gray-700 text-base">Lorem amet adipisicing elit.
+                    </div>
+                </div>
+                <div class="pt-4 grid justify-center">
+                    <button class=" px-3 py-1.5 rounded-md bg-[#ECFDF3] border-2 border-[#21A14B] text-[#21A14B]">View
+                        Jobs</button>
+                </div>
+            </div>
+            <div
+                class="bg-white cursor-pointer p-3 shadow-lg rounded-lg border border-gray-200 w-4/5 md:w-1/5 hover:scale-105 transition duration-200 ease-out hover:ease-in">
+                <div class="flex justify-center p-5">
+                    <img src="assets/company_logo/cpmpany_logo1.png" alt="">
+                </div>
+                <h3 class="text-center text-gray-700 text-lg font-medium pb-3">Layer Tech</h3>
+                <div class="bg-[#FFFAEB] p-1.5 rounded-md ">
+                    <div class="flex gap-3 justify-center">
+                        <div class="border-r-[3px] border-gray-200 pr-3">
+                            <span class="text-gray-800 text-lg font-medium">100+ <label
+                                    class="text-gray-600 font-normal text-base">Jobs</label></span>
+                        </div>
+                        <div class="px-3">
+                            <span class="text-gray-800 text-lg font-medium">10+ <label
+                                    class="text-gray-600 font-normal text-base">Role</label></span>
+                        </div>
+                    </div>
+                    <div class="text-center whitespace-normal py-3 text-gray-700 text-base">Lorem amet adipisicing elit.
+                    </div>
+                </div>
+                <div class="pt-4 grid justify-center">
+                    <button class=" px-3 py-1.5 rounded-md bg-[#ECFDF3] border-2 border-[#21A14B] text-[#21A14B]">View
+                        Jobs</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="p-5 bg-white">
+    <div class="grid">
+        <div class="bg-gray-200 w-full h-1">
+            <p class="text-center -mt-3 bg-transparent">
+                <label class="bg-white px-5 text-normal md:text-lg font-normal md:font-medium text-gray-600">
+                    Companies Hiring Now</label>
+            </p>
+        </div>
+        <div
+            class="flex pt-7 md:pt-10 py-5 gap-3 w-full overflow-x-auto whitespace-nowrap justify-start md:justify-center">
+            <button
+                class="bg-[#7CD4FD3D] text-[#0388BC] font-medium text-sm border border-[#0388BC] rounded-xl px-3 py-1.5">All</button>
+            <button
+                class="bg-gray-50 hover:bg-gray-100 text-gray-600 font-medium text-sm border border-gray-200 rounded-xl px-3 py-1.5">Healthcare
+                & Life Science</button>
+            <button
+                class="bg-gray-50 hover:bg-gray-100 text-gray-600 font-medium text-sm border border-gray-200 rounded-xl px-3 py-1.5">Technologies</button>
+            <button
+                class="bg-gray-50 hover:bg-gray-100 text-gray-600 font-medium text-sm border border-gray-200 rounded-xl px-3 py-1.5">BPM</button>
+            <button
+                class="bg-gray-50 hover:bg-gray-100 text-gray-600 font-medium text-sm border border-gray-200 rounded-xl px-3 py-1.5">MNCs</button>
+            <button
+                class="bg-gray-50 hover:bg-gray-100 text-gray-600 font-medium text-sm border border-gray-200 rounded-xl px-3 py-1.5">IT
+                Services</button>
+            <button class="text-[#0388BC] font-medium text-sm">+5 more</button>
+        </div>
+        <div class="grid grid-cols-1 py-5 gap-3 w-full scroll-container overflow-x-auto whitespace-nowrap">
+            <div class="flex w-full gap-5">
+                <div
+                    class="bg-white cursor-pointer p-3 shadow-lg rounded-lg border border-gray-200 w-4/5 md:w-1/5 hover:scale-105 transition duration-200 ease-out hover:ease-in">
+                    <div class="flex justify-center p-5">
+                        <img class="rounded-lg" src="assets/company_logo/cpmpany_logo1.png" alt="">
+                    </div>
+                    <div class="flex justify-center place-items-center pb-3">
+                        <h3 class="text-center text-gray-700 text-lg font-medium">Layer Technologies</h3>
+                        <mat-icon>chevron_right</mat-icon>
+                    </div>
+                    <div class="p-1.5">
+                        <div class="flex gap-3 justify-center">
+                            <div class="flex gap-1">
+                                <div class="text-gray-400">
+                                    <svg width="25" height="25" viewBox="0 0 25 25" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M20.9233 7.10938H4.92334C3.81877 7.10938 2.92334 8.00481 2.92334 9.10938V19.1094C2.92334 20.2139 3.81877 21.1094 4.92334 21.1094H20.9233C22.0279 21.1094 22.9233 20.2139 22.9233 19.1094V9.10938C22.9233 8.00481 22.0279 7.10938 20.9233 7.10938Z"
+                                            stroke="#98A2B3" stroke-width="1.5" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path
+                                            d="M16.9233 21.1094V5.10938C16.9233 4.57894 16.7126 4.07023 16.3376 3.69516C15.9625 3.32009 15.4538 3.10938 14.9233 3.10938H10.9233C10.3929 3.10938 9.8842 3.32009 9.50913 3.69516C9.13405 4.07023 8.92334 4.57894 8.92334 5.10938V21.1094"
+                                            stroke="#98A2B3" stroke-width="1.5" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                </div>
+                                <div class="border-r-[3px] border-gray-200 pr-3">
+                                    <span class="text-gray-800 text-base font-medium">50 <label
+                                            class="text-gray-600 font-normal text-sm">Jobs</label></span>
+                                </div>
+                            </div>
+                            <div class="flex gap-1">
+                                <div class="text-gray-400">
+                                    <svg width="23" height="25" viewBox="0 0 23 25" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <g clip-path="url(#clip0_23192_2453)">
+                                            <path
+                                                d="M21.2104 17.1328H14.5438C14.0835 17.1328 13.7104 17.5059 13.7104 17.9661V22.1328C13.7104 22.593 14.0835 22.9661 14.5438 22.9661H21.2104C21.6707 22.9661 22.0438 22.593 22.0438 22.1328V17.9661C22.0438 17.5059 21.6707 17.1328 21.2104 17.1328Z"
+                                                stroke="#98A2B3" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path
+                                                d="M19.5438 22.9648V16.2982C19.5438 16.0772 19.456 15.8652 19.2997 15.7089C19.1434 15.5526 18.9315 15.4648 18.7104 15.4648H17.0438C16.8228 15.4648 16.6108 15.5526 16.4545 15.7089C16.2982 15.8652 16.2104 16.0772 16.2104 16.2982V22.9648"
+                                                stroke="#98A2B3" stroke-linecap="round" stroke-linejoin="round" />
+                                        </g>
+                                        <circle cx="11.9463" cy="5" r="4.25" stroke="#98A2B3" stroke-width="1.5" />
+                                        <path
+                                            d="M9.35577 22.5048H5.92334C3.16192 22.5048 0.92334 20.2663 0.92334 17.5048V16.7422C0.92334 13.9808 3.16192 11.7422 5.92334 11.7422H18.956C20.307 11.7422 21.4021 12.8373 21.4021 14.1882V14.1882"
+                                            stroke="#98A2B3" stroke-width="1.5" stroke-linecap="round" />
+                                        <defs>
+                                            <clipPath id="clip0_23192_2453">
+                                                <rect width="10" height="10" fill="white"
+                                                    transform="translate(12.877 14.2148)" />
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                </div>
+                                <div class="">
+                                    <span class="text-gray-800 text-base font-medium">5 <label
+                                            class="text-gray-600 font-normal text-sm">Role</label></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-4 flex flex-wrap gap-2 justify-center">
+                        <button class=" px-3 py-1.5 rounded-md bg-gray-50 border-2 border-gray-100 text-gray-600">
+                            Internet</button>
+                        <button class=" px-3 py-1.5 rounded-md bg-gray-50 border-2 border-gray-100 text-gray-600">
+                            Unicron</button>
+                        <button class=" px-3 py-1.5 rounded-md bg-gray-50 border-2 border-gray-100 text-gray-600">
+                            E-commerce</button>
+                    </div>
+                </div>
+                <div
+                    class="bg-white cursor-pointer p-3 shadow-lg rounded-lg border border-gray-200 w-4/5 md:w-1/5 hover:scale-105 transition duration-200 ease-out hover:ease-in">
+                    <div class="flex justify-center p-5">
+                        <img class="rounded-lg" src="assets/company_logo/cpmpany_logo2.png" alt="">
+                    </div>
+                    <div class="flex justify-center place-items-center pb-3">
+                        <h3 class="text-center text-gray-700 text-lg font-medium">Light Technologies</h3>
+                        <mat-icon>chevron_right</mat-icon>
+                    </div>
+                    <div class="p-1.5">
+                        <div class="flex gap-3 justify-center">
+                            <div class="flex gap-1">
+                                <div class="text-gray-400">
+                                    <svg width="25" height="25" viewBox="0 0 25 25" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M20.9233 7.10938H4.92334C3.81877 7.10938 2.92334 8.00481 2.92334 9.10938V19.1094C2.92334 20.2139 3.81877 21.1094 4.92334 21.1094H20.9233C22.0279 21.1094 22.9233 20.2139 22.9233 19.1094V9.10938C22.9233 8.00481 22.0279 7.10938 20.9233 7.10938Z"
+                                            stroke="#98A2B3" stroke-width="1.5" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path
+                                            d="M16.9233 21.1094V5.10938C16.9233 4.57894 16.7126 4.07023 16.3376 3.69516C15.9625 3.32009 15.4538 3.10938 14.9233 3.10938H10.9233C10.3929 3.10938 9.8842 3.32009 9.50913 3.69516C9.13405 4.07023 8.92334 4.57894 8.92334 5.10938V21.1094"
+                                            stroke="#98A2B3" stroke-width="1.5" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                </div>
+                                <div class="border-r-[3px] border-gray-200 pr-3">
+                                    <span class="text-gray-800 text-base font-medium">12 <label
+                                            class="text-gray-600 font-normal text-sm">Jobs</label></span>
+                                </div>
+                            </div>
+                            <div class="flex gap-1">
+                                <div class="text-gray-400">
+                                    <svg width="23" height="25" viewBox="0 0 23 25" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <g clip-path="url(#clip0_23192_2453)">
+                                            <path
+                                                d="M21.2104 17.1328H14.5438C14.0835 17.1328 13.7104 17.5059 13.7104 17.9661V22.1328C13.7104 22.593 14.0835 22.9661 14.5438 22.9661H21.2104C21.6707 22.9661 22.0438 22.593 22.0438 22.1328V17.9661C22.0438 17.5059 21.6707 17.1328 21.2104 17.1328Z"
+                                                stroke="#98A2B3" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path
+                                                d="M19.5438 22.9648V16.2982C19.5438 16.0772 19.456 15.8652 19.2997 15.7089C19.1434 15.5526 18.9315 15.4648 18.7104 15.4648H17.0438C16.8228 15.4648 16.6108 15.5526 16.4545 15.7089C16.2982 15.8652 16.2104 16.0772 16.2104 16.2982V22.9648"
+                                                stroke="#98A2B3" stroke-linecap="round" stroke-linejoin="round" />
+                                        </g>
+                                        <circle cx="11.9463" cy="5" r="4.25" stroke="#98A2B3" stroke-width="1.5" />
+                                        <path
+                                            d="M9.35577 22.5048H5.92334C3.16192 22.5048 0.92334 20.2663 0.92334 17.5048V16.7422C0.92334 13.9808 3.16192 11.7422 5.92334 11.7422H18.956C20.307 11.7422 21.4021 12.8373 21.4021 14.1882V14.1882"
+                                            stroke="#98A2B3" stroke-width="1.5" stroke-linecap="round" />
+                                        <defs>
+                                            <clipPath id="clip0_23192_2453">
+                                                <rect width="10" height="10" fill="white"
+                                                    transform="translate(12.877 14.2148)" />
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                </div>
+                                <div class="">
+                                    <span class="text-gray-800 text-base font-medium">3 <label
+                                            class="text-gray-600 font-normal text-sm">Role</label></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-4 flex flex-wrap gap-2 justify-center">
+                        <button class=" px-3 py-1.5 rounded-md bg-gray-50 border-2 border-gray-100 text-gray-600">
+                            MNC</button>
+                        <button class=" px-3 py-1.5 rounded-md bg-gray-50 border-2 border-gray-100 text-gray-600">
+                            Unicron</button>
+                        <button class=" px-3 py-1.5 rounded-md bg-gray-50 border-2 border-gray-100 text-gray-600">
+                            Construction</button>
+                    </div>
+                </div>
+                <div
+                    class="bg-white cursor-pointer p-3 shadow-lg rounded-lg border border-gray-200 w-4/5 md:w-1/5 hover:scale-105 transition duration-200 ease-out hover:ease-in">
+                    <div class="flex justify-center p-5">
+                        <img class="rounded-lg" src="assets/company_logo/cpmpany_logo3.png" alt="">
+                    </div>
+                    <div class="flex justify-center place-items-center pb-3">
+                        <h3 class="text-center text-gray-700 text-lg font-medium">Circular Technologies</h3>
+                        <mat-icon>chevron_right</mat-icon>
+                    </div>
+                    <div class="p-1.5">
+                        <div class="flex gap-3 justify-center">
+                            <div class="flex gap-1">
+                                <div class="text-gray-400">
+                                    <svg width="25" height="25" viewBox="0 0 25 25" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M20.9233 7.10938H4.92334C3.81877 7.10938 2.92334 8.00481 2.92334 9.10938V19.1094C2.92334 20.2139 3.81877 21.1094 4.92334 21.1094H20.9233C22.0279 21.1094 22.9233 20.2139 22.9233 19.1094V9.10938C22.9233 8.00481 22.0279 7.10938 20.9233 7.10938Z"
+                                            stroke="#98A2B3" stroke-width="1.5" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path
+                                            d="M16.9233 21.1094V5.10938C16.9233 4.57894 16.7126 4.07023 16.3376 3.69516C15.9625 3.32009 15.4538 3.10938 14.9233 3.10938H10.9233C10.3929 3.10938 9.8842 3.32009 9.50913 3.69516C9.13405 4.07023 8.92334 4.57894 8.92334 5.10938V21.1094"
+                                            stroke="#98A2B3" stroke-width="1.5" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                </div>
+                                <div class="border-r-[3px] border-gray-200 pr-3">
+                                    <span class="text-gray-800 text-base font-medium">23 <label
+                                            class="text-gray-600 font-normal text-sm">Jobs</label></span>
+                                </div>
+                            </div>
+                            <div class="flex gap-1">
+                                <div class="text-gray-400">
+                                    <svg width="23" height="25" viewBox="0 0 23 25" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <g clip-path="url(#clip0_23192_2453)">
+                                            <path
+                                                d="M21.2104 17.1328H14.5438C14.0835 17.1328 13.7104 17.5059 13.7104 17.9661V22.1328C13.7104 22.593 14.0835 22.9661 14.5438 22.9661H21.2104C21.6707 22.9661 22.0438 22.593 22.0438 22.1328V17.9661C22.0438 17.5059 21.6707 17.1328 21.2104 17.1328Z"
+                                                stroke="#98A2B3" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path
+                                                d="M19.5438 22.9648V16.2982C19.5438 16.0772 19.456 15.8652 19.2997 15.7089C19.1434 15.5526 18.9315 15.4648 18.7104 15.4648H17.0438C16.8228 15.4648 16.6108 15.5526 16.4545 15.7089C16.2982 15.8652 16.2104 16.0772 16.2104 16.2982V22.9648"
+                                                stroke="#98A2B3" stroke-linecap="round" stroke-linejoin="round" />
+                                        </g>
+                                        <circle cx="11.9463" cy="5" r="4.25" stroke="#98A2B3" stroke-width="1.5" />
+                                        <path
+                                            d="M9.35577 22.5048H5.92334C3.16192 22.5048 0.92334 20.2663 0.92334 17.5048V16.7422C0.92334 13.9808 3.16192 11.7422 5.92334 11.7422H18.956C20.307 11.7422 21.4021 12.8373 21.4021 14.1882V14.1882"
+                                            stroke="#98A2B3" stroke-width="1.5" stroke-linecap="round" />
+                                        <defs>
+                                            <clipPath id="clip0_23192_2453">
+                                                <rect width="10" height="10" fill="white"
+                                                    transform="translate(12.877 14.2148)" />
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                </div>
+                                <div class="">
+                                    <span class="text-gray-800 text-base font-medium">5 <label
+                                            class="text-gray-600 font-normal text-sm">Role</label></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-4 flex flex-wrap gap-2 justify-center">
+                        <button class=" px-3 py-1.5 rounded-md bg-gray-50 border-2 border-gray-100 text-gray-600">
+                            B2B</button>
+                        <button class=" px-3 py-1.5 rounded-md bg-gray-50 border-2 border-gray-100 text-gray-600">
+                            Services</button>
+                        <button class=" px-3 py-1.5 rounded-md bg-gray-50 border-2 border-gray-100 text-gray-600">
+                            E-commerce</button>
+                    </div>
+                </div>
+                <div
+                    class="bg-white cursor-pointer p-3 shadow-lg rounded-lg border border-gray-200 w-4/5 md:w-1/5 hover:scale-105 transition duration-200 ease-out hover:ease-in">
+                    <div class="flex justify-center p-5">
+                        <img class="rounded-lg" src="assets/company_logo/cpmpany_logo4.png" alt="">
+                    </div>
+                    <div class="flex justify-center place-items-center pb-3">
+                        <h3 class="text-center text-gray-700 text-lg font-medium">C Systems </h3>
+                        <mat-icon>chevron_right</mat-icon>
+                    </div>
+                    <div class="p-1.5">
+                        <div class="flex gap-3 justify-center">
+                            <div class="flex gap-1">
+                                <div class="text-gray-400">
+                                    <svg width="25" height="25" viewBox="0 0 25 25" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M20.9233 7.10938H4.92334C3.81877 7.10938 2.92334 8.00481 2.92334 9.10938V19.1094C2.92334 20.2139 3.81877 21.1094 4.92334 21.1094H20.9233C22.0279 21.1094 22.9233 20.2139 22.9233 19.1094V9.10938C22.9233 8.00481 22.0279 7.10938 20.9233 7.10938Z"
+                                            stroke="#98A2B3" stroke-width="1.5" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path
+                                            d="M16.9233 21.1094V5.10938C16.9233 4.57894 16.7126 4.07023 16.3376 3.69516C15.9625 3.32009 15.4538 3.10938 14.9233 3.10938H10.9233C10.3929 3.10938 9.8842 3.32009 9.50913 3.69516C9.13405 4.07023 8.92334 4.57894 8.92334 5.10938V21.1094"
+                                            stroke="#98A2B3" stroke-width="1.5" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                </div>
+                                <div class="border-r-[3px] border-gray-200 pr-3">
+                                    <span class="text-gray-800 text-base font-medium">235 <label
+                                            class="text-gray-600 font-normal text-sm">Jobs</label></span>
+                                </div>
+                            </div>
+                            <div class="flex gap-1">
+                                <div class="text-gray-400">
+                                    <svg width="23" height="25" viewBox="0 0 23 25" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <g clip-path="url(#clip0_23192_2453)">
+                                            <path
+                                                d="M21.2104 17.1328H14.5438C14.0835 17.1328 13.7104 17.5059 13.7104 17.9661V22.1328C13.7104 22.593 14.0835 22.9661 14.5438 22.9661H21.2104C21.6707 22.9661 22.0438 22.593 22.0438 22.1328V17.9661C22.0438 17.5059 21.6707 17.1328 21.2104 17.1328Z"
+                                                stroke="#98A2B3" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path
+                                                d="M19.5438 22.9648V16.2982C19.5438 16.0772 19.456 15.8652 19.2997 15.7089C19.1434 15.5526 18.9315 15.4648 18.7104 15.4648H17.0438C16.8228 15.4648 16.6108 15.5526 16.4545 15.7089C16.2982 15.8652 16.2104 16.0772 16.2104 16.2982V22.9648"
+                                                stroke="#98A2B3" stroke-linecap="round" stroke-linejoin="round" />
+                                        </g>
+                                        <circle cx="11.9463" cy="5" r="4.25" stroke="#98A2B3" stroke-width="1.5" />
+                                        <path
+                                            d="M9.35577 22.5048H5.92334C3.16192 22.5048 0.92334 20.2663 0.92334 17.5048V16.7422C0.92334 13.9808 3.16192 11.7422 5.92334 11.7422H18.956C20.307 11.7422 21.4021 12.8373 21.4021 14.1882V14.1882"
+                                            stroke="#98A2B3" stroke-width="1.5" stroke-linecap="round" />
+                                        <defs>
+                                            <clipPath id="clip0_23192_2453">
+                                                <rect width="10" height="10" fill="white"
+                                                    transform="translate(12.877 14.2148)" />
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                </div>
+                                <div class="">
+                                    <span class="text-gray-800 text-base font-medium">7 <label
+                                            class="text-gray-600 font-normal text-sm">Role</label></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-4 flex flex-wrap gap-2 justify-center">
+                        <button class=" px-3 py-1.5 rounded-md bg-gray-50 border-2 border-gray-100 text-gray-600">
+                            Corporate</button>
+                        <button class=" px-3 py-1.5 rounded-md bg-gray-50 border-2 border-gray-100 text-gray-600">
+                            B2B</button>
+                        <button class=" px-3 py-1.5 rounded-md bg-gray-50 border-2 border-gray-100 text-gray-600">
+                            B2C</button>
+                    </div>
+                </div>
+                <div
+                    class="bg-white cursor-pointer p-3 shadow-lg rounded-lg border border-gray-200 w-4/5 md:w-1/5 hover:scale-105 transition duration-200 ease-out hover:ease-in">
+                    <div class="flex justify-center p-5">
+                        <img class="rounded-lg" src="assets/company_logo/cpmpany_logo5.png" alt="">
+                    </div>
+                    <div class="flex justify-center place-items-center pb-3">
+                        <h3 class="text-center text-gray-700 text-lg font-medium">Cap Technologies</h3>
+                        <mat-icon>chevron_right</mat-icon>
+                    </div>
+                    <div class="p-1.5">
+                        <div class="flex gap-3 justify-center">
+                            <div class="flex gap-1">
+                                <div class="text-gray-400">
+                                    <svg width="25" height="25" viewBox="0 0 25 25" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M20.9233 7.10938H4.92334C3.81877 7.10938 2.92334 8.00481 2.92334 9.10938V19.1094C2.92334 20.2139 3.81877 21.1094 4.92334 21.1094H20.9233C22.0279 21.1094 22.9233 20.2139 22.9233 19.1094V9.10938C22.9233 8.00481 22.0279 7.10938 20.9233 7.10938Z"
+                                            stroke="#98A2B3" stroke-width="1.5" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path
+                                            d="M16.9233 21.1094V5.10938C16.9233 4.57894 16.7126 4.07023 16.3376 3.69516C15.9625 3.32009 15.4538 3.10938 14.9233 3.10938H10.9233C10.3929 3.10938 9.8842 3.32009 9.50913 3.69516C9.13405 4.07023 8.92334 4.57894 8.92334 5.10938V21.1094"
+                                            stroke="#98A2B3" stroke-width="1.5" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                </div>
+                                <div class="border-r-[3px] border-gray-200 pr-3">
+                                    <span class="text-gray-800 text-base font-medium">25 <label
+                                            class="text-gray-600 font-normal text-sm">Jobs</label></span>
+                                </div>
+                            </div>
+                            <div class="flex gap-1">
+                                <div class="text-gray-400">
+                                    <svg width="23" height="25" viewBox="0 0 23 25" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <g clip-path="url(#clip0_23192_2453)">
+                                            <path
+                                                d="M21.2104 17.1328H14.5438C14.0835 17.1328 13.7104 17.5059 13.7104 17.9661V22.1328C13.7104 22.593 14.0835 22.9661 14.5438 22.9661H21.2104C21.6707 22.9661 22.0438 22.593 22.0438 22.1328V17.9661C22.0438 17.5059 21.6707 17.1328 21.2104 17.1328Z"
+                                                stroke="#98A2B3" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path
+                                                d="M19.5438 22.9648V16.2982C19.5438 16.0772 19.456 15.8652 19.2997 15.7089C19.1434 15.5526 18.9315 15.4648 18.7104 15.4648H17.0438C16.8228 15.4648 16.6108 15.5526 16.4545 15.7089C16.2982 15.8652 16.2104 16.0772 16.2104 16.2982V22.9648"
+                                                stroke="#98A2B3" stroke-linecap="round" stroke-linejoin="round" />
+                                        </g>
+                                        <circle cx="11.9463" cy="5" r="4.25" stroke="#98A2B3" stroke-width="1.5" />
+                                        <path
+                                            d="M9.35577 22.5048H5.92334C3.16192 22.5048 0.92334 20.2663 0.92334 17.5048V16.7422C0.92334 13.9808 3.16192 11.7422 5.92334 11.7422H18.956C20.307 11.7422 21.4021 12.8373 21.4021 14.1882V14.1882"
+                                            stroke="#98A2B3" stroke-width="1.5" stroke-linecap="round" />
+                                        <defs>
+                                            <clipPath id="clip0_23192_2453">
+                                                <rect width="10" height="10" fill="white"
+                                                    transform="translate(12.877 14.2148)" />
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                </div>
+                                <div class="">
+                                    <span class="text-gray-800 text-base font-medium">8 <label
+                                            class="text-gray-600 font-normal text-sm">Role</label></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-4 flex flex-wrap gap-2 justify-center">
+                        <button class=" px-3 py-1.5 rounded-md bg-gray-50 border-2 border-gray-100 text-gray-600">
+                            B2B</button>
+                        <button class=" px-3 py-1.5 rounded-md bg-gray-50 border-2 border-gray-100 text-gray-600">
+                            B2C</button>
+                        <button class=" px-3 py-1.5 rounded-md bg-gray-50 border-2 border-gray-100 text-gray-600">
+                            E-commerce</button>
+                    </div>
+                </div>
+                <div
+                    class="bg-white cursor-pointer p-3 shadow-lg rounded-lg border border-gray-200 w-4/5 md:w-1/5 hover:scale-105 transition duration-200 ease-out hover:ease-in">
+                    <div class="flex justify-center p-5">
+                        <img class="rounded-lg" src="assets/company_logo/cpmpany_logo1.png" alt="">
+                    </div>
+                    <div class="flex justify-center place-items-center pb-3">
+                        <h3 class="text-center text-gray-700 text-lg font-medium">Layer Technologies</h3>
+                        <mat-icon>chevron_right</mat-icon>
+                    </div>
+                    <div class="p-1.5">
+                        <div class="flex gap-3 justify-center">
+                            <div class="flex gap-1">
+                                <div class="text-gray-400">
+                                    <svg width="25" height="25" viewBox="0 0 25 25" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M20.9233 7.10938H4.92334C3.81877 7.10938 2.92334 8.00481 2.92334 9.10938V19.1094C2.92334 20.2139 3.81877 21.1094 4.92334 21.1094H20.9233C22.0279 21.1094 22.9233 20.2139 22.9233 19.1094V9.10938C22.9233 8.00481 22.0279 7.10938 20.9233 7.10938Z"
+                                            stroke="#98A2B3" stroke-width="1.5" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path
+                                            d="M16.9233 21.1094V5.10938C16.9233 4.57894 16.7126 4.07023 16.3376 3.69516C15.9625 3.32009 15.4538 3.10938 14.9233 3.10938H10.9233C10.3929 3.10938 9.8842 3.32009 9.50913 3.69516C9.13405 4.07023 8.92334 4.57894 8.92334 5.10938V21.1094"
+                                            stroke="#98A2B3" stroke-width="1.5" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                </div>
+                                <div class="border-r-[3px] border-gray-200 pr-3">
+                                    <span class="text-gray-800 text-base font-medium">50 <label
+                                            class="text-gray-600 font-normal text-sm">Jobs</label></span>
+                                </div>
+                            </div>
+                            <div class="flex gap-1">
+                                <div class="text-gray-400">
+                                    <svg width="23" height="25" viewBox="0 0 23 25" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <g clip-path="url(#clip0_23192_2453)">
+                                            <path
+                                                d="M21.2104 17.1328H14.5438C14.0835 17.1328 13.7104 17.5059 13.7104 17.9661V22.1328C13.7104 22.593 14.0835 22.9661 14.5438 22.9661H21.2104C21.6707 22.9661 22.0438 22.593 22.0438 22.1328V17.9661C22.0438 17.5059 21.6707 17.1328 21.2104 17.1328Z"
+                                                stroke="#98A2B3" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path
+                                                d="M19.5438 22.9648V16.2982C19.5438 16.0772 19.456 15.8652 19.2997 15.7089C19.1434 15.5526 18.9315 15.4648 18.7104 15.4648H17.0438C16.8228 15.4648 16.6108 15.5526 16.4545 15.7089C16.2982 15.8652 16.2104 16.0772 16.2104 16.2982V22.9648"
+                                                stroke="#98A2B3" stroke-linecap="round" stroke-linejoin="round" />
+                                        </g>
+                                        <circle cx="11.9463" cy="5" r="4.25" stroke="#98A2B3" stroke-width="1.5" />
+                                        <path
+                                            d="M9.35577 22.5048H5.92334C3.16192 22.5048 0.92334 20.2663 0.92334 17.5048V16.7422C0.92334 13.9808 3.16192 11.7422 5.92334 11.7422H18.956C20.307 11.7422 21.4021 12.8373 21.4021 14.1882V14.1882"
+                                            stroke="#98A2B3" stroke-width="1.5" stroke-linecap="round" />
+                                        <defs>
+                                            <clipPath id="clip0_23192_2453">
+                                                <rect width="10" height="10" fill="white"
+                                                    transform="translate(12.877 14.2148)" />
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                </div>
+                                <div class="">
+                                    <span class="text-gray-800 text-base font-medium">7 <label
+                                            class="text-gray-600 font-normal text-sm">Role</label></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-4 flex flex-wrap gap-2 justify-center">
+                        <button class=" px-3 py-1.5 rounded-md bg-gray-50 border-2 border-gray-100 text-gray-600">
+                            Internet</button>
+                        <button class=" px-3 py-1.5 rounded-md bg-gray-50 border-2 border-gray-100 text-gray-600">
+                            Unicron</button>
+                        <button class=" px-3 py-1.5 rounded-md bg-gray-50 border-2 border-gray-100 text-gray-600">
+                            E-commerce</button>
+                    </div>
+                </div>
+            </div>
+            <div class="flex w-full gap-5">
+                <div
+                    class="bg-white cursor-pointer p-3 shadow-lg rounded-lg border border-gray-200 w-4/5 md:w-1/5 hover:scale-105 transition duration-200 ease-out hover:ease-in">
+                    <div class="flex justify-center p-5">
+                        <img class="rounded-lg" src="assets/company_logo/cpmpany_logo1.png" alt="">
+                    </div>
+                    <div class="flex justify-center place-items-center pb-3">
+                        <h3 class="text-center text-gray-700 text-lg font-medium">Layer Technologies</h3>
+                        <mat-icon>chevron_right</mat-icon>
+                    </div>
+                    <div class="p-1.5">
+                        <div class="flex gap-3 justify-center">
+                            <div class="flex gap-1">
+                                <div class="text-gray-400">
+                                    <svg width="25" height="25" viewBox="0 0 25 25" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M20.9233 7.10938H4.92334C3.81877 7.10938 2.92334 8.00481 2.92334 9.10938V19.1094C2.92334 20.2139 3.81877 21.1094 4.92334 21.1094H20.9233C22.0279 21.1094 22.9233 20.2139 22.9233 19.1094V9.10938C22.9233 8.00481 22.0279 7.10938 20.9233 7.10938Z"
+                                            stroke="#98A2B3" stroke-width="1.5" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path
+                                            d="M16.9233 21.1094V5.10938C16.9233 4.57894 16.7126 4.07023 16.3376 3.69516C15.9625 3.32009 15.4538 3.10938 14.9233 3.10938H10.9233C10.3929 3.10938 9.8842 3.32009 9.50913 3.69516C9.13405 4.07023 8.92334 4.57894 8.92334 5.10938V21.1094"
+                                            stroke="#98A2B3" stroke-width="1.5" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                </div>
+                                <div class="border-r-[3px] border-gray-200 pr-3">
+                                    <span class="text-gray-800 text-base font-medium">50 <label
+                                            class="text-gray-600 font-normal text-sm">Jobs</label></span>
+                                </div>
+                            </div>
+                            <div class="flex gap-1">
+                                <div class="text-gray-400">
+                                    <svg width="23" height="25" viewBox="0 0 23 25" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <g clip-path="url(#clip0_23192_2453)">
+                                            <path
+                                                d="M21.2104 17.1328H14.5438C14.0835 17.1328 13.7104 17.5059 13.7104 17.9661V22.1328C13.7104 22.593 14.0835 22.9661 14.5438 22.9661H21.2104C21.6707 22.9661 22.0438 22.593 22.0438 22.1328V17.9661C22.0438 17.5059 21.6707 17.1328 21.2104 17.1328Z"
+                                                stroke="#98A2B3" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path
+                                                d="M19.5438 22.9648V16.2982C19.5438 16.0772 19.456 15.8652 19.2997 15.7089C19.1434 15.5526 18.9315 15.4648 18.7104 15.4648H17.0438C16.8228 15.4648 16.6108 15.5526 16.4545 15.7089C16.2982 15.8652 16.2104 16.0772 16.2104 16.2982V22.9648"
+                                                stroke="#98A2B3" stroke-linecap="round" stroke-linejoin="round" />
+                                        </g>
+                                        <circle cx="11.9463" cy="5" r="4.25" stroke="#98A2B3" stroke-width="1.5" />
+                                        <path
+                                            d="M9.35577 22.5048H5.92334C3.16192 22.5048 0.92334 20.2663 0.92334 17.5048V16.7422C0.92334 13.9808 3.16192 11.7422 5.92334 11.7422H18.956C20.307 11.7422 21.4021 12.8373 21.4021 14.1882V14.1882"
+                                            stroke="#98A2B3" stroke-width="1.5" stroke-linecap="round" />
+                                        <defs>
+                                            <clipPath id="clip0_23192_2453">
+                                                <rect width="10" height="10" fill="white"
+                                                    transform="translate(12.877 14.2148)" />
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                </div>
+                                <div class="">
+                                    <span class="text-gray-800 text-base font-medium">5 <label
+                                            class="text-gray-600 font-normal text-sm">Role</label></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-4 flex flex-wrap gap-2 justify-center">
+                        <button class=" px-3 py-1.5 rounded-md bg-gray-50 border-2 border-gray-100 text-gray-600">
+                            Internet</button>
+                        <button class=" px-3 py-1.5 rounded-md bg-gray-50 border-2 border-gray-100 text-gray-600">
+                            Unicron</button>
+                        <button class=" px-3 py-1.5 rounded-md bg-gray-50 border-2 border-gray-100 text-gray-600">
+                            E-commerce</button>
+                    </div>
+                </div>
+                <div
+                    class="bg-white cursor-pointer p-3 shadow-lg rounded-lg border border-gray-200 w-4/5 md:w-1/5 hover:scale-105 transition duration-200 ease-out hover:ease-in">
+                    <div class="flex justify-center p-5">
+                        <img class="rounded-lg" src="assets/company_logo/cpmpany_logo2.png" alt="">
+                    </div>
+                    <div class="flex justify-center place-items-center pb-3">
+                        <h3 class="text-center text-gray-700 text-lg font-medium">Light Technologies</h3>
+                        <mat-icon>chevron_right</mat-icon>
+                    </div>
+                    <div class="p-1.5">
+                        <div class="flex gap-3 justify-center">
+                            <div class="flex gap-1">
+                                <div class="text-gray-400">
+                                    <svg width="25" height="25" viewBox="0 0 25 25" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M20.9233 7.10938H4.92334C3.81877 7.10938 2.92334 8.00481 2.92334 9.10938V19.1094C2.92334 20.2139 3.81877 21.1094 4.92334 21.1094H20.9233C22.0279 21.1094 22.9233 20.2139 22.9233 19.1094V9.10938C22.9233 8.00481 22.0279 7.10938 20.9233 7.10938Z"
+                                            stroke="#98A2B3" stroke-width="1.5" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path
+                                            d="M16.9233 21.1094V5.10938C16.9233 4.57894 16.7126 4.07023 16.3376 3.69516C15.9625 3.32009 15.4538 3.10938 14.9233 3.10938H10.9233C10.3929 3.10938 9.8842 3.32009 9.50913 3.69516C9.13405 4.07023 8.92334 4.57894 8.92334 5.10938V21.1094"
+                                            stroke="#98A2B3" stroke-width="1.5" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                </div>
+                                <div class="border-r-[3px] border-gray-200 pr-3">
+                                    <span class="text-gray-800 text-base font-medium">12 <label
+                                            class="text-gray-600 font-normal text-sm">Jobs</label></span>
+                                </div>
+                            </div>
+                            <div class="flex gap-1">
+                                <div class="text-gray-400">
+                                    <svg width="23" height="25" viewBox="0 0 23 25" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <g clip-path="url(#clip0_23192_2453)">
+                                            <path
+                                                d="M21.2104 17.1328H14.5438C14.0835 17.1328 13.7104 17.5059 13.7104 17.9661V22.1328C13.7104 22.593 14.0835 22.9661 14.5438 22.9661H21.2104C21.6707 22.9661 22.0438 22.593 22.0438 22.1328V17.9661C22.0438 17.5059 21.6707 17.1328 21.2104 17.1328Z"
+                                                stroke="#98A2B3" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path
+                                                d="M19.5438 22.9648V16.2982C19.5438 16.0772 19.456 15.8652 19.2997 15.7089C19.1434 15.5526 18.9315 15.4648 18.7104 15.4648H17.0438C16.8228 15.4648 16.6108 15.5526 16.4545 15.7089C16.2982 15.8652 16.2104 16.0772 16.2104 16.2982V22.9648"
+                                                stroke="#98A2B3" stroke-linecap="round" stroke-linejoin="round" />
+                                        </g>
+                                        <circle cx="11.9463" cy="5" r="4.25" stroke="#98A2B3" stroke-width="1.5" />
+                                        <path
+                                            d="M9.35577 22.5048H5.92334C3.16192 22.5048 0.92334 20.2663 0.92334 17.5048V16.7422C0.92334 13.9808 3.16192 11.7422 5.92334 11.7422H18.956C20.307 11.7422 21.4021 12.8373 21.4021 14.1882V14.1882"
+                                            stroke="#98A2B3" stroke-width="1.5" stroke-linecap="round" />
+                                        <defs>
+                                            <clipPath id="clip0_23192_2453">
+                                                <rect width="10" height="10" fill="white"
+                                                    transform="translate(12.877 14.2148)" />
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                </div>
+                                <div class="">
+                                    <span class="text-gray-800 text-base font-medium">3 <label
+                                            class="text-gray-600 font-normal text-sm">Role</label></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-4 flex flex-wrap gap-2 justify-center">
+                        <button class=" px-3 py-1.5 rounded-md bg-gray-50 border-2 border-gray-100 text-gray-600">
+                            MNC</button>
+                        <button class=" px-3 py-1.5 rounded-md bg-gray-50 border-2 border-gray-100 text-gray-600">
+                            Unicron</button>
+                        <button class=" px-3 py-1.5 rounded-md bg-gray-50 border-2 border-gray-100 text-gray-600">
+                            Construction</button>
+                    </div>
+                </div>
+                <div
+                    class="bg-white cursor-pointer p-3 shadow-lg rounded-lg border border-gray-200 w-4/5 md:w-1/5 hover:scale-105 transition duration-200 ease-out hover:ease-in">
+                    <div class="flex justify-center p-5">
+                        <img class="rounded-lg" src="assets/company_logo/cpmpany_logo3.png" alt="">
+                    </div>
+                    <div class="flex justify-center place-items-center pb-3">
+                        <h3 class="text-center text-gray-700 text-lg font-medium">Circular Technologies</h3>
+                        <mat-icon>chevron_right</mat-icon>
+                    </div>
+                    <div class="p-1.5">
+                        <div class="flex gap-3 justify-center">
+                            <div class="flex gap-1">
+                                <div class="text-gray-400">
+                                    <svg width="25" height="25" viewBox="0 0 25 25" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M20.9233 7.10938H4.92334C3.81877 7.10938 2.92334 8.00481 2.92334 9.10938V19.1094C2.92334 20.2139 3.81877 21.1094 4.92334 21.1094H20.9233C22.0279 21.1094 22.9233 20.2139 22.9233 19.1094V9.10938C22.9233 8.00481 22.0279 7.10938 20.9233 7.10938Z"
+                                            stroke="#98A2B3" stroke-width="1.5" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path
+                                            d="M16.9233 21.1094V5.10938C16.9233 4.57894 16.7126 4.07023 16.3376 3.69516C15.9625 3.32009 15.4538 3.10938 14.9233 3.10938H10.9233C10.3929 3.10938 9.8842 3.32009 9.50913 3.69516C9.13405 4.07023 8.92334 4.57894 8.92334 5.10938V21.1094"
+                                            stroke="#98A2B3" stroke-width="1.5" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                </div>
+                                <div class="border-r-[3px] border-gray-200 pr-3">
+                                    <span class="text-gray-800 text-base font-medium">23 <label
+                                            class="text-gray-600 font-normal text-sm">Jobs</label></span>
+                                </div>
+                            </div>
+                            <div class="flex gap-1">
+                                <div class="text-gray-400">
+                                    <svg width="23" height="25" viewBox="0 0 23 25" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <g clip-path="url(#clip0_23192_2453)">
+                                            <path
+                                                d="M21.2104 17.1328H14.5438C14.0835 17.1328 13.7104 17.5059 13.7104 17.9661V22.1328C13.7104 22.593 14.0835 22.9661 14.5438 22.9661H21.2104C21.6707 22.9661 22.0438 22.593 22.0438 22.1328V17.9661C22.0438 17.5059 21.6707 17.1328 21.2104 17.1328Z"
+                                                stroke="#98A2B3" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path
+                                                d="M19.5438 22.9648V16.2982C19.5438 16.0772 19.456 15.8652 19.2997 15.7089C19.1434 15.5526 18.9315 15.4648 18.7104 15.4648H17.0438C16.8228 15.4648 16.6108 15.5526 16.4545 15.7089C16.2982 15.8652 16.2104 16.0772 16.2104 16.2982V22.9648"
+                                                stroke="#98A2B3" stroke-linecap="round" stroke-linejoin="round" />
+                                        </g>
+                                        <circle cx="11.9463" cy="5" r="4.25" stroke="#98A2B3" stroke-width="1.5" />
+                                        <path
+                                            d="M9.35577 22.5048H5.92334C3.16192 22.5048 0.92334 20.2663 0.92334 17.5048V16.7422C0.92334 13.9808 3.16192 11.7422 5.92334 11.7422H18.956C20.307 11.7422 21.4021 12.8373 21.4021 14.1882V14.1882"
+                                            stroke="#98A2B3" stroke-width="1.5" stroke-linecap="round" />
+                                        <defs>
+                                            <clipPath id="clip0_23192_2453">
+                                                <rect width="10" height="10" fill="white"
+                                                    transform="translate(12.877 14.2148)" />
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                </div>
+                                <div class="">
+                                    <span class="text-gray-800 text-base font-medium">5 <label
+                                            class="text-gray-600 font-normal text-sm">Role</label></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-4 flex flex-wrap gap-2 justify-center">
+                        <button class=" px-3 py-1.5 rounded-md bg-gray-50 border-2 border-gray-100 text-gray-600">
+                            B2B</button>
+                        <button class=" px-3 py-1.5 rounded-md bg-gray-50 border-2 border-gray-100 text-gray-600">
+                            Services</button>
+                        <button class=" px-3 py-1.5 rounded-md bg-gray-50 border-2 border-gray-100 text-gray-600">
+                            E-commerce</button>
+                    </div>
+                </div>
+                <div
+                    class="bg-white cursor-pointer p-3 shadow-lg rounded-lg border border-gray-200 w-4/5 md:w-1/5 hover:scale-105 transition duration-200 ease-out hover:ease-in">
+                    <div class="flex justify-center p-5">
+                        <img class="rounded-lg" src="assets/company_logo/cpmpany_logo4.png" alt="">
+                    </div>
+                    <div class="flex justify-center place-items-center pb-3">
+                        <h3 class="text-center text-gray-700 text-lg font-medium">C Systems </h3>
+                        <mat-icon>chevron_right</mat-icon>
+                    </div>
+                    <div class="p-1.5">
+                        <div class="flex gap-3 justify-center">
+                            <div class="flex gap-1">
+                                <div class="text-gray-400">
+                                    <svg width="25" height="25" viewBox="0 0 25 25" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M20.9233 7.10938H4.92334C3.81877 7.10938 2.92334 8.00481 2.92334 9.10938V19.1094C2.92334 20.2139 3.81877 21.1094 4.92334 21.1094H20.9233C22.0279 21.1094 22.9233 20.2139 22.9233 19.1094V9.10938C22.9233 8.00481 22.0279 7.10938 20.9233 7.10938Z"
+                                            stroke="#98A2B3" stroke-width="1.5" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path
+                                            d="M16.9233 21.1094V5.10938C16.9233 4.57894 16.7126 4.07023 16.3376 3.69516C15.9625 3.32009 15.4538 3.10938 14.9233 3.10938H10.9233C10.3929 3.10938 9.8842 3.32009 9.50913 3.69516C9.13405 4.07023 8.92334 4.57894 8.92334 5.10938V21.1094"
+                                            stroke="#98A2B3" stroke-width="1.5" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                </div>
+                                <div class="border-r-[3px] border-gray-200 pr-3">
+                                    <span class="text-gray-800 text-base font-medium">235 <label
+                                            class="text-gray-600 font-normal text-sm">Jobs</label></span>
+                                </div>
+                            </div>
+                            <div class="flex gap-1">
+                                <div class="text-gray-400">
+                                    <svg width="23" height="25" viewBox="0 0 23 25" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <g clip-path="url(#clip0_23192_2453)">
+                                            <path
+                                                d="M21.2104 17.1328H14.5438C14.0835 17.1328 13.7104 17.5059 13.7104 17.9661V22.1328C13.7104 22.593 14.0835 22.9661 14.5438 22.9661H21.2104C21.6707 22.9661 22.0438 22.593 22.0438 22.1328V17.9661C22.0438 17.5059 21.6707 17.1328 21.2104 17.1328Z"
+                                                stroke="#98A2B3" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path
+                                                d="M19.5438 22.9648V16.2982C19.5438 16.0772 19.456 15.8652 19.2997 15.7089C19.1434 15.5526 18.9315 15.4648 18.7104 15.4648H17.0438C16.8228 15.4648 16.6108 15.5526 16.4545 15.7089C16.2982 15.8652 16.2104 16.0772 16.2104 16.2982V22.9648"
+                                                stroke="#98A2B3" stroke-linecap="round" stroke-linejoin="round" />
+                                        </g>
+                                        <circle cx="11.9463" cy="5" r="4.25" stroke="#98A2B3" stroke-width="1.5" />
+                                        <path
+                                            d="M9.35577 22.5048H5.92334C3.16192 22.5048 0.92334 20.2663 0.92334 17.5048V16.7422C0.92334 13.9808 3.16192 11.7422 5.92334 11.7422H18.956C20.307 11.7422 21.4021 12.8373 21.4021 14.1882V14.1882"
+                                            stroke="#98A2B3" stroke-width="1.5" stroke-linecap="round" />
+                                        <defs>
+                                            <clipPath id="clip0_23192_2453">
+                                                <rect width="10" height="10" fill="white"
+                                                    transform="translate(12.877 14.2148)" />
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                </div>
+                                <div class="">
+                                    <span class="text-gray-800 text-base font-medium">7 <label
+                                            class="text-gray-600 font-normal text-sm">Role</label></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-4 flex flex-wrap gap-2 justify-center">
+                        <button class=" px-3 py-1.5 rounded-md bg-gray-50 border-2 border-gray-100 text-gray-600">
+                            Corporate</button>
+                        <button class=" px-3 py-1.5 rounded-md bg-gray-50 border-2 border-gray-100 text-gray-600">
+                            B2B</button>
+                        <button class=" px-3 py-1.5 rounded-md bg-gray-50 border-2 border-gray-100 text-gray-600">
+                            B2C</button>
+                    </div>
+                </div>
+                <div
+                    class="bg-white cursor-pointer p-3 shadow-lg rounded-lg border border-gray-200 w-4/5 md:w-1/5 hover:scale-105 transition duration-200 ease-out hover:ease-in">
+                    <div class="flex justify-center p-5">
+                        <img class="rounded-lg" src="assets/company_logo/cpmpany_logo5.png" alt="">
+                    </div>
+                    <div class="flex justify-center place-items-center pb-3">
+                        <h3 class="text-center text-gray-700 text-lg font-medium">Cap Technologies</h3>
+                        <mat-icon>chevron_right</mat-icon>
+                    </div>
+                    <div class="p-1.5">
+                        <div class="flex gap-3 justify-center">
+                            <div class="flex gap-1">
+                                <div class="text-gray-400">
+                                    <svg width="25" height="25" viewBox="0 0 25 25" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M20.9233 7.10938H4.92334C3.81877 7.10938 2.92334 8.00481 2.92334 9.10938V19.1094C2.92334 20.2139 3.81877 21.1094 4.92334 21.1094H20.9233C22.0279 21.1094 22.9233 20.2139 22.9233 19.1094V9.10938C22.9233 8.00481 22.0279 7.10938 20.9233 7.10938Z"
+                                            stroke="#98A2B3" stroke-width="1.5" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path
+                                            d="M16.9233 21.1094V5.10938C16.9233 4.57894 16.7126 4.07023 16.3376 3.69516C15.9625 3.32009 15.4538 3.10938 14.9233 3.10938H10.9233C10.3929 3.10938 9.8842 3.32009 9.50913 3.69516C9.13405 4.07023 8.92334 4.57894 8.92334 5.10938V21.1094"
+                                            stroke="#98A2B3" stroke-width="1.5" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                </div>
+                                <div class="border-r-[3px] border-gray-200 pr-3">
+                                    <span class="text-gray-800 text-base font-medium">25 <label
+                                            class="text-gray-600 font-normal text-sm">Jobs</label></span>
+                                </div>
+                            </div>
+                            <div class="flex gap-1">
+                                <div class="text-gray-400">
+                                    <svg width="23" height="25" viewBox="0 0 23 25" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <g clip-path="url(#clip0_23192_2453)">
+                                            <path
+                                                d="M21.2104 17.1328H14.5438C14.0835 17.1328 13.7104 17.5059 13.7104 17.9661V22.1328C13.7104 22.593 14.0835 22.9661 14.5438 22.9661H21.2104C21.6707 22.9661 22.0438 22.593 22.0438 22.1328V17.9661C22.0438 17.5059 21.6707 17.1328 21.2104 17.1328Z"
+                                                stroke="#98A2B3" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path
+                                                d="M19.5438 22.9648V16.2982C19.5438 16.0772 19.456 15.8652 19.2997 15.7089C19.1434 15.5526 18.9315 15.4648 18.7104 15.4648H17.0438C16.8228 15.4648 16.6108 15.5526 16.4545 15.7089C16.2982 15.8652 16.2104 16.0772 16.2104 16.2982V22.9648"
+                                                stroke="#98A2B3" stroke-linecap="round" stroke-linejoin="round" />
+                                        </g>
+                                        <circle cx="11.9463" cy="5" r="4.25" stroke="#98A2B3" stroke-width="1.5" />
+                                        <path
+                                            d="M9.35577 22.5048H5.92334C3.16192 22.5048 0.92334 20.2663 0.92334 17.5048V16.7422C0.92334 13.9808 3.16192 11.7422 5.92334 11.7422H18.956C20.307 11.7422 21.4021 12.8373 21.4021 14.1882V14.1882"
+                                            stroke="#98A2B3" stroke-width="1.5" stroke-linecap="round" />
+                                        <defs>
+                                            <clipPath id="clip0_23192_2453">
+                                                <rect width="10" height="10" fill="white"
+                                                    transform="translate(12.877 14.2148)" />
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                </div>
+                                <div class="">
+                                    <span class="text-gray-800 text-base font-medium">8 <label
+                                            class="text-gray-600 font-normal text-sm">Role</label></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-4 flex flex-wrap gap-2 justify-center">
+                        <button class=" px-3 py-1.5 rounded-md bg-gray-50 border-2 border-gray-100 text-gray-600">
+                            B2B</button>
+                        <button class=" px-3 py-1.5 rounded-md bg-gray-50 border-2 border-gray-100 text-gray-600">
+                            B2C</button>
+                        <button class=" px-3 py-1.5 rounded-md bg-gray-50 border-2 border-gray-100 text-gray-600">
+                            E-commerce</button>
+                    </div>
+                </div>
+                <div
+                    class="bg-white cursor-pointer p-3 shadow-lg rounded-lg border border-gray-200 w-4/5 md:w-1/5 hover:scale-105 transition duration-200 ease-out hover:ease-in">
+                    <div class="flex justify-center p-5">
+                        <img class="rounded-lg" src="assets/company_logo/cpmpany_logo1.png" alt="">
+                    </div>
+                    <div class="flex justify-center place-items-center pb-3">
+                        <h3 class="text-center text-gray-700 text-lg font-medium">Layer Technologies</h3>
+                        <mat-icon>chevron_right</mat-icon>
+                    </div>
+                    <div class="p-1.5">
+                        <div class="flex gap-3 justify-center">
+                            <div class="flex gap-1">
+                                <div class="text-gray-400">
+                                    <svg width="25" height="25" viewBox="0 0 25 25" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M20.9233 7.10938H4.92334C3.81877 7.10938 2.92334 8.00481 2.92334 9.10938V19.1094C2.92334 20.2139 3.81877 21.1094 4.92334 21.1094H20.9233C22.0279 21.1094 22.9233 20.2139 22.9233 19.1094V9.10938C22.9233 8.00481 22.0279 7.10938 20.9233 7.10938Z"
+                                            stroke="#98A2B3" stroke-width="1.5" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path
+                                            d="M16.9233 21.1094V5.10938C16.9233 4.57894 16.7126 4.07023 16.3376 3.69516C15.9625 3.32009 15.4538 3.10938 14.9233 3.10938H10.9233C10.3929 3.10938 9.8842 3.32009 9.50913 3.69516C9.13405 4.07023 8.92334 4.57894 8.92334 5.10938V21.1094"
+                                            stroke="#98A2B3" stroke-width="1.5" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                </div>
+                                <div class="border-r-[3px] border-gray-200 pr-3">
+                                    <span class="text-gray-800 text-base font-medium">50 <label
+                                            class="text-gray-600 font-normal text-sm">Jobs</label></span>
+                                </div>
+                            </div>
+                            <div class="flex gap-1">
+                                <div class="text-gray-400">
+                                    <svg width="23" height="25" viewBox="0 0 23 25" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <g clip-path="url(#clip0_23192_2453)">
+                                            <path
+                                                d="M21.2104 17.1328H14.5438C14.0835 17.1328 13.7104 17.5059 13.7104 17.9661V22.1328C13.7104 22.593 14.0835 22.9661 14.5438 22.9661H21.2104C21.6707 22.9661 22.0438 22.593 22.0438 22.1328V17.9661C22.0438 17.5059 21.6707 17.1328 21.2104 17.1328Z"
+                                                stroke="#98A2B3" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path
+                                                d="M19.5438 22.9648V16.2982C19.5438 16.0772 19.456 15.8652 19.2997 15.7089C19.1434 15.5526 18.9315 15.4648 18.7104 15.4648H17.0438C16.8228 15.4648 16.6108 15.5526 16.4545 15.7089C16.2982 15.8652 16.2104 16.0772 16.2104 16.2982V22.9648"
+                                                stroke="#98A2B3" stroke-linecap="round" stroke-linejoin="round" />
+                                        </g>
+                                        <circle cx="11.9463" cy="5" r="4.25" stroke="#98A2B3" stroke-width="1.5" />
+                                        <path
+                                            d="M9.35577 22.5048H5.92334C3.16192 22.5048 0.92334 20.2663 0.92334 17.5048V16.7422C0.92334 13.9808 3.16192 11.7422 5.92334 11.7422H18.956C20.307 11.7422 21.4021 12.8373 21.4021 14.1882V14.1882"
+                                            stroke="#98A2B3" stroke-width="1.5" stroke-linecap="round" />
+                                        <defs>
+                                            <clipPath id="clip0_23192_2453">
+                                                <rect width="10" height="10" fill="white"
+                                                    transform="translate(12.877 14.2148)" />
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                </div>
+                                <div class="">
+                                    <span class="text-gray-800 text-base font-medium">7 <label
+                                            class="text-gray-600 font-normal text-sm">Role</label></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-4 flex flex-wrap gap-2 justify-center">
+                        <button class=" px-3 py-1.5 rounded-md bg-gray-50 border-2 border-gray-100 text-gray-600">
+                            Internet</button>
+                        <button class=" px-3 py-1.5 rounded-md bg-gray-50 border-2 border-gray-100 text-gray-600">
+                            Unicron</button>
+                        <button class=" px-3 py-1.5 rounded-md bg-gray-50 border-2 border-gray-100 text-gray-600">
+                            E-commerce</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="bg-[#0388BC] p-5 text-white">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <div class="grid justify-center md:justify-start">
+            <div class="grid gap-3">
+                <div class="">
+                    <h1 class="tracking-wide text-xl font-bold text-center md:text-start">Job Portal</h1> 
+                </div>
+                <div class="flex gap-3 justify-center md:justify-start place-content-center">
+                    <div>
+                        <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M4 4.5H20C21.1 4.5 22 5.4 22 6.5V18.5C22 19.6 21.1 20.5 20 20.5H4C2.9 20.5 2 19.6 2 18.5V6.5C2 5.4 2.9 4.5 4 4.5Z"
+                                stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M22 6.5L12 13.5L2 6.5" stroke="white" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                    <p class="text-base font-normal">
+                        portainfo&#64;jobportal.com
+                    </p>
+                </div>
+                <div class="flex gap-3 justify-center md:justify-start place-content-center">
+                    <div>
+                        <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M21.9999 17.4201V20.4201C22.0011 20.6986 21.944 20.9743 21.8324 21.2294C21.7209 21.4846 21.5572 21.7137 21.352 21.902C21.1468 22.0902 20.9045 22.2336 20.6407 22.3228C20.3769 22.412 20.0973 22.4452 19.8199 22.4201C16.7428 22.0857 13.7869 21.0342 11.1899 19.3501C8.77376 17.8148 6.72527 15.7663 5.18993 13.3501C3.49991 10.7413 2.44818 7.77109 2.11993 4.6801C2.09494 4.40356 2.12781 4.12486 2.21643 3.86172C2.30506 3.59859 2.4475 3.35679 2.6347 3.15172C2.82189 2.94665 3.04974 2.78281 3.30372 2.67062C3.55771 2.55843 3.83227 2.50036 4.10993 2.5001H7.10993C7.59524 2.49532 8.06572 2.66718 8.43369 2.98363C8.80166 3.30008 9.04201 3.73954 9.10993 4.2201C9.23656 5.18016 9.47138 6.12282 9.80993 7.0301C9.94448 7.38802 9.9736 7.77701 9.89384 8.15098C9.81408 8.52494 9.6288 8.86821 9.35993 9.1401L8.08993 10.4101C9.51349 12.9136 11.5864 14.9865 14.0899 16.4101L15.3599 15.1401C15.6318 14.8712 15.9751 14.6859 16.3491 14.6062C16.723 14.5264 17.112 14.5556 17.4699 14.6901C18.3772 15.0286 19.3199 15.2635 20.2799 15.3901C20.7657 15.4586 21.2093 15.7033 21.5265 16.0776C21.8436 16.4519 22.0121 16.9297 21.9999 17.4201Z"
+                                fill="white" />
+                        </svg>
+                    </div>
+                    <p class="text-base font-normal">
+                        9087654321
+                    </p>
+                </div>
+                <div class="grid justify-center md:justify-start place-content-center">
+                    <h4 class="text-lg font-medium text-center md:text-start">Stay Connected</h4>
+                    <div class="flex gap-4 py-3">
+                        <div>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M18 2H15C13.6739 2 12.4021 2.52678 11.4645 3.46447C10.5268 4.40215 10 5.67392 10 7V10H7V14H10V22H14V14H17L18 10H14V7C14 6.73478 14.1054 6.48043 14.2929 6.29289C14.4804 6.10536 14.7348 6 15 6H18V2Z"
+                                    stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                        <div>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M23 3.00224C22.0424 3.67772 20.9821 4.19435 19.86 4.53224C19.2577 3.83975 18.4573 3.34894 17.567 3.12617C16.6767 2.9034 15.7395 2.95944 14.8821 3.2867C14.0247 3.61395 13.2884 4.19664 12.773 4.95596C12.2575 5.71528 11.9877 6.61458 12 7.53224V8.53224C10.2426 8.57781 8.50127 8.18806 6.93101 7.39769C5.36074 6.60732 4.01032 5.44088 3 4.00224C3 4.00224 -1 13.0022 8 17.0022C5.94053 18.4002 3.48716 19.1012 1 19.0022C10 24.0022 21 19.0022 21 7.50224C20.9991 7.2237 20.9723 6.94584 20.92 6.67224C21.9406 5.66574 22.6608 4.39496 23 3.00224Z"
+                                    stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                        <div>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M22.5401 6.42C22.4213 5.94541 22.1794 5.51057 21.8387 5.15941C21.4981 4.80824 21.0708 4.55318 20.6001 4.42C18.8801 4 12.0001 4 12.0001 4C12.0001 4 5.12008 4 3.40008 4.46C2.92933 4.59318 2.50206 4.84824 2.16143 5.19941C1.8208 5.55057 1.57887 5.98541 1.46008 6.46C1.1453 8.20556 0.991319 9.97631 1.00008 11.75C0.988863 13.537 1.14285 15.3213 1.46008 17.08C1.59104 17.5398 1.83839 17.9581 2.17823 18.2945C2.51806 18.6308 2.9389 18.8738 3.40008 19C5.12008 19.46 12.0001 19.46 12.0001 19.46C12.0001 19.46 18.8801 19.46 20.6001 19C21.0708 18.8668 21.4981 18.6118 21.8387 18.2606C22.1794 17.9094 22.4213 17.4746 22.5401 17C22.8524 15.2676 23.0064 13.5103 23.0001 11.75C23.0113 9.96295 22.8573 8.1787 22.5401 6.42Z"
+                                    stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M9.75 15.0205L15.5 11.7505L9.75 8.48047V15.0205Z" stroke="white"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                        <div>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M17 2H7C4.23858 2 2 4.23858 2 7V17C2 19.7614 4.23858 22 7 22H17C19.7614 22 22 19.7614 22 17V7C22 4.23858 19.7614 2 17 2Z"
+                                    stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                <path
+                                    d="M15.9997 11.3703C16.1231 12.2025 15.981 13.0525 15.5935 13.7993C15.206 14.5461 14.5929 15.1517 13.8413 15.53C13.0898 15.9082 12.2382 16.0399 11.4075 15.9062C10.5768 15.7726 9.80947 15.3804 9.21455 14.7855C8.61962 14.1905 8.22744 13.4232 8.09377 12.5925C7.96011 11.7619 8.09177 10.9102 8.47003 10.1587C8.84829 9.40716 9.45389 8.79404 10.2007 8.40654C10.9475 8.01904 11.7975 7.87689 12.6297 8.0003C13.4786 8.12619 14.2646 8.52176 14.8714 9.12861C15.4782 9.73545 15.8738 10.5214 15.9997 11.3703Z"
+                                    stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M17.5 6.5H17.51" stroke="white" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="grid justify-center md:justify-start">
+            <ul class="text-center md:text-start">
+                <li class="text-lg font-medium cursor-pointer">About Us</li>
+                <li class="text-lg font-medium cursor-pointer">Careers</li>
+                <li class="text-lg font-medium cursor-pointer">Employer Home</li>
+                <li class="text-lg font-medium cursor-pointer">Sitmap</li>
+            </ul>
+        </div>
+        <div class="grid justify-center md:justify-start">
+            <ul class="text-center md:text-start">
+                <li class="text-lg font-medium cursor-pointer">Help center</li>
+                <li class="text-lg font-medium cursor-pointer">Summons/Notices</li>
+                <li class="text-lg font-medium cursor-pointer">Grievances</li>
+                <li class="text-lg font-medium cursor-pointer">Report</li>
+            </ul>
+        </div>
+        <div class="grid justify-center md:justify-start">
+            <ul class="text-center md:text-start">
+                <li class="text-lg font-medium cursor-pointer">Privacy policy</li>
+                <li class="text-lg font-medium cursor-pointer">Terms & conditions</li>
+                <li class="text-lg font-medium cursor-pointer">Fraud alert</li>
+                <li class="text-lg font-medium cursor-pointer">Trust & safety</li>
+            </ul>
+        </div>
+    </div>
+    <div class="pt-5 md:pt-10 text-center">
+        <p>All trademarks are the property of their respective owners. All Rights Reserved © 2022 First Meridian
+            Services Ltd.</p>
+    </div>
+</footer>
