@@ -1,0 +1,43 @@
+<mat-toolbar style="background-color: #D7E3FF; position: sticky; top: 0; left: 0; width: 100%; z-index: 999;">
+
+    <div class="flex gap-3 justify-center place-items-center">
+        <span>
+            @if(isMenuOpen){
+            <button (click)="toggleMenu()" mat-icon-button>
+                <mat-icon>close</mat-icon>
+            </button>
+            }@else{
+            <button (click)="toggleMenu()" mat-icon-button>
+                <mat-icon>menu</mat-icon>
+            </button>
+            }
+        </span>
+        <span class="cursor-pointer" routerLink="/">Job Portal</span>
+    </div>
+    <span class="example-spacer"></span>
+    <div class="flex gap-1">
+        <button mat-icon-button [matMenuTriggerFor]="menu">
+            <img class="h-10" src="assets/profile/profile_image.png" alt="profile image">
+        </button>
+    </div>
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item ><mat-icon>person</mat-icon>Profile</button>
+        <button mat-menu-item (click)="logOut()"><mat-icon>logout</mat-icon>Log Out</button>
+    </mat-menu>
+</mat-toolbar>
+
+<mat-drawer-container autosize>
+    <mat-drawer #drawer [opened]="isMenuOpen" mode="side" position="start" class="example-sidenav"
+        style="background-color: white; width: 300px; height: calc(100vh - 65px); overflow: auto;">
+        <app-sidebar />
+    </mat-drawer>
+    <mat-drawer-content class="!bg-gray-200" style="height: calc(100vh - 65px); overflow: auto;">
+        <div class="md:p-4 ">
+            <router-outlet />
+        </div>
+    </mat-drawer-content>
+    <mat-drawer [opened]="true" mode="side" position="end" class="example-sidenav"
+    style="background-color: white; width: 300px; height: calc(100vh - 65px); overflow: auto;">
+        add
+    </mat-drawer>
+</mat-drawer-container>

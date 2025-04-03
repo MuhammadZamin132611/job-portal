@@ -6,9 +6,13 @@ export const seekerRoutes: Routes = [
         loadChildren: () => import('./authentication/authentication.routes').then(r => r.seekerAuthenticationRouter)
     },
     {
-        path: 'dashboard',
-        loadChildren: () => import('./dashboard/seekerDashboard.routes').then(r => r.seekerDashboardRoute)
+        path: 'layout',
+        loadChildren: () => import('./subcomponent/seekerSub.routes').then(r => r.seekerSubRoutes)
     },
+    // {
+    //     path: 'dashboard',
+    //     loadChildren: () => import('./subcomponent/dashboard/seekerDashboard.routes').then(r => r.seekerDashboardRoute)
+    // },
     {
         path: '',
         redirectTo: '/seeker/auth',
