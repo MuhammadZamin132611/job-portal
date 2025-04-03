@@ -4,7 +4,7 @@ import { MaterialModule } from '../../../../../shared/material.module';
 
 @Component({
   selector: 'app-dashboard',
-  imports: [RouterLink, MaterialModule, RouterOutlet],
+  imports: [MaterialModule, RouterOutlet],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
 })

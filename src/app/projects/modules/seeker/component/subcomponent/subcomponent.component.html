@@ -26,22 +26,19 @@
     </mat-menu>
 </mat-toolbar>
 <div class="px-10 py-3 bg-gray-200">
-    <mat-drawer-container class="layout" autosize>
-        <!-- Left Sidebar -->
-        <mat-drawer #drawer [opened]="isMenuOpen" mode="side" position="start" class="example-sidenav left-sidebar">
+    <mat-drawer-container  class="layout !flex !gap-5" autosize>
+        <mat-drawer #drawer [opened]="isMenuOpen" mode="side" position="start" class="example-sidenav"
+            style="background-color: white; width: 300px; height: calc(100vh - 65px); overflow: auto;">
             <app-sidebar />
         </mat-drawer>
-
-        <mat-drawer-content class="content">
-            <div class="content-wrapper">
+        <mat-drawer-content class="!bg-gray-700" style="height: calc(100vh - 65px); overflow: auto;">
+            <div class="md:p-4 ">
                 <router-outlet />
             </div>
         </mat-drawer-content>
-
-        <!-- Right Sidebar -->
-        <mat-drawer [opened]="true" mode="side" position="end" class="example-sidenav right-sidebar">
+        <mat-drawer [opened]="true" mode="side" position="end" class="example-sidenav"
+            style="background-color: white; width: 300px; height: calc(100vh - 65px); overflow: auto;">
             add
         </mat-drawer>
     </mat-drawer-container>
-
 </div>

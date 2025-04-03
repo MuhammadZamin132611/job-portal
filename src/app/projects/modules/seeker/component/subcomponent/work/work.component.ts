@@ -4,7 +4,7 @@ import { MaterialModule } from '../../../../../shared/material.module';
 
 @Component({
   selector: 'app-work',
-  imports: [RouterLink, MaterialModule, RouterOutlet],
+  imports: [MaterialModule, RouterOutlet],
   templateUrl: './work.component.html',
   styleUrl: './work.component.scss'
 })
