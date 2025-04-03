@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { MaterialModule } from '../../../../../shared/material.module';
 import { NgIf } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-signup',
@@ -15,7 +16,7 @@ export class SignupComponent {
   showPassword: boolean = false;
   maxDate: Date;
 
-  constructor(private _fb: FormBuilder, private router: Router) {
+  constructor(private _fb: FormBuilder, private router: Router, private titleService:Title) {
     const today = new Date();
     this.maxDate = new Date(today.getFullYear() - 18, today.getMonth(), today.getDate());
 
@@ -29,6 +30,14 @@ export class SignupComponent {
       state: ['', [Validators.required]],
       country: ['', [Validators.required]],
     });
+  }
+
+  ngOnInit(): void {
+    this.setTitle("Job Portal | Recuriter Sign-up");
+  }
+
+  setTitle(newTitle: string) {
+    this.titleService.setTitle(newTitle);
   }
 
   togglePasswordVisibility() {

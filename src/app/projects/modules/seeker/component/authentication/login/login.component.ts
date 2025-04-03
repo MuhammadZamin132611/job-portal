@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { MaterialModule } from '../../../../../shared/material.module';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,7 @@ export class LoginComponent {
   loginForm: FormGroup;
   showPassword: boolean = false;
 
-  constructor(private _fb: FormBuilder, private router: Router) {
+  constructor(private _fb: FormBuilder, private router: Router, private titleService: Title) {
     this.loginForm = this._fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [
@@ -22,6 +23,15 @@ export class LoginComponent {
       ]
       ]
     });
+  }
+
+
+  ngOnInit(): void {
+    this.setTitle("Job Portal | Seeker Login");
+  }
+
+  setTitle(newTitle: string) {
+    this.titleService.setTitle(newTitle);
   }
 
   togglePasswordVisibility() {

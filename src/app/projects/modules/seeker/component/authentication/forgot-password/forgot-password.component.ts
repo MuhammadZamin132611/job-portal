@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { MaterialModule } from '../../../../../shared/material.module';
 import { Router, RouterLink } from '@angular/router';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-forgot-password',
@@ -13,12 +14,20 @@ export class ForgotPasswordComponent {
   loginForm: FormGroup;
   showPassword: boolean = false;
 
-  constructor(private _fb: FormBuilder, private router: Router) {
+  constructor(private _fb: FormBuilder, private router: Router, private titleService:Title) {
     this.loginForm = this._fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(8)]],
       confirmpassword: ['', [Validators.required, Validators.minLength(8)]]
     });
+  }
+
+  ngOnInit(): void {
+    this.setTitle("Job Portal | Seeker Forgot-Password");
+  }
+
+  setTitle(newTitle: string) {
+    this.titleService.setTitle(newTitle);
   }
 
   togglePasswordVisibility() {

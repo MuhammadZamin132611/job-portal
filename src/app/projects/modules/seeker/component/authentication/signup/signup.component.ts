@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { MaterialModule } from '../../../../../shared/material.module';
 import { NgIf } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-signup',
@@ -15,20 +16,28 @@ export class SignupComponent {
   showPassword: boolean = false;
   maxDate: Date;
 
-  constructor(private _fb: FormBuilder, private router: Router) {
+  constructor(private _fb: FormBuilder, private router: Router, private titleService: Title) {
     const today = new Date();
     this.maxDate = new Date(today.getFullYear() - 18, today.getMonth(), today.getDate());
 
     this.signUpForm = this._fb.group({
       email: ['', [Validators.required, Validators.pattern("[A-Za-z0-9._%-]+@[A-Za-z0-9._%-]+\\.[a-z]{2,3}")]],
       password: ['', [Validators.required, Validators.minLength(8)]],
-      phone: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10),Validators.pattern('^[0-9]*$')]],
+      phone: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10), Validators.pattern('^[0-9]*$')]],
       pincode: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(6)]],
       dob: ['', [Validators.required]],
       city: ['', [Validators.required]],
       state: ['', [Validators.required]],
       country: ['', [Validators.required]],
     });
+  }
+
+  ngOnInit(): void {
+    this.setTitle("Job Portal | Seeker Sign-up");
+  }
+
+  setTitle(newTitle: string) {
+    this.titleService.setTitle(newTitle);
   }
 
   togglePasswordVisibility() {
