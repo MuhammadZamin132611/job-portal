@@ -20,7 +20,7 @@ export class SidebarComponent {
     {
       icon: 'work_outline',
       listName: 'Jobs',
-      link: '/seeker/dashboard/jobs',
+      link: '/seeker/layout/jobs',
     },
   ]
 

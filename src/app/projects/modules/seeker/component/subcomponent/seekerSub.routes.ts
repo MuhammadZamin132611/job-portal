@@ -8,6 +8,10 @@ export const seekerSubRoutes: Routes = [
             {
                 path: '',
                 loadChildren: () => import('./dashboard/seekerDashboard.routes').then(r => r.seekerDashboardRoute)
+            },
+            {
+                path: 'jobs',
+                loadChildren: () => import('./work/seekerJobs.routes').then(r => r.seekerJobsRoutes)
             }
         ]
     },
