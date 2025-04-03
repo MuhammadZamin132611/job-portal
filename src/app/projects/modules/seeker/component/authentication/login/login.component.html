@@ -1,0 +1,47 @@
+<div class="grid justify-center place-content-center h-[100vh]">
+
+  <mat-card class="md:w-full">
+    <div mat-dialog-title class="bg-[#D7E3FF] flex place-content-center pb-2 text-lg font-medium mb-10 rounded-t-lg">
+      <mat-card-header>
+        <mat-icon>person</mat-icon>
+        Seeker login
+      </mat-card-header>
+    </div>
+    <form [formGroup]="loginForm" (ngSubmit)="onFormSubmit()">
+      <mat-card-content>
+        <div class="grid grid-col-2">
+          <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email" />
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Password</mat-label>
+            <input matInput [type]="showPassword ? 'text' : 'password'" formControlName="password" />
+            <button class="relative" (click)="togglePasswordVisibility()">
+              <span class="absolute right-0 bottom-0 -top-5">
+                <mat-icon>{{ showPassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+              </span>
+            </button>
+          </mat-form-field>
+        </div>
+      </mat-card-content>
+
+      <mat-card-actions>
+        <div class="flex flex-wrap justify-between gap-2">
+          <div class="flex justify-between gap-2">
+            <div>
+              <button type="submit" [disabled]="!this.loginForm.valid" mat-flat-button color="primary">Login</button>
+            </div>
+            <div>
+              <a routerLink="/seeker/signup" class="whitespace-nowrap" mat-flat-button
+                style="background-color: #d7e3ff; color: black;">Sign Up</a>
+            </div>
+          </div>
+          <div routerLink="/seeker/forgot-password" class="p-2 md:ml-32 cursor-pointer">
+            <a class="text-blue-500 hover:underline">forgot password ?</a>
+          </div>
+        </div>
+      </mat-card-actions>
+    </form>
+  </mat-card>
+</div>

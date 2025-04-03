@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { MaterialModule } from '../../../../../shared/material.module';
+import { Router, RouterLink } from '@angular/router';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-forgot-password',
@@ -33,4 +33,5 @@ export class ForgotPasswordComponent {
       console.log("not valid", this.loginForm.value)
     }
   }
+
 }

@@ -1,30 +1,33 @@
 import { Component } from '@angular/core';
-import { MaterialModule } from '../../../../../shared/material.module';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
+import { MaterialModule } from '../../../../../shared/material.module';
 
 @Component({
-  selector: 'app-forgot-password',
-  imports: [MaterialModule, ReactiveFormsModule],
-  templateUrl: './forgot-password.component.html',
-  styleUrl: './forgot-password.component.scss'
+  selector: 'app-login',
+  imports: [MaterialModule, RouterLink, ReactiveFormsModule],
+  templateUrl: './login.component.html',
+  styleUrl: './login.component.scss'
 })
-export class ForgotPasswordComponent {
+export class LoginComponent {
   loginForm: FormGroup;
   showPassword: boolean = false;
 
   constructor(private _fb: FormBuilder, private router: Router) {
     this.loginForm = this._fb.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(8)]],
-      confirmpassword: ['', [Validators.required, Validators.minLength(8)]]
+      password: ['', [
+        Validators.required,
+        Validators.minLength(8)
+      ]
+      ]
     });
   }
 
   togglePasswordVisibility() {
     this.showPassword = !this.showPassword;
   }
-
+  
   onFormSubmit() {
     if (this.loginForm.valid) {
       this.router.navigateByUrl('/layout/dashboard')
