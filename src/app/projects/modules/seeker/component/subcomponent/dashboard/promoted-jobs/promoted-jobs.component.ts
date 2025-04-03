@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-promoted-jobs',
@@ -7,5 +8,13 @@ import { Component } from '@angular/core';
   styleUrl: './promoted-jobs.component.scss'
 })
 export class PromotedJobsComponent {
+  constructor(private titleService: Title) { }
 
+  ngOnInit(): void {
+    this.setTitle("Promoted Jobs");
+  }
+
+  setTitle(newTitle: string) {
+    this.titleService.setTitle(newTitle);
+  }
 }

@@ -1,7 +1,7 @@
 <mat-toolbar style="background-color: #D7E3FF; position: sticky; top: 0; left: 0; width: 100%; z-index: 999;">
 
     <div class="flex gap-3 justify-center place-items-center">
-        <span>
+        <!-- <span>
             @if(isMenuOpen){
             <button (click)="toggleMenu()" mat-icon-button>
                 <mat-icon>close</mat-icon>
@@ -11,7 +11,7 @@
                 <mat-icon>menu</mat-icon>
             </button>
             }
-        </span>
+        </span> -->
         <span class="cursor-pointer" routerLink="/">Job Portal</span>
     </div>
     <span class="example-spacer"></span>
@@ -21,23 +21,27 @@
         </button>
     </div>
     <mat-menu #menu="matMenu">
-        <button mat-menu-item ><mat-icon>person</mat-icon>Profile</button>
+        <button mat-menu-item><mat-icon>person</mat-icon>Profile</button>
         <button mat-menu-item (click)="logOut()"><mat-icon>logout</mat-icon>Log Out</button>
     </mat-menu>
 </mat-toolbar>
+<div class="px-10 py-3 bg-gray-200">
+    <mat-drawer-container class="layout" autosize>
+        <!-- Left Sidebar -->
+        <mat-drawer #drawer [opened]="isMenuOpen" mode="side" position="start" class="example-sidenav left-sidebar">
+            <app-sidebar />
+        </mat-drawer>
 
-<mat-drawer-container autosize>
-    <mat-drawer #drawer [opened]="isMenuOpen" mode="side" position="start" class="example-sidenav"
-        style="background-color: white; width: 300px; height: calc(100vh - 65px); overflow: auto;">
-        <app-sidebar />
-    </mat-drawer>
-    <mat-drawer-content class="!bg-gray-200" style="height: calc(100vh - 65px); overflow: auto;">
-        <div class="md:p-4 ">
-            <router-outlet />
-        </div>
-    </mat-drawer-content>
-    <mat-drawer [opened]="true" mode="side" position="end" class="example-sidenav"
-    style="background-color: white; width: 300px; height: calc(100vh - 65px); overflow: auto;">
-        add
-    </mat-drawer>
-</mat-drawer-container>
+        <mat-drawer-content class="content">
+            <div class="content-wrapper">
+                <router-outlet />
+            </div>
+        </mat-drawer-content>
+
+        <!-- Right Sidebar -->
+        <mat-drawer [opened]="true" mode="side" position="end" class="example-sidenav right-sidebar">
+            add
+        </mat-drawer>
+    </mat-drawer-container>
+
+</div>

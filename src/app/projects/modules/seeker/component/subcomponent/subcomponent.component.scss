@@ -6,3 +6,29 @@
     border-radius: 0 !important;
     padding: 20px;
 }
+
+.layout {
+    display: flex !important;
+    gap: 25px !important;
+    /* Adds 5px space between elements */
+}
+
+.left-sidebar,
+.right-sidebar {
+    background-color: white;
+    width: 300px;
+    height: calc(100vh - 90px);
+    overflow: auto;
+}
+
+.content {
+    background-color: #efefef;
+    height: calc(100vh - 90px);
+    overflow: auto;
+    flex: 1;
+    /* Makes sure it takes available space */
+}
+
+.content-wrapper {
+    padding: 16px;
+}
