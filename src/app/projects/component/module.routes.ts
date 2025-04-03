@@ -7,7 +7,7 @@ export const moduleRoutes: Routes = [
     },
     {
         path: 'seeker',
-        loadChildren: () => import('../modules/seeker/component/authentication/authentication.routes').then(r => r.seekerRouter)
+        loadChildren: () => import('../modules/seeker/component/seeker.routes').then(r => r.seekerRoutes)
     },
     {
         path: 'recuriter',

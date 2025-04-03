@@ -1,6 +1,6 @@
 import { Routes } from "@angular/router";
 
-export const seekerRouter: Routes = [
+export const seekerAuthenticationRouter: Routes = [
     {
         path: 'login',
         loadComponent: () => import('./login/login.component').then(c => c.LoginComponent)
@@ -13,9 +13,10 @@ export const seekerRouter: Routes = [
         path: 'forgot-password',
         loadComponent: () => import('./forgot-password/forgot-password.component').then(c => c.ForgotPasswordComponent)
     },
+    
     {
         path: '',
-        redirectTo: "/seeker/login",
+        redirectTo: "/seeker/auth/login",
         pathMatch: 'full'
     }
 ];
