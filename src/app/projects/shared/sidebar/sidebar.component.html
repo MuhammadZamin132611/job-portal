@@ -1,5 +1,15 @@
 <mat-nav-list>
-    <div class="text-start">
+    <div class="text-start hidden md:block">
+        @for(nav of navbarList; track nav; let i = $index){
+        <div class="grid gap-3">
+            <button [routerLink]="nav.link" routerLinkActive="active-nav"
+                class="cursor-pointer bg-gray-100 hover:bg-gray-200 text-xl text-start px-5 py-2 flex items-center gap-3">
+                <mat-icon>{{nav.icon}}</mat-icon>
+                {{nav.listName}}</button>
+        </div>
+        }
+    </div>
+    <div class="text-start md:hidden block">
         @for(nav of navbarList; track nav; let i = $index){
         <div class="grid gap-3">
             <button (click)="toggleMenu()" [routerLink]="nav.link" routerLinkActive="active-nav"
@@ -7,7 +17,6 @@
                 <mat-icon>{{nav.icon}}</mat-icon>
                 {{nav.listName}}</button>
         </div>
-        
         }
     </div>
 </mat-nav-list>

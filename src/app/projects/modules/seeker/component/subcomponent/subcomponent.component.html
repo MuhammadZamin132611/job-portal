@@ -22,31 +22,26 @@
         </button>
     </div>
     <mat-menu #menu="matMenu">
-        <button mat-menu-item ><mat-icon>person</mat-icon>Profile</button>
+        <button mat-menu-item><mat-icon>person</mat-icon>Profile</button>
         <button mat-menu-item (click)="logOut()"><mat-icon>logout</mat-icon>Log Out</button>
     </mat-menu>
 </mat-toolbar>
 <div class="px-0 md:px-10 bg-gray-200">
     <mat-drawer-container autosize class="drawerContainer">
-        <!-- Sidebar Drawer (Hidden for Promoted Jobs Route) -->
-        <mat-drawer *ngIf="isMenuOpen" class="example-sidenav sideMenu otherClass" 
-            #drawer [opened]="isMenuOpen" [disableClose]="drawerMode === 'over'" [mode]="drawerMode" position="start">
+        <mat-drawer class="example-sidenav sideMenu otherClass" #drawer [opened]="isMenuOpen"
+            [disableClose]="drawerMode === 'over'" [mode]="drawerMode" position="start">
             <app-sidebar />
         </mat-drawer>
-    
-        <!-- Main Content -->
         <mat-drawer-content class="drawerContent">
             <div>
                 <router-outlet />
             </div>
         </mat-drawer-content>
-    
-        <!-- Advertisement Drawer (Hidden for Promoted Jobs Route) -->
-        <mat-drawer *ngIf="isMenuOpen && advertisement" [opened]="advertisement" 
-            [mode]="drawerMode" position="end" class="example-sidenav advertisement">
-            add
+        <mat-drawer [opened]="advertisement" [mode]="drawerMode" position="end"
+            class="example-sidenav advertisement">
+            <app-advertisement />
         </mat-drawer>
     </mat-drawer-container>
-    
+
 
 </div>

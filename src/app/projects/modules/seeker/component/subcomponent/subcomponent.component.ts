@@ -5,10 +5,11 @@ import { SidebarComponent } from '../../../../shared/sidebar/sidebar.component';
 import { SidebarService } from '../../../../services/sidebar/sidebar.service';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { NgIf } from '@angular/common';
+import { AdvertisementComponent } from '../../../../shared/advertisement/advertisement.component';
 
 @Component({
   selector: 'app-subcomponent',
-  imports: [MaterialModule, RouterOutlet, SidebarComponent, NgIf, RouterLink],
+  imports: [MaterialModule, RouterOutlet, SidebarComponent, RouterLink, AdvertisementComponent],
   templateUrl: './subcomponent.component.html',
   styleUrl: './subcomponent.component.scss'
 })
