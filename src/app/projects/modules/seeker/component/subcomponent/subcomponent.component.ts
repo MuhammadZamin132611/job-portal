@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDrawer } from '@angular/material/sidenav';
-import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
+import { NavigationEnd, Router, RouterLink, RouterOutlet } from '@angular/router';
 import { MaterialModule } from '../../../../shared/material.module';
 import { SidebarComponent } from '../../../../shared/sidebar/sidebar.component';
 import { SidebarService } from '../../../../services/sidebar/sidebar.service';
@@ -9,7 +9,7 @@ import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-subcomponent',
-  imports: [MaterialModule, RouterOutlet, SidebarComponent, NgIf],
+  imports: [MaterialModule, RouterOutlet, SidebarComponent, NgIf, RouterLink],
   templateUrl: './subcomponent.component.html',
   styleUrl: './subcomponent.component.scss'
 })
@@ -30,7 +30,7 @@ export class SubcomponentComponent implements OnInit {
     // });
   }
 
-  hiddenRoutes = ['/seeker/layout/dashboard', '/seeker/layout/dashboard/promoted-jobs'];
+  hiddenRoutes = ['/seeker/layout/profile'];
 
   checkDrawerVisibility(currentRoute: string) {
     const shouldHideDrawer = this.hiddenRoutes.includes(currentRoute);

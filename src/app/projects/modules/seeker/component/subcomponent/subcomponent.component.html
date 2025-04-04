@@ -2,7 +2,7 @@
     style="background-color: #D7E3FF; position: sticky; top: 0; left: 0; width: 100%; z-index: 999;">
 
     <div class="flex gap-3 justify-center place-items-center">
-        <span class="cursor-pointer block md:hidden">
+        <div class="cursor-pointer block md:hidden">
             @if(isMenuOpen){
             <button (click)="toggleMenu()" mat-icon-button>
                 <mat-icon>close</mat-icon>
@@ -12,8 +12,8 @@
                 <mat-icon>menu</mat-icon>
             </button>
             }
-        </span>
-        <span class="cursor-pointer" routerLink="/">Job Portal</span>
+        </div>
+        <span class="cursor-pointer" routerLink="/seeker/layout/dashboard">Job Portal</span>
     </div>
     <span class="example-spacer"></span>
     <div class="flex gap-1">
@@ -22,7 +22,7 @@
         </button>
     </div>
     <mat-menu #menu="matMenu">
-        <button mat-menu-item><mat-icon>person</mat-icon>Profile</button>
+        <button mat-menu-item routerLink="/seeker/layout/profile"><mat-icon>person</mat-icon>Profile</button>
         <button mat-menu-item (click)="logOut()"><mat-icon>logout</mat-icon>Log Out</button>
     </mat-menu>
 </mat-toolbar>
