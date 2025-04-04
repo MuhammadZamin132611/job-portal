@@ -26,13 +26,13 @@
     </mat-menu>
 </mat-toolbar>
 <div class="px-10 py-3 bg-gray-200">
-    <mat-drawer-container  class="layout !flex !gap-5" autosize>
+    <mat-drawer-container  autosize>
         <mat-drawer #drawer [opened]="isMenuOpen" mode="side" position="start" class="example-sidenav"
-            style="background-color: white; width: 300px; height: calc(100vh - 65px); overflow: auto;">
+            style="background-color: white; width: 300px; height: calc(100vh - 90px); overflow: auto;">
             <app-sidebar />
         </mat-drawer>
-        <mat-drawer-content class="!bg-gray-700" style="height: calc(100vh - 65px); overflow: auto;">
-            <div class="md:p-4 ">
+        <mat-drawer-content class="!bg-gray-200" style="height: calc(100vh - 90px); overflow: auto;">
+            <div class="md:px-4 ">
                 <router-outlet />
             </div>
         </mat-drawer-content>

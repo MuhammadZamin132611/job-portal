@@ -5,7 +5,7 @@ import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-home',
-  imports: [MaterialModule],
+  imports: [MaterialModule, RouterLink],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
