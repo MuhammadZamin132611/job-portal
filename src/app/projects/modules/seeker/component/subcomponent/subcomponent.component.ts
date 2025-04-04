@@ -1,14 +1,15 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDrawer } from '@angular/material/sidenav';
-import { Router, RouterOutlet } from '@angular/router';
+import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { MaterialModule } from '../../../../shared/material.module';
 import { SidebarComponent } from '../../../../shared/sidebar/sidebar.component';
 import { SidebarService } from '../../../../services/sidebar/sidebar.service';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-subcomponent',
-  imports: [MaterialModule, RouterOutlet, SidebarComponent],
+  imports: [MaterialModule, RouterOutlet, SidebarComponent, NgIf],
   templateUrl: './subcomponent.component.html',
   styleUrl: './subcomponent.component.scss'
 })
@@ -21,19 +22,31 @@ export class SubcomponentComponent implements OnInit {
   constructor(
     private breakpointObserver: BreakpointObserver,
     private drawerService: SidebarService, private router: Router
-  ) { }
+  ) {
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        this.checkDrawerVisibility(event.urlAfterRedirects);
+      }
+    });
+  }
 
+  hiddenRoutes = ['/seeker/layout/dashboard/promoted-jobs'];
+
+  checkDrawerVisibility(currentRoute: string) {
+    this.isMenuOpen = !this.hiddenRoutes.includes(currentRoute);
+    this.advertisement = this.isMenuOpen; // Hide advertisement if sidebar is hidden
+  }
   ngOnInit() {
     this.breakpointObserver.observe([
-      Breakpoints.XSmall, 
-      Breakpoints.Small, 
-      Breakpoints.Handset, 
+      Breakpoints.XSmall,
+      Breakpoints.Small,
+      Breakpoints.Handset,
       Breakpoints.Medium
     ]).subscribe(result => {
       if (result.breakpoints[Breakpoints.XSmall] || result.breakpoints[Breakpoints.Small] || result.breakpoints[Breakpoints.Handset]) {
         // For screens ≤ 767px (mobile)
         this.drawerMode = 'over';
-        this.advertisement = false; 
+        this.advertisement = false;
         this.isMenuOpen = false;
         this.drawerService.setDrawerState(false);
       } else {
@@ -44,12 +57,12 @@ export class SubcomponentComponent implements OnInit {
         this.drawerService.setDrawerState(true);
       }
     });
-    
+
     // Keep sidebar state synced with service
     this.drawerService.isOpen$.subscribe(state => {
       this.isMenuOpen = state;
     });
-    
+
 
   }
 

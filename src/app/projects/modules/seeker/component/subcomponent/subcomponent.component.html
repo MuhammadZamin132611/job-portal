@@ -27,20 +27,26 @@
     </mat-menu>
 </mat-toolbar>
 <div class="px-0 md:px-10 bg-gray-200">
-    <mat-drawer-container autosize class="drawerContainer" >
-        <mat-drawer class="!my-3" #drawer [opened]="isMenuOpen" [disableClose]="drawerMode === 'over'"
-            [mode]="drawerMode" position="start" class="example-sidenav sideMenu otherClass">
+    <mat-drawer-container autosize class="drawerContainer">
+        <!-- Sidebar Drawer (Hidden for Promoted Jobs Route) -->
+        <mat-drawer *ngIf="isMenuOpen" class="!my-3 example-sidenav sideMenu otherClass" 
+            #drawer [opened]="isMenuOpen" [disableClose]="drawerMode === 'over'" [mode]="drawerMode" position="start">
             <app-sidebar />
         </mat-drawer>
-
+    
+        <!-- Main Content -->
         <mat-drawer-content class="drawerContent">
             <div>
                 <router-outlet />
             </div>
         </mat-drawer-content>
-        <mat-drawer [opened]="advertisement" [mode]="drawerMode" position="end" class="example-sidenav advertisement">
+    
+        <!-- Advertisement Drawer (Hidden for Promoted Jobs Route) -->
+        <mat-drawer *ngIf="isMenuOpen && advertisement" [opened]="advertisement" 
+            [mode]="drawerMode" position="end" class="example-sidenav advertisement">
             add
         </mat-drawer>
     </mat-drawer-container>
+    
 
 </div>
