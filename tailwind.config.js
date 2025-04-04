@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  important: true, // Forces all Tailwind styles to be !important
   content: [
     "./src/**/*.{html,ts}",
   ],

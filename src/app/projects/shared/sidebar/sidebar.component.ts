@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MaterialModule } from '../material.module';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { SidebarService } from '../../services/sidebar/sidebar.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -10,6 +11,11 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 })
 export class SidebarComponent {
 
+  constructor(private sidebarService: SidebarService) { }
+  
+  toggleMenu() {
+    this.sidebarService.toggleDrawer();
+  }
 
   navbarList = [
     {

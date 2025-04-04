@@ -18,7 +18,7 @@
     <span class="example-spacer"></span>
     <div class="flex gap-1">
         <button mat-icon-button [matMenuTriggerFor]="menu">
-            <img class="h-10" src="assets/profile/profile_image.png" alt="profile image">
+            <img class="h-10 w-10" src="assets/profile/profile_image.png" alt="profile image">
         </button>
     </div>
     <mat-menu #menu="matMenu">
@@ -26,22 +26,19 @@
         <button mat-menu-item (click)="logOut()"><mat-icon>logout</mat-icon>Log Out</button>
     </mat-menu>
 </mat-toolbar>
-<div class="px-0 md:px-10 py-3 bg-gray-200">
-    <mat-drawer-container autosize class="!flex !gap-5 !w-full">
-        <mat-drawer #drawer [opened]="isMenuOpen" [disableClose]="drawerMode === 'over'" [mode]="drawerMode"
-            position="start" class="example-sidenav"
-            style="background-color: white; width: 300px; height: calc(100vh - 90px); overflow: auto;">
+<div class="px-0 md:px-10 bg-gray-200">
+    <mat-drawer-container autosize class="drawerContainer" >
+        <mat-drawer class="!my-3" #drawer [opened]="isMenuOpen" [disableClose]="drawerMode === 'over'"
+            [mode]="drawerMode" position="start" class="example-sidenav sideMenu otherClass">
             <app-sidebar />
         </mat-drawer>
 
-        <mat-drawer-content class="!bg-gray-200 !flex-1 sm:!px-2 md:!px-3 lg:!px-5"
-            style="padding: 2px 10px; height: calc(100vh - 90px); overflow: auto;">
-            <div class=" px-0 md:px-2 rounded-lg bg-white">
+        <mat-drawer-content class="drawerContent">
+            <div>
                 <router-outlet />
             </div>
         </mat-drawer-content>
-        <mat-drawer [opened]="advertisement" [mode]="drawerMode" position="end" class="example-sidenav"
-            style="background-color: white; width: 300px; height: calc(100vh - 65px); overflow: auto;">
+        <mat-drawer [opened]="advertisement" [mode]="drawerMode" position="end" class="example-sidenav advertisement">
             add
         </mat-drawer>
     </mat-drawer-container>
