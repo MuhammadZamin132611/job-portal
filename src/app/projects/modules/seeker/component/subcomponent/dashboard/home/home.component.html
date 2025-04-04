@@ -8,7 +8,7 @@
 
         <!-- jobs card -->
         <div class="flex gap-5 py-1.5 w-full overflow-x-auto overscroll-none whitespace-nowrap scroll-container">
-            <app-job-card width="w-full" />
+            <app-job-card width="w-full" view="flex" [jobCardData]="jobCardData" />
         </div>
     </div>
 </div>
@@ -19,6 +19,6 @@
             all</a>
     </div>
     <div class="grid gap-5">
-        <app-job-card />
+        <app-job-card view="grid" [jobCardData]="jobCardData" />
     </div>
 </div>
