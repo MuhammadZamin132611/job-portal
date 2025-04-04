@@ -29,7 +29,7 @@
 <div class="px-0 md:px-10 bg-gray-200">
     <mat-drawer-container autosize class="drawerContainer">
         <!-- Sidebar Drawer (Hidden for Promoted Jobs Route) -->
-        <mat-drawer *ngIf="isMenuOpen" class="!my-3 example-sidenav sideMenu otherClass" 
+        <mat-drawer *ngIf="isMenuOpen" class="example-sidenav sideMenu otherClass" 
             #drawer [opened]="isMenuOpen" [disableClose]="drawerMode === 'over'" [mode]="drawerMode" position="start">
             <app-sidebar />
         </mat-drawer>
