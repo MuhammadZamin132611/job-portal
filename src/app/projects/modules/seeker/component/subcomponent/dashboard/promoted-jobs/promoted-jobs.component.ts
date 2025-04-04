@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-promoted-jobs',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './promoted-jobs.component.html',
   styleUrl: './promoted-jobs.component.scss'
 })

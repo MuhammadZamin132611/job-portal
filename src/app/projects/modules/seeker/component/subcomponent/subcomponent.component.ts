@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatDrawer } from '@angular/material/sidenav';
-import { NavigationEnd, Router, RouterLink, RouterOutlet } from '@angular/router';
+import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { MaterialModule } from '../../../../shared/material.module';
 import { SidebarComponent } from '../../../../shared/sidebar/sidebar.component';
 import { SidebarService } from '../../../../services/sidebar/sidebar.service';
@@ -30,24 +29,8 @@ export class SubcomponentComponent implements OnInit {
     // });
   }
 
-  hiddenRoutes = ['/seeker/layout/profile'];
 
-  checkDrawerVisibility(currentRoute: string) {
-    const shouldHideDrawer = this.hiddenRoutes.includes(currentRoute);
-    this.isMenuOpen = !shouldHideDrawer;
-    this.advertisement = !shouldHideDrawer;
-  }
   ngOnInit() {
-
-    this.checkDrawerVisibility(this.router.url);
-
-    // Listen for route changes
-    this.router.events.subscribe(event => {
-      if (event instanceof NavigationEnd) {
-        this.checkDrawerVisibility(event.urlAfterRedirects);
-      }
-    });
-
     this.breakpointObserver.observe([
       Breakpoints.XSmall,
       Breakpoints.Small,
