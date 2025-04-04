@@ -23,20 +23,31 @@ export class SubcomponentComponent implements OnInit {
     private breakpointObserver: BreakpointObserver,
     private drawerService: SidebarService, private router: Router
   ) {
+    // this.router.events.subscribe(event => {
+    //   if (event instanceof NavigationEnd) {
+    //     this.checkDrawerVisibility(event.urlAfterRedirects);
+    //   }
+    // });
+  }
+
+  hiddenRoutes = ['/seeker/layout/dashboard', '/seeker/layout/dashboard/promoted-jobs'];
+
+  checkDrawerVisibility(currentRoute: string) {
+    const shouldHideDrawer = this.hiddenRoutes.includes(currentRoute);
+    this.isMenuOpen = !shouldHideDrawer;
+    this.advertisement = !shouldHideDrawer;
+  }
+  ngOnInit() {
+
+    this.checkDrawerVisibility(this.router.url);
+
+    // Listen for route changes
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         this.checkDrawerVisibility(event.urlAfterRedirects);
       }
     });
-  }
 
-  hiddenRoutes = ['/seeker/layout/dashboard/promoted-jobs'];
-
-  checkDrawerVisibility(currentRoute: string) {
-    this.isMenuOpen = !this.hiddenRoutes.includes(currentRoute);
-    this.advertisement = this.isMenuOpen; // Hide advertisement if sidebar is hidden
-  }
-  ngOnInit() {
     this.breakpointObserver.observe([
       Breakpoints.XSmall,
       Breakpoints.Small,
