@@ -1,7 +1,8 @@
-<mat-toolbar style="background-color: #D7E3FF; position: sticky; top: 0; left: 0; width: 100%; z-index: 999;">
+<mat-toolbar class="!px-2 md:!px-10"
+    style="background-color: #D7E3FF; position: sticky; top: 0; left: 0; width: 100%; z-index: 999;">
 
     <div class="flex gap-3 justify-center place-items-center">
-        <!-- <span>
+        <span class="cursor-pointer block md:hidden">
             @if(isMenuOpen){
             <button (click)="toggleMenu()" mat-icon-button>
                 <mat-icon>close</mat-icon>
@@ -11,7 +12,7 @@
                 <mat-icon>menu</mat-icon>
             </button>
             }
-        </span> -->
+        </span>
         <span class="cursor-pointer" routerLink="/">Job Portal</span>
     </div>
     <span class="example-spacer"></span>
@@ -25,20 +26,24 @@
         <button mat-menu-item (click)="logOut()"><mat-icon>logout</mat-icon>Log Out</button>
     </mat-menu>
 </mat-toolbar>
-<div class="px-10 py-3 bg-gray-200">
-    <mat-drawer-container  autosize>
-        <mat-drawer #drawer [opened]="isMenuOpen" mode="side" position="start" class="example-sidenav"
+<div class="px-0 md:px-10 py-3 bg-gray-200">
+    <mat-drawer-container autosize class="!flex !gap-5 !w-full">
+        <mat-drawer #drawer [opened]="isMenuOpen" [disableClose]="drawerMode === 'over'" [mode]="drawerMode"
+            position="start" class="example-sidenav"
             style="background-color: white; width: 300px; height: calc(100vh - 90px); overflow: auto;">
             <app-sidebar />
         </mat-drawer>
-        <mat-drawer-content class="!bg-gray-200" style="height: calc(100vh - 90px); overflow: auto;">
-            <div class="md:px-4 ">
+
+        <mat-drawer-content class="!bg-gray-200 !flex-1 sm:!px-2 md:!px-3 lg:!px-5"
+            style="padding: 2px 10px; height: calc(100vh - 90px); overflow: auto;">
+            <div class=" px-0 md:px-2 rounded-lg bg-white">
                 <router-outlet />
             </div>
         </mat-drawer-content>
-        <mat-drawer [opened]="true" mode="side" position="end" class="example-sidenav"
+        <mat-drawer [opened]="advertisement" [mode]="drawerMode" position="end" class="example-sidenav"
             style="background-color: white; width: 300px; height: calc(100vh - 65px); overflow: auto;">
             add
         </mat-drawer>
     </mat-drawer-container>
+
 </div>

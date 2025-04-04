@@ -6,21 +6,14 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class SidebarService {
 
-  private isFilterOpenSubject = new BehaviorSubject<boolean>(true);
-  private isMenuOpenSubject = new BehaviorSubject<boolean>(false);
+  private isOpen = new BehaviorSubject<boolean>(false);
+  isOpen$ = this.isOpen.asObservable();
 
-  isFilterOpen$ = this.isFilterOpenSubject.asObservable();
-  isMenuOpen$ = this.isMenuOpenSubject.asObservable();
-
-  toggleFilter(): void {
-    this.isMenuOpenSubject.next(false);
-    const current = this.isFilterOpenSubject.getValue();
-    this.isFilterOpenSubject.next(!current);
+  toggleDrawer() {
+    this.isOpen.next(!this.isOpen.value);
   }
 
-  toggleMenu(): void {
-    this.isFilterOpenSubject.next(false);
-    const current = this.isMenuOpenSubject.getValue();
-    this.isMenuOpenSubject.next(!current);
+  setDrawerState(state: boolean) {
+    this.isOpen.next(state);
   }
 }
