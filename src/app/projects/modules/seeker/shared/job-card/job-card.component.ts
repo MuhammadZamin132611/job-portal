@@ -22,9 +22,7 @@ export class JobCardComponent {
       maxSalary: '60,000',
       experience: 'Min 2 years',
       jobType: 'Full Time',
-      matches: '80',
-      description: 'We are looking for a Software Engineer to join our team. You will be responsible for developing and maintaining software applications.'
-
+      matches: '80'
     },
   ];
 }
@@ -39,5 +37,4 @@ interface JobCardData {
   experience: string;
   matches: string;
   jobType: string;
-  description: string;
 }
