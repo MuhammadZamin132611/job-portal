@@ -1,5 +1,10 @@
 <div class="p-4">
-    <h2 class="text-lg font-bold mb-4">{{ data.filterType }}</h2>
+    <div class="flex justify-between place-items-center">
+        <h2 class="text-lg font-bold mb-4">{{ data.filterType }}</h2>
+        <button mat-icon-button class=" text-gray-600 hover:text-gray-800" (click)="closeSheet()">
+            <mat-icon>close</mat-icon>
+        </button>
+    </div>
 
     <!-- Job Role Section -->
     <div *ngIf="data.filterType === 'Job Roles'" class="space-y-2">
