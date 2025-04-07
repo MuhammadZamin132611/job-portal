@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
+import { MaterialModule } from '../../../../shared/material.module';
 
 @Component({
   selector: 'app-featured-company',
-  imports: [],
+  imports: [MaterialModule],
   templateUrl: './featured-company.component.html',
   styleUrl: './featured-company.component.scss'
 })
