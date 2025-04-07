@@ -6,6 +6,8 @@ import { SidebarService } from '../../../../services/sidebar/sidebar.service';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { NgIf } from '@angular/common';
 import { AdvertisementComponent } from '../../../../shared/advertisement/advertisement.component';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { ConfirmationComponent } from '../../shared/confirmation/confirmation.component';
 
 @Component({
   selector: 'app-subcomponent',
@@ -21,7 +23,8 @@ export class SubcomponentComponent implements OnInit {
 
   constructor(
     private breakpointObserver: BreakpointObserver,
-    private drawerService: SidebarService, private router: Router
+    private drawerService: SidebarService, private router: Router,
+    private dialog: MatDialog
   ) {
     // this.router.events.subscribe(event => {
     //   if (event instanceof NavigationEnd) {
@@ -65,8 +68,17 @@ export class SubcomponentComponent implements OnInit {
     this.drawerService.toggleDrawer();
   }
 
-  logOut() {
-    localStorage.clear()
-    this.router.navigate(['/'])
+
+  logout() {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.data = {
+      message: 'Logout'
+    };
+    const dialogRef = this.dialog.open(ConfirmationComponent, dialogConfig);
+    const response = dialogRef.componentInstance.onEmitStatusChange.subscribe((response: any) => {
+      dialogRef.close();
+      localStorage.removeItem('token');
+      this.router.navigate(['/']);
+    })
   }
 }

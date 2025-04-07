@@ -1,29 +1,59 @@
 <mat-toolbar class="!px-2 md:!px-10"
     style="background-color: #D7E3FF; position: sticky; top: 0; left: 0; width: 100%; z-index: 999;">
-
-    <div class="flex gap-3 justify-center place-items-center">
-        <div class="cursor-pointer block md:hidden">
-            @if(isMenuOpen){
-            <button (click)="toggleMenu()" mat-icon-button>
-                <mat-icon>close</mat-icon>
-            </button>
-            }@else{
-            <button (click)="toggleMenu()" mat-icon-button>
-                <mat-icon>menu</mat-icon>
-            </button>
-            }
+    <div class="flex gap-10">
+        <div class="flex gap-3 justify-center place-items-center">
+            <div class="cursor-pointer block md:hidden">
+                @if(isMenuOpen){
+                <button (click)="toggleMenu()" mat-icon-button>
+                    <mat-icon>close</mat-icon>
+                </button>
+                }@else{
+                <button (click)="toggleMenu()" mat-icon-button>
+                    <mat-icon>menu</mat-icon>
+                </button>
+                }
+            </div>
+            <span class="cursor-pointer" routerLink="/seeker/layout/dashboard">Job Portal</span>
         </div>
-        <span class="cursor-pointer" routerLink="/seeker/layout/dashboard">Job Portal</span>
+        <div class="hidden md:block">
+            <div class="job_category">
+                <h1 class="underline-animation">Jobs</h1>
+                <h1 class="underline-animation">Companies</h1>
+                <h1 class="underline-animation">Services</h1>
+            </div>
+        </div>
     </div>
     <span class="example-spacer"></span>
-    <div class="flex gap-1">
+    <div class="flex gap-3">
+        <!-- <div class="flex place-items-center">
+            <input type="text" placeholder="Search here..." class="px-4 py-1.5 rounded-lg focus:outline-none">
+            <div class="relative -ml-7 flex place-items-center">
+                <mat-icon class="bg-blue-800 text-white rounded">search</mat-icon>
+            </div>
+        </div> -->
+        <div class="flex items-center w-full bg-white border border-gray-200 rounded-full shadow-sm p-1">
+            <input
+              type="text"
+              placeholder="Search jobs here"
+              class="flex-grow bg-transparent text-gray-600 placeholder-gray-400 focus:outline-none pl-3"
+            />
+            <button class="w-10 h-10 flex items-center justify-center bg-blue-100 rounded-full">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-black" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+            </button>
+          </div>          
+        <button class="bg-white" mat-icon-button>
+            <mat-icon class="text-gray-600" matBadge="16" aria-hidden="false">notifications</mat-icon>
+        </button>
         <button mat-icon-button [matMenuTriggerFor]="menu">
             <img class="h-10 w-10" src="assets/profile/profile_image.png" alt="profile image">
         </button>
     </div>
     <mat-menu #menu="matMenu">
         <button mat-menu-item><mat-icon>person</mat-icon>Profile</button>
-        <button mat-menu-item (click)="logOut()"><mat-icon>logout</mat-icon>Log Out</button>
+        <button mat-menu-item (click)="logout()"><mat-icon>logout</mat-icon>Log Out</button>
     </mat-menu>
 </mat-toolbar>
 <div class="px-0 md:px-10 bg-gray-200">
@@ -37,11 +67,8 @@
                 <router-outlet />
             </div>
         </mat-drawer-content>
-        <mat-drawer [opened]="advertisement" [mode]="drawerMode" position="end"
-            class="example-sidenav advertisement">
+        <mat-drawer [opened]="advertisement" [mode]="drawerMode" position="end" class="example-sidenav advertisement">
             <app-advertisement />
         </mat-drawer>
     </mat-drawer-container>
-
-
 </div>

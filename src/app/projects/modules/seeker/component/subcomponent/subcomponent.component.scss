@@ -34,6 +34,30 @@
     }
 
     .drawerContent>div {
-        @apply px-0 md:px-2 rounded-lg bg-white
+        @apply px-0 md:px-2 rounded-lg bg-white;
     }
+
+    .job_category {
+        @apply flex gap-5 justify-center place-content-center;
+    }
+
+    .underline-animation {
+        @apply relative cursor-pointer text-lg font-normal text-gray-600 hover:text-gray-800;
+    }
+
+    .underline-animation::after {
+        content: '';
+        @apply absolute bottom-0 h-[3px] bg-red-600 transition-all duration-300 rounded;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+    }
+
+    .underline-animation:hover::after {
+        @apply w-full;
+    }
+
+      
+
+
 }
