@@ -6,10 +6,10 @@
     </div>
     <div class="chip-scroll-container scroll-container" aria-label="Fruit selection">
         @for(filter of filterList; track $index){
-        <mat-chip-row>
+        <mat-chip-row (click)="filter.model && openBottomSheet(filter.filterType)">
             {{filter.filterType}}
             @if(filter.model){
-            <button matChipRemove>
+            <button (click)="filter.model && openBottomSheet(filter.filterType)" matChipRemove>
                 <mat-icon>keyboard_arrow_down</mat-icon>
             </button>
             }
