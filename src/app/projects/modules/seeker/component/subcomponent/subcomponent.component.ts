@@ -31,6 +31,10 @@ export class SubcomponentComponent implements OnInit {
     //     this.checkDrawerVisibility(event.urlAfterRedirects);
     //   }
     // });
+
+    // let date = new Date("2024-03-25");
+    // date.setDate(date.getDate()+60);
+    // console.log(date.toString());
   }
 
 
