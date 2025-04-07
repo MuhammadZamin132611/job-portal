@@ -1,1 +1,22 @@
-<p>short-filter works!</p>
+<div class="flex gap-3">
+    <div class="flex gap-1 justify-center place-items-center">
+        <!-- <div class="flex gap-1"> -->
+            <mat-icon class="text-gray-600">filter_alt_outline</mat-icon>
+            <p class="text-gray-800 text-lg font-semibold">Filter</p>
+            <mat-icon class="text-gray-600 mt-1">keyboard_arrow_right</mat-icon>
+        <!-- </div> -->
+
+    </div>
+    <div class="chip-scroll-container scroll-container" aria-label="Fruit selection">
+        @for(filter of filterList; track $index){
+        <mat-chip-row>
+            {{filter.filterType}}
+            @if(filter.model){
+            <button matChipRemove>
+                <mat-icon>keyboard_arrow_down</mat-icon>
+            </button>
+            }
+        </mat-chip-row>
+        }
+    </div>
+</div>
