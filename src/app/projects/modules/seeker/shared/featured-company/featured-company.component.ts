@@ -8,4 +8,20 @@ import { Component } from '@angular/core';
 })
 export class FeaturedCompanyComponent {
 
+  featuredCompanyData = [
+    {
+      companyLogo: 'assets/company_logo/cpmpany_logo1.png',
+      companyName: 'Tech Company',
+      loaction: 'Gurgaon, India',
+      employee: '100 Employee',
+      jobOpeningCount: '22'
+    },
+    {
+      companyLogo: 'assets/company_logo/cpmpany_logo2.png',
+      companyName: 'Company Name',
+      loaction: 'Banglore, India',
+      employee: '50 Employee',
+      jobOpeningCount: '15'
+    },
+  ]
 }
