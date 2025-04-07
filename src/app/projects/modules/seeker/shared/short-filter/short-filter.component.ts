@@ -19,7 +19,7 @@ export class ShortFilterComponent {
   filterList = [
     { filterType: 'Experience Level', model: true },
     { filterType: 'Freshness', model: true },
-    { filterType: 'Job Roles ', model: true },
+    { filterType: 'Job Roles', model: true },
     { filterType: 'Job City', model: true },
     { filterType: 'Salary', model: true },
     { filterType: 'Work From Home ', model: false },

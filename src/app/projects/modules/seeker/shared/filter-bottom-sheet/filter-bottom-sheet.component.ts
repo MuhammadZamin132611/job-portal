@@ -13,7 +13,7 @@ export class FilterBottomSheetComponent {
   filterType: string = '';
   constructor(@Inject(MAT_BOTTOM_SHEET_DATA) public data: { filterType: string }) 
   {
-    this.filterType = data?.filterType || 'Default';
+    this.filterType = data.filterType || 'Default';
     console.log("data.filterType",this.data)
   }
   
