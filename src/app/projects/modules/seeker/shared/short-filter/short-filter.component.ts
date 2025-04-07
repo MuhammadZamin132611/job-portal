@@ -1,5 +1,7 @@
-import { Component, model } from '@angular/core';
+import { Component, inject, model } from '@angular/core';
 import { MaterialModule } from '../../../../shared/material.module';
+import { MatBottomSheet } from '@angular/material/bottom-sheet';
+import { FilterBottomSheetComponent } from '../filter-bottom-sheet/filter-bottom-sheet.component';
 
 @Component({
   selector: 'app-short-filter',
@@ -8,6 +10,11 @@ import { MaterialModule } from '../../../../shared/material.module';
   styleUrl: './short-filter.component.scss'
 })
 export class ShortFilterComponent {
+  private _bottomSheet = inject(MatBottomSheet);
+
+  constructor() {
+
+  }
 
   filterList = [
     { filterType: 'Experience Level', model: true },
@@ -22,4 +29,11 @@ export class ShortFilterComponent {
     { filterType: 'Day Shift', model: false },
     { filterType: 'Salary', model: true },
   ];
+
+  openBottomSheet(filterType: string): void {
+    this._bottomSheet.open(FilterBottomSheetComponent, {
+      data: { filterType }
+    });
+  }
+
 }

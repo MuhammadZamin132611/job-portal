@@ -1,0 +1,20 @@
+
+<div class="p-4">
+    <h2 class="text-lg font-bold mb-4">{{ data.filterType }}</h2>
+
+    <!-- Job Role Section -->
+    <div *ngIf="data.filterType === 'Job Roles'" class="space-y-2">
+        <label class="block text-sm font-medium text-gray-700">Select Job Role:</label>
+        <select class="w-full border rounded px-3 py-2">
+            <option>Frontend Developer</option>
+            <option>Backend Developer</option>
+            <option>Designer</option>
+        </select>
+    </div>
+
+    <!-- Salary Section -->
+    <div *ngIf="data.filterType === 'Salary'" class="space-y-2">
+        <label class="block text-sm font-medium text-gray-700">Enter Desired Salary:</label>
+        <input type="number" class="w-full border rounded px-3 py-2" placeholder="₹50000+" />
+    </div>
+</div>
