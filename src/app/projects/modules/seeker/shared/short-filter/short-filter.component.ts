@@ -32,6 +32,7 @@ export class ShortFilterComponent {
 
   openBottomSheet(filterType: string): void {
     this._bottomSheet.open(FilterBottomSheetComponent, {
+      panelClass: 'custom-bottom-sheet',
       data: { filterType }
     });
   }

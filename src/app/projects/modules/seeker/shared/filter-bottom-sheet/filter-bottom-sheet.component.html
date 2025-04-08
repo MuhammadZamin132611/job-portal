@@ -1,19 +1,63 @@
-<div class="p-4">
-    <div class="flex justify-between place-items-center">
-        <h2 class="text-lg font-bold mb-4">{{ data.filterType }}</h2>
-        <button mat-icon-button class=" text-gray-600 hover:text-gray-800" (click)="closeSheet()">
-            <mat-icon>close</mat-icon>
-        </button>
+<div class="rounded-md h-full">
+    <div class="flex justify-between p-4 place-content-center">
+        <div>
+            <h2 class="text-lg font-medium text-gray-800">{{ data.filterType }}</h2>
+        </div>
+        <div>
+            <button mat-icon-button class=" text-gray-600 hover:text-gray-800" (click)="closeSheet()">
+                <mat-icon>close</mat-icon>
+            </button>
+        </div>
+    </div>
+
+    <!-- Experience Level Section -->
+    <div *ngIf="data.filterType === 'Experience Level'" class="space-y-2">
+        @for (experience of experienceLeve; track $index) {
+        <div class="flex items-center justify-between gap-2 cursor-pointer" (click)="selectExperience(experience)">
+            <span class="text-gray-700 select-none">{{ experience.experiencType }}</span>
+            <mat-checkbox [checked]="experience.model" (click)="$event.stopPropagation()"></mat-checkbox>
+        </div>
+        }
+    </div>
+
+    <!-- Freshness Section -->
+    <div *ngIf="data.filterType === 'Freshness'" class="space-y-2">
+        @for (freshness of freshenessLeve; track $index) {
+        <div class="flex items-center justify-between gap-2 cursor-pointer" (click)="selectFreshness(freshness)">
+            <span class="text-gray-700 select-none">{{ freshness.freshenessType }}</span>
+            <mat-checkbox [checked]="freshness.model" (click)="$event.stopPropagation()"></mat-checkbox>
+        </div>
+        }
     </div>
 
     <!-- Job Role Section -->
     <div *ngIf="data.filterType === 'Job Roles'" class="space-y-2">
-        <label class="block text-sm font-medium text-gray-700">Select Job Role:</label>
-        <select class="w-full border rounded px-3 py-2">
-            <option>Frontend Developer</option>
-            <option>Backend Developer</option>
-            <option>Designer</option>
-        </select>
+        <div class="flex p-4 ">
+            <div
+                class="grid justify-center px-3 place-items-center text-gray-500 bg-white rounded-l-lg border-r-4 border-gray-200">
+                <mat-icon>search</mat-icon>
+            </div>
+            <input type="search" [(ngModel)]="searchTerm" placeholder="Search job role, eg: Accountant"
+                class="w-full p-3 text-base font-normal focus:outline-none rounded-r-lg ">
+        </div>
+        <ng-container *ngIf="filteredRoles().length > 0; else noResults">
+            @for (role of filteredRoles(); track $index) {
+            <div class="flex items-center justify-between gap-2 cursor-pointer" (click)="selectRole(role)">
+                <span class="text-gray-700 select-none">{{ role }}</span>
+                <mat-checkbox [checked]="selectedRoles.includes(role)"
+                    (click)="$event.stopPropagation()"></mat-checkbox>
+            </div>
+            }
+        </ng-container>
+        <div class="sticky bottom-0 bg-[#F4F3F6] w-full">
+            <button class="w-full" (click)="logSelectedRoles()" mat-raised-button>Select Role</button>
+        </div>
+        <ng-template #noResults>
+            <div class="flex flex-col items-center justify-center py-6">
+                <img src="assets/SearchNotFound.svg" alt="No roles found" class="w-44 h-44 object-contain" />
+                <p class="text-gray-500 mt-4">No roles found</p>
+            </div>
+        </ng-template>
     </div>
 
     <!-- Salary Section -->
