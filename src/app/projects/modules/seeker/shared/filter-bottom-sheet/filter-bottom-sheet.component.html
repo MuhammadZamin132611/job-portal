@@ -109,7 +109,7 @@
             @for(unit of units; track $index){
 
             <button mat-button (click)="selectUnit(unit)" [ngClass]="{
-                    'bg-green-600 text-white shadow-md rounded-2xl': selectedUnit === unit,
+                    'bg-green-600 text-white shadow-md': selectedUnit === unit,
                     'border border-green-300 text-gray-600': selectedUnit !== unit
                 }" class="rounded px-4 py-2 transition">
                 {{ unit }}
