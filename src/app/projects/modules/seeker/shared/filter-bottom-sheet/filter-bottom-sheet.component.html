@@ -51,11 +51,11 @@
                     <mat-checkbox [checked]="selectedRoles.includes(role)"
                         (click)="$event.stopPropagation()"></mat-checkbox>
                 </div>
+                
+                <div class="sticky bottom-0 index bg-[#F4F3F6] w-full">
+                    <button class="w-full" (click)="logSelectedRoles()" mat-raised-button>Select Role</button>
+                </div>
             </cdk-virtual-scroll-viewport>
-
-            <div class="sticky bottom-0 bg-[#F4F3F6] w-full">
-                <button class="w-full" (click)="logSelectedRoles()" mat-raised-button>Select Role</button>
-            </div>
         </ng-container>
         <ng-template #noResults>
             <div class="flex flex-col justify-center items-center  py-6">
@@ -88,11 +88,11 @@
                     <mat-checkbox [checked]="selectedLocations.includes(location)"
                         (click)="$event.stopPropagation()"></mat-checkbox>
                 </div>
-            </cdk-virtual-scroll-viewport>
 
-            <div class="sticky bottom-0 bg-[#F4F3F6] w-full">
-                <button class="w-full" (click)="logSelectedRoles()" mat-raised-button>Select Role</button>
-            </div>
+                <div class="sticky bottom-0 index bg-[#F4F3F6] w-full">
+                    <button class="w-full" (click)="logSelectedRoles()" mat-raised-button>Select Role</button>
+                </div>
+            </cdk-virtual-scroll-viewport>
         </ng-container>
         <ng-template #noResults>
             <div class="flex flex-col justify-center items-center  py-6">

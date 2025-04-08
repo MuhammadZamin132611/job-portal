@@ -92,6 +92,7 @@ export class FilterBottomSheetComponent implements OnInit {
 
   logSelectedRoles(): void {
     console.log('Selected Roles:', this.selectedRoles);
+    this.closeSheet();
   }
 
   closeSheet(): void {
