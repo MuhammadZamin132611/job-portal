@@ -40,7 +40,7 @@
                 class="grid justify-center px-3 place-items-center text-gray-500 bg-white rounded-l-lg border-r-4 border-gray-200">
                 <mat-icon>search</mat-icon>
             </div>
-            <input type="search" [(ngModel)]="searchTerm" placeholder="Search job role, eg: Accountant"
+            <input type="search" [(ngModel)]="searchRole" placeholder="Search job role, eg: Accountant"
                 class="w-full p-3 text-base font-normal focus:outline-none rounded-r-lg ">
         </div>
         <ng-container *ngIf="filteredRoles().length > 0; else noResults">
@@ -61,6 +61,42 @@
             <div class="flex flex-col justify-center items-center  py-6">
                 <img src="assets/SearchNotFound.svg" alt="No roles found" class="w-44 h-44 object-contain" />
                 <p class="text-gray-500 mt-4">No roles found</p>
+            </div>
+        </ng-template>
+    </div>
+    
+    
+    <!-- Job City Section -->
+    <div *ngIf="data.filterType === 'Job City'" [ngClass]="{
+        'h-full': data.filterType === 'Job City',
+        'md:h-[calc(100vh-50px)]': data.filterType === 'Job City',
+      }" class="space-y-2 overflow-y-scroll scrollbar-hide">
+        <div class="flex p-4 ">
+            <div
+                class="grid justify-center px-3 place-items-center text-gray-500 bg-white rounded-l-lg border-r-4 border-gray-200">
+                <mat-icon>search</mat-icon>
+            </div>
+            <input type="search" [(ngModel)]="searchLocation" placeholder="Search job role, eg: Accountant"
+                class="w-full p-3 text-base font-normal focus:outline-none rounded-r-lg ">
+        </div>
+        <ng-container *ngIf="filteredLocation().length > 0; else noResults">
+            <cdk-virtual-scroll-viewport itemSize="30" class="h-96 w-full">
+                <div (click)="selectLocation(location)" class="flex items-center justify-between gap-2 cursor-pointer p-2"
+                    *cdkVirtualFor="let location of filteredLocation()">
+                    <span class="text-gray-700 select-none">{{ location }}</span>
+                    <mat-checkbox [checked]="selectedLocations.includes(location)"
+                        (click)="$event.stopPropagation()"></mat-checkbox>
+                </div>
+            </cdk-virtual-scroll-viewport>
+
+            <div class="sticky bottom-0 bg-[#F4F3F6] w-full">
+                <button class="w-full" (click)="logSelectedRoles()" mat-raised-button>Select Role</button>
+            </div>
+        </ng-container>
+        <ng-template #noResults>
+            <div class="flex flex-col justify-center items-center  py-6">
+                <img src="assets/SearchNotFound.svg" alt="No roles found" class="w-44 h-44 object-contain" />
+                <p class="text-gray-500 mt-4">No city found</p>
             </div>
         </ng-template>
     </div>

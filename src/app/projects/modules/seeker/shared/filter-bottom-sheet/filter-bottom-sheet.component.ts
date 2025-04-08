@@ -5,6 +5,7 @@ import { NgClass, NgIf } from '@angular/common';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Role } from '../../../../../data/role';
 import { debounceTime, distinctUntilChanged } from 'rxjs';
+import { location } from '../../../../../data/locations';
 
 @Component({
   selector: 'app-filter-bottom-sheet',
@@ -16,8 +17,21 @@ export class FilterBottomSheetComponent implements OnInit {
   isChecked: boolean = false;
   roles: string[] = [];
   selectedRoles: string[] = [];
-  searchTerm: string = '';
+  searchRole: string = '';
+
+  locations: string[] = [];
+  selectedLocations: string[] = [];
+  searchLocation: string = '';
+
   filterType: string = '';
+
+  constructor(@Inject(MAT_BOTTOM_SHEET_DATA) public data: { filterType: string },
+    private bottomSheetRef: MatBottomSheetRef<FilterBottomSheetComponent>,) {
+    this.filterType = data.filterType;
+    console.log("data.filterType", this.data)
+    this.roles = Role;
+    this.locations = location;
+  }
 
   getDynamicClass() {
     switch (this.data.filterType) {
@@ -37,15 +51,17 @@ export class FilterBottomSheetComponent implements OnInit {
         role.toLowerCase().includes(term.toLowerCase())
       );
     });
+    this.searchControl.valueChanges.pipe(
+      debounceTime(300),
+      distinctUntilChanged()
+    ).subscribe(term => {
+      this.filtered = this.locations.filter(location =>
+        location.toLowerCase().includes(term.toLowerCase())
+      );
+    });
   }
 
-  
-  constructor(@Inject(MAT_BOTTOM_SHEET_DATA) public data: { filterType: string },
-    private bottomSheetRef: MatBottomSheetRef<FilterBottomSheetComponent>,) {
-    this.filterType = data.filterType;
-    console.log("data.filterType", this.data)
-    this.roles = Role
-  }
+
 
   selectRole(role: string): void {
     const index = this.selectedRoles.indexOf(role);
@@ -55,12 +71,25 @@ export class FilterBottomSheetComponent implements OnInit {
       this.selectedRoles.push(role);
     }
   }
-  
+  selectLocation(location: string): void {
+    const index = this.selectedLocations.indexOf(location);
+    if (index > -1) {
+      this.selectedLocations.splice(index, 1);
+    } else {
+      this.selectedLocations.push(location);
+    }
+  }
+
   filteredRoles(): string[] {
-    const term = this.searchTerm.toLowerCase();
+    const term = this.searchRole.toLowerCase();
     return this.roles.filter(role => role.toLowerCase().includes(term));
   }
   
+  filteredLocation(): string[] {
+    const term = this.searchLocation.toLowerCase();
+    return this.locations.filter(location => location.toLowerCase().includes(term));
+  }
+
   logSelectedRoles(): void {
     console.log('Selected Roles:', this.selectedRoles);
   }
