@@ -64,8 +64,8 @@
             </div>
         </ng-template>
     </div>
-    
-    
+
+
     <!-- Job City Section -->
     <div *ngIf="data.filterType === 'Job City'" [ngClass]="{
         'h-full': data.filterType === 'Job City',
@@ -81,7 +81,8 @@
         </div>
         <ng-container *ngIf="filteredLocation().length > 0; else noResults">
             <cdk-virtual-scroll-viewport itemSize="30" class="h-96 w-full">
-                <div (click)="selectLocation(location)" class="flex items-center justify-between gap-2 cursor-pointer p-2"
+                <div (click)="selectLocation(location)"
+                    class="flex items-center justify-between gap-2 cursor-pointer p-2"
                     *cdkVirtualFor="let location of filteredLocation()">
                     <span class="text-gray-700 select-none">{{ location }}</span>
                     <mat-checkbox [checked]="selectedLocations.includes(location)"
@@ -102,8 +103,34 @@
     </div>
 
     <!-- Salary Section -->
-    <div *ngIf="data.filterType === 'Salary'" class="space-y-2">
-        <label class="block text-sm font-medium text-gray-700">Enter Desired Salary:</label>
-        <input type="number" class="w-full border rounded px-3 py-2" placeholder="₹50000+" />
+    <div *ngIf="data.filterType === 'Salary'" class="space-y-2 p-4">
+        <label class="block text-base font-medium text-gray-700">Salary Scale</label>
+        <div class="flex gap-3">
+            @for(unit of units; track $index){
+
+            <button mat-button (click)="selectUnit(unit)" [ngClass]="{
+                    'bg-green-600 text-white shadow-md rounded-2xl': selectedUnit === unit,
+                    'border border-green-300 text-gray-600': selectedUnit !== unit
+                }" class="rounded px-4 py-2 transition">
+                {{ unit }}
+            </button>
+            }
+        </div>
+
+        <div class="relative w-full">
+            <!-- Label Track -->
+            <div class="flex justify-between px-2 text-sm text-gray-600 absolute top-0 left-0 right-0 z-10">
+                <span>{{ formatLabel(startValue) }}</span>
+                <span>{{ formatLabel(endValue) }}</span>
+            </div>
+            <!-- Slider -->
+            <mat-slider class="w-full mt-6" [min]="0" [max]="99" [step]="10">
+                <input [(ngModel)]="startValue" matSliderStartThumb />
+                <input [(ngModel)]="endValue" matSliderEndThumb />
+            </mat-slider>
+        </div>
+
+
+
     </div>
 </div>

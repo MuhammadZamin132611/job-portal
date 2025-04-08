@@ -9,7 +9,7 @@ import { location } from '../../../../../data/locations';
 
 @Component({
   selector: 'app-filter-bottom-sheet',
-  imports: [MaterialModule, NgIf, FormsModule, NgClass, ReactiveFormsModule],
+  imports: [MaterialModule, NgIf, FormsModule, NgClass],
   templateUrl: './filter-bottom-sheet.component.html',
   styleUrl: './filter-bottom-sheet.component.scss'
 })
@@ -84,7 +84,7 @@ export class FilterBottomSheetComponent implements OnInit {
     const term = this.searchRole.toLowerCase();
     return this.roles.filter(role => role.toLowerCase().includes(term));
   }
-  
+
   filteredLocation(): string[] {
     const term = this.searchLocation.toLowerCase();
     return this.locations.filter(location => location.toLowerCase().includes(term));
@@ -124,6 +124,28 @@ export class FilterBottomSheetComponent implements OnInit {
     });
   }
 
+  units = ['Thousands', 'Lack', 'Crore'];
+  selectedUnit = 'Lack';
+
+  selectUnit(unit: string): void {
+    this.selectedUnit = unit;
+    console.log('Selected Unit:', this.selectedUnit);
+  }
+
+
+  startValue = 33;
+  endValue = 55;
+
+  sliderValue = 0;
+
+  formatLabel(value: number): string {
+    const unitMap: { [key: string]: string } = {
+      Thousands: 'K',
+      Lack: 'L',
+      Crore: 'C',
+    };
+    return value + unitMap[this.selectedUnit];
+  }
 
 
 }
