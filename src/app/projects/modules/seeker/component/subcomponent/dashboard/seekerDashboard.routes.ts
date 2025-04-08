@@ -13,6 +13,10 @@ export const seekerDashboardRoute: Routes = [
                 path: 'promoted-jobs',
                 loadComponent: () => import('./promoted-jobs/promoted-jobs.component').then(c => c.PromotedJobsComponent)
             },
+            {
+                path: 'jobs-for-you',
+                loadComponent: () => import('./jobs-for-you/jobs-for-you.component').then(c => c.JobsForYouComponent)
+            },
         ]
     },
 
