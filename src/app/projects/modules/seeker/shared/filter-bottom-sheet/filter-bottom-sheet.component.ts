@@ -1,22 +1,45 @@
-import { Component, Inject, model } from '@angular/core';
+import { Component, Inject, model, OnInit } from '@angular/core';
 import { MaterialModule } from '../../../../shared/material.module';
 import { MAT_BOTTOM_SHEET_DATA, MatBottomSheetRef } from '@angular/material/bottom-sheet';
-import { NgIf } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { NgClass, NgIf } from '@angular/common';
+import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Role } from '../../../../../data/role';
+import { debounceTime, distinctUntilChanged } from 'rxjs';
 
 @Component({
   selector: 'app-filter-bottom-sheet',
-  imports: [MaterialModule, NgIf, FormsModule],
+  imports: [MaterialModule, NgIf, FormsModule, NgClass, ReactiveFormsModule],
   templateUrl: './filter-bottom-sheet.component.html',
   styleUrl: './filter-bottom-sheet.component.scss'
 })
-export class FilterBottomSheetComponent {
+export class FilterBottomSheetComponent implements OnInit {
   isChecked: boolean = false;
   roles: string[] = [];
   selectedRoles: string[] = [];
   searchTerm: string = '';
   filterType: string = '';
+
+  getDynamicClass() {
+    switch (this.data.filterType) {
+      case 'JobRoles': return 'rounded-t-2xl';
+      case 'Salary': return 'rounded-t-lg';
+      default: return 'rounded-none';
+    }
+  }
+  searchControl = new FormControl();
+  filtered: string[] = [];
+  ngOnInit(): void {
+    this.searchControl.valueChanges.pipe(
+      debounceTime(300),
+      distinctUntilChanged()
+    ).subscribe(term => {
+      this.filtered = this.roles.filter(role =>
+        role.toLowerCase().includes(term.toLowerCase())
+      );
+    });
+  }
+
+  
   constructor(@Inject(MAT_BOTTOM_SHEET_DATA) public data: { filterType: string },
     private bottomSheetRef: MatBottomSheetRef<FilterBottomSheetComponent>,) {
     this.filterType = data.filterType;
@@ -31,7 +54,6 @@ export class FilterBottomSheetComponent {
     } else {
       this.selectedRoles.push(role);
     }
-    console.log(index)
   }
   
   filteredRoles(): string[] {

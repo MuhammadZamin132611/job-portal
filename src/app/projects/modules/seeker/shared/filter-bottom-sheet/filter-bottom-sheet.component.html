@@ -1,4 +1,4 @@
-<div class="rounded-md h-full">
+<div class="rounded-md h-full overflow-y-scroll scrollbar-hide" [ngClass]="getDynamicClass()">
     <div class="flex justify-between p-4 place-content-center">
         <div>
             <h2 class="text-lg font-medium text-gray-800">{{ data.filterType }}</h2>
@@ -31,7 +31,10 @@
     </div>
 
     <!-- Job Role Section -->
-    <div *ngIf="data.filterType === 'Job Roles'" class="space-y-2">
+    <div *ngIf="data.filterType === 'Job Roles'" [ngClass]="{
+        'h-full': data.filterType === 'Job Roles',
+        'md:h-[calc(100vh-50px)]': data.filterType === 'Job Roles',
+      }" class="space-y-2 overflow-y-scroll scrollbar-hide">
         <div class="flex p-4 ">
             <div
                 class="grid justify-center px-3 place-items-center text-gray-500 bg-white rounded-l-lg border-r-4 border-gray-200">
@@ -41,19 +44,21 @@
                 class="w-full p-3 text-base font-normal focus:outline-none rounded-r-lg ">
         </div>
         <ng-container *ngIf="filteredRoles().length > 0; else noResults">
-            @for (role of filteredRoles(); track $index) {
-            <div class="flex items-center justify-between gap-2 cursor-pointer" (click)="selectRole(role)">
-                <span class="text-gray-700 select-none">{{ role }}</span>
-                <mat-checkbox [checked]="selectedRoles.includes(role)"
-                    (click)="$event.stopPropagation()"></mat-checkbox>
+            <cdk-virtual-scroll-viewport itemSize="30" class="h-96 w-full">
+                <div (click)="selectRole(role)" class="flex items-center justify-between gap-2 cursor-pointer p-2"
+                    *cdkVirtualFor="let role of filteredRoles()">
+                    <span class="text-gray-700 select-none">{{ role }}</span>
+                    <mat-checkbox [checked]="selectedRoles.includes(role)"
+                        (click)="$event.stopPropagation()"></mat-checkbox>
+                </div>
+            </cdk-virtual-scroll-viewport>
+
+            <div class="sticky bottom-0 bg-[#F4F3F6] w-full">
+                <button class="w-full" (click)="logSelectedRoles()" mat-raised-button>Select Role</button>
             </div>
-            }
         </ng-container>
-        <div class="sticky bottom-0 bg-[#F4F3F6] w-full">
-            <button class="w-full" (click)="logSelectedRoles()" mat-raised-button>Select Role</button>
-        </div>
         <ng-template #noResults>
-            <div class="flex flex-col items-center justify-center py-6">
+            <div class="flex flex-col justify-center items-center  py-6">
                 <img src="assets/SearchNotFound.svg" alt="No roles found" class="w-44 h-44 object-contain" />
                 <p class="text-gray-500 mt-4">No roles found</p>
             </div>

@@ -9,13 +9,18 @@
     .chip-scroll-container mat-chip-row {
         @apply flex items-center bg-white text-gray-600 font-medium ;
     }
+
+    ::ng-deep .custom-bottom-sheet .mat-bottom-sheet-container {
+        @apply rounded-t-2xl;
+      }
+      
     
 }
 
 @layer components {
-    .custom-bottom-sheet {
-      @apply h-[90vh] overflow-y-auto rounded-t-lg;
-    }
+    // .custom-bottom-sheet {
+    //   @apply h-[90vh]  rounded-t-lg;
+    // }
   }
   
 
