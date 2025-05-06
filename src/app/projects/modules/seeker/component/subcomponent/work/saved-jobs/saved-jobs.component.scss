@@ -1,0 +1,12 @@
+@use 'tailwindcss/base';
+
+@layer base {
+
+    mat-divider {
+        @apply text-gray-500 bg-gray-200;
+    }
+}
+
+.index{
+    z-index: 999;
+}
