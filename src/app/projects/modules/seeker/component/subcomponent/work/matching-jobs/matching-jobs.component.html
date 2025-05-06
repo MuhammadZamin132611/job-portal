@@ -1,0 +1,16 @@
+<div class="bg-gray-100">
+    <section class="p-4 bg-gray-100 sticky top-0 index">
+        <div class="flex justify-between">
+            <div>
+                <p class="text-sm md:text-lg font-semibold">Profile Matching Jobs</p>
+                <p class="text-sm md:text-base font-normal">3 jobs are matching to your profile.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="p-4">
+        <div class="grid gap-5">
+            <app-job-card width="w-full" view="grid" [jobCardData]="jobCardData" />
+        </div>
+    </div>
+</div>

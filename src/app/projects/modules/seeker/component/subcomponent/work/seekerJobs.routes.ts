@@ -13,6 +13,10 @@ export const seekerJobsRoutes: Routes = [
                 path: 'saved-jobs',
                 loadComponent: () => import('./saved-jobs/saved-jobs.component').then(c => c.SavedJobsComponent),
             },
+            {
+                path: 'matching-jobs',
+                loadComponent: () => import('./matching-jobs/matching-jobs.component').then(c => c.MatchingJobsComponent),
+            },
         ]
     },
     {
