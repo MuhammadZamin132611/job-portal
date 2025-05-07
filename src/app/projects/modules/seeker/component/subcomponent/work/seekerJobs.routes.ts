@@ -17,6 +17,18 @@ export const seekerJobsRoutes: Routes = [
                 path: 'matching-jobs',
                 loadComponent: () => import('./matching-jobs/matching-jobs.component').then(c => c.MatchingJobsComponent),
             },
+            {
+                path: 'applied-jobs',
+                loadComponent: () => import('./applied-jobs/applied-jobs.component').then(c => c.AppliedJobsComponent),
+            },
+            {
+                path: 'shortlisted-jobs',
+                loadComponent: () => import('./shortlisted-jobs/shortlisted-jobs.component').then(c => c.ShortlistedJobsComponent),
+            },
+            {
+                path: 'selected-jobs',
+                loadComponent: () => import('./selected-jobs/selected-jobs.component').then(c => c.SelectedJobsComponent),
+            },
         ]
     },
     {

@@ -1,0 +1,72 @@
+<div class="bg-gray-100 h-full">
+    <section class="p-4 bg-white sticky top-0 index shadow-sm">
+        <div class="flex justify-between">
+            <div>
+                <p class="text-sm md:text-lg font-semibold">Jobs</p>
+            </div>
+            <div>
+                <button mat-button class="flex items-center">
+                    <span>Apply Filter</span>
+                    <mat-icon>keyboard_arrow_down</mat-icon>
+                </button>
+            </div>
+        </div>
+        <div class="flex flex-nowrap gap-5">
+            <div class="cursor-pointer text-gray-500 text-sm font-medium" routerLink="/seeker/layout/jobs/applied-jobs">
+                <p>Applied Jobs(5)</p>
+            </div>
+            <div class="cursor-pointer text-gray-500 text-sm font-medium" routerLink="/seeker/layout/jobs/shortlisted-jobs">
+                <p>Shortlisted Jobs(5)</p>
+            </div>
+            <div class="cursor-pointer text-[#21A14B] text-sm font-medium border-b-2 border-[#21A14B]" routerLink="/seeker/layout/jobs/selected-jobs">
+                <p>Selected Jobs(5)</p>
+            </div>
+        </div>
+    </section>
+    <div class="grid gap-5 p-4">
+        @for(card of jobCardData; track $index){
+        <div
+            class="bg-white rounded-lg px-3 py-2 shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 cursor-pointer hover:z-50">
+            <div class="flex justify-between pb-3">
+                <div class="">
+                    <h1 class="text-gray-700 text-lg font-medium whitespace-normal tracking-wide">{{card.jobTitle}}</h1>
+                    <p class="text-gray-500 text-sm">{{card.companyName}}</p>
+                    <div class="flex gap-3 justify-start palce-items-center mt-2">
+                        <div>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M14 6.66797C14 11.3346 8 15.3346 8 15.3346C8 15.3346 2 11.3346 2 6.66797C2 5.07667 2.63214 3.55055 3.75736 2.42533C4.88258 1.30011 6.4087 0.667969 8 0.667969C9.5913 0.667969 11.1174 1.30011 12.2426 2.42533C13.3679 3.55055 14 5.07667 14 6.66797Z"
+                                    stroke="#475467" stroke-linecap="round" stroke-linejoin="round" />
+                                <path
+                                    d="M8 8.66797C9.10457 8.66797 10 7.77254 10 6.66797C10 5.5634 9.10457 4.66797 8 4.66797C6.89543 4.66797 6 5.5634 6 6.66797C6 7.77254 6.89543 8.66797 8 8.66797Z"
+                                    stroke="#475467" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                        <div class="-mt-0.5">
+                            <p class="text-gray-500 text-sm">{{card.location}}</p>
+                        </div>
+                    </div>
+                    <div class="grid place-items-center pt-1.5">
+                        <p class="text-[#21A14B] text-xs md:text-base font-normal">{{card.appliedData}}</p>
+                    </div>
+                </div>
+                <div class="flex flex-col gap-3 place-items-end">
+                    <div class="h-10 w-10">
+                        <img class="h-10 w-10 rounded-md" [src]="card.comanyLogo" alt="company logo">
+                    </div>
+                </div>
+            </div>
+            <div class="w-full h-[1px] bg-gray-300 rounded-full"></div>
+            <div class="flex justify-between pt-2">
+                <div class="grid place-items-center">
+                    <p class="text-gray-400 text-xs md:text-base font-normal">{{card.recuriterAction}}</p>
+                </div>
+                <div class="py-1 px-2 border-2 rounded-full text-sm font-normal bg-green-100 border-green-200 text-green-500">
+                    Selected
+                </div>
+            </div>
+        </div>
+        }
+    </div>
+</div>
