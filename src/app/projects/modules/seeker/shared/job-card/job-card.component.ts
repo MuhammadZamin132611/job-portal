@@ -2,6 +2,8 @@ import { Component, Input } from '@angular/core';
 import { MaterialModule } from '../../../../shared/material.module';
 import { NgClass } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { ConfirmationComponent } from '../confirmation/confirmation.component';
 
 @Component({
   selector: 'app-job-card',
@@ -26,6 +28,20 @@ export class JobCardComponent {
       matches: '80'
     },
   ];
+
+  constructor(private dialog: MatDialog) { }
+
+  savedJobs() {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.data = {
+      message: 'Saved this Job'
+    };
+    const dialogRef = this.dialog.open(ConfirmationComponent, dialogConfig);
+    const response = dialogRef.componentInstance.onEmitStatusChange.subscribe((response: any) => {
+      dialogRef.close();
+    })
+  }
+  
 }
 
 interface JobCardData {
