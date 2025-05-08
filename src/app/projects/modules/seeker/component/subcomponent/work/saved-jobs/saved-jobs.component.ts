@@ -2,6 +2,8 @@ import { Component, Input } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { MaterialModule } from '../../../../../../shared/material.module';
 import { NgClass } from '@angular/common';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { ConfirmationComponent } from '../../../../shared/confirmation/confirmation.component';
 
 @Component({
   selector: 'app-saved-jobs',
@@ -10,7 +12,7 @@ import { NgClass } from '@angular/common';
   styleUrl: './saved-jobs.component.scss'
 })
 export class SavedJobsComponent {
-  constructor(private titleService: Title) { }
+  constructor(private titleService: Title, private dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.setTitle("Saved Jobs");
@@ -31,7 +33,7 @@ export class SavedJobsComponent {
       initialSalary: '20,000',
       maxSalary: '60,000',
       matches: '85',
-      saved:"Saved 1 week ago"
+      saved: "Saved 1 week ago"
     },
     {
       comanyLogo: 'assets/company_logo/cpmpany_logo2.png',
@@ -41,7 +43,7 @@ export class SavedJobsComponent {
       initialSalary: '40,000',
       maxSalary: '80,000',
       matches: '90',
-      saved:"Saved 2 week ago"
+      saved: "Saved 2 week ago"
     },
     {
       comanyLogo: 'assets/company_logo/cpmpany_logo3.png',
@@ -51,9 +53,20 @@ export class SavedJobsComponent {
       initialSalary: '80,000',
       maxSalary: '1,20,000',
       matches: '95',
-      saved:"Saved 3 week ago"
+      saved: "Saved 3 week ago"
     },
   ];
+
+  unsavedJobs() {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.data = {
+      message: 'Unsaved Job'
+    };
+    const dialogRef = this.dialog.open(ConfirmationComponent, dialogConfig);
+    const response = dialogRef.componentInstance.onEmitStatusChange.subscribe((response: any) => {
+      dialogRef.close();
+    })
+  }
 }
 
 interface JobCardData {
@@ -64,5 +77,5 @@ interface JobCardData {
   initialSalary: string;
   maxSalary: string;
   matches: string;
-  saved:string
+  saved: string
 }

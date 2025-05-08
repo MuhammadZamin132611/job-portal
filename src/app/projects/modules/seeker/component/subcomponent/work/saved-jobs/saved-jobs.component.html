@@ -90,7 +90,7 @@
                     <div class="grid place-items-center">
                         <p class="text-[#21A14B] text-xs md:text-base font-medium">{{card.saved}}</p>
                     </div>
-                    <div class="text-red-500 hover:text-red-700 text-lg grid place-items-center">
+                    <div (click)="unsavedJobs()" class="text-red-500 hover:text-red-700 text-lg grid place-items-center">
                         <mat-icon>delete</mat-icon>
                     </div>
                 </div>

@@ -1,6 +1,9 @@
-import { Component, HostListener } from '@angular/core';
+import { Component } from '@angular/core';
 import { MaterialModule } from '../../../../../../shared/material.module';
 import { NgClass } from '@angular/common';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { ConfirmationComponent } from '../../../../shared/confirmation/confirmation.component';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-job-details',
@@ -9,6 +12,8 @@ import { NgClass } from '@angular/common';
   styleUrl: './job-details.component.scss'
 })
 export class JobDetailsComponent {
+  constructor(private titleService: Title, private dialog: MatDialog) { }
+
   activeSection: string = 'details';
 
   scrollToSection(sectionId: string): void {
@@ -19,19 +24,15 @@ export class JobDetailsComponent {
     }
   }
 
-  @HostListener('window:scroll', [])
-  onScroll(): void {
-    const sections = ['details', 'insights', 'company', 'salary'];
-    for (let section of sections) {
-      const el = document.getElementById(section);
-      if (el) {
-        const rect = el.getBoundingClientRect();
-        if (rect.top <= 100 && rect.bottom >= 100) {
-          this.activeSection = section;
-          break;
-        }
-      }
-    }
+  applyJobs() {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.data = {
+      message: 'Apply Job'
+    };
+    const dialogRef = this.dialog.open(ConfirmationComponent, dialogConfig);
+    const response = dialogRef.componentInstance.onEmitStatusChange.subscribe((response: any) => {
+      dialogRef.close();
+    })
   }
 
 
