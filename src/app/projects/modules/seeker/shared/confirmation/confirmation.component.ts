@@ -15,7 +15,7 @@ export class ConfirmationComponent {
 
   ngOnInit(): void {
     if (this.dialogData) {
-      this.details = this.dialogData;
+      this.details = this.dialogData;   
     }
   }
 

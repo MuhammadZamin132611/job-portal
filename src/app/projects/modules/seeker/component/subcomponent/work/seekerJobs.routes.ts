@@ -29,6 +29,10 @@ export const seekerJobsRoutes: Routes = [
                 path: 'selected-jobs',
                 loadComponent: () => import('./selected-jobs/selected-jobs.component').then(c => c.SelectedJobsComponent),
             },
+            {
+                path: 'jobs-status',
+                loadComponent: () => import('./job-status/job-status.component').then(c => c.JobStatusComponent),
+            },
         ]
     },
     {

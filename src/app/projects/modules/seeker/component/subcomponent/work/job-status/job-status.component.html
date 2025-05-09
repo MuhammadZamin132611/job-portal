@@ -1,0 +1,116 @@
+<section>
+    <div class="bg-white p-4">
+        <div class="flex justify-between place-items-center">
+            <div>
+                <h1 class="text-xl md:text-3xl font-normal text-gray-800 truncate w-full max-w-[250px] md:max-w-[400px]"
+                    title="Android Developer Android Developer">
+                    Android Developer Android Developer
+                </h1>
+            </div>
+        </div>
+        <div class="flex place-items-center py-4">
+            <div class="flex gap-3">
+                <div>
+                    <img class="h-14 w-14" src="assets/company_logo/cpmpany_logo1.png" alt="Compnay Logo">
+                </div>
+                <div>
+                    <h2 class="text-lg font-medium text-gray-700">RRR Technologies</h2>
+                    <p class="text-sm font-normal text-gray-500">Gurugrm, Haryana, India</p>
+                    <p class="text-sm font-normal text-gray-500">1 - 3 Year Exp.</p>
+                </div>
+            </div>
+        </div>
+        <div class="pb-4">
+            <p class="text-[#21A14B] text-sm font-medium cursor-pointer">View Description</p>
+        </div>
+        <div class="bg-[#ECFDF3] rounded-lg shadow-sm p-4">
+            <div class="flex place-items-center gap-3">
+                <div>
+                    <img class="h-14 w-14" src="assets/icon/saved_jobs.png" alt="Compnay Logo">
+                </div>
+                <div>
+                    <h2 class="text-xs md:text-base font-medium text-gray-600">140 Applicants for this Job</h2>
+                    <p class="text-xs md:text-base font-medium text-gray-600 pt-1.5 md:pt-0">80 Applicants are
+                        shortlisted for this job</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bg-gray-200 w-full h-2"></div>
+    <div class="bg-white p-4">
+        <h3 class="text-base md:text-lg font-medium text-gray-700">Your Application Status</h3>
+        <div class="flex flex-col items-start pt-4 pb-2">
+            <!-- Step 1 -->
+            <div class="flex items-start space-x-4">
+                <div class="flex flex-col items-center">
+                    <div class="w-6 h-6 rounded-full bg-green-500 flex items-center justify-center">
+                        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" stroke-width="3"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                    </div>
+                    <div class="w-px h-10 bg-green-500"></div>
+                </div>
+                <div>
+                    <p class="text-sm font-medium text-gray-800">Applied</p>
+                    <p class="text-xs text-gray-500">12 Jan</p>
+                </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="flex items-start space-x-4">
+                <div class="flex flex-col items-center">
+                    <div class="w-6 h-6 rounded-full bg-green-500 flex items-center justify-center">
+                        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" stroke-width="3"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                    </div>
+                    <div class="w-px h-10 bg-green-500"></div>
+                </div>
+                <div>
+                    <p class="text-sm font-medium text-gray-800">Shortlisted</p>
+                    <p class="text-xs text-gray-500">14 Jan</p>
+                </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="flex items-start space-x-4">
+                <div class="flex flex-col items-center">
+                    <div class="w-6 h-6 rounded-full bg-green-500 flex items-center justify-center">
+                        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" stroke-width="3"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                    </div>
+                    <div class="w-px h-10 border-dashed border-l-2 border-gray-400"></div>
+                </div>
+                <div>
+                    <p class="text-sm font-medium text-gray-800">Selected</p>
+                    <p class="text-xs text-gray-500">16 Jan</p>
+                </div>
+            </div>
+
+            <!-- Step 4 (Pending) -->
+            <div class="flex items-start space-x-4">
+                <div class="flex flex-col items-center">
+                    <div class="w-6 h-6 rounded-full border-2 border-gray-400"></div>
+                </div>
+                <div>
+                    <p class="text-sm font-medium text-gray-400">Offered</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="p-4 bg-gray-200">
+        <div class="flex items-center justify-between mb-4">
+            <h1 class="text-gray-700 text-xl font-medium tracking-wide ">Similar Jobs</h1>
+            <a routerLink="/seeker/layout/dashboard/jobs-for-you"
+                class="text-gray-500 hover:text-blue-700 font-normal cursor-pointer">See
+                all</a>
+        </div>
+        <div class="grid gap-5">
+            <app-job-card width="w-full" view="grid" [jobCardData]="jobCardData" />
+        </div>
+    </div>
+</section>

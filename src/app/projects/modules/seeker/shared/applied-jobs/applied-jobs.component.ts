@@ -1,10 +1,11 @@
 import { Component, Input } from '@angular/core';
 import { MaterialModule } from '../../../../shared/material.module';
 import { NgClass } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-applied-jobs',
-  imports: [MaterialModule,NgClass],
+  imports: [MaterialModule,NgClass, RouterLink],
   templateUrl: './applied-jobs.component.html',
   styleUrl: './applied-jobs.component.scss'
 })
