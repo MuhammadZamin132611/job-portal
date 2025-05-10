@@ -1,0 +1,50 @@
+<section>
+    <div class="flex-none justify-normal md:flex md:justify-between p-4">
+        <div>
+            <app-profile-image imageHeight="h-40" imageWidth="w-40" />
+        </div>
+        <div class="flex flex-col md:items-end md:justify-end md:flex-col-reverse">
+            <div class="flex justify-between items-center w-full md:block">
+                <div class="flex flex-col">
+                    <div class="flex items-center gap-2">
+                        <mat-icon class="text-[#0094FF] order-2 md:order-none">verified</mat-icon>
+                        <h1 class="text-base md:text-xl font-semibold text-gray-700 order-1 md:order-none capitalize">Muhammad
+                            zamin</h1>
+                    </div>
+                    <div>
+                        <div class="flex items-center md:justify-end gap-2">
+                            <mat-icon class="text-gray-600 order-2 md:order-none">mail_outline</mat-icon>
+                            <h1 class="text-base md:text-lg font-medium text-gray-600 order-1 md:order-none">mdzamin&#64;gmail.com
+                            </h1>
+                        </div>
+                        <div class="flex items-center md:justify-end gap-2">
+                            <mat-icon class="text-gray-600 order-2 md:order-none">call_outline</mat-icon>
+                            <h1 class="text-base md:text-lg font-medium text-gray-600 order-1 md:order-none">8059340597
+                            </h1>
+                        </div>
+                    </div>
+                    <p class="text-sm font-normal text-left md:text-right mt-1">
+                        <span class="text-base font-semibold">60%</span> Profile Status
+                    </p>
+                </div>
+                <!-- Icons (mobile only) -->
+                <div class="flex gap-3 md:hidden">
+                    <mat-icon class="text-gray-600 cursor-pointer custom-badge-green" matBadge="1" matBadgeSize="small"
+                        matBadgePosition="below after">
+                        work_outline
+                    </mat-icon>
+                    <mat-icon class="text-gray-600 cursor-pointer">edit</mat-icon>
+                </div>
+            </div>
+            <!-- Icons (desktop only) -->
+            <div class="hidden md:flex justify-end gap-3 mb-2">
+                <mat-icon class="text-gray-600 cursor-pointer custom-badge-green" matBadge="1" matBadgeSize="small"
+                    matBadgePosition="below after">
+                    work_outline
+                </mat-icon>
+                <mat-icon class="text-gray-600 cursor-pointer">edit</mat-icon>
+            </div>
+        </div>
+
+    </div>
+</section>
