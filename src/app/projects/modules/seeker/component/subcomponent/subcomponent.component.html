@@ -43,7 +43,8 @@
             <mat-icon class="text-gray-600" matBadge="16" aria-hidden="false">notifications</mat-icon>
         </button>
         <button mat-icon-button [matMenuTriggerFor]="menu">
-            <img class="h-10 w-10" src="assets/profile/profile_image.png" alt="profile image">
+            <!-- <img class="h-10 w-10" src="assets/profile/profile_image.png" alt="profile image"> -->
+             <app-profile-image imageHeight="h-10" imageWidth="w-10"/>
         </button>
     </div>
     <mat-menu #menu="matMenu">

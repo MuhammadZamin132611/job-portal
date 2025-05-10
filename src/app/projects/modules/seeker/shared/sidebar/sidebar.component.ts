@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
-import { MaterialModule } from '../material.module';
+import { MaterialModule } from '../../../../shared/material.module';
 import { RouterLink, RouterLinkActive } from '@angular/router';
-import { SidebarService } from '../../services/sidebar/sidebar.service';
+import { SidebarService } from '../../../../services/sidebar/sidebar.service';
+import { ProfileImageComponent } from "../profile-image/profile-image.component";
 
 @Component({
   selector: 'app-sidebar',
-  imports: [MaterialModule, RouterLink, RouterLinkActive],
+  imports: [MaterialModule, RouterLink, RouterLinkActive, ProfileImageComponent],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.scss'
 })

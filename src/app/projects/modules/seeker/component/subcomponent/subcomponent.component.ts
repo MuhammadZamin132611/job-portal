@@ -1,17 +1,18 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { MaterialModule } from '../../../../shared/material.module';
-import { SidebarComponent } from '../../../../shared/sidebar/sidebar.component';
+import { SidebarComponent } from '../../shared/sidebar/sidebar.component';
 import { SidebarService } from '../../../../services/sidebar/sidebar.service';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { NgIf } from '@angular/common';
 import { AdvertisementComponent } from '../../../../shared/advertisement/advertisement.component';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { ConfirmationComponent } from '../../shared/confirmation/confirmation.component';
+import { ProfileImageComponent } from "../../shared/profile-image/profile-image.component";
 
 @Component({
   selector: 'app-subcomponent',
-  imports: [MaterialModule, RouterOutlet, SidebarComponent, RouterLink, AdvertisementComponent],
+  imports: [MaterialModule, RouterOutlet, SidebarComponent, RouterLink, AdvertisementComponent, ProfileImageComponent],
   templateUrl: './subcomponent.component.html',
   styleUrl: './subcomponent.component.scss'
 })
