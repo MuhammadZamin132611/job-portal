@@ -7,10 +7,11 @@ import { WorkExperienceComponent } from "../work-experience/work-experience.comp
 import { EducationComponent } from "../education/education.component";
 import { PrimarySkillsComponent } from "../primary-skills/primary-skills.component";
 import { OtherSkillsComponent } from "../other-skills/other-skills.component";
+import { CerificationComponent } from "../cerification/cerification.component";
 
 @Component({
   selector: 'app-profile',
-  imports: [BasicDetailsComponent, AboutMeComponent, JobPrefrenceComponent, WorkExperienceComponent, EducationComponent, PrimarySkillsComponent, OtherSkillsComponent],
+  imports: [BasicDetailsComponent, AboutMeComponent, JobPrefrenceComponent, WorkExperienceComponent, EducationComponent, PrimarySkillsComponent, OtherSkillsComponent, CerificationComponent],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.scss'
 })
