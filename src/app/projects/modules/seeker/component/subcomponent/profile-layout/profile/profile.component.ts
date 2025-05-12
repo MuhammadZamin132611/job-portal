@@ -4,10 +4,11 @@ import { BasicDetailsComponent } from "../basic-details/basic-details.component"
 import { AboutMeComponent } from "../about-me/about-me.component";
 import { JobPrefrenceComponent } from "../job-prefrence/job-prefrence.component";
 import { WorkExperienceComponent } from "../work-experience/work-experience.component";
+import { EducationComponent } from "../education/education.component";
 
 @Component({
   selector: 'app-profile',
-  imports: [BasicDetailsComponent, AboutMeComponent, JobPrefrenceComponent, WorkExperienceComponent],
+  imports: [BasicDetailsComponent, AboutMeComponent, JobPrefrenceComponent, WorkExperienceComponent, EducationComponent],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.scss'
 })
