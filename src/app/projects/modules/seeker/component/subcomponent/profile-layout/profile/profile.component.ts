@@ -5,10 +5,11 @@ import { AboutMeComponent } from "../about-me/about-me.component";
 import { JobPrefrenceComponent } from "../job-prefrence/job-prefrence.component";
 import { WorkExperienceComponent } from "../work-experience/work-experience.component";
 import { EducationComponent } from "../education/education.component";
+import { PrimarySkillsComponent } from "../primary-skills/primary-skills.component";
 
 @Component({
   selector: 'app-profile',
-  imports: [BasicDetailsComponent, AboutMeComponent, JobPrefrenceComponent, WorkExperienceComponent, EducationComponent],
+  imports: [BasicDetailsComponent, AboutMeComponent, JobPrefrenceComponent, WorkExperienceComponent, EducationComponent, PrimarySkillsComponent],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.scss'
 })
