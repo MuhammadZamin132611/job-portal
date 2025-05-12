@@ -1,0 +1,33 @@
+<section>
+    <div class="p-4">
+        <div class="flex justify-between gap-4">
+            <div class="flex items-center gap-3">
+                <mat-icon class="text-[#21A14B]">language</mat-icon>
+                <h1 class="text-base md:text-lg font-semibold">Languages</h1>
+            </div>
+            <div class="flex gap-3 text-gray-600">
+                <mat-icon matTooltip="Add" class="cursor-pointer">add</mat-icon>
+                <mat-icon matTooltip="Edit" class="cursor-pointer">edit</mat-icon>
+            </div>
+        </div>
+        <div class="grid gap-3 mt-3">
+            <div class="grid gap-1">
+                <h4 class="text-sm md:text-base font-medium text-gray-800">English Fluency</h4>
+                <div>
+                    <p class="text-xs md:text-sm font-medium text-gray-600">Intermediate</p>
+                    <p class="text-xs md:text-sm font-normal text-gray-500">You can have a conversation in English on
+                        some topics</p>
+                </div>
+            </div>
+            <div class="pt-2">
+                <h3 class="text-sm md:text-base font-medium text-gray-800">Other Languages</h3>
+                <div class="flex flex-wrap gap-3 pt-2">
+                    <div *ngFor="let language of languages; let i = index"
+                        class="bg-gray-100 px-4 md:px-7 py-0.5 text-gray-600 rounded-md shadow-sm">
+                        <p class="text-center text-xs md:text-base font-normal">{{ language }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

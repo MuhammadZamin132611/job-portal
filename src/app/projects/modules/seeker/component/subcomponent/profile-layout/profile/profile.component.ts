@@ -10,10 +10,11 @@ import { OtherSkillsComponent } from "../other-skills/other-skills.component";
 import { CerificationComponent } from "../cerification/cerification.component";
 import { ProjectsComponent } from "../projects/projects.component";
 import { AchievmentsComponent } from "../achievments/achievments.component";
+import { LanguagesComponent } from "../languages/languages.component";
 
 @Component({
   selector: 'app-profile',
-  imports: [BasicDetailsComponent, AboutMeComponent, JobPrefrenceComponent, WorkExperienceComponent, EducationComponent, PrimarySkillsComponent, OtherSkillsComponent, CerificationComponent, ProjectsComponent, AchievmentsComponent],
+  imports: [BasicDetailsComponent, AboutMeComponent, JobPrefrenceComponent, WorkExperienceComponent, EducationComponent, PrimarySkillsComponent, OtherSkillsComponent, CerificationComponent, ProjectsComponent, AchievmentsComponent, LanguagesComponent],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.scss'
 })
