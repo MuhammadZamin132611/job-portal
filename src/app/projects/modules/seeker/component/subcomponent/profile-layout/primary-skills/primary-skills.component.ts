@@ -9,7 +9,7 @@ import { NgClass, NgFor, NgStyle } from '@angular/common';
   styleUrl: './primary-skills.component.scss'
 })
 export class PrimarySkillsComponent {
-  //  skills = ['New Delhi', 'Pune', 'Bangalore', "UP",];
+   
   skills = [
     { name: "JavaScript", percentage: 9 },
     { name: "Angular", percentage: 7 },
