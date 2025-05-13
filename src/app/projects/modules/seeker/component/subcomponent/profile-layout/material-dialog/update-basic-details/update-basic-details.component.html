@@ -15,62 +15,99 @@
 </mat-toolbar>
 
 <mat-dialog-content class="mat-typography">
-    <!-- <form [formGroup]="basicDetailsForm">
-        <div fxFlex fxLayout="column">
-            <div fxLayout="row wrapper">
-                <mat-form-field appearance="fill" fxFlex>
-                    <mat-label>Name</mat-label>
-                    <input matInput formControlName="name" name required>
-                    <mat-error *ngIf="basicDetailsForm.controls['name'].hasError('required')">Please enter category
-                        name.</mat-error>
-                </mat-form-field>
-            </div>
-        </div>
-    </form> -->
-    <div class="grid gap-3">
+    <form [formGroup]="basicDetailsForm" class="grid gap-3">
         <div>
             <label for="fullName" class="text-sm md:text-base font-medium text-gray-600">Full Name</label>
-            <input id="fullName" type="text" placeholder="eg: Md Zamin"
+            <input id="fullName" formControlName="fullName" type="text" placeholder="eg: Md Zamin"
                 class="w-full rounded-lg border-2 border-gray-200 focus:outline-none px-3 py-2 text-sm md:text-base font-normal">
+            <div *ngIf="basicDetailsForm.get('fullName')?.invalid && basicDetailsForm.get('fullName')?.touched"
+                class="text-red-500 text-sm">
+                Full Name is required
+            </div>
         </div>
+
         <div>
             <label for="email" class="text-sm md:text-base font-medium text-gray-600">Email Id</label>
-            <input id="email" type="email" placeholder="eg: zamin@gmail.com"
+            <input id="email" formControlName="email" type="email" placeholder="eg: zamin@gmail.com"
                 class="w-full rounded-lg border-2 border-gray-200 focus:outline-none px-3 py-2 text-sm md:text-base font-normal">
+            <div *ngIf="basicDetailsForm.get('email')?.touched && basicDetailsForm.get('email')?.invalid"
+                class="text-red-500 text-sm">
+                <div *ngIf="basicDetailsForm.get('email')?.errors?.['required']">Email is required</div>
+                <div *ngIf="basicDetailsForm.get('email')?.errors?.['email']">Invalid email format</div>
+            </div>
+
         </div>
+
         <div>
             <label for="mobile" class="text-sm md:text-base font-medium text-gray-600">Mobile Number</label>
-            <input id="mobile" type="text" placeholder="eg: 8976534210"
+            <input id="mobile" formControlName="mobile" type="tel" (keypress)="onlyMobileNumberKey($event)"
+                inputmode="numeric" pattern="[0-9]*" maxlength="10" placeholder="eg: 8976534210"
                 class="w-full rounded-lg border-2 border-gray-200 focus:outline-none px-3 py-2 text-sm md:text-base font-normal">
+            <div *ngIf="basicDetailsForm.get('mobile')?.touched && basicDetailsForm.get('mobile')?.invalid"
+                class="text-red-500 text-sm">
+                <div *ngIf="basicDetailsForm.get('mobile')?.errors?.['required']">Mobile number is required</div>
+                <div *ngIf="basicDetailsForm.get('mobile')?.errors?.['pattern']">Enter a valid 10-digit mobile
+                    number</div>
+            </div>
+
         </div>
+
         <div>
             <h3 class="text-sm md:text-base font-medium text-gray-600">Select Your Gender</h3>
-            <mat-radio-group aria-label="Select an option">
+            <mat-radio-group formControlName="gender" aria-label="Select an option">
                 <mat-radio-button value="male">Male</mat-radio-button>
                 <mat-radio-button value="female">Female</mat-radio-button>
                 <mat-radio-button value="other">Other</mat-radio-button>
             </mat-radio-group>
+            <div *ngIf="basicDetailsForm.get('gender')?.invalid && basicDetailsForm.get('gender')?.touched"
+                class="text-red-500 text-sm">
+                Gender is required
+            </div>
         </div>
+
         <div>
             <label for="date" class="text-sm md:text-base font-medium text-gray-600">Date of Birth</label>
-            <input id="date" type="date"
+            <input id="date" type="date" formControlName="dob"
                 class="w-full rounded-lg border-2 border-gray-200 focus:outline-none px-3 py-2 text-sm md:text-base font-normal">
+            <div *ngIf="basicDetailsForm.get('dob')?.invalid && basicDetailsForm.get('dob')?.touched"
+                class="text-red-500 text-sm">
+                Date of Birth is required
+            </div>
         </div>
+
+        <!-- <input id="pincode" type="text" formControlName="pin" placeholder="eg: 234422"
+            class="w-full rounded-lg border-2 border-gray-200 focus:outline-none px-3 py-2 text-sm md:text-base font-normal">
+        <div *ngIf="basicDetailsForm.get('pin')?.invalid && basicDetailsForm.get('pin')?.touched"
+            class="text-red-500 text-sm">
+            Pin Code is required
+        </div> -->
         <div>
             <label for="pincode" class="text-sm md:text-base font-medium text-gray-600">Pin Code</label>
-            <input id="pincode" type="text" placeholder="eg: 234422"
+            <input id="pincode" formControlName="pin" type="tel" (keypress)="onlyPinCodeKey($event)" inputmode="numeric"
+                pattern="[0-9]*" maxlength="6" placeholder="eg: 234422"
                 class="w-full rounded-lg border-2 border-gray-200 focus:outline-none px-3 py-2 text-sm md:text-base font-normal">
+            <div *ngIf="basicDetailsForm.get('pin')?.touched && basicDetailsForm.get('pin')?.invalid"
+                class="text-red-500 text-sm">
+                <div *ngIf="basicDetailsForm.get('pin')?.errors?.['required']">Pin/Zip code is required</div>
+                <div *ngIf="basicDetailsForm.get('pin')?.errors?.['pattern']">Enter a valid 6-digit pin/zip</div>
+            </div>
         </div>
+
         <div>
             <label for="city" class="text-sm md:text-base font-medium text-gray-600">Select Your City</label>
-            <input id="city" type="text" placeholder="New Delhi"
+            <input id="city" type="text" formControlName="city" placeholder="New Delhi"
                 class="w-full rounded-lg border-2 border-gray-200 focus:outline-none px-3 py-2 text-sm md:text-base font-normal">
+            <div *ngIf="basicDetailsForm.get('city')?.invalid && basicDetailsForm.get('city')?.touched"
+                class="text-red-500 text-sm">
+                City is required
+            </div>
         </div>
-    </div>
+    </form>
 </mat-dialog-content>
 
 <mat-dialog-actions align="center">
-    <button mat-flat-button color="primary" type="submit" (click)="handelSubmit()"
-        [disabled]="!(basicDetailsForm.valid && basicDetailsForm.dirty)">{{action}}</button>
+    <button mat-flat-button color="primary" type="submit" (click)="validation()">{{action}}</button>
     <button mat-raised-button mat-dialog-close>Close</button>
 </mat-dialog-actions>
+
+<!-- [disabled]="!(basicDetailsForm.valid && basicDetailsForm.dirty)" -->

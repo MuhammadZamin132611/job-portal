@@ -3,14 +3,16 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { BasicDetailsComponent } from '../../basic-details/basic-details.component';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MaterialModule } from '../../../../../../../shared/material.module';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-update-basic-details',
-  imports: [MaterialModule, ReactiveFormsModule],
+  imports: [MaterialModule, ReactiveFormsModule, NgIf],
   templateUrl: './update-basic-details.component.html',
   styleUrl: './update-basic-details.component.scss'
 })
 export class UpdateBasicDetailsComponent {
+
   onUpdateBasicDetails = new EventEmitter();
   dialogAction: any = 'Add';
   action: any = 'Add';
@@ -24,7 +26,14 @@ export class UpdateBasicDetailsComponent {
 
   ngOnInit(): void {
     this.basicDetailsForm = this.fb.group({
-      fullName: [null, [Validators.required]]
+      fullName: [null, [Validators.required]],
+      email: [null, [Validators.required, Validators.email]],
+      mobile: [null, [Validators.required, Validators.pattern(/^[6-9]\d{9}$/)]],
+      gender: [null, [Validators.required]],
+      dob: [null, [Validators.required]],
+      pin: [null, [Validators.required, Validators.pattern(/^[0-9]{6}$/)]],
+      city: [null, [Validators.required]],
+
     });
     if (this.dialogData.action === "Update") {
       this.dialogAction = "Update";
@@ -33,19 +42,72 @@ export class UpdateBasicDetailsComponent {
     }
   }
 
-  handelSubmit = () => {
-    if (this.dialogAction === "Update") {
+  onlyMobileNumberKey(event: Event): boolean {
+    const e = event as KeyboardEvent;
+    const charCode = e.which ? e.which : e.keyCode;
+
+    // Allow only digits (0–9)
+    if (charCode < 48 || charCode > 57) {
+      e.preventDefault();
+      return false;
+    }
+    return true;
+  }
+  onlyPinCodeKey(event: Event): boolean {
+    const e = event as KeyboardEvent;
+    const charCode = e.which ? e.which : e.keyCode;
+
+    // Allow only digits (0–9)
+    if (charCode < 48 || charCode > 57) {
+      e.preventDefault();
+      return false;
+    }
+    return true;
+  }
+
+
+
+
+
+  validation(): void {
+    if (this.basicDetailsForm.invalid) {
+      this.basicDetailsForm.markAllAsTouched(); // Show all error messages
+      console.log("invalid", this.basicDetailsForm.value);
+      return;
+    }
+    else {
+      // Submit your valid form here
+      console.log("valid", this.basicDetailsForm.value);
       this.edit();
     }
 
   }
 
+
+  handelSubmit(): void {
+    if (this.dialogAction === "Edit") {
+      this.validation();
+    }
+    else {
+      this.add();
+    }
+  }
+
+
+
+  add() {
+
+  }
+
   edit = () => {
     var formData = this.basicDetailsForm.value;
+    console.log("edit", formData)
     var data = {
       id: this.dialogData.data.id,
       name: formData.name,
     }
+    this.onUpdateBasicDetails.emit();
+    this.dialogRef.close();
     // this.categoryService.update(data).subscribe({
     //   next: (res: any) => {
     //     this.dialogRef.close();
