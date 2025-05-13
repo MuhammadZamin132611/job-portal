@@ -1,0 +1,44 @@
+<mat-toolbar>
+    <mat-toolbar-row>
+        <div class="flex justify-between gap-4">
+            <div class="flex gap-3">
+                <mat-icon class="text-[#21A14B]">info_outline</mat-icon>
+                <div class="">
+                    <h1 class="text-base md:text-lg font-semibold">About Me</h1>
+                    <p class="text-sm md:text-base font-normal text-gray-500">
+                        {{dialogData.action}} a summary about you.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-dialog-content class="mat-typography">
+    <form [formGroup]="aboutMeForm">
+        <div>
+            <div>
+                <div class="flex justify-between pb-1">
+                    <h3 class="text-sm md:text-base font-medium text-gray-600">Summary</h3>
+                    <h3 class="text-sm md:text-base font-medium text-gray-600">
+                        {{ aboutMeForm.get('description')?.value?.length || 0 }}/500
+                    </h3>
+                </div>
+
+                <mat-form-field class="example-full-width">
+                    <textarea matInput formControlName="description" required rows="9" maxlength="500"></textarea>
+                    <mat-error *ngIf="aboutMeForm.get('description')?.hasError('required')">
+                        Add your summary.
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+        </div>
+    </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="center">
+    <button mat-flat-button color="primary" type="submit" (click)="handelSubmit()"
+        [disabled]="!(aboutMeForm.valid && aboutMeForm.dirty)">{{action}}</button>
+    <button mat-raised-button mat-dialog-close>Close</button>
+</mat-dialog-actions>
