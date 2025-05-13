@@ -1,0 +1,76 @@
+<mat-toolbar>
+    <mat-toolbar-row>
+        <div class="flex justify-between gap-4">
+            <div class="flex gap-3">
+                <mat-icon class="text-[#21A14B]">description</mat-icon>
+                <div class="">
+                    <h1 class="text-base md:text-lg font-semibold">Personal Bio</h1>
+                    <p class="text-sm md:text-base font-normal text-gray-500">
+                        {{dialogData.action}} your personal info.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-dialog-content class="mat-typography">
+    <!-- <form [formGroup]="basicDetailsForm">
+        <div fxFlex fxLayout="column">
+            <div fxLayout="row wrapper">
+                <mat-form-field appearance="fill" fxFlex>
+                    <mat-label>Name</mat-label>
+                    <input matInput formControlName="name" name required>
+                    <mat-error *ngIf="basicDetailsForm.controls['name'].hasError('required')">Please enter category
+                        name.</mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+    </form> -->
+    <div class="grid gap-3">
+        <div>
+            <label for="fullName" class="text-sm md:text-base font-medium text-gray-600">Full Name</label>
+            <input id="fullName" type="text" placeholder="eg: Md Zamin"
+                class="w-full rounded-lg border-2 border-gray-200 focus:outline-none px-3 py-2 text-sm md:text-base font-normal">
+        </div>
+        <div>
+            <label for="fullName" class="text-sm md:text-base font-medium text-gray-600">Email Id</label>
+            <input id="fullName" type="text" placeholder="eg: zamin@gmail.com"
+                class="w-full rounded-lg border-2 border-gray-200 focus:outline-none px-3 py-2 text-sm md:text-base font-normal">
+        </div>
+        <div>
+            <label for="fullName" class="text-sm md:text-base font-medium text-gray-600">Mobile Number</label>
+            <input id="fullName" type="text" placeholder="eg: 8976534210"
+                class="w-full rounded-lg border-2 border-gray-200 focus:outline-none px-3 py-2 text-sm md:text-base font-normal">
+        </div>
+        <div>
+            <h3 class="text-sm md:text-base font-medium text-gray-600">Select Your Gender</h3>
+            <mat-radio-group aria-label="Select an option">
+                <mat-radio-button value="male">Male</mat-radio-button>
+                <mat-radio-button value="female">Female</mat-radio-button>
+                <mat-radio-button value="other">Other</mat-radio-button>
+            </mat-radio-group>
+        </div>
+        <div>
+            <label for="fullName" class="text-sm md:text-base font-medium text-gray-600">Date of Birth</label>
+            <input id="fullName" type="date"
+                class="w-full rounded-lg border-2 border-gray-200 focus:outline-none px-3 py-2 text-sm md:text-base font-normal">
+        </div>
+        <div>
+            <label for="fullName" class="text-sm md:text-base font-medium text-gray-600">Pin Code</label>
+            <input id="fullName" type="text" placeholder="eg: 234422"
+                class="w-full rounded-lg border-2 border-gray-200 focus:outline-none px-3 py-2 text-sm md:text-base font-normal">
+        </div>
+        <div>
+            <label for="fullName" class="text-sm md:text-base font-medium text-gray-600">Select Your City</label>
+            <input id="fullName" type="text" placeholder="New Delhi"
+                class="w-full rounded-lg border-2 border-gray-200 focus:outline-none px-3 py-2 text-sm md:text-base font-normal">
+        </div>
+    </div>
+</mat-dialog-content>
+
+<mat-dialog-actions align="center">
+    <button mat-flat-button color="primary" type="submit" (click)="handelSubmit()"
+        [disabled]="!(basicDetailsForm.valid && basicDetailsForm.dirty)">{{action}}</button>
+    <button mat-raised-button mat-dialog-close>Close</button>
+</mat-dialog-actions>

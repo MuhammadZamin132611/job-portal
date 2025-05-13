@@ -42,7 +42,7 @@
                         matBadgePosition="below after">
                         work_outline
                     </mat-icon>
-                    <mat-icon class="text-gray-600 cursor-pointer">edit</mat-icon>
+                    <mat-icon (click)="handelEditAction($event)" class="text-gray-600 cursor-pointer">edit</mat-icon>
                 </div>
             </div>
             <!-- Icons (desktop only) -->
@@ -51,7 +51,7 @@
                     matBadgePosition="below after">
                     work_outline
                 </mat-icon>
-                <mat-icon class="text-gray-600 cursor-pointer">edit</mat-icon>
+                <mat-icon  (click)="handelEditAction($event)" class="text-gray-600 cursor-pointer">edit</mat-icon>
             </div>
         </div>
 
