@@ -74,13 +74,6 @@
                 Date of Birth is required
             </div>
         </div>
-
-        <!-- <input id="pincode" type="text" formControlName="pin" placeholder="eg: 234422"
-            class="w-full rounded-lg border-2 border-gray-200 focus:outline-none px-3 py-2 text-sm md:text-base font-normal">
-        <div *ngIf="basicDetailsForm.get('pin')?.invalid && basicDetailsForm.get('pin')?.touched"
-            class="text-red-500 text-sm">
-            Pin Code is required
-        </div> -->
         <div>
             <label for="pincode" class="text-sm md:text-base font-medium text-gray-600">Pin Code</label>
             <input id="pincode" formControlName="pin" type="tel" (keypress)="onlyPinCodeKey($event)" inputmode="numeric"
