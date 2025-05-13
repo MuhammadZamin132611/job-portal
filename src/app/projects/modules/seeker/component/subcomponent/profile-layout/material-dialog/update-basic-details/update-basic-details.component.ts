@@ -24,7 +24,7 @@ export class UpdateBasicDetailsComponent {
 
   ngOnInit(): void {
     this.basicDetailsForm = this.fb.group({
-      name: [null, [Validators.required]]
+      fullName: [null, [Validators.required]]
     });
     if (this.dialogData.action === "Update") {
       this.dialogAction = "Update";
