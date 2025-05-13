@@ -67,7 +67,7 @@
 
         <div>
             <label for="date" class="text-sm md:text-base font-medium text-gray-600">Date of Birth</label>
-            <input id="date" type="date" formControlName="dob"
+            <input id="date" type="date" formControlName="dob" [max]="maxDate"
                 class="w-full rounded-lg border-2 border-gray-200 focus:outline-none px-3 py-2 text-sm md:text-base font-normal">
             <div *ngIf="basicDetailsForm.get('dob')?.invalid && basicDetailsForm.get('dob')?.touched"
                 class="text-red-500 text-sm">

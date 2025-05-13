@@ -18,11 +18,18 @@ export class UpdateBasicDetailsComponent {
   action: any = 'Add';
   responseMessage: any;
   basicDetailsForm: any = FormGroup;
+  maxDate: string;
 
   constructor(@Inject(MAT_DIALOG_DATA) public dialogData: any,
     public dialogRef: MatDialogRef<BasicDetailsComponent>,
     private fb: FormBuilder,
-  ) { }
+  ) {
+    const today = new Date();
+    const maxDate = new Date(today.getFullYear() - 18, today.getMonth(), today.getDate());
+    this.maxDate = maxDate.toISOString().split('T')[0]; // e.g., "2007-05-13"
+
+
+  }
 
   ngOnInit(): void {
     this.basicDetailsForm = this.fb.group({
