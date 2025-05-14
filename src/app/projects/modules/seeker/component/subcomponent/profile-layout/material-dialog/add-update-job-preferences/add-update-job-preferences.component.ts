@@ -15,6 +15,9 @@ export class AddUpdateJobPreferencesComponent {
   roles = ['Graphic designe', "Java Developer", 'Product Designer', 'Team Leader',];
   interestArea = ['Java Developer', 'Web Developer', 'Androide Development'];
   cities = ['New Delhi', 'Pune', 'Bangalore', "UP"];
+  jobT = ['Permanent', 'Temporary', 'Intrenship', "Other"];
+  employementT = ['Part Time', 'Full Time', "Other"];
+  shiftT = ['Day Shift', 'Night Shift', "Other"];
   onAddJobPreference = new EventEmitter();
   onEditJobPreference = new EventEmitter();
   aboutMeForm: any = FormGroup;
@@ -23,6 +26,10 @@ export class AddUpdateJobPreferencesComponent {
   toggleRoles: boolean = false;
   toggleIntrest: boolean = false;
   toggleLocation: boolean = false;
+  toggleJob: boolean = false;
+  toggleEmployment: boolean = false;
+  toggleShift: boolean = false;
+  toggleSalary: boolean = false;
 
   constructor(@Inject(MAT_DIALOG_DATA) public dialogData: any,
     private fb: FormBuilder,
@@ -33,13 +40,29 @@ export class AddUpdateJobPreferencesComponent {
   role() {
     this.toggleRoles = !this.toggleRoles
   }
-  
+
   intrest() {
     this.toggleIntrest = !this.toggleIntrest
   }
 
   location() {
     this.toggleLocation = !this.toggleLocation
+  }
+
+  jobType() {
+    this.toggleJob = !this.toggleJob
+  }
+
+  employmentType() {
+    this.toggleEmployment = !this.toggleEmployment
+  }
+
+  ShiftType() {
+    this.toggleShift = !this.toggleShift
+  }
+
+  salary() {
+    this.toggleSalary = !this.toggleSalary
   }
 
 
