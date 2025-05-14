@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Inject } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, ReactiveFormsModule, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { WorkExperienceComponent } from '../../../work-experience/work-experience.component';
 import { MaterialModule } from '../../../../../../../../shared/material.module';
@@ -52,20 +52,21 @@ export class AddUpdateExperienceComponent {
       noticePeriod: [null, [Validators.required]],
       description: [null, [Validators.required]],
       currentlyWorking: [false]
-    });
+    }, { validators: this.dateValidator() });
 
     this.workExperience.get('currentlyWorking')?.valueChanges.subscribe((isChecked: boolean) => {
       const endDateControl = this.workExperience.get('endDate');
 
       if (isChecked) {
-        endDateControl?.disable(); // disables and removes it from the DOM
+        endDateControl?.disable();
         endDateControl?.clearValidators();
       } else {
-        endDateControl?.enable(); // re-adds it to DOM
+        endDateControl?.enable();
         endDateControl?.setValidators(Validators.required);
       }
 
       endDateControl?.updateValueAndValidity();
+      this.workExperience.updateValueAndValidity(); // Re-validate group-level validator
     });
 
     if (this.dialogData.action === "Update") {
@@ -75,6 +76,22 @@ export class AddUpdateExperienceComponent {
       this.workExperience.patchValue(this.dialogData.data);
     }
   }
+
+  dateValidator(): ValidatorFn {
+    return (group: AbstractControl): ValidationErrors | null => {
+      const start = group.get('startDate')?.value;
+      const end = group.get('endDate')?.value;
+      const currentlyWorking = group.get('currentlyWorking')?.value;
+
+      if (!start || (!currentlyWorking && !end)) return null;
+
+      const startDate = new Date(start);
+      const endDate = currentlyWorking ? new Date() : new Date(end);
+
+      return startDate > endDate ? { dateMismatch: true } : null;
+    };
+  }
+
 
   selectEmpType(emp: string) {
     this.workExperience.get('empType')?.setValue(emp);
