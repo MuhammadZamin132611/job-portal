@@ -1,0 +1,157 @@
+<mat-toolbar>
+    <mat-toolbar-row>
+        <div class="flex justify-between gap-4">
+            <div class="flex gap-3">
+                <mat-icon class="text-[#21A14B]">work_history</mat-icon>
+                <div class="">
+                    <h1 class="text-base md:text-lg font-semibold">{{dialogData.action}} Work Experience</h1>
+                    <p class="text-sm md:text-base font-normal text-gray-500">
+                        {{dialogData.action}} your {{text}} work experience.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-dialog-content>
+    <form [formGroup]="workExperience" class="grid gap-3">
+        <div>
+            <label for="companyName" class="text-sm md:text-base font-medium text-gray-600">Company Name</label>
+            <input id="companyName" formControlName="companyName" type="text" placeholder="eg: Google"
+                class="w-full rounded-lg border-2 border-gray-200 focus:outline-none px-3 py-2 text-sm md:text-base font-normal">
+            <div *ngIf="workExperience.get('companyName')?.invalid && workExperience.get('companyName')?.touched"
+                class="text-red-500 text-sm">
+                Company Name is required.
+            </div>
+        </div>
+        <div>
+            <label for="jobRole" class="text-sm md:text-base font-medium text-gray-600">Job Role</label>
+            <input id="jobRole" formControlName="jobRole" type="text" placeholder="eg: Androide Developer"
+                class="w-full rounded-lg border-2 border-gray-200 focus:outline-none px-3 py-2 text-sm md:text-base font-normal">
+            <div *ngIf="workExperience.get('jobRole')?.invalid && workExperience.get('jobRole')?.touched"
+                class="text-red-500 text-sm">
+                Job Role is required.
+            </div>
+        </div>
+        <div>
+            <label for="department" class="text-sm md:text-base font-medium text-gray-600">Department</label>
+            <input  id="department" formControlName="department" type="text" placeholder="eg: HR"
+                class="w-full rounded-lg border-2 border-gray-200 focus:outline-none px-3 py-2 text-sm md:text-base font-normal">
+            <div class="relative">
+                <mat-icon class="absolute right-2 bottom-2 text-gray-400">keyboard_arrow_down</mat-icon>
+            </div>
+            <div *ngIf="workExperience.get('department')?.invalid && workExperience.get('department')?.touched"
+                class="text-red-500 text-sm">
+                Select your department.
+            </div>
+        </div>
+        <div>
+            <label for="industryType" class="text-sm md:text-base font-medium text-gray-600">Industry Type</label>
+            <input  id="industryType" formControlName="industryType" type="text"
+                placeholder="eg: IT & Consultancy"
+                class="w-full rounded-lg border-2 border-gray-200 focus:outline-none px-3 py-2 text-sm md:text-base font-normal">
+            <div class="relative">
+                <mat-icon class="absolute right-2 bottom-2 text-gray-400">keyboard_arrow_down</mat-icon>
+            </div>
+            <div *ngIf="workExperience.get('industryType')?.invalid && workExperience.get('industryType')?.touched"
+                class="text-red-500 text-sm">
+                Select your industry type.
+            </div>
+        </div>
+        <div>
+            <label for="location" class="text-sm md:text-base font-medium text-gray-600">Location</label>
+            <input  id="location" formControlName="location" type="text" placeholder="eg: New Delhi"
+                class="w-full rounded-lg border-2 border-gray-200 focus:outline-none px-3 py-2 text-sm md:text-base font-normal">
+            <div class="relative">
+                <mat-icon class="absolute right-2 bottom-2 text-gray-400">keyboard_arrow_down</mat-icon>
+            </div>
+            <div *ngIf="workExperience.get('location')?.invalid && workExperience.get('location')?.touched"
+                class="text-red-500 text-sm">
+                Select your location.
+            </div>
+        </div>
+        <div>
+            <section class="example-section">
+                <mat-checkbox class="example-margin">Currently Working Here</mat-checkbox>
+            </section>
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+            <div>
+                <label for="startDate" class="text-sm md:text-base font-medium text-gray-600">Start Date</label>
+                <input id="startDate" formControlName="startDate" [max]="minDate" type="date"
+                    placeholder="eg: Androide Developer"
+                    class="w-full rounded-lg border-2 border-gray-200 focus:outline-none px-3 py-2 text-sm md:text-base font-normal">
+                <div *ngIf="workExperience.get('startDate')?.invalid && workExperience.get('startDate')?.touched"
+                    class="text-red-500 text-sm">
+                    Select your start date.
+                </div>
+            </div>
+            <div>
+                <label for="endDate" class="text-sm md:text-base font-medium text-gray-600">End Date</label>
+                <input id="endDate" formControlName="endDate" [max]="maxDate" type="date"
+                    placeholder="eg: Androide Developer"
+                    class="w-full rounded-lg border-2 border-gray-200 focus:outline-none px-3 py-2 text-sm md:text-base font-normal">
+                <div *ngIf="workExperience.get('endDate')?.invalid && workExperience.get('endDate')?.touched"
+                    class="text-red-500 text-sm">
+                    Select your end date.
+                </div>
+            </div>
+        </div>
+        <div>
+            <h4 class="text-sm md:text-base font-medium text-gray-600 pb-2">Employment Type</h4>
+            <div class="flex flex-wrap md:justify-center gap-3">
+                <div *ngFor="let emp of empType; let i = index" (click)="selectEmpType(emp)" [ngClass]="{
+                    'bg-green-600 text-white': workExperience.get('empType')?.value === emp,
+                    'bg-gray-100 text-gray-600': workExperience.get('empType')?.value !== emp
+                    }"
+                    class="cursor-pointer flex gap-1 items-center px-4 md:px-5 py-0.5 rounded-xl shadow-sm transition">
+                    <p class="text-center text-sm md:text-base font-normal">{{ emp }}</p>
+                </div>
+            </div>
+            <div *ngIf="workExperience.get('empType')?.invalid && workExperience.get('empType')?.touched"
+                class="text-red-500 text-sm">
+                Select your employment type.
+            </div>
+        </div>
+        <div>
+            <h4 class="text-sm md:text-base font-medium text-gray-600 pb-2">Notice Period</h4>
+            <div class="flex flex-wrap md:justify-center gap-3">
+                <div *ngFor="let notice of noticePeriod" (click)="selectNoticePeriod(notice)" [ngClass]="{
+                    'bg-green-600 text-white': workExperience.get('noticePeriod')?.value === notice,
+                    'bg-gray-100 text-gray-600': workExperience.get('noticePeriod')?.value !== notice
+                    }"
+                    class="cursor-pointer flex gap-1 items-center px-4 md:px-5 py-0.5 rounded-xl shadow-sm transition">
+                    <p class="text-center text-sm md:text-base font-normal">{{ notice }}</p>
+                </div>
+            </div>
+
+            <div *ngIf="workExperience.get('noticePeriod')?.invalid && workExperience.get('noticePeriod')?.touched"
+                class="text-red-500 text-sm">
+                Select your notice period.
+            </div>
+        </div>
+
+        <div>
+            <div class="flex justify-between pb-1">
+                <h3 class="text-sm md:text-base font-medium text-gray-600">Summary</h3>
+                <h3 class="text-sm md:text-base font-medium text-gray-600">
+                    {{ workExperience.get('description')?.value?.length || 0 }}/200
+                </h3>
+            </div>
+            <mat-form-field class="example-full-width">
+                <textarea matInput formControlName="description" required rows="5" maxlength="200"></textarea>
+                <mat-error *ngIf="workExperience.get('description')?.hasError('required')">
+                    Add your summary.
+                </mat-error>
+            </mat-form-field>
+        </div>
+    </form>
+</mat-dialog-content>
+
+
+<mat-dialog-actions align="center">
+    <button mat-flat-button color="primary" type="submit" (click)="handelSubmit()">{{action}}</button>
+    <button mat-raised-button mat-dialog-close>Close</button>
+</mat-dialog-actions>
+<!-- [disabled]="!(workExperience.valid && workExperience.dirty)" -->

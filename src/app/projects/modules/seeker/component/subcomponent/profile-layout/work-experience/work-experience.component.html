@@ -6,8 +6,8 @@
                 <h1 class="text-base md:text-lg font-semibold">Experience (1)</h1>
             </div>
             <div class="flex gap-3 text-gray-600">
-                <mat-icon matTooltip="Add" class="cursor-pointer">add</mat-icon>
-                <mat-icon matTooltip="Edit" class="cursor-pointer">edit</mat-icon>
+                <mat-icon matTooltip="Add" (click)="handelAddAction()" class="cursor-pointer">add</mat-icon>
+                <mat-icon matTooltip="Edit" (click)="handelEditAction($event)" class="cursor-pointer">edit</mat-icon>
             </div>
         </div>
         <div class="flex gap-3 pt-3">

@@ -1,0 +1,127 @@
+import { Component, EventEmitter, Inject } from '@angular/core';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { WorkExperienceComponent } from '../../../work-experience/work-experience.component';
+import { MaterialModule } from '../../../../../../../../shared/material.module';
+import { NgClass, NgFor, NgIf } from '@angular/common';
+
+@Component({
+  selector: 'app-add-update-experience',
+  imports: [MaterialModule, ReactiveFormsModule, NgIf, NgFor, NgClass],
+  templateUrl: './add-update-experience.component.html',
+  styleUrl: './add-update-experience.component.scss'
+})
+export class AddUpdateExperienceComponent {
+  empType = ["Part Time", "Full Time", "Contarct", "Internship",]
+  noticePeriod = ["No Notice Period", "15 Days", "30 Days", "45 Days", "60 Days", "90 Days",]
+  onAddWorkExperoence = new EventEmitter();
+  onEditWorkExperoence = new EventEmitter();
+  workExperience: any = FormGroup;
+  dialogAction: any = 'Add';
+  action: any = 'Add';
+  text: any = "new"
+  maxDate: string;
+  minDate: string;
+  selectedEmpType: string | null = null; // or use index: number
+  selectedNoticePeriod: string | null = null;
+
+
+
+
+  constructor(@Inject(MAT_DIALOG_DATA) public dialogData: any,
+    private fb: FormBuilder,
+    public dialogRef: MatDialogRef<WorkExperienceComponent>,
+
+  ) {
+    const today = new Date();
+    const maxDate = new Date(today.getFullYear() - 18, today.getMonth(), today.getDate());
+    this.maxDate = maxDate.toISOString().split('T')[0];
+    this.minDate = maxDate.toISOString().split('T')[0];
+  }
+
+  ngOnInit(): void {
+    this.workExperience = this.fb.group({
+      companyName: [null, [Validators.required]],
+      jobRole: [null, [Validators.required]],
+      department: [null, [Validators.required]],
+      industryType: [null, [Validators.required]],
+      location: [null, [Validators.required]],
+      startDate: [null, [Validators.required]],
+      endDate: [null, [Validators.required]],
+      empType: [null, [Validators.required]],
+      noticePeriod: [null, [Validators.required]],
+      description: [null, [Validators.required]],
+    });
+    if (this.dialogData.action === "Update") {
+      this.dialogAction = "Update";
+      this.action = "Update";
+      this.text = "existing"
+      this.workExperience.patchValue(this.dialogData.data);
+    }
+  }
+
+  selectEmpType(emp: string) {
+    this.workExperience.get('empType')?.setValue(emp);
+    this.workExperience.get('empType')?.markAsTouched();
+  }
+
+  selectNoticePeriod(notice: string) {
+    this.workExperience.get('noticePeriod')?.setValue(notice);
+    this.workExperience.get('noticePeriod')?.markAsTouched();
+  }
+
+
+  editValidation(): void {
+    if (this.workExperience.invalid) {
+      this.workExperience.markAllAsTouched(); // Show all error messages
+      console.log(`invalid ${this.dialogAction}`, this.workExperience.value);
+      return;
+    }
+    else {
+      // Submit your valid form here
+      console.log(`valid ${this.dialogAction}`, this.workExperience.value);
+      this.edit();
+    }
+
+  }
+  addValidation(): void {
+    if (this.workExperience.invalid) {
+      this.workExperience.markAllAsTouched(); // Show all error messages
+      console.log(`invalid ${this.dialogAction}`, this.workExperience.value);
+      return;
+    }
+    else {
+      // Submit your valid form here
+      console.log(`valid ${this.dialogAction}`, this.workExperience.value);
+      this.add();
+    }
+
+  }
+
+  handelSubmit = () => {
+    if (this.dialogAction === "Update") {
+      this.editValidation();
+    }
+    else {
+      this.addValidation();
+    }
+  }
+  add = () => {
+    var formData = this.workExperience.value;
+    var data = {
+      companyName: formData.name,
+    }
+    this.dialogRef.close();
+    this.onAddWorkExperoence.emit();
+  }
+
+  edit = () => {
+    var formData = this.workExperience.value;
+    var data = {
+      id: this.dialogData.data.id,
+      companyName: formData.name,
+    }
+    this.dialogRef.close();
+    this.onEditWorkExperoence.emit();
+  }
+}
