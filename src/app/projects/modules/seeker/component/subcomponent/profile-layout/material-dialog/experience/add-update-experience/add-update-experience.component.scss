@@ -1,3 +1,12 @@
+@use 'tailwindcss/base';
+
+@layer base {
+
+  mat-error {
+    @apply text-red-500 text-sm m-0 p-0;
+  }
+}
+
 .example-full-width {
   width: 100%;
 }

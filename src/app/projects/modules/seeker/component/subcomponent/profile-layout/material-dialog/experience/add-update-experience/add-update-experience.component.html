@@ -36,7 +36,7 @@
         </div>
         <div>
             <label for="department" class="text-sm md:text-base font-medium text-gray-600">Department</label>
-            <input  id="department" formControlName="department" type="text" placeholder="eg: HR"
+            <input id="department" formControlName="department" type="text" placeholder="eg: HR"
                 class="w-full rounded-lg border-2 border-gray-200 focus:outline-none px-3 py-2 text-sm md:text-base font-normal">
             <div class="relative">
                 <mat-icon class="absolute right-2 bottom-2 text-gray-400">keyboard_arrow_down</mat-icon>
@@ -48,8 +48,7 @@
         </div>
         <div>
             <label for="industryType" class="text-sm md:text-base font-medium text-gray-600">Industry Type</label>
-            <input  id="industryType" formControlName="industryType" type="text"
-                placeholder="eg: IT & Consultancy"
+            <input id="industryType" formControlName="industryType" type="text" placeholder="eg: IT & Consultancy"
                 class="w-full rounded-lg border-2 border-gray-200 focus:outline-none px-3 py-2 text-sm md:text-base font-normal">
             <div class="relative">
                 <mat-icon class="absolute right-2 bottom-2 text-gray-400">keyboard_arrow_down</mat-icon>
@@ -61,7 +60,7 @@
         </div>
         <div>
             <label for="location" class="text-sm md:text-base font-medium text-gray-600">Location</label>
-            <input  id="location" formControlName="location" type="text" placeholder="eg: New Delhi"
+            <input id="location" formControlName="location" type="text" placeholder="eg: New Delhi"
                 class="w-full rounded-lg border-2 border-gray-200 focus:outline-none px-3 py-2 text-sm md:text-base font-normal">
             <div class="relative">
                 <mat-icon class="absolute right-2 bottom-2 text-gray-400">keyboard_arrow_down</mat-icon>
@@ -71,7 +70,7 @@
                 Select your location.
             </div>
         </div>
-        <div>
+        <!-- <div>
             <section class="example-section">
                 <mat-checkbox class="example-margin">Currently Working Here</mat-checkbox>
             </section>
@@ -97,7 +96,34 @@
                     Select your end date.
                 </div>
             </div>
+        </div> -->
+
+        <section class="example-section">
+            <mat-checkbox formControlName="currentlyWorking">Currently Working Here</mat-checkbox>
+        </section>
+        <div class="grid grid-cols-2 gap-4">
+
+            <div>
+                <label for="startDate" class="text-sm md:text-base font-medium text-gray-600">Start Date</label>
+                <input id="startDate" formControlName="startDate" type="date"
+                    class="w-full rounded-lg border-2 border-gray-200 focus:outline-none px-3 py-2 text-sm md:text-base font-normal" />
+                <div *ngIf="workExperience.get('startDate')?.invalid && workExperience.get('startDate')?.touched"
+                    class="text-red-500 text-sm">
+                    Select your start date.
+                </div>
+            </div>
+            <div>
+                <label for="endDate" class="text-sm md:text-base font-medium text-gray-600">End Date</label>
+                <input id="endDate" formControlName="endDate" type="date"
+                    class="w-full rounded-lg border-2 border-gray-200 focus:outline-none px-3 py-2 text-sm md:text-base font-normal"
+                    [disabled]="workExperience.get('currentlyWorking')?.value" />
+                <div *ngIf="workExperience.get('endDate')?.invalid && workExperience.get('endDate')?.touched"
+                    class="text-red-500 text-sm">
+                    Select your end date.
+                </div>
+            </div>
         </div>
+
         <div>
             <h4 class="text-sm md:text-base font-medium text-gray-600 pb-2">Employment Type</h4>
             <div class="flex flex-wrap md:justify-center gap-3">
@@ -134,7 +160,7 @@
 
         <div>
             <div class="flex justify-between pb-1">
-                <h3 class="text-sm md:text-base font-medium text-gray-600">Summary</h3>
+                <h3 class="text-sm md:text-base font-medium text-gray-600">Description</h3>
                 <h3 class="text-sm md:text-base font-medium text-gray-600">
                     {{ workExperience.get('description')?.value?.length || 0 }}/200
                 </h3>
@@ -142,7 +168,7 @@
             <mat-form-field class="example-full-width">
                 <textarea matInput formControlName="description" required rows="5" maxlength="200"></textarea>
                 <mat-error *ngIf="workExperience.get('description')?.hasError('required')">
-                    Add your summary.
+                    Add your description.
                 </mat-error>
             </mat-form-field>
         </div>

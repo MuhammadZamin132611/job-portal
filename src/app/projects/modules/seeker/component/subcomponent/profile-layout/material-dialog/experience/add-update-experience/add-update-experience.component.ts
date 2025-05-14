@@ -51,7 +51,23 @@ export class AddUpdateExperienceComponent {
       empType: [null, [Validators.required]],
       noticePeriod: [null, [Validators.required]],
       description: [null, [Validators.required]],
+      currentlyWorking: [false]
     });
+
+    this.workExperience.get('currentlyWorking')?.valueChanges.subscribe((isChecked: boolean) => {
+      const endDateControl = this.workExperience.get('endDate');
+
+      if (isChecked) {
+        endDateControl?.disable(); // disables and removes it from the DOM
+        endDateControl?.clearValidators();
+      } else {
+        endDateControl?.enable(); // re-adds it to DOM
+        endDateControl?.setValidators(Validators.required);
+      }
+
+      endDateControl?.updateValueAndValidity();
+    });
+
     if (this.dialogData.action === "Update") {
       this.dialogAction = "Update";
       this.action = "Update";
