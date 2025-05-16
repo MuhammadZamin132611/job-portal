@@ -25,11 +25,9 @@
                 Company Name is required.
             </div>
         </div>
-        <div (selectedRolesChange)="onSelectedRolesChange($event)"></div>
         <div>
             <label for="jobRole" class="text-sm md:text-base font-medium text-gray-600">Job Role</label>
-            <input readonly (click)="openBottomSheet(roles)" id="jobRole" formControlName="jobRole" type="text"
-                placeholder="eg: Androide Developer"
+            <input id="jobRole" formControlName="jobRole" type="text" placeholder="eg: Androide Developer"
                 class="w-full rounded-lg border-2 border-gray-200 focus:outline-none px-3 py-2 text-sm md:text-base font-normal">
             <div *ngIf="workExperience.get('jobRole')?.invalid && workExperience.get('jobRole')?.touched"
                 class="text-red-500 text-sm">
@@ -38,8 +36,9 @@
         </div>
         <div>
             <label for="department" class="text-sm md:text-base font-medium text-gray-600">Department</label>
-            <input id="department" formControlName="department" type="text" placeholder="eg: HR"
-                class="w-full rounded-lg border-2 border-gray-200 focus:outline-none px-3 py-2 text-sm md:text-base font-normal">
+            <input readonly (click)="openBottomSheet(roles)" id="department" formControlName="department" type="text"
+                placeholder="eg: HR" [value]="SelectedLocation.join(', ')"
+                class="w-full cursor-pointer rounded-lg border-2 border-gray-200 focus:outline-none px-3 py-2 text-sm md:text-base font-normal">
             <div class="relative">
                 <mat-icon class="absolute right-2 bottom-2 text-gray-400">keyboard_arrow_down</mat-icon>
             </div>

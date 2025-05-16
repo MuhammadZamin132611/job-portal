@@ -42,17 +42,23 @@ export class AddUpdateExperienceComponent {
     this.minDate = maxDate.toISOString().split('T')[0];
   }
 
+  SelectedLocation: string[] = []
   openBottomSheet(filterType: string[]): void {
-    this._bottomSheet.open(MasterDateBottomSheetComponent, {
+    const bottomSheetRef = this._bottomSheet.open(MasterDateBottomSheetComponent, {
       panelClass: 'custom-bottom-sheet',
-      data: { filterType }
+      data: {
+        filterType,
+        selected: this.SelectedLocation  // ✅ only pass previously selected
+      }
     });
-  }
 
-  selectedRolesFromChild: any
-  onSelectedRolesChange(updatedRoles: Event) {
-    // this.selectedRolesFromChild = updatedRoles;
-    console.log('Received from child:', updatedRoles);
+    bottomSheetRef.afterDismissed().subscribe((selectedRoles: string[]) => {
+      if (selectedRoles) {
+        this.SelectedLocation = selectedRoles;
+        this.workExperience.get('department')?.setValue(selectedRoles.join(', '));
+        this.workExperience.get('department')?.markAsTouched();
+      }
+    });
   }
 
 
