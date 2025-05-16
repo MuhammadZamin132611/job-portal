@@ -1,0 +1,52 @@
+@use 'tailwindcss/base';
+@use 'tailwindcss/components';
+
+@layer base {
+    .chip-scroll-container {
+        @apply inline-flex gap-2 w-full overflow-x-auto whitespace-nowrap py-2 scroll-smooth;
+    }
+
+    .chip-scroll-container mat-chip-row {
+        @apply flex items-center bg-white text-gray-600 font-medium;
+    }
+
+    ::ng-deep .custom-bottom-sheet .mat-bottom-sheet-container {
+        @apply rounded-t-2xl;
+    }
+
+
+}
+
+@layer components {
+    // .custom-bottom-sheet {
+    //   @apply h-[90vh]  rounded-t-lg;
+    // }
+}
+
+
+
+.scroll-container {
+    overflow: auto;
+    /* Keep scrolling enabled */
+    scrollbar-width: none;
+    /* Hide scrollbar (Firefox) */
+    -ms-overflow-style: none;
+    /* Hide scrollbar (IE/Edge) */
+}
+
+.scroll-container::-webkit-scrollbar {
+    display: none;
+    /* Hide scrollbar (Chrome, Safari) */
+}
+
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari, Opera */
+}

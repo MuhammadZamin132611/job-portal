@@ -25,9 +25,11 @@
                 Company Name is required.
             </div>
         </div>
+        <div (selectedRolesChange)="onSelectedRolesChange($event)"></div>
         <div>
             <label for="jobRole" class="text-sm md:text-base font-medium text-gray-600">Job Role</label>
-            <input id="jobRole" formControlName="jobRole" type="text" placeholder="eg: Androide Developer"
+            <input readonly (click)="openBottomSheet(roles)" id="jobRole" formControlName="jobRole" type="text"
+                placeholder="eg: Androide Developer"
                 class="w-full rounded-lg border-2 border-gray-200 focus:outline-none px-3 py-2 text-sm md:text-base font-normal">
             <div *ngIf="workExperience.get('jobRole')?.invalid && workExperience.get('jobRole')?.touched"
                 class="text-red-500 text-sm">
