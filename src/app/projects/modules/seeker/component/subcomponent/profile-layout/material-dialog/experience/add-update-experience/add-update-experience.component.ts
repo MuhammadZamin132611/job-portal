@@ -51,7 +51,6 @@ export class AddUpdateExperienceComponent {
         selected: this.SelectedLocation  // ✅ only pass previously selected
       }
     });
-
     bottomSheetRef.afterDismissed().subscribe((selectedRoles: string[]) => {
       if (selectedRoles) {
         this.SelectedLocation = selectedRoles;

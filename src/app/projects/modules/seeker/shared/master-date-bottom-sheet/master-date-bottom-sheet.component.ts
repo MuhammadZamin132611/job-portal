@@ -28,7 +28,16 @@ export class MasterDateBottomSheetComponent {
       this.selected.push(role);
       this.closeSheet();
     } else {
+      // this.selected.splice(index, 1);
+      this.remove(role);
+    }
+  }
+
+  remove(role: string): void {
+    const index = this.selected.indexOf(role);
+    if (index !== -1) {
       this.selected.splice(index, 1);
+      // this.closeSheet(); // Immediately update and return updated selection
     }
   }
 
