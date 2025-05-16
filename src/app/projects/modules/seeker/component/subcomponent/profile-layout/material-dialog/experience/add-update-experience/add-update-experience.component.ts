@@ -55,7 +55,8 @@ export class AddUpdateExperienceComponent {
       data: {
         filterType,
         selected: this.selectedRadio,
-        typeData: 'Department'
+        typeData: 'Department',
+        placeholderMessage: 'HR'
       }
     });
     bottomSheetRef.afterDismissed().subscribe((selectedRole: string) => {
@@ -75,7 +76,8 @@ export class AddUpdateExperienceComponent {
       data: {
         filterType,
         selected: this.selectedIndustry,
-        typeData: 'Industry'
+        typeData: 'Industry',
+        placeholderMessage: 'IT & Consultancy'
       }
     });
     bottomSheetRef.afterDismissed().subscribe((selectedRole: string) => {
@@ -95,7 +97,8 @@ export class AddUpdateExperienceComponent {
       data: {
         filterType,
         selected: this.selectedLocation,
-        typeData: 'Location'
+        typeData: 'Location',
+        placeholderMessage: 'New Delhi'
       }
     });
 

@@ -16,7 +16,7 @@ export class MasterDataRadioBottomSheetComponent {
   allData: string[] = [];
 
   constructor(
-    @Inject(MAT_BOTTOM_SHEET_DATA) public data: { filterType: string[]; selected: string, typeData: string },
+    @Inject(MAT_BOTTOM_SHEET_DATA) public data: { filterType: string[]; selected: string, typeData: string, placeholderMessage:string },
     private bottomSheetRef: MatBottomSheetRef<MasterDataRadioBottomSheetComponent>
   ) {
     this.allData = this.data.filterType || [];
