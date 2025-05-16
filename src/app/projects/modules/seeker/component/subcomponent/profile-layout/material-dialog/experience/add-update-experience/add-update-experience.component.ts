@@ -7,6 +7,7 @@ import { NgClass, NgFor, NgIf } from '@angular/common';
 import { Role } from '../../../../../../../../../data/role';
 import { MasterDateBottomSheetComponent } from '../../../../../../shared/master-date-bottom-sheet/master-date-bottom-sheet.component';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
+import { MasterDataRadioBottomSheetComponent } from '../../../../../../shared/master-data-radio-bottom-sheet/master-data-radio-bottom-sheet.component';
 
 @Component({
   selector: 'app-add-update-experience',
@@ -54,7 +55,27 @@ export class AddUpdateExperienceComponent {
     bottomSheetRef.afterDismissed().subscribe((selectedRoles: string[]) => {
       if (selectedRoles) {
         this.SelectedLocation = selectedRoles;
-        this.workExperience.get('department')?.setValue(selectedRoles.join(', '));
+        // this.workExperience.get('department')?.setValue(selectedRoles.join(', '));
+        // this.workExperience.get('department')?.markAsTouched();
+      }
+    });
+  }
+
+  selectedRadio: string = ''
+  openBottomSheetRadio(filterType: string[]): void {
+    const bottomSheetRef = this._bottomSheet.open(MasterDataRadioBottomSheetComponent, {
+      panelClass: 'custom-bottom-sheet',
+      data: {
+        filterType, // ✅ full list of options
+        selected: this.selectedRadio // ✅ only a single selected string
+      }
+    });
+
+    bottomSheetRef.afterDismissed().subscribe((selectedRole: string) => {
+      if (selectedRole !== undefined) {
+        // console.log('Selected Roles:', selectedRole);
+        this.selectedRadio = selectedRole;
+        this.workExperience.get('department')?.setValue(selectedRole);
         this.workExperience.get('department')?.markAsTouched();
       }
     });

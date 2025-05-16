@@ -1,0 +1,28 @@
+<div class="h-full space-y-2 overflow-y-scroll scrollbar-hide">
+    <div class="flex p-4">
+        <div
+            class="grid justify-center px-3 place-items-center text-gray-500 bg-white rounded-l-lg border-r-4 border-gray-200">
+            <mat-icon>search</mat-icon>
+        </div>
+        <input type="search" [(ngModel)]="search" placeholder="Search job role, eg: Accountant"
+            class="w-full p-3 text-base font-normal focus:outline-none rounded-r-lg">
+    </div>
+
+    <ng-container *ngIf="filter().length > 0; else noResults">
+        <cdk-virtual-scroll-viewport itemSize="30" class="h-96 w-full">
+            <div class="flex items-center justify-between gap-2 cursor-pointer p-2"
+                *cdkVirtualFor="let role of filter()">
+                <span (click)="select(role)" class="text-gray-700 select-none">{{ role }}</span>
+                <mat-radio-button [checked]="selected === role" [value]="role" (click)="select(role)"
+                    (click)="$event.stopPropagation()">
+                </mat-radio-button>
+            </div>
+        </cdk-virtual-scroll-viewport>
+    </ng-container>
+
+    <ng-template #noResults>
+        <div class="flex flex-col justify-center items-center py-6">
+            <p class="text-gray-500 mt-4">No data found</p>
+        </div>
+    </ng-template>
+</div>

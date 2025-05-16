@@ -36,8 +36,8 @@
         </div>
         <div>
             <label for="department" class="text-sm md:text-base font-medium text-gray-600">Department</label>
-            <input readonly (click)="openBottomSheet(roles)" id="department" formControlName="department" type="text"
-                placeholder="eg: HR" [value]="SelectedLocation.join(', ')"
+            <input readonly (click)="openBottomSheetRadio(roles)" id="department" formControlName="department" type="text"
+                placeholder="eg: HR" [value]="selectedRadio"
                 class="w-full cursor-pointer rounded-lg border-2 border-gray-200 focus:outline-none px-3 py-2 text-sm md:text-base font-normal">
             <div class="relative">
                 <mat-icon class="absolute right-2 bottom-2 text-gray-400">keyboard_arrow_down</mat-icon>
@@ -71,58 +71,10 @@
                 Select your location.
             </div>
         </div>
-        <!-- <div>
-            <section class="example-section">
-                <mat-checkbox class="example-margin">Currently Working Here</mat-checkbox>
-            </section>
-        </div>
-        <div class="grid grid-cols-2 gap-4">
-            <div>
-                <label for="startDate" class="text-sm md:text-base font-medium text-gray-600">Start Date</label>
-                <input id="startDate" formControlName="startDate" [max]="minDate" type="date"
-                    placeholder="eg: Androide Developer"
-                    class="w-full rounded-lg border-2 border-gray-200 focus:outline-none px-3 py-2 text-sm md:text-base font-normal">
-                <div *ngIf="workExperience.get('startDate')?.invalid && workExperience.get('startDate')?.touched"
-                    class="text-red-500 text-sm">
-                    Select your start date.
-                </div>
-            </div>
-            <div>
-                <label for="endDate" class="text-sm md:text-base font-medium text-gray-600">End Date</label>
-                <input id="endDate" formControlName="endDate" [max]="maxDate" type="date"
-                    placeholder="eg: Androide Developer"
-                    class="w-full rounded-lg border-2 border-gray-200 focus:outline-none px-3 py-2 text-sm md:text-base font-normal">
-                <div *ngIf="workExperience.get('endDate')?.invalid && workExperience.get('endDate')?.touched"
-                    class="text-red-500 text-sm">
-                    Select your end date.
-                </div>
-            </div>
-        </div> -->
-
         <section class="example-section">
             <mat-checkbox formControlName="currentlyWorking">Currently Working Here</mat-checkbox>
         </section>
         <div class="grid grid-cols-2 gap-4">
-
-            <!-- <div>
-                <label for="startDate" class="text-sm md:text-base font-medium text-gray-600">Start Date</label>
-                <input id="startDate" formControlName="startDate" type="date" [max]="minDate"
-                    class="w-full rounded-lg border-2 border-gray-200 focus:outline-none px-3 py-2 text-sm md:text-base font-normal" />
-                <div *ngIf="workExperience.get('startDate')?.invalid && workExperience.get('startDate')?.touched"
-                    class="text-red-500 text-sm">
-                    Select your start date.
-                </div>
-            </div>
-            <div>
-                <label for="endDate" class="text-sm md:text-base font-medium text-gray-600">End Date</label>
-                <input id="endDate" formControlName="endDate" type="date" [max]="maxDate"
-                    class="w-full rounded-lg border-2 border-gray-200 focus:outline-none px-3 py-2 text-sm md:text-base font-normal"
-                    [disabled]="workExperience.get('currentlyWorking')?.value" />
-                <div *ngIf="workExperience.get('endDate')?.invalid && workExperience.get('endDate')?.touched"
-                    class="text-red-500 text-sm">
-                    Select your end date.
-                </div>
-            </div> -->
             <div>
                 <label for="startDate" class="text-sm md:text-base font-medium text-gray-600">Start Date</label>
                 <input id="startDate" formControlName="startDate" type="date" [max]="minDate"
@@ -132,7 +84,6 @@
                     Select your start date.
                 </div>
             </div>
-
             <div>
                 <label for="endDate" class="text-sm md:text-base font-medium text-gray-600">End Date</label>
                 <input id="endDate" formControlName="endDate" type="date" [max]="maxDate"
@@ -205,3 +156,17 @@
     <button mat-raised-button mat-dialog-close>Close</button>
 </mat-dialog-actions>
 <!-- [disabled]="!(workExperience.valid && workExperience.dirty)" -->
+
+<!-- <div>
+    <label for="department" class="text-sm md:text-base font-medium text-gray-600">Department</label>
+    <input readonly (click)="openBottomSheet(roles)" id="department" formControlName="department" type="text"
+        placeholder="eg: HR" [value]="SelectedLocation.join(', ')"
+        class="w-full cursor-pointer rounded-lg border-2 border-gray-200 focus:outline-none px-3 py-2 text-sm md:text-base font-normal">
+    <div class="relative">
+        <mat-icon class="absolute right-2 bottom-2 text-gray-400">keyboard_arrow_down</mat-icon>
+    </div>
+    <div *ngIf="workExperience.get('department')?.invalid && workExperience.get('department')?.touched"
+        class="text-red-500 text-sm">
+        Select your department.
+    </div>
+</div> -->
