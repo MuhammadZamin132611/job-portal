@@ -36,8 +36,8 @@
         </div>
         <div>
             <label for="department" class="text-sm md:text-base font-medium text-gray-600">Department</label>
-            <input readonly (click)="openBottomSheetRadio(roles)" id="department" formControlName="department" type="text"
-                placeholder="eg: HR" [value]="selectedRadio"
+            <input readonly (click)="openBottomSheetDepartment(roles)" id="department" formControlName="department"
+                type="text" placeholder="eg: HR" [value]="selectedRadio"
                 class="w-full cursor-pointer rounded-lg border-2 border-gray-200 focus:outline-none px-3 py-2 text-sm md:text-base font-normal">
             <div class="relative">
                 <mat-icon class="absolute right-2 bottom-2 text-gray-400">keyboard_arrow_down</mat-icon>
@@ -49,8 +49,9 @@
         </div>
         <div>
             <label for="industryType" class="text-sm md:text-base font-medium text-gray-600">Industry Type</label>
-            <input id="industryType" formControlName="industryType" type="text" placeholder="eg: IT & Consultancy"
-                class="w-full rounded-lg border-2 border-gray-200 focus:outline-none px-3 py-2 text-sm md:text-base font-normal">
+            <input id="industryType" readonly (click)="openBottomSheetIndustry(industry)" [value]="selectedIndustry"
+                formControlName="industryType" type="text" placeholder="eg: IT & Consultancy"
+                class="w-full cursor-pointer rounded-lg border-2 border-gray-200 focus:outline-none px-3 py-2 text-sm md:text-base font-normal">
             <div class="relative">
                 <mat-icon class="absolute right-2 bottom-2 text-gray-400">keyboard_arrow_down</mat-icon>
             </div>

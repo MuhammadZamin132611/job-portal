@@ -8,6 +8,7 @@ import { Role } from '../../../../../../../../../data/role';
 import { MasterDateBottomSheetComponent } from '../../../../../../shared/master-date-bottom-sheet/master-date-bottom-sheet.component';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { MasterDataRadioBottomSheetComponent } from '../../../../../../shared/master-data-radio-bottom-sheet/master-data-radio-bottom-sheet.component';
+import { Industry } from '../../../../../../../../../data/industry';
 
 @Component({
   selector: 'app-add-update-experience',
@@ -31,12 +32,14 @@ export class AddUpdateExperienceComponent {
   private _bottomSheet = inject(MatBottomSheet);
 
   roles: string[] = [];
+  industry: string[] = [];
 
   constructor(@Inject(MAT_DIALOG_DATA) public dialogData: any,
     private fb: FormBuilder,
     public dialogRef: MatDialogRef<WorkExperienceComponent>,
   ) {
-    this.roles = Role
+    this.roles = Role;
+    this.industry = Industry;
     const today = new Date();
     const maxDate = new Date(today.getFullYear() - 18, today.getMonth(), today.getDate());
     this.maxDate = maxDate.toISOString().split('T')[0];
@@ -62,12 +65,13 @@ export class AddUpdateExperienceComponent {
   }
 
   selectedRadio: string = ''
-  openBottomSheetRadio(filterType: string[]): void {
+  openBottomSheetDepartment(filterType: string[]): void {
     const bottomSheetRef = this._bottomSheet.open(MasterDataRadioBottomSheetComponent, {
       panelClass: 'custom-bottom-sheet',
       data: {
-        filterType, // ✅ full list of options
-        selected: this.selectedRadio // ✅ only a single selected string
+        filterType,
+        selected: this.selectedRadio,
+        typeData: 'Department'
       }
     });
 
@@ -76,7 +80,28 @@ export class AddUpdateExperienceComponent {
         // console.log('Selected Roles:', selectedRole);
         this.selectedRadio = selectedRole;
         this.workExperience.get('department')?.setValue(selectedRole);
-        this.workExperience.get('department')?.markAsTouched();
+        // this.workExperience.get('department')?.markAsTouched();
+      }
+    });
+  }
+
+  selectedIndustry: string = ''
+  openBottomSheetIndustry(filterType: string[]): void {
+    const bottomSheetRef = this._bottomSheet.open(MasterDataRadioBottomSheetComponent, {
+      panelClass: 'custom-bottom-sheet',
+      data: {
+        filterType,
+        selected: this.selectedIndustry,
+        typeData: 'Industry'
+      }
+    });
+
+    bottomSheetRef.afterDismissed().subscribe((selectedRole: string) => {
+      if (selectedRole !== undefined) {
+        // console.log('Selected Roles:', selectedRole);
+        this.selectedIndustry = selectedRole;
+        this.workExperience.get('industryType')?.setValue(selectedRole);
+        // this.workExperience.get('industryType')?.markAsTouched();
       }
     });
   }
