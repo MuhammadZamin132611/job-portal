@@ -9,7 +9,7 @@ import { MasterDateBottomSheetComponent } from '../../../../../../shared/master-
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { MasterDataRadioBottomSheetComponent } from '../../../../../../shared/master-data-radio-bottom-sheet/master-data-radio-bottom-sheet.component';
 import { Industry } from '../../../../../../../../../data/industry';
-
+import { location } from '../../../../../../../../../data/locations';
 @Component({
   selector: 'app-add-update-experience',
   imports: [MaterialModule, ReactiveFormsModule, NgIf, NgFor, NgClass],
@@ -33,6 +33,7 @@ export class AddUpdateExperienceComponent {
 
   roles: string[] = [];
   industry: string[] = [];
+  loc: string[] = [];
 
   constructor(@Inject(MAT_DIALOG_DATA) public dialogData: any,
     private fb: FormBuilder,
@@ -40,28 +41,11 @@ export class AddUpdateExperienceComponent {
   ) {
     this.roles = Role;
     this.industry = Industry;
+    this.loc = location
     const today = new Date();
     const maxDate = new Date(today.getFullYear() - 18, today.getMonth(), today.getDate());
     this.maxDate = maxDate.toISOString().split('T')[0];
     this.minDate = maxDate.toISOString().split('T')[0];
-  }
-
-  SelectedLocation: string[] = []
-  openBottomSheet(filterType: string[]): void {
-    const bottomSheetRef = this._bottomSheet.open(MasterDateBottomSheetComponent, {
-      panelClass: 'custom-bottom-sheet',
-      data: {
-        filterType,
-        selected: this.SelectedLocation  // ✅ only pass previously selected
-      }
-    });
-    bottomSheetRef.afterDismissed().subscribe((selectedRoles: string[]) => {
-      if (selectedRoles) {
-        this.SelectedLocation = selectedRoles;
-        // this.workExperience.get('department')?.setValue(selectedRoles.join(', '));
-        // this.workExperience.get('department')?.markAsTouched();
-      }
-    });
   }
 
   selectedRadio: string = ''
@@ -74,7 +58,6 @@ export class AddUpdateExperienceComponent {
         typeData: 'Department'
       }
     });
-
     bottomSheetRef.afterDismissed().subscribe((selectedRole: string) => {
       if (selectedRole !== undefined) {
         // console.log('Selected Roles:', selectedRole);
@@ -95,12 +78,32 @@ export class AddUpdateExperienceComponent {
         typeData: 'Industry'
       }
     });
-
     bottomSheetRef.afterDismissed().subscribe((selectedRole: string) => {
       if (selectedRole !== undefined) {
         // console.log('Selected Roles:', selectedRole);
         this.selectedIndustry = selectedRole;
         this.workExperience.get('industryType')?.setValue(selectedRole);
+        // this.workExperience.get('industryType')?.markAsTouched();
+      }
+    });
+  }
+
+  selectedLocation: string = ''
+  openBottomSheetLocation(filterType: string[]): void {
+    const bottomSheetRef = this._bottomSheet.open(MasterDataRadioBottomSheetComponent, {
+      panelClass: 'custom-bottom-sheet',
+      data: {
+        filterType,
+        selected: this.selectedLocation,
+        typeData: 'Location'
+      }
+    });
+
+    bottomSheetRef.afterDismissed().subscribe((selectedRole: string) => {
+      if (selectedRole !== undefined) {
+        // console.log('Selected Roles:', selectedRole);
+        this.selectedLocation = selectedRole;
+        this.workExperience.get('location')?.setValue(selectedRole);
         // this.workExperience.get('industryType')?.markAsTouched();
       }
     });
@@ -219,3 +222,21 @@ export class AddUpdateExperienceComponent {
     this.onEditWorkExperoence.emit();
   }
 }
+
+// SelectedLocation: string[] = [];
+// openBottomSheet(filterType: string[]): void {
+//   const bottomSheetRef = this._bottomSheet.open(MasterDateBottomSheetComponent, {
+//     panelClass: 'custom-bottom-sheet',
+//     data: {
+//       filterType,
+//       selected: this.SelectedLocation  // ✅ only pass previously selected
+//     }
+//   });
+//   bottomSheetRef.afterDismissed().subscribe((selectedRoles: string[]) => {
+//     if (selectedRoles) {
+//       this.SelectedLocation = selectedRoles;
+//       this.workExperience.get('department')?.setValue(selectedRoles.join(', '));
+//       this.workExperience.get('department')?.markAsTouched();
+//     }
+//   });
+// }

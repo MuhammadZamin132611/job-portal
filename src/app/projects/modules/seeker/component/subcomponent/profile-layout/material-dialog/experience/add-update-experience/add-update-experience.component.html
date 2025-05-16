@@ -62,8 +62,9 @@
         </div>
         <div>
             <label for="location" class="text-sm md:text-base font-medium text-gray-600">Location</label>
-            <input id="location" formControlName="location" type="text" placeholder="eg: New Delhi"
-                class="w-full rounded-lg border-2 border-gray-200 focus:outline-none px-3 py-2 text-sm md:text-base font-normal">
+            <input id="location" readonly [value]="selectedLocation" (click)="openBottomSheetLocation(loc)"
+                formControlName="location" type="text" placeholder="eg: New Delhi"
+                class="w-full cursor-pointer rounded-lg border-2 border-gray-200 focus:outline-none px-3 py-2 text-sm md:text-base font-normal">
             <div class="relative">
                 <mat-icon class="absolute right-2 bottom-2 text-gray-400">keyboard_arrow_down</mat-icon>
             </div>
