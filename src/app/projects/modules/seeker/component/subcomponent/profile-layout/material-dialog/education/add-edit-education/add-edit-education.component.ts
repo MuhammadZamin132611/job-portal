@@ -9,6 +9,8 @@ import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { MasterDataRadioBottomSheetComponent } from '../../../../../../shared/master-data-radio-bottom-sheet/master-data-radio-bottom-sheet.component';
 import { location } from '../../../../../../../../../data/locations';
 import { Role } from '../../../../../../../../../data/role';
+import { Courses } from '../../../../../../../../../data/courses';
+import { Specialization } from '../../../../../../../../../data/specialization';
 
 
 @Component({
@@ -36,9 +38,9 @@ export class AddEditEducationComponent {
     private fb: FormBuilder,
     public dialogRef: MatDialogRef<EducationComponent>,
   ) {
-    this.specializa = location;
+    this.specializa = Specialization;
     this.qualification = highestQualification;
-    this.course = Role;
+    this.course = Courses;
     const today = new Date();
     const maxDate = new Date(today.getFullYear() - 18, today.getMonth(), today.getDate());
     this.maxDate = maxDate.toISOString().split('T')[0];

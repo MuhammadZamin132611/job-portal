@@ -1,4 +1,4 @@
-export const specializationData = [
+export const Specialization = [
   "Advertising/Mass Communication",
   "Aerospace & Mechanical Engineering",
   "Aerospace Welding",
