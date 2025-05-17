@@ -7,8 +7,8 @@ import { NgClass, NgFor, NgIf } from '@angular/common';
 import { highestQualification } from '../../../../../../../../../data/highestQualification';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { MasterDataRadioBottomSheetComponent } from '../../../../../../shared/master-data-radio-bottom-sheet/master-data-radio-bottom-sheet.component';
-import { Courses } from '../../../../../../../../../data/courses';
-import { Specialization } from '../../../../../../../../../data/specialization';
+import { specializationData } from '../../../../../../../../../data/specialization';
+import { coursesData } from '../../../../../../../../../data/courses';
 
 @Component({
   selector: 'app-add-edit-education',
@@ -35,9 +35,9 @@ export class AddEditEducationComponent {
     private fb: FormBuilder,
     public dialogRef: MatDialogRef<EducationComponent>,
   ) {
-    this.specializa = Specialization;
+    this.specializa = specializationData;
     this.qualification = highestQualification;
-    this.course = Courses;
+    this.course = coursesData;
     const today = new Date();
     const maxDate = new Date(today.getFullYear() - 18, today.getMonth(), today.getDate());
     this.maxDate = maxDate.toISOString().split('T')[0];

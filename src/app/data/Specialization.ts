@@ -1,4 +1,4 @@
-export const Specialization = [
+export const specializationData = [
   "Advertising/Mass Communication",
   "Aerospace & Mechanical Engineering",
   "Aerospace Welding",
@@ -303,4 +303,4 @@ export const Specialization = [
   "Vocational/Technical Education",
   "Water Treatment Plant Operation",
   "Zoology"
-]
+];

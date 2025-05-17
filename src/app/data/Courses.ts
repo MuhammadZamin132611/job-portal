@@ -1,4 +1,4 @@
-export const Courses= [
+export const coursesData = [
   "B.A",
   "B.Arch",
   "B.B.A/ B.M.S",
