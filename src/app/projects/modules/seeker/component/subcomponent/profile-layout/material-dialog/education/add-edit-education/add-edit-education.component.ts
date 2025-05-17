@@ -124,7 +124,7 @@ export class AddEditEducationComponent {
       }
     });
   }
-  
+
   selectedSpecialization: string = ''
   openBottomSheetSpecialization(filterType: string[]): void {
     const bottomSheetRef = this._bottomSheet.open(MasterDataRadioBottomSheetComponent, {
