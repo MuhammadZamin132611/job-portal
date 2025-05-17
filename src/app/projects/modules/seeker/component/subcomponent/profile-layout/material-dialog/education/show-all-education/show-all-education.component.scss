@@ -1,0 +1,12 @@
+@use 'tailwindcss/base';
+
+@layer base {
+
+    mat-dialog-content {
+        @apply grid gap-3;
+    }
+
+    mat-toolbar-row{
+        @apply pt-5;
+    }
+}

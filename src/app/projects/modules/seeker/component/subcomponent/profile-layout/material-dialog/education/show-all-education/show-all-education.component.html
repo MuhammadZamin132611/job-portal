@@ -1,0 +1,56 @@
+<mat-toolbar>
+    <mat-toolbar-row>
+        <div class="flex justify-between w-full">
+            <div class="flex gap-3">
+                <mat-icon class="text-[#21A14B]">menu_book</mat-icon>
+                <div class="">
+                    <h1 class="text-base md:text-lg font-semibold">{{dialogData.action}} Education</h1>
+                    <p class="text-sm md:text-base font-normal text-gray-500">
+                        {{text}}
+                    </p>
+                </div>
+            </div>
+            <div>
+                <mat-icon class="cursor-pointer text-gray-600" mat-dialog-close>close</mat-icon>
+            </div>
+        </div>
+    </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-dialog-content>
+    @for(education of allEducation; track $index){
+    <div class="flex justify-between">
+        <div class="flex gap-3">
+            <div class="grid justify-center place-items-center bg-gray-200 rounded-lg p-2 h-10">
+                <!-- <mat-icon class="text-gray-400">cast_for_education</mat-icon> -->
+                <!-- <mat-icon class="text-gray-400">school</mat-icon> -->
+                <mat-icon *ngIf="education.medium === 'Graduation' || education.medium === 'Post Graduation'"
+                    class="text-gray-400">
+                    school
+                </mat-icon>
+                <mat-icon *ngIf="education.medium === '10th' || education.medium === '12th'" class="text-gray-400">
+                    cast_for_education
+                </mat-icon>
+            </div>
+            <div>
+                <h3 class="text-sm md:text-base font-semibold md:font-bold text-gray-800">{{education.medium}}</h3>
+                <div class="text-gray-600 text-sm md:text-base font-normal">
+                    <p class="">{{education.collageName}}</p>
+                    <p class="">{{education.degree}}</p>
+                    <p class="">{{education.date}}</p>
+                    <p class="">{{education.location}}</p>
+                </div>
+            </div>
+        </div>
+        <div>
+            <mat-icon (click)="handelEditAction($event)" class="cursor-pointer text-gray-600">edit</mat-icon>
+        </div>
+    </div>
+    }
+</mat-dialog-content>
+
+
+<!-- <mat-dialog-actions align="center">
+    <button mat-flat-button color="primary" type="submit" (click)="handelSubmit()">{{action}}</button>
+    <button mat-raised-button mat-dialog-close>Close</button>
+</mat-dialog-actions> -->

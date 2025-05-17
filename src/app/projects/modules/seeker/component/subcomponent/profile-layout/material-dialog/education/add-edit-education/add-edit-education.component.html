@@ -1,0 +1,117 @@
+<mat-toolbar>
+    <mat-toolbar-row>
+        <div class="flex justify-between gap-4">
+            <div class="flex gap-3">
+                <mat-icon class="text-[#21A14B]">menu_book</mat-icon>
+                <div class="">
+                    <h1 class="text-base md:text-lg font-semibold">{{dialogData.action}} Education</h1>
+                    <p class="text-sm md:text-base font-normal text-gray-500">
+                        {{text}}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-dialog-content>
+    <form [formGroup]="education" class="grid gap-3">
+        <div>
+            <label for="collageSchool" class="text-sm md:text-base font-medium text-gray-600">Collage / School
+                Name</label>
+            <input id="collageSchool" formControlName="collageSchool" type="text" placeholder="eg: Google"
+                class="w-full rounded-lg border-2 border-gray-200 focus:outline-none px-3 py-2 text-sm md:text-base font-normal">
+            <div *ngIf="education.get('collageSchool')?.invalid && education.get('collageSchool')?.touched"
+                class="text-red-500 text-sm">
+                Collage / School Name is required.
+            </div>
+        </div>
+        <div>
+            <h4 class="text-sm md:text-base font-medium text-gray-600 pb-2">Employment Type</h4>
+            <div class="flex flex-wrap md:justify-center gap-3">
+                <div *ngFor="let emp of qualification; let i = index" (click)="selectEmpType(emp)" [ngClass]="{
+                    'bg-green-600 text-white': education.get('qualification')?.value === emp,
+                    'bg-gray-100 text-gray-600': education.get('qualification')?.value !== emp
+                    }"
+                    class="cursor-pointer flex gap-1 items-center px-4 md:px-5 py-0.5 rounded-xl shadow-sm transition">
+                    <p class="text-center text-sm md:text-base font-normal">{{ emp }}</p>
+                </div>
+            </div>
+            <div *ngIf="education.get('qualification')?.invalid && education.get('qualification')?.touched"
+                class="text-red-500 text-sm">
+                Select your employment type.
+            </div>
+        </div>
+        <div>
+            <label for="educationType" class="text-sm md:text-base font-medium text-gray-600">Education Type</label>
+            <input readonly (click)="openBottomSheetEducationType(educationType)" id="educationType"
+                formControlName="educationType" type="text" placeholder="eg: HR" [value]="selectedEducationType"
+                class="w-full cursor-pointer rounded-lg border-2 border-gray-200 focus:outline-none px-3 py-2 text-sm md:text-base font-normal">
+            <div class="relative">
+                <mat-icon class="absolute right-2 bottom-2 text-gray-400">keyboard_arrow_down</mat-icon>
+            </div>
+            <div *ngIf="education.get('educationType')?.invalid && education.get('educationType')?.touched"
+                class="text-red-500 text-sm">
+                Select your education type.
+            </div>
+        </div>
+        <div>
+            <label for="degree" class="text-sm md:text-base font-medium text-gray-600">Degree</label>
+            <input readonly (click)="openBottomSheetDegree(course)" id="degree"
+                formControlName="degree" type="text" placeholder="eg: B.Tech" [value]="selectedDegree"
+                class="w-full cursor-pointer rounded-lg border-2 border-gray-200 focus:outline-none px-3 py-2 text-sm md:text-base font-normal">
+            <div class="relative">
+                <mat-icon class="absolute right-2 bottom-2 text-gray-400">keyboard_arrow_down</mat-icon>
+            </div>
+            <div *ngIf="education.get('degree')?.invalid && education.get('degree')?.touched"
+                class="text-red-500 text-sm">
+                Select your degree.
+            </div>
+        </div>
+        <div>
+            <label for="specialization" class="text-sm md:text-base font-medium text-gray-600">Education Type</label>
+            <input readonly (click)="openBottomSheetSpecialization(specializa)" id="specialization"
+                formControlName="specialization" type="text" placeholder="eg: Computer Science" [value]="selectedSpecialization"
+                class="w-full cursor-pointer rounded-lg border-2 border-gray-200 focus:outline-none px-3 py-2 text-sm md:text-base font-normal">
+            <div class="relative">
+                <mat-icon class="absolute right-2 bottom-2 text-gray-400">keyboard_arrow_down</mat-icon>
+            </div>
+            <div *ngIf="education.get('specialization')?.invalid && education.get('specialization')?.touched"
+                class="text-red-500 text-sm">
+                Select your education type.
+            </div>
+        </div>
+        <section class="example-section">
+            <mat-checkbox formControlName="currentlyWorking">Currently Working Here</mat-checkbox>
+        </section>
+        <div class="grid grid-cols-2 gap-4">
+            <div>
+                <label for="startDate" class="text-sm md:text-base font-medium text-gray-600">Start Date</label>
+                <input id="startDate" formControlName="startDate" type="date" [max]="minDate"
+                    class="w-full rounded-lg border-2 border-gray-200 focus:outline-none px-3 py-2 text-sm md:text-base font-normal" />
+                <div *ngIf="education.get('startDate')?.invalid && education.get('startDate')?.touched"
+                    class="text-red-500 text-sm">
+                    Select your start date.
+                </div>
+            </div>
+            <div>
+                <label for="endDate" class="text-sm md:text-base font-medium text-gray-600">End Date</label>
+                <input id="endDate" formControlName="endDate" type="date" [max]="maxDate"
+                    class="w-full rounded-lg border-2 border-gray-200 focus:outline-none px-3 py-2 text-sm md:text-base font-normal" />
+                <div *ngIf="education.get('endDate')?.invalid && education.get('endDate')?.touched"
+                    class="text-red-500 text-sm">
+                    Select your end date.
+                </div>
+            </div>
+            <div *ngIf="education.errors?.dateMismatch" class="text-red-500 text-sm col-span-2">
+                Start Date must be before End Date.
+            </div>
+        </div>
+    </form>
+</mat-dialog-content>
+
+
+<mat-dialog-actions align="center">
+    <button mat-flat-button color="primary" type="submit" (click)="handelSubmit()">{{action}}</button>
+    <button mat-raised-button mat-dialog-close>Close</button>
+</mat-dialog-actions>
