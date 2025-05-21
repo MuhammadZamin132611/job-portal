@@ -9,7 +9,6 @@ import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { MasterDataRadioBottomSheetComponent } from '../../../../../../shared/master-data-radio-bottom-sheet/master-data-radio-bottom-sheet.component';
 import { Courses } from '../../../../../../../../../data/course';
 import { Specialization } from '../../../../../../../../../data/specialization';
-import { location } from '../../../../../../../../../data/locations';
 
 
 @Component({

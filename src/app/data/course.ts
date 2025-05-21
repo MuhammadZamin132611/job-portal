@@ -1,70 +1,9 @@
-// export const Courses = [
-//   "B.A",
-//   "B.Arch",
-//   "B.B.A/ B.M.S",
-//   "B.Com",
-//   "B.Des.",
-//   "B.Ed",
-//   "B.El.Ed",
-//   "B.P.Ed",
-//   "B.Pharma",
-//   "B.Sc",
-//   "B.Tech/B.E.",
-//   "B.U.M.S",
-//   "BAMS",
-//   "BCA",
-//   "BDS",
-//   "BFA",
-//   "BHM",
-//   "BHMCT",
-//   "BHMS",
-//   "BVSC",
-//   "CA",
-//   "CS",
-//   "DM",
-//   "Diploma",
-//   "Electrician",
-//   "High School Diploma",
-//   "ICWA (CMA)",
-//   "Integrated PG",
-//   "LLB",
-//   "LLM",
-//   "M.A",
-//   "M.Arch",
-//   "M.Ch",
-//   "M.Com",
-//   "M.Des.",
-//   "M.Ed",
-//   "M.Pharma",
-//   "M.Tech",
-//   "MBA/PGDM",
-//   "MBBS",
-//   "MCM",
-//   "MDS",
-//   "MFA",
-//   "MPHIL_Updated_test",
-//   "MS/M.Sc(Science)",
-//   "MVSC",
-//   "Mechanic",
-//   "Medical-MS/MD",
-//   "Other Doctorate",
-//   "Other Graduate",
-//   "Other Post Graduate",
-//   "PG Diploma",
-//   "Ph.D/Doctorate",
-//   "Plumber",
-//   "Secondary School Certificate (SSC)",
-//   "Welder"
-// ]
-
-
-export const Courses = [
-  // Undergraduate Courses
+export const Courses: string[] = [
   "B.A",
   "B.Arch",
-  "BBA/BMS",
+  "B.B.A/ B.M.S",
   "B.Com",
-  "B.Des",
+  "B.Des.",
   "B.Ed",
   "B.El.Ed",
   "B.P.Ed",
@@ -80,53 +19,40 @@ export const Courses = [
   "BHMCT",
   "BHMS",
   "BVSC",
-
-  // Professional Certifications
   "CA",
   "CS",
-  "ICWA (CMA)",
-
-  // Diploma & Vocational Courses
+  "DM",
   "Diploma",
-  "PG Diploma",
   "Electrician",
-  "Mechanic",
-  "Plumber",
-  "Welder",
-
-  // School Level Education
   "High School Diploma",
-  "Secondary School Certificate (SSC)",
-
-  // Law
+  "ICWA (CMA)",
+  "Integrated PG",
   "LLB",
   "LLM",
-
-  // Postgraduate Courses
   "M.A",
   "M.Arch",
   "M.Ch",
   "M.Com",
-  "M.Des",
+  "M.Des.",
   "M.Ed",
   "M.Pharma",
-  "M.Sc",
   "M.Tech",
   "MBA/PGDM",
   "MBBS",
   "MCM",
   "MDS",
   "MFA",
-  "MPHIL",
-  "MS/MD",
+  "MPHIL_Updated_test",
+  "MS/M.Sc(Science)",
   "MVSC",
-
-  // Integrated & Other
-  "Integrated PG",
+  "Mechanic",
+  "Medical-MS/MD",
+  "Other Doctorate",
   "Other Graduate",
   "Other Post Graduate",
-  "Other Doctorate",
-
-  // Doctoral Level
-  "Ph.D/Doctorate"
-];
+  "PG Diploma",
+  "Ph.D/Doctorate",
+  "Plumber",
+  "Secondary School Certificate (SSC)",
+  "Welder"
+]
