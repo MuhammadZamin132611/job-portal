@@ -15,7 +15,30 @@
 </mat-toolbar>
 
 <mat-dialog-content>
-    add update
+    <div [ngClass]="{ 'hidden': dialogData.action === 'Edit' }" class="flex gap-3 mb-3 p-4 bg-yellow-50 rounded-md border-2 border-yellow-100">
+        <div>
+            <mat-icon class="text-yellow-500">error_outline</mat-icon>
+        </div>
+        <div>
+            <h4 class="text-base font-medium text-gray-700">Your Total Primary Skills are 7</h4>
+            <p class="text-sm font-normal text-gray-500">You can add only 9 skills as primary skills.</p>
+        </div>
+    </div>
+    <form [formGroup]="primarySkill" class="grid gap-3">
+        <div>
+            <label for="skill" class="text-sm md:text-base font-medium text-gray-600">Skills</label>
+            <input readonly (click)="openBottomSheetSkill(skill)" id="skill"
+                formControlName="skill" type="text" placeholder="eg: Java" [value]="selectedPrimarySkill"
+                class="w-full cursor-pointer rounded-lg border-2 border-gray-200 focus:outline-none px-3 py-2 text-sm md:text-base font-normal">
+            <div class="relative">
+                <mat-icon class="absolute right-2 bottom-2 text-gray-400">keyboard_arrow_down</mat-icon>
+            </div>
+            <div *ngIf="primarySkill.get('skill')?.invalid && primarySkill.get('skill')?.touched"
+                class="text-red-500 text-sm">
+                Select your skill.
+            </div>
+        </div>
+    </form>
 </mat-dialog-content>
 
 

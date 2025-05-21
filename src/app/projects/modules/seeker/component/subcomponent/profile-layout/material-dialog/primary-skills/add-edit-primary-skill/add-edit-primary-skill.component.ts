@@ -1,15 +1,16 @@
 import { Component, EventEmitter, inject, Inject, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { PrimarySkillsComponent } from '../../../primary-skills/primary-skills.component';
 import { MaterialModule } from '../../../../../../../../shared/material.module';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { MasterDataRadioBottomSheetComponent } from '../../../../../../shared/master-data-radio-bottom-sheet/master-data-radio-bottom-sheet.component';
 import { Skills } from '../../../../../../../../../data/skills';
+import { NgClass, NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-add-edit-primary-skill',
-  imports: [MaterialModule],
+  imports: [MaterialModule, ReactiveFormsModule, NgIf, NgClass],
   templateUrl: './add-edit-primary-skill.component.html',
   styleUrl: './add-edit-primary-skill.component.scss'
 })
@@ -43,7 +44,7 @@ export class AddEditPrimarySkillComponent implements OnInit {
   }
 
   selectedPrimarySkill: string = ''
-  openBottomSheetEducationType(filterType: string[]): void {
+  openBottomSheetSkill(filterType: string[]): void {
     const bottomSheetRef = this._bottomSheet.open(MasterDataRadioBottomSheetComponent, {
       panelClass: 'custom-bottom-sheet',
       data: {
