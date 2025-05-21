@@ -15,7 +15,8 @@
 </mat-toolbar>
 
 <mat-dialog-content>
-    <div [ngClass]="{ 'hidden': dialogData.action === 'Edit' }" class="flex gap-3 mb-3 p-4 bg-yellow-50 rounded-md border-2 border-yellow-100">
+    <div [ngClass]="{ 'hidden': dialogData.action === 'Edit' }"
+        class="flex gap-3 mb-3 p-4 bg-yellow-50 rounded-md border-2 border-yellow-100">
         <div>
             <mat-icon class="text-yellow-500">error_outline</mat-icon>
         </div>
@@ -27,8 +28,8 @@
     <form [formGroup]="primarySkill" class="grid gap-3">
         <div>
             <label for="skill" class="text-sm md:text-base font-medium text-gray-600">Skills</label>
-            <input readonly (click)="openBottomSheetSkill(skill)" id="skill"
-                formControlName="skill" type="text" placeholder="eg: Java" [value]="selectedPrimarySkill"
+            <input readonly (click)="openBottomSheetSkill(skill)" id="skill" formControlName="skill" type="text"
+                placeholder="eg: Java" [value]="selectedPrimarySkill"
                 class="w-full cursor-pointer rounded-lg border-2 border-gray-200 focus:outline-none px-3 py-2 text-sm md:text-base font-normal">
             <div class="relative">
                 <mat-icon class="absolute right-2 bottom-2 text-gray-400">keyboard_arrow_down</mat-icon>
@@ -37,6 +38,14 @@
                 class="text-red-500 text-sm">
                 Select your skill.
             </div>
+        </div>
+        <div *ngIf="selectedPrimarySkill" class="px-2">
+            <mat-label class="rating">Rate your self in <span class="text-[#1469C0] font-medium">{{selectedPrimarySkill}}</span></mat-label>
+            <mat-slider>
+                <input matSliderThumb>
+            </mat-slider>
+            <mat-label>Skill rating above 5 please verify</mat-label>
+            <mat-label class="verify">Verify your skill Rate<mat-icon>arrow_forward</mat-icon></mat-label>
         </div>
     </form>
 </mat-dialog-content>

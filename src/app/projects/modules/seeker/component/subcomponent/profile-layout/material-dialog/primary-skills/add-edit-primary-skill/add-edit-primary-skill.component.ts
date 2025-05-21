@@ -50,7 +50,7 @@ export class AddEditPrimarySkillComponent implements OnInit {
       data: {
         filterType,
         selected: this.selectedPrimarySkill,
-        typeData: 'Primary Skill',
+        typeData: 'Skills',
         placeholderMessage: 'Java, Python'
       }
     });
@@ -106,7 +106,7 @@ export class AddEditPrimarySkillComponent implements OnInit {
   add = () => {
     var formData = this.primarySkill.value;
     var data = {
-      companyName: formData.name,
+      skill: formData.name,
     }
     this.dialogRef.close();
     this.onAddPrimarySkill.emit();
@@ -116,7 +116,7 @@ export class AddEditPrimarySkillComponent implements OnInit {
     var formData = this.primarySkill.value;
     var data = {
       id: this.dialogData.data.id,
-      companyName: formData.name,
+      skill: formData.name,
     }
     this.dialogRef.close();
     this.onEditPrimarySkill.emit();
