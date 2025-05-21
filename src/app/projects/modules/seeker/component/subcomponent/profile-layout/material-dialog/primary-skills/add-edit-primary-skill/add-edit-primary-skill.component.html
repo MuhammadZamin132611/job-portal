@@ -1,0 +1,29 @@
+<mat-toolbar>
+    <mat-toolbar-row>
+        <div class="flex justify-between w-full">
+            <div class="flex gap-3">
+                <mat-icon class="text-[#21A14B]">verified</mat-icon>
+                <div class="">
+                    <h1 class="text-base md:text-lg font-semibold">{{dialogData.action}} Primary Skill</h1>
+                    <p class="text-sm md:text-base font-normal text-gray-500">
+                        {{text}}
+                    </p>
+                </div>
+            </div>
+            <div>
+                <mat-icon class="cursor-pointer text-gray-600" mat-dialog-close>close</mat-icon>
+            </div>
+        </div>
+    </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-dialog-content>
+    add update
+</mat-dialog-content>
+
+
+
+<mat-dialog-actions align="center">
+    <button mat-flat-button color="primary" type="submit" (click)="handelSubmit()">{{action}}</button>
+    <button mat-raised-button mat-dialog-close>Close</button>
+</mat-dialog-actions>
