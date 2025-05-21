@@ -8,7 +8,7 @@ import { highestQualification } from '../../../../../../../../../data/highestQua
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { MasterDataRadioBottomSheetComponent } from '../../../../../../shared/master-data-radio-bottom-sheet/master-data-radio-bottom-sheet.component';
 import { Courses } from '../../../../../../../../../data/course';
-// import { Specialization } from '../../../../../../../../../data/specialization';
+import { Specialization } from '../../../../../../../../../data/specialization';
 import { location } from '../../../../../../../../../data/locations';
 
 
@@ -38,7 +38,7 @@ export class AddEditEducationComponent {
     public dialogRef: MatDialogRef<EducationComponent>,
   ) {
     this.qualification = highestQualification;
-    this.specializa = location;
+    this.specializa = Specialization;
     this.course = Courses;
     const today = new Date();
     const maxDate = new Date(today.getFullYear() - 18, today.getMonth(), today.getDate());
