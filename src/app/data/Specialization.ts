@@ -1,4 +1,4 @@
-export const Specialization: string[] = [
+export const specialization: string[] = [
   "Advertising/Mass Communication",
   "Aerospace & Mechanical Engineering",
   "Aerospace Welding",
