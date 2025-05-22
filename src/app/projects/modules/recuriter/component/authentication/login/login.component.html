@@ -43,7 +43,7 @@
         </div>
       </div>
       <div>
-        <button [ngClass]="{'bg-green-600': loginForm.valid,'bg-gray-400': loginForm.invalid}" (click)="onFormSubmit()"
+        <button matRipple [ngClass]="{'bg-green-600': loginForm.valid,'bg-gray-400': loginForm.invalid}" (click)="onFormSubmit()"
           class="py-1.5 text-white text-sm md:text-base font-normal w-full rounded-lg shadow hover:shadow-md"
           type="submit">Login</button>
       </div>
