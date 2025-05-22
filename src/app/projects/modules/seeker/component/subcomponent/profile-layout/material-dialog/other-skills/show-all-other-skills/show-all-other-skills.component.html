@@ -1,0 +1,32 @@
+<mat-toolbar>
+    <mat-toolbar-row>
+        <div class="flex justify-between w-full">
+            <div class="flex gap-3">
+                <mat-icon class="text-[#21A14B]">verified</mat-icon>
+                <div class="">
+                    <h1 class="text-base md:text-lg font-semibold">{{dialogData.action}} Primary Skill</h1>
+                    <p class="text-sm md:text-base font-normal text-gray-500">
+                        {{text}}
+                    </p>
+                </div>
+            </div>
+            <div>
+                <mat-icon class="cursor-pointer text-gray-600" mat-dialog-close>close</mat-icon>
+            </div>
+        </div>
+    </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-dialog-content>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+        @for(skill of skills; track $index){
+        <div>
+            <div class="flex justify-between pb-2">
+                <h2 class="text-sm md:text-base font-medium text-gray-600">{{skill.name}}</h2>
+                <mat-icon (click)="handelEditAction($event)" class="cursor-pointer text-gray-600">edit</mat-icon>
+            </div>
+            <mat-divider />
+        </div>
+        }
+    </div>
+</mat-dialog-content>

@@ -6,14 +6,14 @@
                 <h1 class="text-base md:text-lg font-semibold">Other Skills (1)</h1>
             </div>
             <div class="flex gap-3 text-gray-600">
-                <mat-icon matTooltip="Add" class="cursor-pointer">add</mat-icon>
-                <mat-icon matTooltip="Edit" class="cursor-pointer">edit</mat-icon>
+                <mat-icon matTooltip="Add" (click)="handelAddAction()" class="cursor-pointer">add</mat-icon>
+                <mat-icon matTooltip="Edit" (click)="handelEditAction($event)" class="cursor-pointer">edit</mat-icon>
             </div>
         </div>
         <div class="flex flex-wrap gap-3 pt-2">
             <div *ngFor="let skill of skills; let i = index"
                 class="bg-gray-100 px-4 md:px-7 py-0.5 text-gray-600 rounded-md shadow-sm">
-                <p class="text-center text-sm md:text-base font-normal">{{ skill }}</p>
+                <p class="text-center text-sm md:text-base font-normal">{{ skill.name }}</p>
             </div>
         </div>
     </div>
