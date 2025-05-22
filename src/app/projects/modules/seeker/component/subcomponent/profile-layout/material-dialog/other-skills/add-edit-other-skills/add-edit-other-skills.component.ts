@@ -20,7 +20,7 @@ export class AddEditOtherSkillsComponent {
   primarySkill: any = FormGroup;
   dialogAction: any = 'Add';
   action: any = 'Add';
-  text: any = "Add primary skills to your profile";
+  text: any = "Add other skills to your profile.";
   private _bottomSheet = inject(MatBottomSheet);
   skill: string[] = [];
 
@@ -38,7 +38,7 @@ export class AddEditOtherSkillsComponent {
     if (this.dialogData.action === "Edit") {
       this.dialogAction = "Edit";
       this.action = "Save";
-      this.text = "Edit primary skills to your profile."
+      this.text = "Edit other skills to your profile."
       // this.primarySkill.patchValue(this.dialogData.data);
     }
   }
@@ -50,7 +50,7 @@ export class AddEditOtherSkillsComponent {
       data: {
         filterType,
         selected: this.selectedPrimarySkill,
-        typeData: 'Skills',
+        typeData: 'Other Skills',
         placeholderMessage: 'Java, Python'
       }
     });

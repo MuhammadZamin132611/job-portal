@@ -18,7 +18,7 @@ export class ShowAllOtherSkillsComponent {
   primarySjill: any = FormGroup;
   dialogAction: any = 'Add';
   action: any = 'Add';
-  text: any = "Add your new education details."
+  text: any = "Add other skills to your profile."
 
   constructor(@Inject(MAT_DIALOG_DATA) public dialogData: any,
     private fb: FormBuilder,
@@ -32,7 +32,7 @@ export class ShowAllOtherSkillsComponent {
     if (this.dialogData.action === "Edit") {
       this.dialogAction = "Edit";
       this.action = "Save";
-      this.text = "Edit primary skills to your profile.";
+      this.text = "Edit other skills to your profile.";
     }
   }
 

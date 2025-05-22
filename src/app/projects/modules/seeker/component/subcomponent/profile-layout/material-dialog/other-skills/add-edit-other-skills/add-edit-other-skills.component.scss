@@ -1,0 +1,15 @@
+@use 'tailwindcss/base';
+
+@layer base {
+    mat-slider {
+        @apply w-full;
+    }
+
+    mat-label.rating {
+        @apply text-gray-700 text-sm md:text-base font-normal;
+    }
+
+    mat-label.verify {
+        @apply pt-3 text-[#1469C0] text-sm font-normal flex items-center cursor-not-allowed;
+    }
+}
