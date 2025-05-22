@@ -3,18 +3,27 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { Router, RouterLink } from '@angular/router';
 import { MaterialModule } from '../../../../../shared/material.module';
 import { Title } from '@angular/platform-browser';
+import { RecuriterLoginSideImageComponent } from "../../../shared/recuriter-login-side-image/recuriter-login-side-image.component";
+import { NgClass, NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-login',
-  imports: [MaterialModule, RouterLink, ReactiveFormsModule],
+  imports: [MaterialModule, NgIf, NgClass, RouterLink, ReactiveFormsModule, RecuriterLoginSideImageComponent],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
 export class LoginComponent {
+
+  imageText = {
+    image: "assets/recuriter/authentication/login.png",
+    para1: "Raising the talent bars with standards,",
+    para2: "will never goes wrong."
+  };
+
   loginForm: FormGroup;
   showPassword: boolean = false;
 
-  constructor(private _fb: FormBuilder, private router: Router, private titleService:Title) {
+  constructor(private _fb: FormBuilder, private router: Router, private titleService: Title) {
     this.loginForm = this._fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [
@@ -36,13 +45,15 @@ export class LoginComponent {
   togglePasswordVisibility() {
     this.showPassword = !this.showPassword;
   }
-  
+
   onFormSubmit() {
-    if (this.loginForm.valid) {
-      this.router.navigateByUrl('/layout/dashboard')
-      console.log("valid", this.loginForm.value);
-    } else {
-      console.log("not valid", this.loginForm.value)
+    if (this.loginForm.invalid) {
+      this.loginForm.markAllAsTouched(); // This triggers error display for untouched fields
+      return;
     }
+
+    // Proceed with valid form
+    console.log("Valid Form", this.loginForm.value);
   }
+
 }

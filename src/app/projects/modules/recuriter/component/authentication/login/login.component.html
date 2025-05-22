@@ -1,47 +1,66 @@
-<div class="grid justify-center place-content-center h-[100vh]">
 
-    <mat-card class="md:w-full">
-      <div mat-dialog-title class="bg-[#D7E3FF] flex place-content-center pb-2 text-lg font-medium mb-10 rounded-t-lg">
-        <mat-card-header>
-          <mat-icon>person</mat-icon>
-          Recuriter login
-        </mat-card-header>
-      </div>
-      <form [formGroup]="loginForm" (ngSubmit)="onFormSubmit()">
-        <mat-card-content>
-          <div class="grid grid-col-2">
-            <mat-form-field>
-              <mat-label>Email</mat-label>
-              <input matInput formControlName="email" />
-            </mat-form-field>
-            <mat-form-field>
-              <mat-label>Password</mat-label>
-              <input matInput [type]="showPassword ? 'text' : 'password'" formControlName="password" />
-              <button class="relative" (click)="togglePasswordVisibility()">
-                <span class="absolute right-0 bottom-0 -top-5">
-                  <mat-icon>{{ showPassword ? 'visibility_off' : 'visibility' }}</mat-icon>
-                </span>
-              </button>
-            </mat-form-field>
-          </div>
-        </mat-card-content>
-  
-        <mat-card-actions>
-          <div class="flex flex-wrap justify-between gap-2">
-            <div class="flex justify-between gap-2">
-              <div>
-                <button type="submit" [disabled]="!this.loginForm.valid" mat-flat-button color="primary">Login</button>
-              </div>
-              <div>
-                <a routerLink="/recuriter/signup" class="whitespace-nowrap" mat-flat-button
-                  style="background-color: #d7e3ff; color: black;">Sign Up</a>
-              </div>
-            </div>
-            <div routerLink="/recuriter/forgot-password" class="p-2 md:ml-32 cursor-pointer">
-              <a class="text-blue-500 hover:underline">forgot password ?</a>
-            </div>
-          </div>
-        </mat-card-actions>
-      </form>
-    </mat-card>
+<section class="grid grid-cols-1 md:grid-cols-2">
+  <div>
+    <app-recuriter-login-side-image [imageText]="imageText" />
   </div>
+  <form [formGroup]="loginForm" class="p-5 py-20 md:py-10 md:p-14">
+    <div class="grid gap-4">
+      <h1 class="bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-transparent text-2xl font-bold">
+        Job Portal Logo
+      </h1>
+      <div class="">
+        <h1 class="text-gray-800 text-lg font-semibold">
+          Login
+        </h1>
+        <p class="text-gray-400 text-sm md:text-base font-normal">Enter Your email and password to login.</p>
+      </div>
+      <div class="">
+        <label for="email" class="text-sm md:text-base font-medium text-gray-600">Email Id</label>
+        <input id="email" formControlName="email" type="email" placeholder="eg: zamin@gmail.com"
+          class="w-full rounded-lg border-2 border-gray-200 focus:outline-none px-3 py-2 text-gray-600 text-sm md:text-base font-normal">
+        <div *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.invalid" class="text-red-500 text-sm">
+          <div *ngIf="loginForm.get('email')?.errors?.['required']">Email is required.</div>
+          <div *ngIf="loginForm.get('email')?.errors?.['email']">Invalid email format.</div>
+        </div>
+      </div>
+      <div class="">
+        <label for="password" class="text-sm md:text-base font-medium text-gray-600">Password</label>
+        <input id="password" formControlName="password" [type]="showPassword ? 'text' : 'password'"
+          placeholder="eg: IT & Consultancy"
+          class="w-full rounded-lg border-2 border-gray-200 focus:outline-none px-3 py-2 text-gray-600 text-sm md:text-base font-normal">
+        <div class="relative">
+          <mat-icon (click)="togglePasswordVisibility()" class="absolute right-2 bottom-2 text-gray-400">{{ showPassword
+            ?
+            'visibility_off' : 'visibility' }}</mat-icon>
+        </div>
+        <div *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.invalid"
+          class="text-red-500 text-sm">
+          <div *ngIf="loginForm.get('password')?.errors?.['required']">Password is required.</div>
+          <div *ngIf="loginForm.get('password')?.errors?.['minlength']">Password must be at least 8 characters.</div>
+        </div>
+        <div class="text-end">
+          <a routerLink="/recuriter/forgot-password" class="text-sm md:text-base font-medium text-blue-900">Forgot Password?</a>
+        </div>
+      </div>
+      <div>
+        <button [ngClass]="{'bg-green-600': loginForm.valid,'bg-gray-400': loginForm.invalid}" (click)="onFormSubmit()"
+          class="py-1.5 text-white text-base md:text-xl font-normal w-full rounded-lg shadow hover:shadow-md"
+          type="submit">Login</button>
+      </div>
+      <div>
+        <p class="text-start md:text-center text-gray-500 text-sm md:text-base font-normal">Don't Have an Account ?
+          <a routerLink="/recuriter/signup" class="text-green-600 font-medium ">Create an Account</a>
+        </p>
+      </div>
+      <div class="text-start md:text-center text-gray-500 text-sm md:text-base font-normal">
+        <mat-checkbox [checked]="true" class="w-full">
+          <div class="flex flex-col md:flex-row">
+            <span>By signing in, you agree to the&nbsp;</span>
+            <span class="text-green-600 font-medium">Terms of Conditions & Privacy Policy</span>
+          </div>
+        </mat-checkbox>
+
+      </div>
+    </div>
+  </form>
+</section>
