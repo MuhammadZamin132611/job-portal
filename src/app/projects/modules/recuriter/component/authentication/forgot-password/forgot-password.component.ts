@@ -3,22 +3,28 @@ import { MaterialModule } from '../../../../../shared/material.module';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
+import { RecuriterLoginSideImageComponent } from "../../../shared/recuriter-login-side-image/recuriter-login-side-image.component";
+import { NgClass, NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-forgot-password',
-  imports: [MaterialModule, ReactiveFormsModule],
+  imports: [MaterialModule, ReactiveFormsModule,NgIf,NgClass, RecuriterLoginSideImageComponent],
   templateUrl: './forgot-password.component.html',
   styleUrl: './forgot-password.component.scss'
 })
 export class ForgotPasswordComponent {
-  loginForm: FormGroup;
+  forgetPassword: FormGroup;
   showPassword: boolean = false;
 
+  imageText = {
+    image: "assets/recuriter/authentication/login.png",
+    para1: "Raising the talent bars with standards,",
+    para2: "will never goes wrong."
+  };
+
   constructor(private _fb: FormBuilder, private router: Router, private titleService: Title) {
-    this.loginForm = this._fb.group({
+    this.forgetPassword = this._fb.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(8)]],
-      confirmpassword: ['', [Validators.required, Validators.minLength(8)]]
     });
   }
 
@@ -35,11 +41,12 @@ export class ForgotPasswordComponent {
   }
 
   onFormSubmit() {
-    if (this.loginForm.valid) {
-      this.router.navigateByUrl('/layout/dashboard')
-      console.log("valid", this.loginForm.value);
+    if (this.forgetPassword.valid) {
+      // this.router.navigateByUrl('/layout/dashboard')
+      console.log("valid", this.forgetPassword.value);
     } else {
-      console.log("not valid", this.loginForm.value)
+      this.forgetPassword.markAllAsTouched();
+      console.log("not valid", this.forgetPassword.value)
     }
   }
 }

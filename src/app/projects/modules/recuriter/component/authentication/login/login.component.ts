@@ -53,6 +53,7 @@ export class LoginComponent {
     }
 
     // Proceed with valid form
+    // this.router.navigateByUrl('/recuriter/forgot-password')
     console.log("Valid Form", this.loginForm.value);
   }
 
