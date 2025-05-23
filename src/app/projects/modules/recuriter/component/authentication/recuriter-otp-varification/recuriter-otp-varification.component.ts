@@ -29,11 +29,11 @@ export class RecuriterOtpVarificationComponent {
 
   submitOpt() {
     if (this.ngOtpInput.currentVal == null || this.ngOtpInput.currentVal.length !== 6) {
-      alert("Otp can not be empty");
+      console.error("Otp can not be empty");
       return
     }
     else {
-      alert(`Enterd Otp is ${this.ngOtpInput.currentVal}`);
+      console.log(`Enterd Otp is ${this.ngOtpInput.currentVal}`);
     }
   }
 }
