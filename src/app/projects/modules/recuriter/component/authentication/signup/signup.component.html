@@ -15,10 +15,11 @@
       </div>
       <div class="overflow-auto">
         <label for="pan" class="text-sm md:text-base font-medium text-gray-600">Your Pan Card Number</label>
-        <input id="pan" formControlName="pan" type="text" placeholder="pqrmn1234z"
+        <input id="pan" formControlName="pan" type="text" placeholder="pqrmn1234z" maxlength="10"
           class="w-full rounded-lg border-2 uppercase border-gray-200 focus:outline-none px-3 py-2 text-gray-600 text-sm md:text-base font-normal">
         <div *ngIf="signUpForm.get('pan')?.touched && signUpForm.get('pan')?.invalid" class="text-red-500 text-sm">
           <div *ngIf="signUpForm.get('pan')?.errors?.['required']">PAN number is required.</div>
+          <div *ngIf="signUpForm.get('pan')?.errors?.['minlength']">PAN number 10 digit is required.</div>
         </div>
       </div>
       <div class="">

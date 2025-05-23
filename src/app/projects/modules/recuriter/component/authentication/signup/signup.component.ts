@@ -25,7 +25,7 @@ export class SignupComponent {
 
     this.signUpForm = this._fb.group({
       // email: ['', [Validators.required, Validators.pattern("[A-Za-z0-9._%-]+@[A-Za-z0-9._%-]+\\.[a-z]{2,3}")]],
-      pan: ['', [Validators.required]],
+      pan: ['', [Validators.required, Validators.minLength(10)]],
       dob: ['', [Validators.required]],
     });
   }
