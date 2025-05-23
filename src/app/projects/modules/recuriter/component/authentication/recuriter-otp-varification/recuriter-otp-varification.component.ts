@@ -18,6 +18,13 @@ export class RecuriterOtpVarificationComponent {
 
   email: string = "example@gmail.com";
 
+  otpConfig = {
+  length: 6,
+  allowNumbersOnly: true,
+  inputClass: 'w-12 h-12 text-center text-lg font-semibold border-2 border-gray-200 rounded mx-2 focus:outline-none focus:ring-2 focus:ring-green-600'
+};
+
+
   @ViewChild('ngOtpInput') ngOtpInput: any;
 
   submitOpt() {

@@ -14,9 +14,8 @@
                 <p class="text-gray-400 text-sm md:text-base font-normal">OTP sent to <span
                         class="text-blue-900 font-medium">{{email}}</span> Please verify below.</p>
             </div>
-            <div>
-                <ng-otp-input [config]="{ length: 6, allowNumbersOnly: true }" #ngOtpInput>
-                </ng-otp-input>
+            <div class="grid gap-10 justify-center">
+                <ng-otp-input [config]="otpConfig" #ngOtpInput></ng-otp-input>
             </div>
             <div>
                 <button matRipple (click)="submitOpt()"
