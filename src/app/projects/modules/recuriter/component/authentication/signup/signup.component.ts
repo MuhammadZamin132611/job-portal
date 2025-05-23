@@ -5,19 +5,15 @@ import { NgClass, NgIf } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { RecuriterLoginSideImageComponent } from "../../../shared/recuriter-login-side-image/recuriter-login-side-image.component";
+import { RecuriterSignupImagesComponent } from "../../../shared/recuriter-signup-images/recuriter-signup-images.component";
 
 @Component({
   selector: 'app-signup',
-  imports: [ReactiveFormsModule, MaterialModule, NgIf, NgClass, RouterLink, RecuriterLoginSideImageComponent],
+  imports: [ReactiveFormsModule, MaterialModule, NgIf, NgClass, RouterLink, RecuriterSignupImagesComponent],
   templateUrl: './signup.component.html',
   styleUrl: './signup.component.scss'
 })
 export class SignupComponent {
-  imageText = {
-    image: "assets/recuriter/authentication/login.png",
-    para1: "Raising the talent bars with standards,",
-    para2: "will never goes wrong."
-  };
 
   signUpForm: FormGroup;
   maxDate: string;

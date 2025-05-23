@@ -1,0 +1,20 @@
+<!-- <img class="h-full w-full" src="assets/recuriter/authentication/signup1.png" alt="1">
+<img class="h-full w-full" src="assets/recuriter/authentication/signup2.png" alt="2">
+<img class="h-full w-full" src="assets/recuriter/authentication/signup3.png" alt="3">
+<img class="h-full w-full" src="assets/recuriter/authentication/signup4.png" alt="4">
+<img class="h-full w-full" src="assets/recuriter/authentication/signup5.png" alt="5"> -->
+
+
+<!-- account-cards.component.html -->
+<div class="h-screen bg-[#D1DBE1]">
+    <div class="relative w-full h-full overflow-hidden">
+        <div *ngFor="let card of cards; let i = index"
+            class="absolute left-1/2 top-1/2 transition-all duration-500 ease-in-out" [ngStyle]="{
+         'z-index': i === currentCardIndex ? 10 : 0,
+         'opacity': i === currentCardIndex ? 1 : 0,
+         'transform': i === currentCardIndex ? 'translate(-50%, -50%) scale(1)' : 'translate(-50%, -50%) scale(0.8)'
+       }">
+            <img class="h-4/5 mx-auto" [src]="card.img" [alt]="card.alt">
+        </div>
+    </div>
+</div>
