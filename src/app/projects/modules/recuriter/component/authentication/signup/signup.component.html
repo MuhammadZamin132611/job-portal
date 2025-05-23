@@ -1,4 +1,4 @@
-<div class="grid justify-center place-content-center h-[100vh] p-2">
+<!-- <div class="grid justify-center place-content-center h-[100vh] p-2">
 
     <mat-card class="md:w-full">
         <div mat-dialog-title
@@ -99,7 +99,6 @@
             <mat-card-actions>
                 <div class="flex justify-between gap-2">
                     <div>
-                        <!-- [disabled]="!this.signUpForm.valid" -->
                         <button type="submit" mat-flat-button color="primary">Sign Up</button>
                     </div>
                     <div>
@@ -110,4 +109,52 @@
             </mat-card-actions>
         </form>
     </mat-card>
-</div>
+</div> -->
+
+
+<section class="grid grid-cols-1 md:grid-cols-2">
+  <div>
+    <app-recuriter-login-side-image [imageText]="imageText" />
+  </div>
+  <form [formGroup]="signUpForm" class="p-5 py-20 md:py-10 md:p-14">
+    <div class="grid gap-4">
+      <h1 class="bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-transparent text-2xl font-bold">
+        Job Portal Logo
+      </h1>
+      <div class="">
+        <h1 class="text-gray-800 text-lg font-semibold">
+          Create Account
+        </h1>
+        <p class="text-gray-400 text-sm md:text-base font-normal">Please provide below detials to create account.</p>
+      </div>
+      <div class="overflow-auto">
+        <label for="pan" class="text-sm md:text-base font-medium text-gray-600">Your Pan Card Number</label>
+        <input id="pan" formControlName="pan" type="text" placeholder="pqrmn1234z"
+          class="w-full rounded-lg border-2 uppercase border-gray-200 focus:outline-none px-3 py-2 text-gray-600 text-sm md:text-base font-normal">
+        <div *ngIf="signUpForm.get('pan')?.touched && signUpForm.get('pan')?.invalid" class="text-red-500 text-sm">
+          <div *ngIf="signUpForm.get('pan')?.errors?.['required']">Email is required.</div>
+        </div>
+      </div>
+      <div class="">
+        <label for="dob" class="text-sm md:text-base font-medium text-gray-600">Date of Birth</label>
+        <input id="dob" formControlName="dob" type="date" [max]="maxDate"
+          class="w-full rounded-lg border-2 border-gray-200 focus:outline-none px-3 py-2 text-gray-600 text-sm md:text-base font-normal">
+        
+        <div *ngIf="signUpForm.get('dob')?.touched && signUpForm.get('dob')?.invalid"
+          class="text-red-500 text-sm">
+          <div *ngIf="signUpForm.get('dob')?.errors?.['required']">Password is required.</div>
+        </div>
+      </div>
+      <div>
+        <button matRipple [ngClass]="{'bg-green-600': signUpForm.valid,'bg-gray-400': signUpForm.invalid}" (click)="onFormSubmit()"
+          class="py-1.5 text-white text-sm md:text-base font-normal w-full rounded-lg shadow hover:shadow-md"
+          type="submit">Verify & Proceed</button>
+      </div>
+      <div>
+        <p class="text-start md:text-center text-gray-500 text-sm md:text-base font-normal">Already have an Account ?
+          <a routerLink="/recuriter/login" class="text-green-600 font-medium ">Create an Account</a>
+        </p>
+      </div>
+    </div>
+  </form>
+</section>
