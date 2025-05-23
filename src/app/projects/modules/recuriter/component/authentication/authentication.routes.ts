@@ -18,6 +18,10 @@ export const recuriterRouter: Routes = [
         loadComponent: () => import('./recuriter-otp-varification/recuriter-otp-varification.component').then(c => c.RecuriterOtpVarificationComponent)
     },
     {
+        path: 'reset-password',
+        loadComponent: () => import('./reset-password-recuriter/reset-password-recuriter.component').then(c => c.ResetPasswordRecuriterComponent)
+    },
+    {
         path: '',
         redirectTo: "/recuriter/login",
         pathMatch: 'full'

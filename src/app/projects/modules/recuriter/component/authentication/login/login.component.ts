@@ -20,7 +20,7 @@ export class LoginComponent {
     para2: "will never goes wrong."
   };
 
-  loginForm: FormGroup;
+  loginForm: any = FormGroup;
   showPassword: boolean = false;
 
   constructor(private _fb: FormBuilder, private router: Router, private titleService: Title) {
