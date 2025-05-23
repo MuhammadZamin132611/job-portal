@@ -18,7 +18,7 @@
         <input id="pan" formControlName="pan" type="text" placeholder="pqrmn1234z"
           class="w-full rounded-lg border-2 uppercase border-gray-200 focus:outline-none px-3 py-2 text-gray-600 text-sm md:text-base font-normal">
         <div *ngIf="signUpForm.get('pan')?.touched && signUpForm.get('pan')?.invalid" class="text-red-500 text-sm">
-          <div *ngIf="signUpForm.get('pan')?.errors?.['required']">Email is required.</div>
+          <div *ngIf="signUpForm.get('pan')?.errors?.['required']">PAN number is required.</div>
         </div>
       </div>
       <div class="">
@@ -28,7 +28,7 @@
         
         <div *ngIf="signUpForm.get('dob')?.touched && signUpForm.get('dob')?.invalid"
           class="text-red-500 text-sm">
-          <div *ngIf="signUpForm.get('dob')?.errors?.['required']">Password is required.</div>
+          <div *ngIf="signUpForm.get('dob')?.errors?.['required']">Date of Birth is required.</div>
         </div>
       </div>
       <div>
@@ -38,7 +38,7 @@
       </div>
       <div>
         <p class="text-start md:text-center text-gray-500 text-sm md:text-base font-normal">Already have an Account ?
-          <a routerLink="/recuriter/login" class="text-green-600 font-medium ">Create an Account</a>
+          <a routerLink="/recuriter/login" class="text-green-600 font-medium hover:border-b-2 border-green-600">Login</a>
         </p>
       </div>
     </div>
