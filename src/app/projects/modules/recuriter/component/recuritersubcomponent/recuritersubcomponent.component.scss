@@ -4,60 +4,19 @@
     flex: 1 1 auto;
 }
 
-// .example-sidenav {
-//     border-radius: 0 !important;
-//     padding: 20px;
-// }
-
-// mat-drawer.advertisement {
-//     border-radius: 25px !important;
-// }
-
-
 @layer base {
 
     mat-drawer-container.drawerContainer {
-        @apply flex md:gap-5 py-3 bg-gray-200 w-full
+        @apply flex md:gap-5 w-full
     }
 
-
     mat-drawer.sideMenu {
-        @apply bg-white w-[300px] h-full md:h-[calc(100vh-90px)] overflow-auto my-0 md:my-3 rounded-none md:rounded-lg p-5;
+        @apply bg-red-500 w-[100px] hover:w-[200px] h-full md:h-[calc(100vh-70px)] overflow-auto rounded-none p-5;
     }
 
     mat-drawer-content.drawerContent {
-        @apply bg-gray-200 flex-1 px-0 md:px-4 h-full md:h-[calc(100vh-90px)] overflow-auto;
+        @apply w-full h-full md:h-[calc(100vh-70px)] overflow-auto ;
     }
 
-    mat-drawer.advertisement {
-        @apply bg-gray-200 w-[300px] h-full md:h-[calc(100vh-90px)] overflow-auto my-0 md:my-3 rounded-lg;
-    }
-
-    .drawerContent>div {
-        @apply px-0 md:px-2 rounded-lg bg-white;
-    }
-
-    .job_category {
-        @apply flex gap-5 justify-center place-content-center;
-    }
-
-    .underline-animation {
-        @apply relative cursor-pointer text-lg font-normal text-gray-600 hover:text-gray-800;
-    }
-
-    .underline-animation::after {
-        content: '';
-        @apply absolute bottom-0 h-[3px] bg-red-600 transition-all duration-300 rounded;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 0;
-    }
-
-    .underline-animation:hover::after {
-        @apply w-full;
-    }
-
-      
-
-
+    
 }

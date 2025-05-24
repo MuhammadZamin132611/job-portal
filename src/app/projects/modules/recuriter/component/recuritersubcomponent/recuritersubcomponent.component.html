@@ -1,26 +1,19 @@
-<mat-toolbar class="!px-2 md:!px-10"
-    style="background-color: #D7E3FF; position: sticky; top: 0; left: 0; width: 100%; z-index: 999;">
+<mat-toolbar class="px-2 md:px-10 bg-blue-900"
+    style="position: sticky; top: 0; left: 0; width: 100%; z-index: 999;">
     <div class="flex gap-10">
         <div class="flex gap-3 justify-center place-items-center">
-            <div class="cursor-pointer block md:hidden">
+            <div class="block md:hidden">
                 @if(isMenuOpen){
                 <button (click)="toggleMenu()" mat-icon-button>
                     <mat-icon>close</mat-icon>
                 </button>
                 }@else{
-                <button (click)="toggleMenu()" mat-icon-button>
-                    <mat-icon>menu</mat-icon>
+                <button class="text-white" (click)="toggleMenu()" mat-icon-button>
+                    <mat-icon >menu</mat-icon>
                 </button>
                 }
             </div>
-            <span class="cursor-pointer" routerLink="/seeker/layout/dashboard">Job Portal</span>
-        </div>
-        <div class="hidden md:block">
-            <div class="job_category">
-                <h1 class="underline-animation">Jobs</h1>
-                <h1 class="underline-animation">Companies</h1>
-                <h1 class="underline-animation">Services</h1>
-            </div>
+            <span class="cursor-pointer text-white" routerLink="/seeker/layout/dashboard">Job Portal</span>
         </div>
     </div>
     <span class="example-spacer"></span>
@@ -53,11 +46,11 @@
     </mat-menu>
 </mat-toolbar>
 
-<div class="px-0 md:px-10 bg-gray-200">
+<div class="bg-gray-200">
     <mat-drawer-container autosize class="drawerContainer">
-        <mat-drawer class="example-sidenav sideMenu otherClass" #drawer [opened]="isMenuOpen"
-            [disableClose]="drawerMode === 'over'" [mode]="drawerMode" position="start">
-            <!-- <app-sidebar /> -->
+        <mat-drawer class="sideMenu" #drawer [opened]="isMenuOpen"
+            [disableClose]="isMenuOpen" [mode]="drawerMode" position="start">
+            menu
         </mat-drawer>
         <mat-drawer-content class="drawerContent">
             <div>

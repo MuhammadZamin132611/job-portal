@@ -2,6 +2,6 @@
 
 @layer base {
     mat-drawer-content {
-        @apply bg-gray-200 md:bg-white h-[calc(100vh-95px)] overflow-auto;
+        @apply bg-white h-[calc(100vh-70px)] p-4 overflow-auto md:ml-5 shadow;
     }
 }
