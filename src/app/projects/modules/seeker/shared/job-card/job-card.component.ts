@@ -3,7 +3,7 @@ import { MaterialModule } from '../../../../shared/material.module';
 import { NgClass } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { ConfirmationComponent } from '../confirmation/confirmation.component';
+import { ConfirmationComponent } from '../../../../shared/confirmation/confirmation.component';
 
 @Component({
   selector: 'app-job-card',

@@ -3,7 +3,7 @@ import { Title } from '@angular/platform-browser';
 import { MaterialModule } from '../../../../../../shared/material.module';
 import { NgClass } from '@angular/common';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { ConfirmationComponent } from '../../../../shared/confirmation/confirmation.component';
+import { ConfirmationComponent } from '../../../../../../shared/confirmation/confirmation.component';
 
 @Component({
   selector: 'app-saved-jobs',

@@ -4,7 +4,7 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Router, RouterOutlet } from '@angular/router';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { SidebarService } from '../../../../services/sidebar/sidebar.service';
-import { ConfirmationComponent } from '../../../seeker/shared/confirmation/confirmation.component';
+import { ConfirmationComponent } from '../../../../shared/confirmation/confirmation.component';
 import { RecuriterProfileImageComponent } from "../../shared/recuriter-profile-image/recuriter-profile-image.component";
 import { RecuriterSideMenuComponent } from "../../shared/recuriter-side-menu/recuriter-side-menu.component";
 

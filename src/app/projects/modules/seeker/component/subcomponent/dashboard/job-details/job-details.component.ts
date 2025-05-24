@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { MaterialModule } from '../../../../../../shared/material.module';
 import { NgClass } from '@angular/common';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { ConfirmationComponent } from '../../../../shared/confirmation/confirmation.component';
+import { ConfirmationComponent } from '../../../../../../shared/confirmation/confirmation.component';
 import { Title } from '@angular/platform-browser';
 import { JobCardComponent } from "../../../../shared/job-card/job-card.component";
 import { RouterLink } from '@angular/router';

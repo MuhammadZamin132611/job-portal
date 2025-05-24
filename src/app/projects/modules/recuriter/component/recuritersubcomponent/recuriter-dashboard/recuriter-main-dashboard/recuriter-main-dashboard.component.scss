@@ -1,0 +1,15 @@
+@use 'tailwindcss/base';
+
+@layer base {
+    .menuStyle {
+        @apply text-[#0175A2] pl-3;
+    }
+
+    // .mat-mdc-menu-content {
+    //     @apply p-0;
+    // }
+}
+
+// .mat-mdc-menu-content {
+//     padding: 0px 0px !important;
+// }

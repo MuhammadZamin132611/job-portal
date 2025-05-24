@@ -4,11 +4,11 @@
             <div class="block md:hidden">
                 @if(isMenuOpen){
                 <button (click)="toggleMenu()" mat-icon-button>
-                    <mat-icon>close</mat-icon>
+                    <mat-icon class="text-white">close</mat-icon>
                 </button>
                 }@else{
                 <button class="text-white" (click)="toggleMenu()" mat-icon-button>
-                    <mat-icon>menu</mat-icon>
+                    <mat-icon>menu_open</mat-icon>
                 </button>
                 }
             </div>

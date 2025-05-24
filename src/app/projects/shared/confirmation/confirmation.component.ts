@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Inject } from '@angular/core';
-import { MaterialModule } from '../../../../shared/material.module';
+import { MaterialModule } from '../material.module';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({

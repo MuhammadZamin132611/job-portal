@@ -7,7 +7,7 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { NgIf } from '@angular/common';
 import { AdvertisementComponent } from '../../../../shared/advertisement/advertisement.component';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { ConfirmationComponent } from '../../shared/confirmation/confirmation.component';
+import { ConfirmationComponent } from '../../../../shared/confirmation/confirmation.component';
 import { ProfileImageComponent } from "../../shared/profile-image/profile-image.component";
 
 @Component({
