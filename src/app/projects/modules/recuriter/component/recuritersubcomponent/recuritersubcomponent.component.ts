@@ -6,10 +6,11 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { SidebarService } from '../../../../services/sidebar/sidebar.service';
 import { ConfirmationComponent } from '../../../seeker/shared/confirmation/confirmation.component';
 import { RecuriterProfileImageComponent } from "../../shared/recuriter-profile-image/recuriter-profile-image.component";
+import { RecuriterSideMenuComponent } from "../../shared/recuriter-side-menu/recuriter-side-menu.component";
 
 @Component({
   selector: 'app-recuritersubcomponent',
-  imports: [MaterialModule, RouterOutlet, RecuriterProfileImageComponent],
+  imports: [MaterialModule, RouterOutlet, RecuriterProfileImageComponent, RecuriterSideMenuComponent],
   templateUrl: './recuritersubcomponent.component.html',
   styleUrl: './recuritersubcomponent.component.scss'
 })

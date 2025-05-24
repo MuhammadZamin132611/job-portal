@@ -2,7 +2,7 @@
 module.exports = {
   important: true, // Forces all Tailwind styles to be !important
   content: [
-    "./src/**/*.{html,ts}",
+    "./src/**/*.{html,ts,scss}",
   ],
   theme: {
     extend: {},
