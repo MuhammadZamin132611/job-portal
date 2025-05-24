@@ -13,10 +13,10 @@ export const recuriterSubRoutes: Routes = [
                 path: 'profile-search',
                 loadChildren: () => import('./recuriter-profile-search/recuriterProfileSerarch.routes').then(r => r.recuriterProfileSearchRoutes)
             },
-            // {
-            //     path: 'profile-search',
-            //     loadChildren: () => import('./recuriter-profile-search/recuriterProfileSerarch.routes').then(r => r.recuriterProfileSearchRoutes)
-            // },
+            {
+                path: 'requirement',
+                loadChildren: () => import('./recuriter-requirement/recuriterRequirement.routes').then(r => r.recuriterRequirementRoute)
+            },
 
         ]
     },

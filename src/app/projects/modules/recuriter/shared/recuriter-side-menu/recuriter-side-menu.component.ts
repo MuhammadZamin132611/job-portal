@@ -25,7 +25,7 @@ export class RecuriterSideMenuComponent {
     {
       iconName: 'work_outline',
       listName: 'Requirements',
-      link: ''
+      link: '/recuriter/layout/requirement'
     },
     {
       iconName: 'admin_panel_settings_outline',
