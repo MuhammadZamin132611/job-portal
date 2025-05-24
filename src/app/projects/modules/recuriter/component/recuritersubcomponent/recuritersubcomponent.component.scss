@@ -15,8 +15,6 @@
     }
 
     mat-drawer-content.drawerContent {
-        @apply w-full h-full md:h-[calc(100vh-70px)] overflow-auto ;
+        @apply w-full h-full md:h-[calc(100vh-70px)] overflow-auto;
     }
-
-    
 }

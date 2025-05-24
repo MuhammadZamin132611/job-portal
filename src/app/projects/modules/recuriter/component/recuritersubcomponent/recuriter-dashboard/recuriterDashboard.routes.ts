@@ -7,7 +7,7 @@ export const recuriterDashboardRoutes: Routes = [
         children: [
             {
                 path: '',
-                loadComponent: () => import('./recuriter-dashboard.component').then(c => c.RecuriterDashboardComponent),
+                loadComponent: () => import('./recuriter-main-dashboard/recuriter-main-dashboard.component').then(c => c.RecuriterMainDashboardComponent),
             }
         ]
     },
