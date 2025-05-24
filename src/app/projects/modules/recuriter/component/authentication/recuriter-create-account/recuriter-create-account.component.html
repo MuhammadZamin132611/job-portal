@@ -1,0 +1,120 @@
+<section class="grid grid-cols-1 md:grid-cols-2">
+    <div>
+        <app-recuriter-signup-images />
+    </div>
+    <form [formGroup]="createAccount">
+        <div class="grid overflow-hidden md:h-[calc(100vh)] gap-4 p-5 py-20 md:py-10 md:p-14">
+            <h1 class="bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-transparent text-2xl font-bold">
+                Job Portal Logo
+            </h1>
+            <div class="">
+                <h1 class="text-gray-800 text-lg font-semibold">
+                    Recuriter Account
+                </h1>
+                <p class="text-gray-400 text-sm md:text-base font-normal">Please provide below detials to create
+                    account.</p>
+            </div>
+            <div class="md:overflow-auto md:h-10/12 grid gap-4">
+                <div>
+                    <label for="yourName" class="text-sm md:text-base font-medium text-gray-600">Your Name</label>
+                    <input id="yourName" formControlName="yourName" type="text" placeholder="Rahul Yadav"
+                        class="w-full rounded-lg border-2 capitalize border-gray-200 focus:outline-none px-3 py-2 text-gray-600 text-sm md:text-base font-normal">
+                    <div *ngIf="createAccount.get('yourName')?.touched && createAccount.get('yourName')?.invalid"
+                        class="text-red-500 text-sm">
+                        <div *ngIf="createAccount.get('yourName')?.errors?.['required']">Your Name is required.</div>
+                        <div *ngIf="createAccount.get('yourName')?.errors?.['minlength']">Your Name is minimum 4 digits.
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <label for="mobile" class="text-sm md:text-base font-medium text-gray-600">Mobile Number</label>
+                    <div class="flex">
+                        <p
+                            class="grid items-center text-center text-sm md:text-base font-semibold rounded-l-lg border-2 border-gray-200 px-3">
+                            +91</p>
+                        <input id="mobile" formControlName="mobile" type="text" placeholder="9087654321" maxlength="10"
+                            (keypress)="onlyMobileNumberKey($event)"
+                            class="w-full rounded-r-lg border-2 border-gray-200 focus:outline-none px-3 py-2 text-gray-600 text-sm md:text-base font-normal">
+                    </div>
+                    <div *ngIf="createAccount.get('mobile')?.touched && createAccount.get('mobile')?.invalid"
+                        class="text-red-500 text-sm">
+                        <div *ngIf="createAccount.get('mobile')?.errors?.['required']">Mobile number is required.</div>
+                        <div *ngIf="createAccount.get('mobile')?.errors?.['minlength']">Mobile number is minimum 10
+                            digits.
+                        </div>
+                        <div *ngIf="createAccount.get('mobile')?.errors?.['pattern']">Enter a valid 10-digit mobile
+                            number.
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <label for="email" class="text-sm md:text-base font-medium text-gray-600">Email Id</label>
+                    <input id="email" formControlName="email" type="email" placeholder="eg: zamin@gmail.com"
+                        class="w-full rounded-lg border-2 border-gray-200 focus:outline-none px-3 py-2 text-sm md:text-base font-normal">
+                    <div *ngIf="createAccount.get('email')?.touched && createAccount.get('email')?.invalid"
+                        class="text-red-500 text-sm">
+                        <div *ngIf="createAccount.get('email')?.errors?.['required']">Email is required.</div>
+                        <div *ngIf="createAccount.get('email')?.errors?.['email']">Enater a valid email Id.</div>
+                    </div>
+
+                </div>
+                <div class="">
+                    <label for="password" class="text-sm md:text-base font-medium text-gray-600">Password</label>
+                    <input id="password" formControlName="password" [type]="password ? 'text' : 'password'"
+                        placeholder="New Password"
+                        class="w-full rounded-lg border-2 border-gray-200 focus:outline-none px-3 py-2 text-gray-600 text-sm md:text-base font-normal">
+                    <div class="relative">
+                        <mat-icon (click)="togglenewPasswordVisibility()"
+                            class="absolute right-2 bottom-2 text-gray-400">{{
+                            password ? 'visibility_off' : 'visibility' }}</mat-icon>
+                    </div>
+                    <div *ngIf="createAccount.get('password')?.touched && createAccount.get('password')?.invalid"
+                        class="text-red-500 text-sm">
+                        <div *ngIf="createAccount.get('password')?.errors?.['required']">Password is required.</div>
+                        <div *ngIf="createAccount.get('password')?.errors?.['minlength']">Password must be at
+                            least 8 characters.</div>
+                    </div>
+                </div>
+                <div class="">
+                    <label for="confirmPassword" class="text-sm md:text-base font-medium text-gray-600">Confirm
+                        Password</label>
+                    <input id="confirmPassword" formControlName="confirmPassword"
+                        [type]="confirmsPassword ? 'text' : 'password'" placeholder="Confirm Password"
+                        class="w-full rounded-lg border-2 border-gray-200 focus:outline-none px-3 py-2 text-gray-600 text-sm md:text-base font-normal">
+                    <div class="relative">
+                        <mat-icon (click)="toggleConfirmPasswordVisibility()"
+                            class="absolute right-2 bottom-2 text-gray-400">{{
+                            confirmsPassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+                    </div>
+                    <div *ngIf="createAccount.get('confirmPassword')?.touched && createAccount.get('confirmPassword')?.invalid"
+                        class="text-red-500 text-sm">
+                        <div *ngIf="createAccount.get('confirmPassword')?.errors?.['required']">Password is required.
+                        </div>
+                        <div *ngIf="createAccount.get('confirmPassword')?.errors?.['minlength']">Password must be at
+                            least 8 characters.</div>
+                    </div>
+                    <div *ngIf="createAccount.errors?.['passwordsMismatch'] && createAccount.touched"
+                        class="text-red-500 text-sm">
+                        New Password and Confirm Password not match.
+                    </div>
+                </div>
+
+
+                <div>
+                    <button matRipple
+                        [ngClass]="{'bg-green-600': createAccount.valid,'bg-gray-400': createAccount.invalid}"
+                        (click)="onFormSubmit()"
+                        class="py-1.5 text-white text-sm md:text-base font-normal w-full rounded-lg shadow hover:shadow-md"
+                        type="submit">Proceed</button>
+                </div>
+                <div>
+                    <p class="text-start md:text-center text-gray-500 text-sm md:text-base font-normal">Already have an
+                        Account ?
+                        <a routerLink="/recuriter/login"
+                            class="text-green-600 font-medium hover:border-b-2 border-green-600">Login</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </form>
+</section>

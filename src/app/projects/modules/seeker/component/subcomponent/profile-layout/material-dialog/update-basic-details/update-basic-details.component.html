@@ -33,7 +33,7 @@
             <div *ngIf="basicDetailsForm.get('email')?.touched && basicDetailsForm.get('email')?.invalid"
                 class="text-red-500 text-sm">
                 <div *ngIf="basicDetailsForm.get('email')?.errors?.['required']">Email is required</div>
-                <div *ngIf="basicDetailsForm.get('email')?.errors?.['email']">Invalid email format</div>
+                <div *ngIf="basicDetailsForm.get('email')?.errors?.['email']">Enater a valid email Id.</div>
             </div>
 
         </div>
@@ -45,9 +45,9 @@
                 class="w-full rounded-lg border-2 border-gray-200 focus:outline-none px-3 py-2 text-sm md:text-base font-normal">
             <div *ngIf="basicDetailsForm.get('mobile')?.touched && basicDetailsForm.get('mobile')?.invalid"
                 class="text-red-500 text-sm">
-                <div *ngIf="basicDetailsForm.get('mobile')?.errors?.['required']">Mobile number is required</div>
+                <div *ngIf="basicDetailsForm.get('mobile')?.errors?.['required']">Mobile number is required.</div>
                 <div *ngIf="basicDetailsForm.get('mobile')?.errors?.['pattern']">Enter a valid 10-digit mobile
-                    number</div>
+                    number.</div>
             </div>
 
         </div>
