@@ -13,14 +13,39 @@ export class RecuriterSideMenuComponent {
 
   menuList: list[] = [
     {
-      iconName: 'dashboard',
+      iconName: 'dashboard_outline',
       listName: 'Dashboard',
       link: '/recuriter/layout/dashboard'
     },
     {
-      iconName: 'person_search',
+      iconName: 'person_search_outline',
       listName: 'Profile Search',
       link: '/recuriter/layout/profile-search'
+    },
+    {
+      iconName: 'work_outline',
+      listName: 'Requirements',
+      link: ''
+    },
+    {
+      iconName: 'admin_panel_settings_outline',
+      listName: 'Admin',
+      link: ''
+    },
+    {
+      iconName: 'groups_outline',
+      listName: 'Team',
+      link: ''
+    },
+    {
+      iconName: 'sms_outline',
+      listName: 'Messages',
+      link: ''
+    },
+    {
+      iconName: 'live_help_outline',
+      listName: 'Help & Support',
+      link: ''
     },
   ]
 
