@@ -1,0 +1,12 @@
+@use 'tailwindcss/base';
+
+
+@layer base {
+    .active {
+        @apply bg-blue-50 rounded-r-md border-l-4 border-[#0175A2] text-[#0175A2] font-bold;
+
+        mat-icon {
+            @apply text-[#0175A2]
+        }
+    }
+}
