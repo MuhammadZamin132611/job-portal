@@ -11,6 +11,6 @@ export const moduleRoutes: Routes = [
     },
     {
         path: 'recuriter',
-        loadChildren: () => import('../modules/recuriter/component/authentication/authentication.routes').then(r => r.recuriterRouter)
+        loadChildren: () => import('../modules/recuriter/component/recuriter.routes').then(r => r.recuriterRoutes)
     },
 ];

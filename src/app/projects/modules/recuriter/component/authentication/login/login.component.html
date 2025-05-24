@@ -39,7 +39,7 @@
           <div *ngIf="loginForm.get('password')?.errors?.['minlength']">Password must be at least 8 characters.</div>
         </div>
         <div class="text-end">
-          <a routerLink="/recuriter/forgot-password" class="text-sm md:text-base font-medium text-blue-900">Forgot Password?</a>
+          <a routerLink="/recuriter/auth/forgot-password" class="text-sm md:text-base font-medium text-blue-900">Forgot Password?</a>
         </div>
       </div>
       <div>
@@ -49,7 +49,7 @@
       </div>
       <div>
         <p class="text-start md:text-center text-gray-500 text-sm md:text-base font-normal">Don't Have an Account ?
-          <a routerLink="/recuriter/signup" class="text-green-600 font-medium hover:border-b-2 border-green-600">Create an Account</a>
+          <a routerLink="/recuriter/auth/signup" class="text-green-600 font-medium hover:border-b-2 border-green-600">Create an Account</a>
         </p>
       </div>
       <div class="text-start md:text-center text-gray-500 text-sm md:text-base font-normal">

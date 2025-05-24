@@ -34,7 +34,7 @@ export class RecuriterOtpVarificationComponent {
       return
     }
     else {
-      this.router.navigateByUrl('/recuriter/reset-password')
+      this.router.navigateByUrl('/recuriter/auth/reset-password')
       console.log(`Enterd Otp is ${this.ngOtpInput.currentVal}`);
     }
   }

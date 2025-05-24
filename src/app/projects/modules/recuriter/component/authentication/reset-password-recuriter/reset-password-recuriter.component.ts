@@ -50,7 +50,7 @@ export class ResetPasswordRecuriterComponent implements OnInit {
     }
     else {
       // Proceed with valid form
-      // this.router.navigateByUrl('/recuriter/forgot-password')
+      // this.router.navigateByUrl('/recuriter/auth/forgot-password')
       console.log("Valid Form", this.resetPassword.value);
     }
   }

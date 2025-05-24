@@ -55,7 +55,7 @@ export class RecuriterCreateAccountComponent implements OnInit {
 
   onFormSubmit() {
     if (this.createAccount.valid) {
-      this.router.navigateByUrl('/recuriter/otp-varification');
+      this.router.navigateByUrl('/recuriter/auth/otp-varification');
       console.log("valid", this.createAccount.value);
     } else {
       this.createAccount.markAllAsTouched();

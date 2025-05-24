@@ -42,7 +42,7 @@ export class ForgotPasswordComponent {
 
   onFormSubmit() {
     if (this.forgetPassword.valid) {
-      this.router.navigateByUrl('/recuriter/otp-varification')
+      this.router.navigateByUrl('/recuriter/auth/otp-varification')
       console.log("valid", this.forgetPassword.value);
     } else {
       this.forgetPassword.markAllAsTouched();

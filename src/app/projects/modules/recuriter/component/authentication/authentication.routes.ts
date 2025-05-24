@@ -1,6 +1,6 @@
 import { Routes } from "@angular/router";
 
-export const recuriterRouter: Routes = [
+export const recuriterAuthenticationRouter: Routes = [
     {
         path: 'login',
         loadComponent: () => import('./login/login.component').then(c => c.LoginComponent)
@@ -27,7 +27,7 @@ export const recuriterRouter: Routes = [
     },
     {
         path: '',
-        redirectTo: "/recuriter/login",
+        redirectTo: "/recuriter/auth/login",
         pathMatch: 'full'
     }
 ];

@@ -41,7 +41,7 @@ export class SignupComponent {
 
   onFormSubmit() {
     if (this.signUpForm.valid) {
-      this.router.navigateByUrl('/recuriter/create-account');
+      this.router.navigateByUrl('/recuriter/auth/create-account');
       console.log("valid", this.signUpForm.value);
     } else {
       this.signUpForm.markAllAsTouched();
