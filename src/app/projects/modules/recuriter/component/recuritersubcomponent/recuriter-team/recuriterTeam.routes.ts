@@ -1,9 +1,9 @@
 import { Routes } from "@angular/router";
 
-export const recuriterRequirementRoute: Routes = [
+export const recuriterTeamRoute: Routes = [
     {
         path: '',
-        loadComponent: () => import('./recuriter-requirement.component').then(c => c.RecuriterRequirementComponent),
+        loadComponent: () => import('./recuriter-team.component').then(c => c.RecuriterTeamComponent),
         children: [
             // {
             //     path: '',
@@ -14,7 +14,7 @@ export const recuriterRequirementRoute: Routes = [
     },
     {
         path: '',
-        redirectTo: '/recuriter/layout/requirement',
+        redirectTo: '/recuriter/layout/team',
         pathMatch: 'full'
     }
 ];

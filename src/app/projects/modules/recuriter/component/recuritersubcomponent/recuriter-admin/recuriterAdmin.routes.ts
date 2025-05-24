@@ -1,20 +1,20 @@
 import { Routes } from "@angular/router";
 
-export const recuriterRequirementRoute: Routes = [
+export const recuriterAdminRoutes: Routes = [
     {
         path: '',
-        loadComponent: () => import('./recuriter-requirement.component').then(c => c.RecuriterRequirementComponent),
+        loadComponent: () => import('./recuriter-admin.component').then(c => c.RecuriterAdminComponent),
         children: [
             // {
             //     path: '',
             //     loadComponent: () => import('./recuriter-main-dashboard/recuriter-main-dashboard.component').then(c => c.RecuriterMainDashboardComponent),
             // },
-
+            
         ]
     },
     {
         path: '',
-        redirectTo: '/recuriter/layout/requirement',
+        redirectTo: '/recuriter/layout/admin',
         pathMatch: 'full'
     }
-];
+]

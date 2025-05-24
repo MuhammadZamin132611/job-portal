@@ -30,22 +30,22 @@ export class RecuriterSideMenuComponent {
     {
       iconName: 'admin_panel_settings_outline',
       listName: 'Admin',
-      link: ''
+      link: '/recuriter/layout/admin'
     },
     {
       iconName: 'groups_outline',
       listName: 'Team',
-      link: ''
+      link: '/recuriter/layout/team'
     },
     {
       iconName: 'sms_outline',
       listName: 'Messages',
-      link: ''
+      link: '/recuriter/layout/messages'
     },
     {
       iconName: 'live_help_outline',
       listName: 'Help & Support',
-      link: ''
+      link: '/recuriter/layout/help-support'
     },
   ]
 

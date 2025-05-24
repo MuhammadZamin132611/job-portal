@@ -1,9 +1,9 @@
 import { Routes } from "@angular/router";
 
-export const recuriterRequirementRoute: Routes = [
+export const recuriterMessagesRoute: Routes = [
     {
         path: '',
-        loadComponent: () => import('./recuriter-requirement.component').then(c => c.RecuriterRequirementComponent),
+        loadComponent: () => import('./recuriter-messages.component').then(c => c.RecuriterMessagesComponent),
         children: [
             // {
             //     path: '',
@@ -14,7 +14,7 @@ export const recuriterRequirementRoute: Routes = [
     },
     {
         path: '',
-        redirectTo: '/recuriter/layout/requirement',
+        redirectTo: '/recuriter/layout/messages',
         pathMatch: 'full'
     }
 ];
