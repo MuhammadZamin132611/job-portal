@@ -1,0 +1,49 @@
+<section class="pt-3">
+    <div class="p-3 rounded-lg shadow-metric hover:shadow-xl bg-white transition ease-in-out delay-150 duration-300">
+        <div>
+            <h1 class="text-gray-800 text-lg font-semibold">Pipeline Engaged</h1>
+            <div class="hidden md:block">
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 justify-center">
+                    <apx-chart [series]="chartOptions.series" [chart]="chartOptions.chart"
+                        [labels]="chartOptions.labels" [fill]="chartOptions.fill" [dataLabels]="chartOptions.dataLabels"
+                        [legend]="chartOptions.legend" [responsive]="chartOptions.responsive"
+                        [plotOptions]="chartOptions.plotOptions" [colors]="chartOptions.colors"></apx-chart>
+                    <apx-chart [series]="chartOptions.series" [chart]="chartOptions.chart"
+                        [labels]="chartOptions.labels" [fill]="chartOptions.fill" [dataLabels]="chartOptions.dataLabels"
+                        [legend]="chartOptions.legend" [responsive]="chartOptions.responsive"
+                        [plotOptions]="chartOptions.plotOptions" [colors]="chartOptions.colors"></apx-chart>
+                    <apx-chart [series]="chartOptions.series" [chart]="chartOptions.chart"
+                        [labels]="chartOptions.labels" [fill]="chartOptions.fill" [dataLabels]="chartOptions.dataLabels"
+                        [legend]="chartOptions.legend" [responsive]="chartOptions.responsive"
+                        [plotOptions]="chartOptions.plotOptions" [colors]="chartOptions.colors"></apx-chart>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white shadow rounded-xl overflow-x-auto">
+            <!-- Responsive wrapper for horizontal scroll -->
+            <div class="min-w-[600px] md:min-w-full">
+                <!-- Header -->
+                <div
+                    class="grid grid-cols-6 gap-4 px-4 md:px-6 py-3 md:py-4 border-b text-sm font-medium text-gray-700 bg-gray-50">
+                    <div></div>
+                    <div *ngFor="let header of headers" class="flex items-center gap-2 whitespace-nowrap">
+                        <span class="w-2.5 h-2.5 rounded-full" [ngStyle]="{ 'background-color': header.color }"></span>
+                        {{ header.label }}
+                    </div>
+                </div>
+
+                <!-- Data Rows -->
+                <div class="divide-y text-sm text-gray-900 font-medium">
+                    <div *ngFor="let row of metrics" class="grid grid-cols-6 gap-4 px-4 md:px-6 py-3 md:py-4">
+                        <div class="font-semibold whitespace-nowrap">{{ row.label }}</div>
+                        <div *ngFor="let value of row.values" class="text-center">
+                            {{ value }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
