@@ -2,12 +2,12 @@
     <div class="flex gap-3 overflow-x-auto scroll-container">
         <button [ngClass]="{ 'bg-[#0175A2] text-white border-none': selectedPeriod === 'Your Team (10)' }"
             (click)="selectPeriod('Your Team (10)')"
-            class="whitespace-nowrap px-4 py-1.5 rounded-lg bg-white border-2 border-gray-200">Your Team (10)</button>
+            class="whitespace-nowrap px-4 py-1.5 rounded-lg border-2 border-gray-200">Your Team (10)</button>
         <button [ngClass]="{ 'bg-[#0175A2] text-white border-none': selectedPeriod === 'Active Requirements (23)' }"
-            class="whitespace-nowrap px-4 py-1.5 rounded-lg bg-white border-2 border-gray-200"
+            class="whitespace-nowrap px-4 py-1.5 rounded-lg border-2 border-gray-200"
             (click)="selectPeriod('Active Requirements (23)')">Active Requirements (23)</button>
         <button [ngClass]="{ 'bg-[#0175A2] text-white border-none': selectedPeriod === 'Team Matrix' }"
-            class="whitespace-nowrap px-4 py-1.5 rounded-lg bg-white border-2 border-gray-200"
+            class="whitespace-nowrap px-4 py-1.5 rounded-lg border-2 border-gray-200"
             (click)="selectPeriod('Team Matrix')">Team Matrix</button>
     </div>
     <div>
@@ -102,7 +102,7 @@
         </div>
 
     </div>
-    <div
+    <div *ngIf="selectedPeriod === 'Team Matrix'"
         class="mt-2.5 p-3 rounded-lg shadow-metric hover:shadow-2xl bg-white transition ease-in-out delay-150 duration-300">
     </div>
 </section>
