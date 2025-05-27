@@ -100,7 +100,7 @@ export class RecuriterJobActivityChartsComponent {
   headers = [
     { label: 'Applied', color: '#0066FF' },
     { label: 'Sourced', color: '#F4B740' },
-    { label: 'Shortlisted', color: '#3E4BD1' },
+    { label: 'Shortlist', color: '#3E4BD1' },
     { label: 'Offered', color: '#12B76A' },
     { label: 'Rejected', color: '#F04438' },
   ];
