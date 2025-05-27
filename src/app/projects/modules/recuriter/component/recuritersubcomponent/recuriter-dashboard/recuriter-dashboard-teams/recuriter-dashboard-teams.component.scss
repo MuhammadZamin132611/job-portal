@@ -1,0 +1,17 @@
+.shadow-metric {
+  box-shadow: 0px 7.1454px 22.3294px rgba(16, 24, 40, 0.05);
+}
+
+.scroll-container {
+    overflow: auto;
+    /* Keep scrolling enabled */
+    scrollbar-width: none;
+    /* Hide scrollbar (Firefox) */
+    -ms-overflow-style: none;
+    /* Hide scrollbar (IE/Edge) */
+}
+
+.scroll-container::-webkit-scrollbar {
+    display: none;
+    /* Hide scrollbar (Chrome, Safari) */
+}
