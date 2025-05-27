@@ -37,49 +37,142 @@ export class RecuriterDashboardTeamsComponent {
   public semiCircalOptions!: Partial<ChartOptions>;
 
   constructor() {
-    this.semiDonut();
+    // this.semiDonut(this.recruiters.chartValue);
+    this.recruiters = this.recruiters.map(recruiter => ({
+      ...recruiter,
+      chartOptions: this.getChartOptions(recruiter.chartValue)
+    }));
   }
 
-  getColorByValue(value: number): string {
-    if (value <= 50) return '#FF0000';       // Red
-    else if (value <= 75) return '#FFA500';  // Amber
-    else return '#00C853';                   // Green
+
+
+  activeRequirements: any[] = [];
+
+  ngOnInit(): void {
+    const mockData = [
+      { title: 'Java Developer', required: 25, offered: 8, open: 7, positionClosed: 56, icon: 'work_outline' },
+      { title: 'Angular Developer', required: 18, offered: 5, open: 6, positionClosed: 61, icon: 'code' },
+      { title: 'Node.js Developer', required: 20, offered: 10, open: 5, positionClosed: 75, icon: 'terminal' },
+      { title: 'UX Designer', required: 10, offered: 6, open: 2, positionClosed: 80, icon: 'brush' },
+      { title: 'QA Engineer', required: 12, offered: 4, open: 5, positionClosed: 58, icon: 'bug_report' },
+      { title: 'DevOps Engineer', required: 15, offered: 7, open: 3, positionClosed: 70, icon: 'settings' }
+    ];
+
+    this.activeRequirements = mockData.map(req => ({
+      ...req,
+      chartOptions: this.semiDonut(req.positionClosed)
+    }));
   }
 
-
-  semiDonut(): void {
-    const value = 78;
+  semiDonut(value: number): any {
     const total = 100;
-    const color = this.getColorByValue(value);
-    this.semiCircalOptions = {
+    return {
       series: [value, total - value],
-      chart: { width: 100, type: "donut" },
+      chart: { width: 100, type: 'donut' },
       dataLabels: { enabled: false },
       tooltip: { enabled: false },
       states: { hover: { filter: { type: 'none' } }, active: { filter: { type: 'none' } } },
-      colors: [color, '#E0E0E0'],
-      fill: { type: "gradient" },
+      colors: [this.getColorByValue(value), '#E0E0E0'],
+      fill: { type: 'gradient' },
       legend: { show: false },
-      plotOptions: {
-        pie: {
-          startAngle: -90, endAngle: 90, donut: {
-            size: '75%', labels: {
-              show: true, name: { show: false },
-              value: { show: false, fontSize: '14px', color: '#000', formatter: () => `${value}%` },
-              total: { show: false }
-            }
-          }
-        }
-      },
+      plotOptions: { pie: { startAngle: -90, endAngle: 90, donut: { size: '75%', labels: { show: true, name: { show: false }, value: { show: false }, total: { show: false } } } } },
       responsive: [{ breakpoint: 380, options: { chart: { width: 100 }, legend: { show: false } } }]
     };
   }
 
 
 
+  getColorByValue(value: number): string {
+    if (value <= 50) return '#FF0000';       // Red
+    else if (value <= 75) return '#F79009';  // Amber
+    else return '#00C853';                   // Green
+  }
+
+  recruiters = [
+    {
+      name: 'Lana Setiner',
+      email: 'lana@gmail.com',
+      image: 'assets/profile/profile_image.png',
+      chartValue: 44,
+      metrics: { requirementsAllocated: 10, jobsPosted: 8, candidatesSourced: 134, positionsClosed: 6 }
+    },
+    {
+      name: 'David King',
+      email: 'david@gmail.com',
+      image: 'assets/profile/profile_image.png',
+      chartValue: 76,
+      metrics: { requirementsAllocated: 12, jobsPosted: 9, candidatesSourced: 98, positionsClosed: 7 }
+    },
+    {
+      name: 'Sophia Wells',
+      email: 'sophia@gmail.com',
+      image: 'assets/profile/profile_image.png',
+      chartValue: 63,
+      metrics: { requirementsAllocated: 8, jobsPosted: 5, candidatesSourced: 120, positionsClosed: 4 }
+    },
+    {
+      name: 'Michael Smith',
+      email: 'michael@gmail.com',
+      image: 'assets/profile/profile_image.png',
+      chartValue: 89,
+      metrics: { requirementsAllocated: 14, jobsPosted: 10, candidatesSourced: 150, positionsClosed: 9 }
+    },
+    {
+      name: 'Emily Turner',
+      email: 'emily@gmail.com',
+      image: 'assets/profile/profile_image.png',
+      chartValue: 51,
+      metrics: { requirementsAllocated: 9, jobsPosted: 6, candidatesSourced: 110, positionsClosed: 5 }
+    },
+    {
+      name: 'Jacob Lee',
+      email: 'jacob@gmail.com',
+      image: 'assets/profile/profile_image.png',
+      chartValue: 30,
+      metrics: { requirementsAllocated: 7, jobsPosted: 4, candidatesSourced: 85, positionsClosed: 3 }
+    }
+  ];
 
 
-  selectedPeriod = 'Your Team (10)';
+  getChartOptions(value: number): any {
+    const total = 100;
+    return {
+      series: [value, total - value],
+      chart: { width: 100, type: "donut" },
+      dataLabels: { enabled: false },
+      tooltip: { enabled: false },
+      states: { hover: { filter: { type: 'none' } }, active: { filter: { type: 'none' } } },
+      colors: [this.getColorByValue(value), '#E0E0E0'],
+      fill: { type: "gradient" },
+      legend: { show: false },
+      plotOptions: { pie: { startAngle: -90, endAngle: 90, donut: { size: '75%', labels: { show: true, name: { show: false }, value: { show: false }, total: { show: false } } } } },
+      responsive: [{ breakpoint: 380, options: { chart: { width: 100 }, legend: { show: false } } }]
+    };
+  }
+
+
+  // getActiveRequirement(value: number): any {
+  //   const total = 100;
+  //   return {
+  //     series: [value, total - value],
+  //     chart: { width: 100, type: "donut" },
+  //     dataLabels: { enabled: false },
+  //     tooltip: { enabled: false },
+  //     states: { hover: { filter: { type: 'none' } }, active: { filter: { type: 'none' } } },
+  //     colors: [this.getColorByValue(value), '#E0E0E0'],
+  //     fill: { type: "gradient" },
+  //     legend: { show: false },
+  //     plotOptions: { pie: { startAngle: -90, endAngle: 90, donut: { size: '75%', labels: { show: true, name: { show: false }, value: { show: false }, total: { show: false } } } } },
+  //     responsive: [{ breakpoint: 380, options: { chart: { width: 100 }, legend: { show: false } } }]
+  //   };
+  // }
+
+
+
+
+
+
+  selectedPeriod = 'Active Requirements (23)';
 
   selectPeriod(period: string) {
     this.selectedPeriod = period;
