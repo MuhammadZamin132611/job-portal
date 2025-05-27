@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { RecuriterProfileImageComponent } from "../recuriter-profile-image/recuriter-profile-image.component";
 import { MaterialModule } from '../../../../shared/material.module';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { SidebarService } from '../../../../services/sidebar/sidebar.service';
 
 @Component({
   selector: 'app-recuriter-side-menu',
@@ -10,6 +11,12 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   styleUrl: './recuriter-side-menu.component.scss'
 })
 export class RecuriterSideMenuComponent {
+
+  constructor(private sidebarService: SidebarService) { }
+    
+    toggleMenu() {
+      this.sidebarService.toggleDrawer();
+    }
 
   menuList: list[] = [
     {
