@@ -5,10 +5,11 @@ import { RecuriterJobActivityDetailsComponent } from "./recuriter-job-activity-d
 import { RecuriterJobActivityChartsComponent } from "./recuriter-job-activity-charts/recuriter-job-activity-charts.component";
 import { RecuriterDashboardTeamsComponent } from "./recuriter-dashboard-teams/recuriter-dashboard-teams.component";
 import { RecuriterDashboardSubscriptionPlanComponent } from "./recuriter-dashboard-subscription-plan/recuriter-dashboard-subscription-plan.component";
+import { RecuriterDashboardMonthlySummaryComponent } from "./recuriter-dashboard-monthly-summary/recuriter-dashboard-monthly-summary.component";
 
 @Component({
   selector: 'app-recuriter-main-dashboard',
-  imports: [MaterialModule, NgClass, RecuriterJobActivityDetailsComponent, RecuriterJobActivityChartsComponent, RecuriterDashboardTeamsComponent, RecuriterDashboardSubscriptionPlanComponent],
+  imports: [MaterialModule, NgClass, RecuriterJobActivityDetailsComponent, RecuriterJobActivityChartsComponent, RecuriterDashboardTeamsComponent, RecuriterDashboardSubscriptionPlanComponent, RecuriterDashboardMonthlySummaryComponent],
   templateUrl: './recuriter-main-dashboard.component.html',
   styleUrl: './recuriter-main-dashboard.component.scss'
 })

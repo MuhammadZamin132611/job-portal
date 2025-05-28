@@ -1,0 +1,11 @@
+@use 'tailwindcss/base';
+
+@layer base {
+    .menuStyle {
+        @apply text-gray-800 pl-3;
+    }
+}
+
+.shadow-metric {
+    box-shadow: 0px 7.1454px 22.3294px rgba(16, 24, 40, 0.05);
+}
