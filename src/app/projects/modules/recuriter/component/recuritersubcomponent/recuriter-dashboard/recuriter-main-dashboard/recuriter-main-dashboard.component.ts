@@ -4,10 +4,11 @@ import { NgClass } from '@angular/common';
 import { RecuriterJobActivityDetailsComponent } from "./recuriter-job-activity-details/recuriter-job-activity-details.component";
 import { RecuriterJobActivityChartsComponent } from "./recuriter-job-activity-charts/recuriter-job-activity-charts.component";
 import { RecuriterDashboardTeamsComponent } from "./recuriter-dashboard-teams/recuriter-dashboard-teams.component";
+import { RecuriterDashboardSubscriptionPlanComponent } from "./recuriter-dashboard-subscription-plan/recuriter-dashboard-subscription-plan.component";
 
 @Component({
   selector: 'app-recuriter-main-dashboard',
-  imports: [MaterialModule, NgClass, RecuriterJobActivityDetailsComponent, RecuriterJobActivityChartsComponent, RecuriterDashboardTeamsComponent],
+  imports: [MaterialModule, NgClass, RecuriterJobActivityDetailsComponent, RecuriterJobActivityChartsComponent, RecuriterDashboardTeamsComponent, RecuriterDashboardSubscriptionPlanComponent],
   templateUrl: './recuriter-main-dashboard.component.html',
   styleUrl: './recuriter-main-dashboard.component.scss'
 })
