@@ -172,11 +172,148 @@ export class RecuriterDashboardTeamsComponent {
 
 
 
-  selectedPeriod = 'Active Requirements (23)';
+  selectedPeriod = 'Your Team (10)';
 
   selectPeriod(period: string) {
     this.selectedPeriod = period;
   }
 
+  recruiters1: Recruiter[] = [
+    {
+      image: 'assets/profile/profile_image.png',
+      name: 'Rahul Kumar',
+      role: 'Recruiter Manger',
+      jobPosted: 10,
+      open: 2,
+      closed: 8,
+      candidateSourced: 110,
+      candidateOffered: 50,
+      children: [
+        {
+          image: 'assets/profile/profile_image.png',
+          name: 'Suman Kumari',
+          role: 'Recruiter',
+          jobPosted: 2,
+          open: '-',
+          closed: 2,
+          candidateSourced: 40,
+          candidateOffered: 30,
+        },
+        {
+          image: 'assets/profile/profile_image.png',
+          name: 'Sumit Dugal',
+          role: 'Recruiter',
+          jobPosted: 2,
+          open: 1,
+          closed: 2,
+          candidateSourced: 60,
+          candidateOffered: 20,
+        },
+      ]
+    },
+    {
+      image: 'assets/profile/profile_image.png',
+      name: 'Suman Kumari',
+      role: 'Recruiter',
+      jobPosted: 3,
+      open: 1,
+      closed: 2,
+      candidateSourced: 30,
+      candidateOffered: 10,
+      children: [
+        {
+          image: 'assets/profile/profile_image.png',
+          name: 'Zamin',
+          role: 'Recruiter',
+          jobPosted: 2,
+          open: '-',
+          closed: 2,
+          candidateSourced: 40,
+          candidateOffered: 30,
+        },
+        {
+          image: 'assets/profile/profile_image.png',
+          name: 'Sumit Dugal',
+          role: 'Recruiter',
+          jobPosted: 2,
+          open: 1,
+          closed: 2,
+          candidateSourced: 60,
+          candidateOffered: 20,
+        },
+      ]
+    }, 
+    {
+      image: 'assets/profile/profile_image.png',
+      name: 'Rahul Kumar',
+      role: 'Recruiter Manger',
+      jobPosted: 10,
+      open: 2,
+      closed: 8,
+      candidateSourced: 110,
+      candidateOffered: 50,
+    },
+    {
+      image: 'assets/profile/profile_image.png',
+      name: 'Rahul Kumar',
+      role: 'Recruiter Manger',
+      jobPosted: 20,
+      open: 4,
+      closed: 16,
+      candidateSourced: 80,
+      candidateOffered: 40,
+    },
+    {
+      image: 'assets/profile/profile_image.png',
+      name: 'Satish Kumar',
+      role: 'Recruiter',
+      jobPosted: 10,
+      open: 4,
+      closed: 6,
+      candidateSourced: 30,
+      candidateOffered: 20,
+    },
+    {
+      image: 'assets/profile/profile_image.png',
+      name: 'Suman Kumari',
+      role: 'Recruiter',
+      jobPosted: 5,
+      open: '-',
+      closed: 5,
+      candidateSourced: 20,
+      candidateOffered: 10,
+    },
+    {
+      image: 'assets/profile/profile_image.png',
+      name: 'Satish Kumar',
+      role: 'Recruiter',
+      jobPosted: 5,
+      open: '-',
+      closed: 5,
+      candidateSourced: 40,
+      candidateOffered: 5,
+    },
+  ];
+
+  expandedRowIndex: number | null = null;
+
+  toggleRow(index: number) {
+    this.expandedRowIndex = this.expandedRowIndex === index ? null : index;
+  }
+
 
 }
+
+interface Recruiter {
+  image: string;
+  name: string;
+  role: string;
+  jobPosted: number;
+  open: number | string;
+  closed: number | string;
+  candidateSourced: number;
+  candidateOffered: number;
+  children?: Recruiter[]; // Optional nested recruiters
+}
+
+

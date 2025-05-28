@@ -104,6 +104,72 @@
     </div>
     <div *ngIf="selectedPeriod === 'Team Matrix'"
         class="mt-2.5 p-3 rounded-lg shadow-metric hover:shadow-2xl bg-white transition ease-in-out delay-150 duration-300">
+        <div class="overflow-x-auto rounded-lg shadow">
+            <table class="min-w-full table-auto text-sm">
+                <thead class="bg-gray-100 text-gray-700 font-semibold">
+                    <tr>
+                        <th class="px-6 py-3">Name</th>
+                        <th class="px-6 py-3">Role</th>
+                        <th class="px-6 py-3">JobPosted</th>
+                        <th class="px-6 py-3">Open</th>
+                        <th class="px-6 py-3">Closed</th>
+                        <th class="px-6 py-3">Candidate Sourced</th>
+                        <th class="px-6 py-3">Candidate Offered</th>
+                        <th class="px-6 py-3"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <ng-container *ngFor="let rec of recruiters1; let i = index">
+                        <tr [class.bg-gray-100]="expandedRowIndex === i" class="hover:bg-gray-50">
+                            <td class="flex items-center gap-3 px-6 py-4">
+                                <img [src]="rec.image" alt="{{ rec.name }}" class="h-10 w-10 rounded-full" />
+                                <span class="font-medium text-gray-800">{{ rec.name }}</span>
+                            </td>
+                            <td class="px-6 py-4 text-gray-600">{{ rec.role }}</td>
+                            <td class="px-6 py-4 font-semibold">{{ rec.jobPosted }}</td>
+                            <td class="px-6 py-4 font-semibold">{{ rec.open }}</td>
+                            <td class="px-6 py-4 font-semibold">{{ rec.closed }}</td>
+                            <td class="px-6 py-4 font-semibold">{{ rec.candidateSourced }}</td>
+                            <td class="px-6 py-4 font-semibold">{{ rec.candidateOffered }}</td>
+                            <td class="px-6 py-4 text-right">
+                                <button *ngIf="rec.children" (click)="toggleRow(i)">
+                                    <svg [ngClass]="{'rotate-180': expandedRowIndex === i}"
+                                        class="h-4 w-4 transition-transform" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                </button>
+                            </td>
+                        </tr>
+                        <!-- Child rows -->
+                        <tr *ngIf="expandedRowIndex === i" class="bg-blue-50">
+                            <td colspan="8" class="px-3 py-0">
+                                <table class="w-full table-fixed text-sm">
+                                    <tbody>
+                                        <tr *ngFor="let child of rec.children" class="hover:bg-blue-100">
+                                            <td class="flex items-center gap-3 px-6 py-2">
+                                                <img [src]="child.image" alt="{{ child.name }}"
+                                                    class="h-8 w-8 rounded-full" />
+                                                <span class="text-gray-800">{{ child.name }}</span>
+                                            </td>
+                                            <td class="px-6 py-2 text-gray-600">{{ child.role }}</td>
+                                            <td class="px-6 py-2 font-semibold">{{ child.jobPosted }}</td>
+                                            <td class="px-6 py-2 font-semibold">{{ child.open }}</td>
+                                            <td class="px-6 py-2 font-semibold">{{ child.closed }}</td>
+                                            <td class="px-6 py-2 font-semibold">{{ child.candidateSourced }}</td>
+                                            <td class="px-6 py-2 font-semibold">{{ child.candidateOffered }}</td>
+                                            <td></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                    </ng-container>
+                </tbody>
+            </table>
+        </div>
+
     </div>
 </section>
 
