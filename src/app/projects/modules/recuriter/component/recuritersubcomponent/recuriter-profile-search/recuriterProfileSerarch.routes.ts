@@ -5,10 +5,10 @@ export const recuriterProfileSearchRoutes: Routes = [
         path: '',
         loadComponent: () => import('./recuriter-profile-search.component').then(c => c.RecuriterProfileSearchComponent),
         children: [
-            // {
-            //     path: '',
-            //     loadComponent: () => import('./recuriter-main-dashboard/recuriter-main-dashboard.component').then(c => c.RecuriterMainDashboardComponent),
-            // },
+            {
+                path: '',
+                loadComponent: () => import('./recuriter-profile-search-main/recuriter-profile-search-main.component').then(c => c.RecuriterProfileSearchMainComponent),
+            },
             
         ]
     },

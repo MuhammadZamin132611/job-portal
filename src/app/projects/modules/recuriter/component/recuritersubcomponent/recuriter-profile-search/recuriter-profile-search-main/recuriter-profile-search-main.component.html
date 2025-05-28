@@ -1,0 +1,29 @@
+<section class="sticky top-0 bg-[#FBFCFF] z-index">
+    <div class="p-5">
+        <h1 class="text-base md:text-2xl font-semibold text-gray-800">Profile Search</h1>
+        <p class="text-gray-800 text-sm md:text-base font-normal">Search from over
+            <span class="font-semibold">1,00,000+</span> profiles to find your perfect candidate
+        </p>
+    </div>
+</section>
+<section>
+    <div class="grid md:flex gap-3 w-full px-5 md:h-[calc(100vh-170px)]">
+        <div class="w-full md:w-3/5 overflow-y-auto">
+            <h1 class="text-gray-800 text-lg md:text-2xl font-semibold md:font-bold tracking-wide">Search Candidates
+            </h1>
+            <div class="flex justify-between">
+                <h3 class="text-gray-800 text-base md:text-xl font-medium md:font-semibold">{{typeOfSearch}}</h3>
+                <label class="inline-flex items-center mb-5 cursor-pointer">
+                    <input type="checkbox" (change)="onToggle($event)" value="" class="sr-only peer">
+                    <div
+                        class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-none rounded-full peer  peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#0175A2] ">
+                    </div>
+                    <span class="ms-3 text-sm font-medium text-gray-600">Boolean Search {{onOff}}</span>
+                </label>
+            </div>
+            <div *ngIf="!toggleSearch">Boolean Search Off</div>
+            <div *ngIf="toggleSearch">Boolean Search On</div>
+        </div>
+        <div class="w-full md:w-2/5 bg-red-300 overflow-y-auto">d</div>
+    </div>
+</section>
