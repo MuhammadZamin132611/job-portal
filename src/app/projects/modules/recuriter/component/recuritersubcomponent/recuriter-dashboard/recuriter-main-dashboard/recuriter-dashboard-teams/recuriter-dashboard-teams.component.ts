@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { MaterialModule } from '../../../../../../shared/material.module';
+import { MaterialModule } from '../../../../../../../shared/material.module';
 import { CommonModule } from '@angular/common';
 import {
   ApexNonAxisChartSeries,
@@ -214,7 +214,7 @@ export class RecuriterDashboardTeamsComponent {
     {
       image: 'assets/profile/profile_image.png',
       name: 'Suman Kumari',
-      role: 'Recruiter',
+      role: 'Recruiter Manger',
       jobPosted: 3,
       open: 1,
       closed: 2,
@@ -294,6 +294,9 @@ export class RecuriterDashboardTeamsComponent {
       candidateOffered: 5,
     },
   ];
+
+
+  recruiterManagers = this.recruiters1.slice(0, 5);
 
   expandedRowIndex: number | null = null;
 

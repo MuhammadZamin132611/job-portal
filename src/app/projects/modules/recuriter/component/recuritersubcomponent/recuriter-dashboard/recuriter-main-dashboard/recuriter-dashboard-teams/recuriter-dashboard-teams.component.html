@@ -1,0 +1,203 @@
+<section class="px-1 py-2.5">
+    <div class="flex gap-3 overflow-x-auto scroll-container">
+        <button [ngClass]="{ 'bg-[#0175A2] text-white border-none': selectedPeriod === 'Your Team (10)' }"
+            (click)="selectPeriod('Your Team (10)')"
+            class="whitespace-nowrap px-4 py-1.5 rounded-lg border-2 border-gray-200">Your Team (10)</button>
+        <button [ngClass]="{ 'bg-[#0175A2] text-white border-none': selectedPeriod === 'Active Requirements (23)' }"
+            class="whitespace-nowrap px-4 py-1.5 rounded-lg border-2 border-gray-200"
+            (click)="selectPeriod('Active Requirements (23)')">Active Requirements (23)</button>
+        <button [ngClass]="{ 'bg-[#0175A2] text-white border-none': selectedPeriod === 'Team Matrix' }"
+            class="whitespace-nowrap px-4 py-1.5 rounded-lg border-2 border-gray-200"
+            (click)="selectPeriod('Team Matrix')">Team Matrix</button>
+    </div>
+    <div>
+        <div *ngIf="selectedPeriod === 'Your Team (10)'">
+            <div class="mt-2.5 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div *ngFor="let recruiter of recruiters"
+                    class="p-3 rounded-lg shadow-metric hover:shadow-2xl bg-white transition ease-in-out delay-150 duration-300">
+                    <div class="flex gap-3 cursor-pointer">
+                        <div class="w-1/4">
+                            <div class="grid justify-center">
+                                <img [src]="recruiter.image" class="h-10 w-10 rounded-full" alt="Recuriter Image">
+                            </div>
+                            <div class="grid justify-center pt-3 relative" id="chart">
+                                <apx-chart [series]="getChartOptions(recruiter.chartValue).series"
+                                    [chart]="getChartOptions(recruiter.chartValue).chart"
+                                    [plotOptions]="getChartOptions(recruiter.chartValue).plotOptions"
+                                    [fill]="getChartOptions(recruiter.chartValue).fill"
+                                    [colors]="getChartOptions(recruiter.chartValue).colors"
+                                    [dataLabels]="getChartOptions(recruiter.chartValue).dataLabels"
+                                    [legend]="getChartOptions(recruiter.chartValue).legend"
+                                    [tooltip]="getChartOptions(recruiter.chartValue).tooltip"
+                                    [states]="getChartOptions(recruiter.chartValue).states"
+                                    [responsive]="getChartOptions(recruiter.chartValue).responsive">
+                                </apx-chart>
+                                <div class="absolute left-0 right-0 bottom-8 grid justify-center  text-xs font-normal">
+                                    <span class="text-gray-800 font-semibold text-center">{{ recruiter.chartValue
+                                        }}%</span>
+                                    <label class="whitespace-nowrap text-center text-gray-400">Job Closed</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-3/4">
+                            <h3 class="text-[#101828] text-base font-semibold">{{ recruiter.name }}</h3>
+                            <p class="text-gray-500 text-sm font-medium">{{ recruiter.email }}</p>
+                            <div class="flex place-items-center gap-4">
+                                <h4 class="text-gray-600 text-lg font-bold">{{ recruiter.metrics.requirementsAllocated
+                                    }}
+                                </h4>
+                                <p class="text-gray-600 text-sm font-normal">Requirements Allocated</p>
+                            </div>
+                            <div class="flex place-items-center gap-4">
+                                <h4 class="text-gray-600 text-lg font-bold">{{ recruiter.metrics.jobsPosted }}</h4>
+                                <p class="text-gray-600 text-sm font-normal">Jobs Posted</p>
+                            </div>
+                            <div class="flex place-items-center gap-4">
+                                <h4 class="text-gray-600 text-lg font-bold">{{ recruiter.metrics.candidatesSourced }}
+                                </h4>
+                                <p class="text-gray-600 text-sm font-normal">Candidates Sourced</p>
+                            </div>
+                            <div class="flex place-items-center gap-4">
+                                <h4 class="text-gray-600 text-lg font-bold">{{ recruiter.metrics.positionsClosed }}</h4>
+                                <p class="text-gray-600 text-sm font-normal">Positions Closed</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="flex justify-center place-content-center gap-1.5 py-2.5 text-[#0175A2]">
+                <p class="text-lg font-medium">Show all Team Members</p>
+                <mat-icon class="mt-1">arrow_forward</mat-icon>
+            </a>
+        </div>
+        <div *ngIf="selectedPeriod === 'Active Requirements (23)'">
+            <div class="mt-2.5 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div *ngFor="let req of activeRequirements"
+                    class="p-3 rounded-lg shadow-metric hover:shadow-2xl bg-white transition ease-in-out delay-150 duration-300">
+                    <div class="flex gap-3 cursor-pointer">
+                        <div class="w-1/4">
+                            <div class="grid justify-center">
+                                <mat-icon class="activeRequirementIcon">{{ req.icon }}</mat-icon>
+                            </div>
+                            <div class="grid justify-center pt-1.5 relative" id="chart">
+                                <apx-chart [series]="req.chartOptions.series" [chart]="req.chartOptions.chart"
+                                    [plotOptions]="req.chartOptions.plotOptions" [fill]="req.chartOptions.fill"
+                                    [colors]="req.chartOptions.colors" [dataLabels]="req.chartOptions.dataLabels"
+                                    [legend]="req.chartOptions.legend" [tooltip]="req.chartOptions.tooltip"
+                                    [states]="req.chartOptions.states" [responsive]="req.chartOptions.responsive">
+                                </apx-chart>
+                                <div class="absolute left-0 right-0 bottom-8 grid justify-center text-xs font-normal">
+                                    <span class="text-gray-800 font-semibold text-center">{{ req.positionClosed
+                                        }}%</span>
+                                    <label class="whitespace-nowrap text-center text-gray-400">Position Closed</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-3/4">
+                            <h3 class="text-[#101828] text-base font-semibold">{{ req.title }}</h3>
+                            <div class="flex place-items-center gap-4">
+                                <h4 class="text-gray-600 text-lg font-bold">{{ req.required }}</h4>
+                                <p class="text-gray-600 text-sm font-normal">Candidate Required</p>
+                            </div>
+                            <div class="flex place-items-center gap-4">
+                                <h4 class="text-gray-600 text-lg font-bold">{{ req.offered }}</h4>
+                                <p class="text-gray-600 text-sm font-normal">Candidate Offered</p>
+                            </div>
+                            <div class="flex place-items-center gap-4">
+                                <h4 class="text-gray-600 text-lg font-bold">{{ req.open }}</h4>
+                                <p class="text-gray-600 text-sm font-normal">Candidate Open</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="flex justify-center place-content-center gap-1.5 py-2.5 text-[#0175A2]">
+                <p class="text-lg font-medium">Show all Requirements</p>
+                <mat-icon class="mt-1">arrow_forward</mat-icon>
+            </a>
+        </div>
+    </div>
+    <div *ngIf="selectedPeriod === 'Team Matrix'">
+        <div
+            class="mt-2.5 p-3 rounded-lg shadow-metric hover:shadow-2xl bg-white transition ease-in-out delay-150 duration-300">
+            <div class="overflow-x-auto rounded-lg shadow">
+                <table class="min-w-full table-auto text-sm">
+                    <thead class="bg-gray-100 text-gray-700 font-semibold">
+                        <tr>
+                            <th class="px-6 py-3">Name</th>
+                            <th class="px-6 py-3">Role</th>
+                            <th class="px-6 py-3">JobPosted</th>
+                            <th class="px-6 py-3">Open</th>
+                            <th class="px-6 py-3">Closed</th>
+                            <th class="px-6 py-3">Candidate Sourced</th>
+                            <th class="px-6 py-3">Candidate Offered</th>
+                            <th class="px-6 py-3"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <ng-container *ngFor="let rec of recruiterManagers; let i = index">
+                            <tr [class.bg-gray-100]="expandedRowIndex === i" class="hover:bg-gray-50">
+                                <td class="flex items-center gap-3 px-6 py-4">
+                                    <img [src]="rec.image" alt="{{ rec.name }}" class="h-10 w-10 rounded-full" />
+                                    <span class="font-medium text-gray-800">{{ rec.name }}</span>
+                                </td>
+                                <td class="px-6 py-4 text-gray-600">{{ rec.role }}</td>
+                                <td class="px-6 py-4 font-semibold">{{ rec.jobPosted }}</td>
+                                <td class="px-6 py-4 font-semibold">{{ rec.open }}</td>
+                                <td class="px-6 py-4 font-semibold">{{ rec.closed }}</td>
+                                <td class="px-6 py-4 font-semibold">{{ rec.candidateSourced }}</td>
+                                <td class="px-6 py-4 font-semibold">{{ rec.candidateOffered }}</td>
+                                <td class="px-6 py-4 text-right">
+                                    <button *ngIf="rec.children" (click)="toggleRow(i)">
+                                        <svg [ngClass]="{'rotate-180': expandedRowIndex === i}"
+                                            class="h-4 w-4 transition-transform" fill="none" stroke="currentColor"
+                                            viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M19 9l-7 7-7-7" />
+                                        </svg>
+                                    </button>
+                                </td>
+                            </tr>
+                            <!-- Child rows -->
+                            <tr *ngIf="expandedRowIndex === i" class="bg-blue-50">
+                                <td colspan="8" class="px-3 py-0">
+                                    <table class="w-full table-fixed text-sm">
+                                        <tbody>
+                                            <tr *ngFor="let child of rec.children" class="hover:bg-blue-100">
+                                                <td class="flex items-center gap-3 px-6 py-2">
+                                                    <img [src]="child.image" alt="{{ child.name }}"
+                                                        class="h-8 w-8 rounded-full" />
+                                                    <span class="text-gray-800">{{ child.name }}</span>
+                                                </td>
+                                                <td class="px-6 py-2 text-gray-600">{{ child.role }}</td>
+                                                <td class="px-6 py-2 font-semibold">{{ child.jobPosted }}</td>
+                                                <td class="px-6 py-2 font-semibold">{{ child.open }}</td>
+                                                <td class="px-6 py-2 font-semibold">{{ child.closed }}</td>
+                                                <td class="px-6 py-2 font-semibold">{{ child.candidateSourced }}</td>
+                                                <td class="px-6 py-2 font-semibold">{{ child.candidateOffered }}</td>
+                                                <td></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                        </ng-container>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+        <a class="flex justify-center place-content-center gap-1.5 py-2.5 text-[#0175A2]">
+            <p class="text-lg font-medium">Show all Team Matrics</p>
+            <mat-icon class="mt-1">arrow_forward</mat-icon>
+        </a>
+    </div>
+</section>
+
+<!-- 
+x=> 16444
+y=> 15733
+
+w=> 1440
+h=> 1024
+-->

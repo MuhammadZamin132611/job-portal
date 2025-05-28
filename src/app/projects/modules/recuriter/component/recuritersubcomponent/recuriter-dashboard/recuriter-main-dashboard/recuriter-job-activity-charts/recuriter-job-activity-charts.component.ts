@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { MaterialModule } from '../../../../../../shared/material.module';
+import { MaterialModule } from '../../../../../../../shared/material.module';
 import { CommonModule } from '@angular/common';
 import { NgApexchartsModule } from "ng-apexcharts";
 
