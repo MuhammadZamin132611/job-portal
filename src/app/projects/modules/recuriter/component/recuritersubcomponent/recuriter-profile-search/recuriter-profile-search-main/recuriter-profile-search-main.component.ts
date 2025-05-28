@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import { MaterialModule } from '../../../../../../shared/material.module';
 import { CommonModule } from '@angular/common';
+import { RecuriterBasicProfileSearchComponent } from "./recuriter-basic-profile-search/recuriter-basic-profile-search.component";
+import { RecuriterBoolaenProfileSearchComponent } from "./recuriter-boolaen-profile-search/recuriter-boolaen-profile-search.component";
 
 @Component({
   selector: 'app-recuriter-profile-search-main',
-  imports: [MaterialModule, CommonModule],
+  imports: [MaterialModule, CommonModule, RecuriterBasicProfileSearchComponent, RecuriterBoolaenProfileSearchComponent],
   templateUrl: './recuriter-profile-search-main.component.html',
   styleUrl: './recuriter-profile-search-main.component.scss'
 })

@@ -1,0 +1,28 @@
+<section>
+    <form [formGroup]="basicSearch" class="grid gap-3">
+        <div>
+            <label for="searchTitle" class="text-sm md:text-base font-medium text-gray-600">Search Title</label>
+            <input id="searchTitle" formControlName="searchTitle" type="text"
+                placeholder="eg: Java Developer, JEE, Springboot"
+                class="w-full rounded-lg border-2 border-gray-200 focus:outline-none px-3 py-2 text-sm md:text-base font-normal">
+            <div *ngIf="basicSearch.get('searchTitle')?.invalid && basicSearch.get('searchTitle')?.touched"
+                class="text-red-500 text-sm">
+                Job Title is required.
+            </div>
+        </div>
+        <div>
+            <label for="keyWordSearch" class="text-sm md:text-base font-medium text-gray-600">Key Word Search</label>
+            <input id="keyWordSearch" formControlName="keyWordSearch" type="text"
+                placeholder="eg: Java Developer, JEE, Springboot"
+                class="w-full rounded-lg border-2 border-gray-200 focus:outline-none px-3 py-2 text-sm md:text-base font-normal">
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+            <button matRipple
+                class="bg-white text-[#0175A2] rounded-lg py-1 text-base md:text-lg font-medium border-2 border-gray-200">Save
+                This Search</button>
+            <button matRipple type="submit" (click)="submitForm()"
+                class="bg-[#0175A2] text-white rounded-lg py-1 text-base md:text-lg font-medium">Search
+                Candidates</button>
+        </div>
+    </form>
+</section>

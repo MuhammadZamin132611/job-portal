@@ -21,8 +21,12 @@
                     <span class="ms-3 text-sm font-medium text-gray-600">Boolean Search {{onOff}}</span>
                 </label>
             </div>
-            <div *ngIf="!toggleSearch">Boolean Search Off</div>
-            <div *ngIf="toggleSearch">Boolean Search On</div>
+            <div *ngIf="!toggleSearch">
+                <app-recuriter-basic-profile-search />
+            </div>
+            <div *ngIf="toggleSearch">
+                <app-recuriter-boolaen-profile-search />
+            </div>
         </div>
         <div class="w-full md:w-2/5 bg-red-300 overflow-y-auto">d</div>
     </div>
