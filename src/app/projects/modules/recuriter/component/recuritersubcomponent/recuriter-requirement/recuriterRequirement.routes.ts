@@ -5,10 +5,10 @@ export const recuriterRequirementRoute: Routes = [
         path: '',
         loadComponent: () => import('./recuriter-requirement.component').then(c => c.RecuriterRequirementComponent),
         children: [
-            // {
-            //     path: '',
-            //     loadComponent: () => import('./recuriter-main-dashboard/recuriter-main-dashboard.component').then(c => c.RecuriterMainDashboardComponent),
-            // },
+            {
+                path: '',
+                loadComponent: () => import('./recuriter-requirement-main/recuriter-requirement-main.component').then(c => c.RecuriterRequirementMainComponent),
+            },
 
         ]
     },
