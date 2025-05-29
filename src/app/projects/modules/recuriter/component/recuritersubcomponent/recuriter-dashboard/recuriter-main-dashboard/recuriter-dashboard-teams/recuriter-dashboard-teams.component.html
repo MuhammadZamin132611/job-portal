@@ -21,16 +21,16 @@
                                 <img [src]="recruiter.image" class="h-10 w-10 rounded-full" alt="Recuriter Image">
                             </div>
                             <div class="grid justify-center pt-3 relative" id="chart">
-                                <apx-chart [series]="getChartOptions(recruiter.chartValue).series"
-                                    [chart]="getChartOptions(recruiter.chartValue).chart"
-                                    [plotOptions]="getChartOptions(recruiter.chartValue).plotOptions"
-                                    [fill]="getChartOptions(recruiter.chartValue).fill"
-                                    [colors]="getChartOptions(recruiter.chartValue).colors"
-                                    [dataLabels]="getChartOptions(recruiter.chartValue).dataLabels"
-                                    [legend]="getChartOptions(recruiter.chartValue).legend"
-                                    [tooltip]="getChartOptions(recruiter.chartValue).tooltip"
-                                    [states]="getChartOptions(recruiter.chartValue).states"
-                                    [responsive]="getChartOptions(recruiter.chartValue).responsive">
+                                <apx-chart [series]="recruiter.chartOptions.series"
+                                    [chart]="recruiter.chartOptions.chart"
+                                    [plotOptions]="recruiter.chartOptions.plotOptions"
+                                    [fill]="recruiter.chartOptions.fill"
+                                    [colors]="recruiter.chartOptions.colors"
+                                    [dataLabels]="recruiter.chartOptions.dataLabels"
+                                    [legend]="recruiter.chartOptions.legend"
+                                    [tooltip]="recruiter.chartOptions.tooltip"
+                                    [states]="recruiter.chartOptions.states"
+                                    [responsive]="recruiter.chartOptions.responsive">
                                 </apx-chart>
                                 <div class="absolute left-0 right-0 bottom-8 grid justify-center  text-xs font-normal">
                                     <span class="text-gray-800 font-semibold text-center">{{ recruiter.chartValue

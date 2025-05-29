@@ -35,10 +35,54 @@ export type ChartOptions = {
 export class RecuriterDashboardTeamsComponent {
   @ViewChild("chart") chart!: ChartComponent;
   public semiCircalOptions!: Partial<ChartOptions>;
-
+  recruiters: any[] = []
   constructor() {
+    const recruiters = [
+      {
+        name: 'Lana Setiner',
+        email: 'lana@gmail.com',
+        image: 'assets/profile/profile_image.png',
+        chartValue: 44,
+        metrics: { requirementsAllocated: 10, jobsPosted: 8, candidatesSourced: 134, positionsClosed: 6 }
+      },
+      {
+        name: 'David King',
+        email: 'david@gmail.com',
+        image: 'assets/profile/profile_image.png',
+        chartValue: 76,
+        metrics: { requirementsAllocated: 12, jobsPosted: 9, candidatesSourced: 98, positionsClosed: 7 }
+      },
+      {
+        name: 'Sophia Wells',
+        email: 'sophia@gmail.com',
+        image: 'assets/profile/profile_image.png',
+        chartValue: 63,
+        metrics: { requirementsAllocated: 8, jobsPosted: 5, candidatesSourced: 120, positionsClosed: 4 }
+      },
+      {
+        name: 'Michael Smith',
+        email: 'michael@gmail.com',
+        image: 'assets/profile/profile_image.png',
+        chartValue: 89,
+        metrics: { requirementsAllocated: 14, jobsPosted: 10, candidatesSourced: 150, positionsClosed: 9 }
+      },
+      {
+        name: 'Emily Turner',
+        email: 'emily@gmail.com',
+        image: 'assets/profile/profile_image.png',
+        chartValue: 51,
+        metrics: { requirementsAllocated: 9, jobsPosted: 6, candidatesSourced: 110, positionsClosed: 5 }
+      },
+      {
+        name: 'Jacob Lee',
+        email: 'jacob@gmail.com',
+        image: 'assets/profile/profile_image.png',
+        chartValue: 30,
+        metrics: { requirementsAllocated: 7, jobsPosted: 4, candidatesSourced: 85, positionsClosed: 3 }
+      }
+    ];
     // this.semiDonut(this.recruiters.chartValue);
-    this.recruiters = this.recruiters.map(recruiter => ({
+    this.recruiters = recruiters.map(recruiter => ({
       ...recruiter,
       chartOptions: this.getChartOptions(recruiter.chartValue)
     }));
@@ -88,50 +132,6 @@ export class RecuriterDashboardTeamsComponent {
     else return '#00C853';                   // Green
   }
 
-  recruiters = [
-    {
-      name: 'Lana Setiner',
-      email: 'lana@gmail.com',
-      image: 'assets/profile/profile_image.png',
-      chartValue: 44,
-      metrics: { requirementsAllocated: 10, jobsPosted: 8, candidatesSourced: 134, positionsClosed: 6 }
-    },
-    {
-      name: 'David King',
-      email: 'david@gmail.com',
-      image: 'assets/profile/profile_image.png',
-      chartValue: 76,
-      metrics: { requirementsAllocated: 12, jobsPosted: 9, candidatesSourced: 98, positionsClosed: 7 }
-    },
-    {
-      name: 'Sophia Wells',
-      email: 'sophia@gmail.com',
-      image: 'assets/profile/profile_image.png',
-      chartValue: 63,
-      metrics: { requirementsAllocated: 8, jobsPosted: 5, candidatesSourced: 120, positionsClosed: 4 }
-    },
-    {
-      name: 'Michael Smith',
-      email: 'michael@gmail.com',
-      image: 'assets/profile/profile_image.png',
-      chartValue: 89,
-      metrics: { requirementsAllocated: 14, jobsPosted: 10, candidatesSourced: 150, positionsClosed: 9 }
-    },
-    {
-      name: 'Emily Turner',
-      email: 'emily@gmail.com',
-      image: 'assets/profile/profile_image.png',
-      chartValue: 51,
-      metrics: { requirementsAllocated: 9, jobsPosted: 6, candidatesSourced: 110, positionsClosed: 5 }
-    },
-    {
-      name: 'Jacob Lee',
-      email: 'jacob@gmail.com',
-      image: 'assets/profile/profile_image.png',
-      chartValue: 30,
-      metrics: { requirementsAllocated: 7, jobsPosted: 4, candidatesSourced: 85, positionsClosed: 3 }
-    }
-  ];
 
 
   getChartOptions(value: number): any {
@@ -242,7 +242,7 @@ export class RecuriterDashboardTeamsComponent {
           candidateOffered: 20,
         },
       ]
-    }, 
+    },
     {
       image: 'assets/profile/profile_image.png',
       name: 'Rahul Kumar',
