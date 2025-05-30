@@ -19,6 +19,10 @@ export class RecuriterRequirementMainComponent {
     if (this.selectedPeriod === 'All') {
       return this.requirementData;
     }
+    if (this.selectedPeriod === 'Bookmarked') {
+      return this.requirementData.filter(item => item.bookmarked === true);
+    }
+
     return this.requirementData.filter(item => item.status === this.selectedPeriod);
   }
 
@@ -43,6 +47,7 @@ export class RecuriterRequirementMainComponent {
       title: 'Web Designer',
       jobId: '239143',
       status: 'InActive',
+      bookmarked: true,
       lastModified: '6 Mar 2022',
       avatars: [
         { label: '01', bg: 'bg-pink-300' },
@@ -69,6 +74,7 @@ export class RecuriterRequirementMainComponent {
       title: 'Backend Developer',
       jobId: '893421',
       status: 'Active',
+      bookmarked: false,
       lastModified: '12 Jan 2023',
       logo: '',
       avatars: [
@@ -96,6 +102,7 @@ export class RecuriterRequirementMainComponent {
       title: 'UI/UX Engineer',
       jobId: '672198',
       status: 'Closed',
+      bookmarked: false,
       lastModified: '9 Sep 2023',
       logo: '',
       avatars: [
@@ -123,6 +130,7 @@ export class RecuriterRequirementMainComponent {
       title: 'DevOps Engineer',
       jobId: '427891',
       status: 'InActive',
+      bookmarked: false,
       lastModified: '21 Apr 2023',
       logo: '',
       avatars: [
@@ -150,6 +158,7 @@ export class RecuriterRequirementMainComponent {
       title: 'Mobile App Developer',
       jobId: '902143',
       status: 'Active',
+      bookmarked: true,
       lastModified: '28 Feb 2024',
       logo: '',
       avatars: [
@@ -177,6 +186,7 @@ export class RecuriterRequirementMainComponent {
       title: 'Full Stack Developer',
       jobId: '519384',
       status: 'InActive',
+      bookmarked: false,
       lastModified: '15 May 2024',
       logo: '',
       avatars: [

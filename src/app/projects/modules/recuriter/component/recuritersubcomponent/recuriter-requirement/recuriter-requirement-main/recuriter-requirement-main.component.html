@@ -218,7 +218,8 @@
                             [ngClass]="{'rounded-br-none': jobCondition === data.jobId}">
                             <div class="flex justify-between md:grid md:justify-normal gap-1 p-1 text-gray-500">
                                 <mat-icon class="cursor-pointer">edit</mat-icon>
-                                <mat-icon class="cursor-pointer">star_outline</mat-icon>
+                                <mat-icon class="cursor-pointer"
+                                    [ngClass]="{'text-[#0175A2]':data.bookmarked=== true,}">{{ data.bookmarked ? 'star' : 'star_outline' }}</mat-icon>
                                 <mat-icon class="cursor-pointer">share</mat-icon>
                                 <mat-icon class="cursor-pointer">delete</mat-icon>
                                 <mat-icon (click)="condition(data.jobId)"
