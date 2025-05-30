@@ -62,7 +62,7 @@
                     </div>
                 </div>
             </div>
-            <div class="p-3" *ngFor="let data of requirementData">
+            <!-- <div class="p-3" *ngFor="let data of requirementData">
                 <div class="bg-white shadow hover:shadow-md rounded-lg">
                     <div class="grid md:flex md:justify-between">
                         <div class="p-2 grid gap-1">
@@ -173,7 +173,80 @@
                         </div>
                     </div>
                 </div>
+            </div> -->
+            <div class="p-3" *ngFor="let data of filteredRequirements">
+                <div class="bg-white shadow hover:shadow-md rounded-lg">
+                    <div class="grid md:flex md:justify-between">
+                        <div class="p-2 grid gap-1">
+                            <div class="flex gap-1 items-center">
+                                <img class="h-7 w-7 rounded-full"
+                                    [src]="data.logo || 'assets/profile/profile_image.png'" alt="logo">
+                                <h3 class="text-gray-800 text-base font-bold">{{ data.title }}</h3>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <p class="text-sm text-gray-400">#ID-{{ data.jobId }}</p>
+                                <p class="px-2 py-0.5 rounded-full text-sm"
+                                    [ngClass]="{'bg-green-50 text-green-700': data.status === 'Active','bg-red-100 text-red-600': data.status === 'InActive','bg-gray-100 text-gray-600': data.status === 'Closed'}">
+                                    {{ data.status }}
+                                </p>
+                            </div>
+                            <div class="flex">
+                                <ng-container *ngFor="let avatar of data.avatars; let i = index">
+                                    <div class="z-{{i}} h-10 w-10 grid justify-center p-2 rounded-full -ml-{{i !== 0 ? 5 : 0}}"
+                                        [ngClass]="avatar.bg">
+                                        {{ avatar.label }}
+                                    </div>
+                                </ng-container>
+                            </div>
+                            <div class="flex items-center">
+                                <p class="text-sm text-gray-400">Last Modified on
+                                    <span class="text-base font-semibold text-gray-600">{{ data.lastModified }}</span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Metrics -->
+                        <ng-container *ngFor="let metric of data.metrics">
+                            <div
+                                class="flex justify-between border-b-2 border-gray-100 md:border-none gap-3 md:grid md:justify-center md:place-items-center p-2 md:p-0">
+                                <h1 class="md:hidden text-gray-700 text-base font-semibold">{{ metric.label }}</h1>
+                                <p class="text-lg md:text-3xl font-bold" [ngClass]="metric.color">{{ metric.value }}</p>
+                            </div>
+                        </ng-container>
+
+                        <div class="bg-gray-100 md:rounded-r-lg"
+                            [ngClass]="{'rounded-br-none': jobCondition === data.jobId}">
+                            <div class="flex justify-between md:grid md:justify-normal gap-1 p-1 text-gray-500">
+                                <mat-icon class="cursor-pointer">edit</mat-icon>
+                                <mat-icon class="cursor-pointer">star_outline</mat-icon>
+                                <mat-icon class="cursor-pointer">share</mat-icon>
+                                <mat-icon class="cursor-pointer">delete</mat-icon>
+                                <mat-icon (click)="condition(data.jobId)"
+                                    class="transition-transform duration-300 hidden md:block cursor-pointer"
+                                    [ngClass]="{'rotate-180':jobCondition === data.jobId}">keyboard_arrow_down</mat-icon>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Expanded Details -->
+                    <div *ngIf="jobCondition === data.jobId" class="bg-gray-100 w-full rounded-b-lg">
+                        <div class="p-2 flex w-full gap-1.5 justify-between">
+                            <ng-container *ngFor="let detail of data.details">
+                                <div class="w-1/5 grid gap-1.5">
+                                    <div class="text-gray-600 flex items-center text-sm">
+                                        <p>{{ detail.title }}</p>
+                                        <mat-icon *ngIf="detail.icon" class="text-lg">{{ detail.icon }}</mat-icon>
+                                    </div>
+                                    <div class="text-gray-600 grid gap-1.5 text-xs font-medium">
+                                        <p *ngFor="let val of detail.values">{{ val }}</p>
+                                    </div>
+                                </div>
+                            </ng-container>
+                        </div>
+                    </div>
+                </div>
             </div>
+
         </div>
     </div>
 </section>
