@@ -25,7 +25,17 @@ export class RecuriterRequirementMainComponent {
     { icon: "star_outline", name: 'Bookmarked', count: '15', iconColor: 'text-[#9E77ED]', },
   ];
 
-  jobCondition: boolean = true;
+  requirementData=[
+    {
+      name:"",
+      image:'',
+    },{
+      name:"",
+      image:'',
+    },
+  ]
+
+  jobCondition: boolean = false;
   condition() {
     this.jobCondition = !this.jobCondition;
   }
