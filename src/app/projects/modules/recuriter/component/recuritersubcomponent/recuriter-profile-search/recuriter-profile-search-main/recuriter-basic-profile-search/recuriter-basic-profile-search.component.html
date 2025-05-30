@@ -6,28 +6,59 @@
                 placeholder="eg: Java Developer, JEE, Springboot"
                 class="w-full rounded-lg border-2 border-gray-200 focus:outline-none px-3 py-2 text-sm md:text-base font-normal">
             <div *ngIf="basicSearch.get('searchTitle')?.invalid && basicSearch.get('searchTitle')?.touched"
-                class="text-red-500 text-sm">
+                class="text-red-500 text-xs md:text-sm">
                 Job Title is required.
             </div>
         </div>
-        <!-- <div>
-            <label for="keyWordSearch" class="text-sm md:text-base font-medium text-gray-600">Key Word Search</label>
-            <input id="keyWordSearch" name="keyWordSearch" formControlName="keyWordSearch" type="text"
-                placeholder="eg: Java Developer, JEE, Springboot"
-                class="w-full rounded-lg border-2 border-gray-200 focus:outline-none px-3 py-2 text-sm md:text-base font-normal">
-        </div> -->
+
 
         <div>
             <label for="skills" class="text-sm md:text-base font-medium text-gray-600">Add Skills</label>
-            <input id="skills" formControlName="skills" type="text"
-                placeholder="eg: Java, Angular, Puthon, React"
+            <input id="skills" formControlName="skills" type="text" placeholder="eg: Java, Angular, Puthon, React"
                 class="w-full rounded-lg border-2 border-gray-200 focus:outline-none px-3 py-2 text-sm md:text-base font-normal">
             <div class="relative">
                 <mat-icon class="absolute cursor-pointer right-2 bottom-2 text-gray-400">close</mat-icon>
             </div>
             <div *ngIf="basicSearch.get('skills')?.invalid && basicSearch.get('skills')?.touched"
-                class="text-red-500 text-sm">
+                class="text-red-500 text-xs md:text-sm">
                 Skills is required.
+            </div>
+        </div>
+
+        <div>
+            <label for="exp" class="text-sm md:text-base font-medium text-gray-600">Experience</label>
+            <div class="flex gap-3 md:gap-5">
+                <div class="w-full">
+                    <input id="exp" name="minExperience" formControlName="minExperience" type="text"
+                        placeholder="Minimum Experience"
+                        class="w-full rounded-lg border-2 border-gray-200 focus:outline-none px-3 py-2 text-sm md:text-base font-normal">
+                    <div *ngIf="basicSearch.get('minExperience')?.invalid && basicSearch.get('minExperience')?.touched"
+                        class="text-red-500 text-xs md:text-sm">
+                        Minimum experience is required.
+                    </div>
+                </div>
+                <div class="w-full">
+                    <input name="maxExperience" formControlName="maxExperience" type="text"
+                        placeholder="Maximum Experience"
+                        class="w-full rounded-lg border-2 border-gray-200 focus:outline-none px-3 py-2 text-sm md:text-base font-normal">
+                    <div *ngIf="basicSearch.get('maxExperience')?.invalid && basicSearch.get('maxExperience')?.touched"
+                        class="text-red-500 text-xs md:text-sm">
+                        Maximum experience is required.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <label for="prefLocation" class="text-sm md:text-base font-medium text-gray-600">Prefered Location</label>
+            <input id="prefLocation" formControlName="prefLocation" type="text" placeholder="eg: Delhi, Noida, Gurgaon, Lucknow"
+                class="w-full rounded-lg border-2 border-gray-200 focus:outline-none px-3 py-2 text-sm md:text-base font-normal">
+            <div class="relative">
+                <mat-icon class="absolute cursor-pointer right-2 bottom-2 text-gray-400">keyboard_arrow_down</mat-icon>
+            </div>
+            <div *ngIf="basicSearch.get('prefLocation')?.invalid && basicSearch.get('prefLocation')?.touched"
+                class="text-red-500 text-xs md:text-sm">
+                prefered location is required.
             </div>
         </div>
 

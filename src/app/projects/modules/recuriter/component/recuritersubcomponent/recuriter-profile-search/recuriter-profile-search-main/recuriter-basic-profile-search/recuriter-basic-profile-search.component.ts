@@ -17,8 +17,10 @@ export class RecuriterBasicProfileSearchComponent implements OnInit {
   ngOnInit(): void {
     this.basicSearch = this.fb.group({
       searchTitle: ["", [Validators.required]],
-      // keyWordSearch: [""],
       skills: ["", [Validators.required]],
+      minExperience: ["", [Validators.required]],
+      maxExperience: ["", [Validators.required]],
+      prefLocation: ["", [Validators.required]],
     });
   }
 
@@ -33,6 +35,6 @@ export class RecuriterBasicProfileSearchComponent implements OnInit {
     }
 
   }
-  
+
 
 }
