@@ -16,7 +16,7 @@
         <div class="w-full md:w-1/5 md:sticky top-0 md:z-index overflow-y-auto">
             <div class="bg-[#FBFCFF] md:bg-white rounded-lg p-3">
                 <h1 class="text-gray-800 text-lg font-semibold pb-3">Summary</h1>
-                <div class="flex md:grid pt-1 scroll-container">
+                <div class="flex md:grid gap-1 scroll-container">
                     <div *ngFor="let da of data">
                         <button [ngClass]="{ 'bg-blue-50 text-[#0175A2]': selectedPeriod === da.name }"
                             (click)="selectPeriod(da.name)"
@@ -24,7 +24,8 @@
                             <div class="flex gap-3">
                                 <mat-icon
                                     [ngClass]="selectedPeriod === da.name ? da.iconColor : 'text-gray-400'">{{da.icon}}</mat-icon>
-                                <p [ngClass]="{ 'text-[#0175A2]': selectedPeriod === da.name }">{{da.name}}</p>
+                                <p [ngClass]="{ 'text-[#0175A2]': selectedPeriod === da.name }"
+                                    class="text-sm md:text-base">{{da.name}}</p>
                             </div>
                             <p class="text-sm font-bold" [ngClass]="{ 'text-[#0175A2]': selectedPeriod === da.name }">
                                 {{da.count}}</p>
@@ -34,8 +35,7 @@
             </div>
         </div>
         <div class="bg-[#FBFCFF] md:bg-white w-full md:w-4/5 md:rounded-lg overflow-y-auto">
-            <div
-                class="bg-[#FBFCFF] md:bg-white shadow hidden md:block md:sticky top-0 md:z-index p-3">
+            <div class="bg-[#FBFCFF] md:bg-white shadow hidden md:block md:sticky top-0 md:z-index p-3">
                 <div class="flex justify-between">
                     <div class="flex gap-1 items-center text-gray-600">
                         <p class="text-base font-semibold">Requirements</p>
@@ -56,38 +56,69 @@
                         <mat-icon class="text-[#21A14B]">work_outline</mat-icon>
                         <p class="text-base font-semibold">Offered</p>
                     </div>
+                    <div class="flex items-center text-gray-600">
+                        <mat-icon class="text-[#F79009]">more_vert</mat-icon>
+                        <p class="text-base font-semibold">Action</p>
+                    </div>
                 </div>
             </div>
-            <div class="pl-3">
-                <p class="text-gray-500 bg-white">check</p>
-                <p class="text-gray-500 bg-white">check</p>
-                <p class="text-gray-500 bg-white">check</p>
-                <p class="text-gray-500 bg-white">check</p>
-                <p class="text-gray-500 bg-white">check</p>
-                <p class="text-gray-500 bg-white">check</p>
-                <p class="text-gray-500 bg-white">check</p>
-                <p class="text-gray-500 bg-white">check</p>
-                <p class="text-gray-500 bg-white">check</p>
-                <p class="text-gray-500 bg-white">check</p>
-                <p class="text-gray-500 bg-white">check</p>
-                <p class="text-gray-500 bg-white">check</p>
-                <p class="text-gray-500 bg-white">check</p>
-                <p class="text-gray-500 bg-white">check</p>
-                <p class="text-gray-500 bg-white">check</p>
-                <p class="text-gray-500 bg-white">check</p>
-                <p class="text-gray-500 bg-white">check</p>
-                <p class="text-gray-500 bg-white">check</p>
-                <p class="text-gray-500 bg-white">check</p>
-                <p class="text-gray-500 bg-white">check</p>
-                <p class="text-gray-500 bg-white">check</p>
-                <p class="text-gray-500 bg-white">check</p>
-                <p class="text-gray-500 bg-white">check</p>
-                <p class="text-gray-500 bg-white">check</p>
-                <p class="text-gray-500 bg-white">check</p>
-                <p class="text-gray-500 bg-white">check</p>
-                <p class="text-gray-500 bg-white">check</p>
-                <p class="text-gray-500 bg-white">check</p>
-                <p class="text-gray-500 bg-white">check</p>
+            <div class="p-3">
+                <div class="bg-white shadow hover:shadow-md rounded-lg">
+                    <div class="grid md:flex md:justify-between">
+                        <div class="p-2 grid gap-1">
+                            <div class="flex gap-1 items-center">
+                                <img class="h-7 w-7 rounded-full" src="assets/profile/profile_image.png" alt="logo">
+                                <h3 class="text-gray-800 text-base font-bold">Web Designer</h3>
+                            </div>
+                            <div class="flex items-center">
+                                <p class="text-sm text-gray-400">#ID-239143</p>
+                                <p class="bg-green-50 text-green-700 px-2 py-0.5 rounded-full text-sm">Active</p>
+                            </div>
+                            <div class="flex">
+                                <div class="z-0 bg-pink-300 h-10 w-10 grid justify-center p-2 rounded-full">01</div>
+                                <div class="z-10 bg-yellow-300 h-10 w-10 grid justify-center p-2 rounded-full -ml-5">02</div>
+                                <div class="z-20 bg-blue-300 h-10 w-10 grid justify-center p-2 rounded-full -ml-5">03</div>
+                                <div class="z-30 bg-red-300 h-10 w-10 grid justify-center p-2 rounded-full -ml-5">04</div>
+                                <div class="z-40 bg-gray-300 h-10 w-10 grid justify-center p-2 rounded-full -ml-5">+5</div>
+                            </div>
+                            <div class="flex items-center">
+                                <p class="text-sm text-gray-400">Last Modifiedon <span class="text-base font-semibold text-gray-600">6 Mar 2022</span></p>
+                            </div>
+                        </div>
+                        <div
+                            class="flex justify-between border-b-2 border-gray-100 md:border-none gap-3 md:grid md:justify-center md:place-items-center p-2 md:p-0">
+                            <h1 class="md:hidden text-gray-700 text-base font-semibold">Total Position</h1>
+                            <p class="text-[#344054] text-lg md:text-3xl font-bold">180</p>
+                        </div>
+                        <div
+                            class="flex justify-between border-b-2 border-gray-100 md:border-none gap-3 md:grid md:justify-center md:place-items-center p-2 md:p-0">
+                            <h1 class="md:hidden text-gray-700 text-base font-semibold">Sourced</h1>
+                            <p class="text-[#0175A2] text-lg md:text-3xl font-bold">180</p>
+                        </div>
+                        <div
+                            class="flex justify-between border-b-2 border-gray-100 md:border-none gap-3 md:grid md:justify-center md:place-items-center p-2 md:p-0">
+                            <h1 class="md:hidden text-gray-700 text-base font-semibold">Shortlisted</h1>
+                            <p class="text-[#5D6B98] text-lg md:text-3xl font-bold">120</p>
+                        </div>
+                        <div
+                            class="flex justify-between border-b-2 border-gray-100 md:border-none gap-3 md:grid md:justify-center md:place-items-center p-2 md:p-0">
+                            <h1 class="md:hidden text-gray-700 text-base font-semibold">Offered</h1>
+                            <p class="text-[#21A14B] text-lg md:text-3xl font-bold">80</p>
+                        </div>
+                        <div class="bg-gray-100 rounded-r-lg">
+                            <div class="flex justify-between md:grid md:justify-normal gap-1 p-1 text-gray-600">
+                                <mat-icon>edit</mat-icon>
+                                <mat-icon>star_outline</mat-icon>
+                                <mat-icon>share</mat-icon>
+                                <mat-icon>delete</mat-icon>
+                                <mat-icon>keyboard_arrow_down</mat-icon>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-100 w-full rounded-b-lg">
+                        hjgf
+                    </div>
+                </div>
             </div>
         </div>
     </div>

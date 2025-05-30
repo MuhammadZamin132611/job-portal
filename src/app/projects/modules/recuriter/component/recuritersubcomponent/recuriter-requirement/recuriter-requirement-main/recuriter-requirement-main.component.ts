@@ -16,17 +16,6 @@ export class RecuriterRequirementMainComponent {
   }
 
 
-  getIconColorClass(name: string): string {
-    switch (name) {
-      case 'All': return 'text-[#0175A2]';       // blue
-      case 'Active': return 'text-[#21A14B]';      // green
-      case 'Monthly': return 'text-[#FF9F00]';     // orange
-      case 'Quarterly': return 'text-[#9C27B0]';   // purple
-      case 'Yearly': return 'text-[#F44336]';      // red
-      default: return 'text-gray-400';             // fallback
-    }
-  }
-
 
   data = [
     { icon: "work_outline", name: 'All', count: '235', iconColor: 'text-[#0175A2]', },
