@@ -6,7 +6,7 @@ import { MaterialModule } from '../../../../../../shared/material.module';
   selector: 'app-recuriter-requirement-main',
   imports: [CommonModule, MaterialModule],
   templateUrl: './recuriter-requirement-main.component.html',
-  styleUrl: './recuriter-requirement-main.component.scss'
+  styleUrl: './recuriter-requirement-main.component.scss',
 })
 export class RecuriterRequirementMainComponent {
   selectedPeriod = 'All';
@@ -24,4 +24,9 @@ export class RecuriterRequirementMainComponent {
     { icon: "thumb_up_outline", name: 'Closed', count: '125', iconColor: 'text-[#4E5BA6]', },
     { icon: "star_outline", name: 'Bookmarked', count: '15', iconColor: 'text-[#9E77ED]', },
   ];
+
+  jobCondition: boolean = true;
+  condition() {
+    this.jobCondition = !this.jobCondition;
+  }
 }
