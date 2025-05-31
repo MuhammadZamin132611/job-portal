@@ -13,8 +13,9 @@
 
         <div>
             <label for="skills" class="text-sm md:text-base font-medium text-gray-600">Add Skills</label>
-            <input id="skills" formControlName="skills" type="text" placeholder="eg: Java, Angular, Puthon, React"
-                class="w-full rounded-lg border-2 border-gray-200 focus:outline-none px-3 py-2 text-sm md:text-base font-normal">
+            <input id="skills" (click)="openBottomSheetDegree(skill)" [value]="selectedDegree" readonly
+                formControlName="skills" type="text" placeholder="eg: Java, Angular, Puthon, React"
+                class="w-full cursor-pointer rounded-lg border-2 border-gray-200 focus:outline-none px-3 py-2 text-sm md:text-base font-normal">
             <div class="relative">
                 <mat-icon class="absolute cursor-pointer right-2 bottom-2 text-gray-400">keyboard_arrow_down</mat-icon>
             </div>
