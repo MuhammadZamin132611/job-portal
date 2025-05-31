@@ -61,24 +61,34 @@ export class RecuriterBasicProfileSearchComponent implements OnInit {
     }
   }
 
+  selectedSkills: string[] = []
+  openSkillSheet(skill: string[]) {
+    this.openBottomSheetDegree({
+      filterType: skill,
+      selected: this.selectedSkills,          // Pass stored selection
+      typeData: 'Skills',
+      placeholderMessage: 'Java, Angular, Python, React',
+      controlName: 'skills'
+    });
+  }
 
-  selectedDegree: string = ''
-  openBottomSheetDegree(filterType: string[]): void {
+  openBottomSheetDegree(data: {
+    filterType: string[],
+    selected: string[],
+    typeData: string,
+    placeholderMessage: string,
+    controlName: string
+  }): void {
     const bottomSheetRef = this._bottomSheet.open(MasterDateBottomSheetComponent, {
       panelClass: 'custom-bottom-sheet',
-      data: {
-        filterType,
-        selected: this.selectedDegree,
-        typeData: 'Skills',
-        placeholderMessage: 'Java, Angular, Puthon, React'
-      }
+      data
     });
-    bottomSheetRef.afterDismissed().subscribe((selectedRole: string) => {
-      if (selectedRole !== undefined) {
-        // console.log('Selected Roles:', selectedRole);
-        this.selectedDegree = selectedRole;
-        this.basicSearch.get('skills')?.setValue(selectedRole);
-        // this.workExperience.get('degree')?.markAsTouched();
+    bottomSheetRef.afterDismissed().subscribe((selectedValues: string[]) => {
+      if (selectedValues !== undefined) {
+        this.selectedSkills = selectedValues;
+        const csv = selectedValues.join(', ');   // comma + space
+        this.basicSearch.get(data.controlName)?.setValue(csv);
+        this.basicSearch.get(data.controlName)?.markAsTouched();
       }
     });
   }

@@ -44,7 +44,6 @@ export class MasterDateBottomSheetComponent {
   displaySelected: string[] = [];
   selectedData() {
     this.closeSheet();
-    console.log(this.selected)
     this.displaySelected = [...this.selected];
   }
 
@@ -60,7 +59,7 @@ export class MasterDateBottomSheetComponent {
   closeSheet(): void {
     this.bottomSheetRef.dismiss(this.selected); // Send selected data to parent
   }
-  
+
   closeSheetDataNotSahred(): void {
     this.bottomSheetRef.dismiss();
   }

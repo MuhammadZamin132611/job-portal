@@ -13,7 +13,7 @@
 
         <div>
             <label for="skills" class="text-sm md:text-base font-medium text-gray-600">Add Skills</label>
-            <input id="skills" (click)="openBottomSheetDegree(skill)" [value]="selectedDegree" readonly
+            <input id="skills" (click)="openSkillSheet(skill)" readonly
                 formControlName="skills" type="text" placeholder="eg: Java, Angular, Puthon, React"
                 class="w-full cursor-pointer rounded-lg border-2 border-gray-200 focus:outline-none px-3 py-2 text-sm md:text-base font-normal">
             <div class="relative">
