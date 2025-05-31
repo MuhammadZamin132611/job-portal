@@ -5,6 +5,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { MasterDateBottomSheetComponent } from '../../../../../../../shared/master-date-bottom-sheet/master-date-bottom-sheet.component';
 import { Skills } from '../../../../../../../../data/skills';
+import { location } from '../../../../../../../../data/locations';
 
 @Component({
   selector: 'app-recuriter-basic-profile-search',
@@ -18,8 +19,12 @@ export class RecuriterBasicProfileSearchComponent implements OnInit {
   basicSearch!: FormGroup;
   private _bottomSheet = inject(MatBottomSheet);
   skill: string[] = [];
+  location: string[] = [];
+
+
   constructor(private fb: FormBuilder) {
     this.skill = Skills;
+    this.location = location
   }
 
   ngOnInit(): void {
@@ -61,34 +66,50 @@ export class RecuriterBasicProfileSearchComponent implements OnInit {
     }
   }
 
-  selectedSkills: string[] = []
-  openSkillSheet(skill: string[]) {
-    this.openBottomSheetDegree({
-      filterType: skill,
-      selected: this.selectedSkills,          // Pass stored selection
-      typeData: 'Skills',
-      placeholderMessage: 'Java, Angular, Python, React',
-      controlName: 'skills'
-    });
-  }
 
-  openBottomSheetDegree(data: {
-    filterType: string[],
-    selected: string[],
-    typeData: string,
-    placeholderMessage: string,
-    controlName: string
-  }): void {
+
+  selectedSkills: string[] = []
+  openBottomSheetSkills(filterType: string[]): void {
     const bottomSheetRef = this._bottomSheet.open(MasterDateBottomSheetComponent, {
       panelClass: 'custom-bottom-sheet',
-      data
+      data: {
+        filterType,
+        selected: this.selectedSkills,          // Pass stored selection
+        typeData: 'Skills',
+        placeholderMessage: 'Java, Angular, Python, React',
+      }
     });
     bottomSheetRef.afterDismissed().subscribe((selectedValues: string[]) => {
       if (selectedValues !== undefined) {
         this.selectedSkills = selectedValues;
+
         const csv = selectedValues.join(', ');   // comma + space
-        this.basicSearch.get(data.controlName)?.setValue(csv);
-        this.basicSearch.get(data.controlName)?.markAsTouched();
+        this.basicSearch.get('skills')?.setValue(csv);
+        this.basicSearch.get('skills')?.markAsTouched();
+      }
+    })
+
+  }
+
+
+  selectedLocation: string[] = []
+  openBottomSheetLocation(filterType: string[]): void {
+    const bottomSheetRef = this._bottomSheet.open(MasterDateBottomSheetComponent, {
+      panelClass: 'custom-bottom-sheet',
+      data: {
+        filterType,
+        selected: this.selectedLocation,          // Pass stored selection
+        typeData: 'Location',
+        placeholderMessage: 'Delhi, Noida, Gurgaon, Bangalore',
+      }
+    });
+    bottomSheetRef.afterDismissed().subscribe((selectedValues: string[]) => {
+      if (selectedValues !== undefined) {
+        this.selectedLocation = selectedValues;
+
+        const csv = selectedValues.join(', ');   // comma + space
+        this.basicSearch.get('prefLocation')?.setValue(csv);
+        this.basicSearch.get('prefLocation')?.markAsTouched();
       }
     });
   }

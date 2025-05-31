@@ -15,9 +15,12 @@
                     class="w-full p-3 text-base font-normal focus:outline-none rounded-r-lg">
             </div>
             <div class="w-1/5 grid items-center">
-                <button (click)="selectedData()"
-                    [ngClass]="{'bg-green-500 text-white hover:shadow-lg':selected.length>0}"
-                    class="bg-gray-300 w-full text-center rounded-lg shadow text-gray-800 py-2.5 md:py-2 text-sm md:text-lg font-medium">Select</button>
+                <button (click)="selectedData()" [disabled]="selected.length === 0" [ngClass]="{'bg-green-500 text-white hover:shadow-lg': selected.length > 0,
+                        'bg-gray-300 text-gray-800 cursor-not-allowed': selected.length === 0}"
+                    class="w-full text-center rounded-lg shadow py-2.5 md:py-2 text-sm md:text-lg font-medium">
+                    Select
+                </button>
+
             </div>
         </div>
     </div>

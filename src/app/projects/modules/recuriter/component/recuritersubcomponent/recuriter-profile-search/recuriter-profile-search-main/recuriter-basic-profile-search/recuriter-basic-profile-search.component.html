@@ -13,7 +13,7 @@
 
         <div>
             <label for="skills" class="text-sm md:text-base font-medium text-gray-600">Add Skills</label>
-            <input id="skills" (click)="openSkillSheet(skill)" readonly
+            <input id="skills" (click)="openBottomSheetSkills(skill)" readonly
                 formControlName="skills" type="text" placeholder="eg: Java, Angular, Puthon, React"
                 class="w-full cursor-pointer rounded-lg border-2 border-gray-200 focus:outline-none px-3 py-2 text-sm md:text-base font-normal">
             <div class="relative">
@@ -67,9 +67,9 @@
 
         <div>
             <label for="prefLocation" class="text-sm md:text-base font-medium text-gray-600">Prefered Location</label>
-            <input id="prefLocation" formControlName="prefLocation" type="text"
+            <input id="prefLocation" (click)="openBottomSheetLocation(location)" readonly formControlName="prefLocation" type="text"
                 placeholder="eg: Delhi, Noida, Gurgaon, Lucknow"
-                class="w-full rounded-lg border-2 border-gray-200 focus:outline-none px-3 py-2 text-sm md:text-base font-normal">
+                class="w-full cursor-pointer rounded-lg border-2 border-gray-200 focus:outline-none px-3 py-2 text-sm md:text-base font-normal">
             <div class="relative">
                 <mat-icon class="absolute cursor-pointer right-2 bottom-2 text-gray-400">keyboard_arrow_down</mat-icon>
             </div>
