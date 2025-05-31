@@ -10,6 +10,8 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
   styleUrl: './recuriter-basic-profile-search.component.scss'
 })
 export class RecuriterBasicProfileSearchComponent implements OnInit {
+  noticePeriod = ["Immediate Joining", "15 Days or Less ", "1 Month or Less", "2 Month or Less", "3 Month or Less",];
+  educationType = ["Part Time", "Full Time ",];
   basicSearch!: FormGroup;
 
   constructor(private fb: FormBuilder) { }
@@ -22,7 +24,24 @@ export class RecuriterBasicProfileSearchComponent implements OnInit {
       maxExperience: ["", [Validators.required]],
       salary: ["", [Validators.required]],
       prefLocation: ["", [Validators.required]],
+      industry: ["",],
+      department: ["",],
+      designation: ["",],
+      noticePeriod: ["",],
+      highestQualification: [""],
+      specialization: [""],
+      educationType: [""],
     });
+  }
+
+  selectNoticePeriod(notice: string) {
+    this.basicSearch.get('noticePeriod')?.setValue(notice);
+    // this.basicSearch.get('noticePeriod')?.markAsTouched();
+  }
+
+  selectEducationType(education: string) {
+    this.basicSearch.get('educationType')?.setValue(education);
+    // this.basicSearch.get('educationType')?.markAsTouched();
   }
 
   submitForm(): void {

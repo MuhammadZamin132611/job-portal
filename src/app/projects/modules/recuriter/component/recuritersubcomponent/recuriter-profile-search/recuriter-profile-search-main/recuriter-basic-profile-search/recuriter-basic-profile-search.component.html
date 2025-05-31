@@ -16,7 +16,7 @@
             <input id="skills" formControlName="skills" type="text" placeholder="eg: Java, Angular, Puthon, React"
                 class="w-full rounded-lg border-2 border-gray-200 focus:outline-none px-3 py-2 text-sm md:text-base font-normal">
             <div class="relative">
-                <mat-icon class="absolute cursor-pointer right-2 bottom-2 text-gray-400">close</mat-icon>
+                <mat-icon class="absolute cursor-pointer right-2 bottom-2 text-gray-400">keyboard_arrow_down</mat-icon>
             </div>
             <div *ngIf="basicSearch.get('skills')?.invalid && basicSearch.get('skills')?.touched"
                 class="text-red-500 text-xs md:text-sm">
@@ -51,15 +51,13 @@
         <div>
             <label for="salary" class="text-sm md:text-base font-medium text-gray-600">Salary</label>
             <div class="flex">
-                <div class="whitespace-nowrap grid items-center px-2 rounded-l-lg border-2 border-gray-200 text-gray-600 text-base font-medium">
+                <div
+                    class="whitespace-nowrap grid items-center px-2 rounded-l-lg border-2 border-gray-200 text-gray-600 text-base font-medium">
                     In Lacs
                 </div>
                 <input id="salary" formControlName="salary" type="text" placeholder="eg: 20,000"
                     class="w-full rounded-r-lg border-2 border-gray-200 focus:outline-none px-3 py-2 text-sm md:text-base font-normal">
             </div>
-            <!-- <div class="relative">
-                <mat-icon class="absolute cursor-pointer right-2 bottom-2 text-gray-400">keyboard_arrow_down</mat-icon>
-            </div> -->
             <div *ngIf="basicSearch.get('salary')?.invalid && basicSearch.get('salary')?.touched"
                 class="text-red-500 text-xs md:text-sm">
                 Salary is required.
@@ -78,6 +76,87 @@
                 class="text-red-500 text-xs md:text-sm">
                 Prefered location is required.
             </div>
+        </div>
+
+        <h3 class="text-gray-800 text-base md:text-xl font-medium md:font-semibold">Employment</h3>
+
+        <div>
+            <label for="industry" class="text-sm md:text-base font-medium text-gray-600">Industry</label>
+            <input id="industry" formControlName="industry" type="text"
+                placeholder="eg: Software Development, Marketing"
+                class="w-full rounded-lg border-2 border-gray-200 focus:outline-none px-3 py-2 text-sm md:text-base font-normal">
+            <div class="relative">
+                <mat-icon class="absolute cursor-pointer right-2 bottom-2 text-gray-400">keyboard_arrow_down</mat-icon>
+            </div>
+        </div>
+        <div>
+            <label for="department" class="text-sm md:text-base font-medium text-gray-600">Department</label>
+            <input id="department" formControlName="department" type="text" placeholder="eg: User Interface, Networking"
+                class="w-full rounded-lg border-2 border-gray-200 focus:outline-none px-3 py-2 text-sm md:text-base font-normal">
+            <div class="relative">
+                <mat-icon class="absolute cursor-pointer right-2 bottom-2 text-gray-400">keyboard_arrow_down</mat-icon>
+            </div>
+        </div>
+
+        <div>
+            <label for="designation" class="text-sm md:text-base font-medium text-gray-600">Designation</label>
+            <input id="designation" formControlName="designation" type="text"
+                placeholder="eg: Java Developer, UX Designer"
+                class="w-full rounded-lg border-2 border-gray-200 focus:outline-none px-3 py-2 text-sm md:text-base font-normal">
+            <div class="relative">
+                <mat-icon class="absolute cursor-pointer right-2 bottom-2 text-gray-400">keyboard_arrow_down</mat-icon>
+            </div>
+        </div>
+
+        <div>
+            <h4 class="text-sm md:text-base font-medium text-gray-600 pb-2">Notice Period</h4>
+            <div class="flex flex-wrap md:justify-center gap-3">
+                <div *ngFor="let notice of noticePeriod" (click)="selectNoticePeriod(notice)" [ngClass]="{
+                    'bg-green-600 text-white': basicSearch.get('noticePeriod')?.value === notice,
+                    'bg-gray-100 text-gray-600': basicSearch.get('noticePeriod')?.value !== notice
+                    }"
+                    class="cursor-pointer flex gap-1 items-center px-4 md:px-5 py-0.5 rounded-xl shadow-sm transition">
+                    <p class="text-center text-sm md:text-base font-normal">{{ notice }}</p>
+                </div>
+            </div>
+
+        </div>
+
+        <h3 class="text-gray-800 text-base md:text-xl font-medium md:font-semibold">Education</h3>
+
+        <div>
+            <label for="highestQualification" class="text-sm md:text-base font-medium text-gray-600">Highest
+                Qualification</label>
+            <input id="highestQualification" formControlName="highestQualification" type="text"
+                placeholder="eg: Graduate"
+                class="w-full rounded-lg border-2 border-gray-200 focus:outline-none px-3 py-2 text-sm md:text-base font-normal">
+            <div class="relative">
+                <mat-icon class="absolute cursor-pointer right-2 bottom-2 text-gray-400">keyboard_arrow_down</mat-icon>
+            </div>
+        </div>
+
+        <div>
+            <label for="specialization" class="text-sm md:text-base font-medium text-gray-600">Specialization</label>
+            <input id="specialization" formControlName="specialization" type="text"
+                placeholder="eg: Bachelor of Science"
+                class="w-full rounded-lg border-2 border-gray-200 focus:outline-none px-3 py-2 text-sm md:text-base font-normal">
+            <div class="relative">
+                <mat-icon class="absolute cursor-pointer right-2 bottom-2 text-gray-400">keyboard_arrow_down</mat-icon>
+            </div>
+        </div>
+
+        <div>
+            <h4 class="text-sm md:text-base font-medium text-gray-600 pb-2">Education Type</h4>
+            <div class="flex flex-wrap md:justify-center gap-3">
+                <div *ngFor="let education of educationType" (click)="selectEducationType(education)" [ngClass]="{
+                    'bg-green-600 text-white': basicSearch.get('educationType')?.value === education,
+                    'bg-gray-100 text-gray-600': basicSearch.get('educationType')?.value !== education
+                    }"
+                    class="cursor-pointer flex gap-1 items-center px-4 md:px-5 py-0.5 rounded-xl shadow-sm transition">
+                    <p class="text-center text-sm md:text-base font-normal">{{ education }}</p>
+                </div>
+            </div>
+
         </div>
 
         <div class="grid grid-cols-2 gap-4">
