@@ -83,17 +83,18 @@
 
         <div>
             <label for="industry" class="text-sm md:text-base font-medium text-gray-600">Industry</label>
-            <input id="industry" formControlName="industry" type="text"
+            <input id="industry" (click)="openBottomSheetIndustry(industries)" readonly formControlName="industry" type="text"
                 placeholder="eg: Software Development, Marketing"
-                class="w-full rounded-lg border-2 border-gray-200 focus:outline-none px-3 py-2 text-sm md:text-base font-normal">
+                class="w-full cursor-pointer rounded-lg border-2 border-gray-200 focus:outline-none px-3 py-2 text-sm md:text-base font-normal">
             <div class="relative">
                 <mat-icon class="absolute cursor-pointer right-2 bottom-2 text-gray-400">keyboard_arrow_down</mat-icon>
             </div>
         </div>
+        
         <div>
             <label for="department" class="text-sm md:text-base font-medium text-gray-600">Department</label>
-            <input id="department" formControlName="department" type="text" placeholder="eg: User Interface, Networking"
-                class="w-full rounded-lg border-2 border-gray-200 focus:outline-none px-3 py-2 text-sm md:text-base font-normal">
+            <input id="department" (click)="openBottomSheetIndustry(industries)" readonly formControlName="department" type="text" placeholder="eg: User Interface, Networking"
+                class="w-full cursor-pointer rounded-lg border-2 border-gray-200 focus:outline-none px-3 py-2 text-sm md:text-base font-normal">
             <div class="relative">
                 <mat-icon class="absolute cursor-pointer right-2 bottom-2 text-gray-400">keyboard_arrow_down</mat-icon>
             </div>

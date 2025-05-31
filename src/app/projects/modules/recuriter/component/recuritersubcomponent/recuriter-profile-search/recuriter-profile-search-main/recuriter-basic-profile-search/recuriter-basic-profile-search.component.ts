@@ -6,6 +6,7 @@ import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { MasterDateBottomSheetComponent } from '../../../../../../../shared/master-date-bottom-sheet/master-date-bottom-sheet.component';
 import { Skills } from '../../../../../../../../data/skills';
 import { location } from '../../../../../../../../data/locations';
+import { Industry } from '../../../../../../../../data/industry';
 
 @Component({
   selector: 'app-recuriter-basic-profile-search',
@@ -20,11 +21,15 @@ export class RecuriterBasicProfileSearchComponent implements OnInit {
   private _bottomSheet = inject(MatBottomSheet);
   skill: string[] = [];
   location: string[] = [];
+  industries: string[] = [];
+  department: string[] = [];
 
 
   constructor(private fb: FormBuilder) {
     this.skill = Skills;
-    this.location = location
+    this.location = location;
+    this.industries = Industry;
+    // this.department = Depart
   }
 
   ngOnInit(): void {
@@ -110,6 +115,51 @@ export class RecuriterBasicProfileSearchComponent implements OnInit {
         const csv = selectedValues.join(', ');   // comma + space
         this.basicSearch.get('prefLocation')?.setValue(csv);
         this.basicSearch.get('prefLocation')?.markAsTouched();
+      }
+    });
+  }
+  
+  
+  selectedIndustry: string[] = []
+  openBottomSheetIndustry(filterType: string[]): void {
+    const bottomSheetRef = this._bottomSheet.open(MasterDateBottomSheetComponent, {
+      panelClass: 'custom-bottom-sheet',
+      data: {
+        filterType,
+        selected: this.selectedIndustry,          // Pass stored selection
+        typeData: 'Industry',
+        placeholderMessage: 'Software Development, Marketing',
+      }
+    });
+    bottomSheetRef.afterDismissed().subscribe((selectedValues: string[]) => {
+      if (selectedValues !== undefined) {
+        this.selectedIndustry = selectedValues;
+
+        const csv = selectedValues.join(', ');   // comma + space
+        this.basicSearch.get('industry')?.setValue(csv);
+        this.basicSearch.get('industry')?.markAsTouched();
+      }
+    });
+  }
+  
+  selectedDepartment: string[] = []
+  openBottomSheetDepartment(filterType: string[]): void {
+    const bottomSheetRef = this._bottomSheet.open(MasterDateBottomSheetComponent, {
+      panelClass: 'custom-bottom-sheet',
+      data: {
+        filterType,
+        selected: this.selectedDepartment,          // Pass stored selection
+        typeData: 'Department',
+        placeholderMessage: 'Software Development, Marketing',
+      }
+    });
+    bottomSheetRef.afterDismissed().subscribe((selectedValues: string[]) => {
+      if (selectedValues !== undefined) {
+        this.selectedDepartment = selectedValues;
+
+        const csv = selectedValues.join(', ');   // comma + space
+        this.basicSearch.get('department')?.setValue(csv);
+        this.basicSearch.get('department')?.markAsTouched();
       }
     });
   }
