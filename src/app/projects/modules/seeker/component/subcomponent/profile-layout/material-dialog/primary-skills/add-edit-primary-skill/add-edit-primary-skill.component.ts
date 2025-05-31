@@ -4,9 +4,9 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { PrimarySkillsComponent } from '../../../primary-skills/primary-skills.component';
 import { MaterialModule } from '../../../../../../../../shared/material.module';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
-import { MasterDataRadioBottomSheetComponent } from '../../../../../../shared/master-data-radio-bottom-sheet/master-data-radio-bottom-sheet.component';
 import { Skills } from '../../../../../../../../../data/skills';
 import { NgClass, NgIf } from '@angular/common';
+import { MasterDataRadioBottomSheetComponent } from '../../../../../../../../shared/master-data-radio-bottom-sheet/master-data-radio-bottom-sheet.component';
 
 @Component({
   selector: 'app-add-edit-primary-skill',

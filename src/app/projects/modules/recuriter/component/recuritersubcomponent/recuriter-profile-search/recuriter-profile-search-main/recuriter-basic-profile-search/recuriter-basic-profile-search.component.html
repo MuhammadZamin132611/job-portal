@@ -1,5 +1,5 @@
 <section>
-    <form [formGroup]="basicSearch" class="grid gap-3">
+    <form [formGroup]="basicSearch" class="grid gap-3 pt-2">
         <div>
             <label for="searchTitle" class="text-sm md:text-base font-medium text-gray-600">Search Title</label>
             <input id="searchTitle" name="searchTitle" formControlName="searchTitle" type="text"
@@ -10,7 +10,6 @@
                 Job Title is required.
             </div>
         </div>
-
 
         <div>
             <label for="skills" class="text-sm md:text-base font-medium text-gray-600">Add Skills</label>
@@ -50,15 +49,34 @@
         </div>
 
         <div>
+            <label for="salary" class="text-sm md:text-base font-medium text-gray-600">Salary</label>
+            <div class="flex">
+                <div class="whitespace-nowrap grid items-center px-2 rounded-l-lg border-2 border-gray-200 text-gray-600 text-base font-medium">
+                    In Lacs
+                </div>
+                <input id="salary" formControlName="salary" type="text" placeholder="eg: 20,000"
+                    class="w-full rounded-r-lg border-2 border-gray-200 focus:outline-none px-3 py-2 text-sm md:text-base font-normal">
+            </div>
+            <!-- <div class="relative">
+                <mat-icon class="absolute cursor-pointer right-2 bottom-2 text-gray-400">keyboard_arrow_down</mat-icon>
+            </div> -->
+            <div *ngIf="basicSearch.get('salary')?.invalid && basicSearch.get('salary')?.touched"
+                class="text-red-500 text-xs md:text-sm">
+                Salary is required.
+            </div>
+        </div>
+
+        <div>
             <label for="prefLocation" class="text-sm md:text-base font-medium text-gray-600">Prefered Location</label>
-            <input id="prefLocation" formControlName="prefLocation" type="text" placeholder="eg: Delhi, Noida, Gurgaon, Lucknow"
+            <input id="prefLocation" formControlName="prefLocation" type="text"
+                placeholder="eg: Delhi, Noida, Gurgaon, Lucknow"
                 class="w-full rounded-lg border-2 border-gray-200 focus:outline-none px-3 py-2 text-sm md:text-base font-normal">
             <div class="relative">
                 <mat-icon class="absolute cursor-pointer right-2 bottom-2 text-gray-400">keyboard_arrow_down</mat-icon>
             </div>
             <div *ngIf="basicSearch.get('prefLocation')?.invalid && basicSearch.get('prefLocation')?.touched"
                 class="text-red-500 text-xs md:text-sm">
-                prefered location is required.
+                Prefered location is required.
             </div>
         </div>
 

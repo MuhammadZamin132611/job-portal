@@ -6,9 +6,9 @@ import { MaterialModule } from '../../../../../../../../shared/material.module';
 import { NgClass, NgFor, NgIf } from '@angular/common';
 import { highestQualification } from '../../../../../../../../../data/highestQualification';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
-import { MasterDataRadioBottomSheetComponent } from '../../../../../../shared/master-data-radio-bottom-sheet/master-data-radio-bottom-sheet.component';
 import { Courses } from '../../../../../../../../../data/course';
 import { Specialization } from '../../../../../../../../../data/specializa';
+import { MasterDataRadioBottomSheetComponent } from '../../../../../../../../shared/master-data-radio-bottom-sheet/master-data-radio-bottom-sheet.component';
 
 
 @Component({

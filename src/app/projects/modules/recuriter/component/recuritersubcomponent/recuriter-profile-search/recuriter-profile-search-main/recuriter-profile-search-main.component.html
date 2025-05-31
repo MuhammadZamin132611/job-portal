@@ -12,14 +12,15 @@
             <h1 class="text-gray-800 text-lg md:text-2xl font-semibold md:font-bold tracking-wide">Search Candidates
             </h1>
             <div class="flex justify-between">
-                <h3 class="text-gray-800 text-base md:text-xl font-medium md:font-semibold">{{typeOfSearch}}</h3>
+                <h3 class="text-gray-800 text-base md:text-xl font-medium md:font-semibold">Basic Information</h3>
+                <!-- <h3 class="text-gray-800 text-base md:text-xl font-medium md:font-semibold">{{typeOfSearch}}</h3>
                 <label for="toggle" class="inline-flex items-center mb-5 cursor-pointer">
                     <input type="checkbox" id="toggle" (change)="onToggle($event)" value="" class="sr-only peer">
                     <div
                         class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-none rounded-full peer  peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#0175A2] ">
                     </div>
                     <span class="ms-3 text-sm font-medium text-gray-600">Boolean Search {{onOff}}</span>
-                </label>
+                </label> -->
             </div>
             <div *ngIf="!toggleSearch">
                 <app-recuriter-basic-profile-search />
@@ -28,7 +29,7 @@
                 <app-recuriter-boolaen-profile-search />
             </div>
         </div>
-        <div class="w-full md:w-2/5 bg-gray-300 overflow-y-auto rounded-lg">
+        <div class="w-full md:w-2/5 bg-gray-300 overflow-y-auto rounded-lg hidden md:block">
             <p class="p-3">Recently Search</p>
         </div>
     </div>

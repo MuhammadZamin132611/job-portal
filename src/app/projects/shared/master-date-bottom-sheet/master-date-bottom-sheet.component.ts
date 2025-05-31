@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Inject, Output } from '@angular/core';
-import { MaterialModule } from '../../../../shared/material.module';
-import { Role } from '../../../../../data/role';
-import { location } from '../../../../../data/locations';
+import { MaterialModule } from '../material.module';
+import { Role } from '../../../data/role';
+import { location } from '../../../data/locations';
 import { NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MAT_BOTTOM_SHEET_DATA, MatBottomSheetRef } from '@angular/material/bottom-sheet';

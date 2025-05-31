@@ -1,8 +1,8 @@
 import { Component, Inject } from '@angular/core';
-import { MaterialModule } from '../../../../shared/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgIf } from '@angular/common';
 import { MAT_BOTTOM_SHEET_DATA, MatBottomSheetRef } from '@angular/material/bottom-sheet';
+import { MaterialModule } from '../material.module';
 
 @Component({
   selector: 'app-master-data-radio-bottom-sheet',

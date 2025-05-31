@@ -20,6 +20,7 @@ export class RecuriterBasicProfileSearchComponent implements OnInit {
       skills: ["", [Validators.required]],
       minExperience: ["", [Validators.required]],
       maxExperience: ["", [Validators.required]],
+      salary: ["", [Validators.required]],
       prefLocation: ["", [Validators.required]],
     });
   }
