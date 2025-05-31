@@ -1,12 +1,20 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { MaterialModule } from '../../../../../../shared/material.module';
-
+import { trigger, transition, style, animate } from '@angular/animations';
 @Component({
   selector: 'app-recuriter-requirement-main',
-  imports: [CommonModule, MaterialModule],
+  imports: [CommonModule, MaterialModule,],
   templateUrl: './recuriter-requirement-main.component.html',
   styleUrl: './recuriter-requirement-main.component.scss',
+  animations: [
+    trigger('fadeSlideIn', [
+      transition(':enter', [
+        style({ opacity: 0, transform: 'translateY(-10px)' }),
+        animate('300ms ease-out', style({ opacity: 1, transform: 'translateY(0)' }))
+      ])
+    ])
+  ]
 })
 export class RecuriterRequirementMainComponent {
   selectedPeriod = 'All';
